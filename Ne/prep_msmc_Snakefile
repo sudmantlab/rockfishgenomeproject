@@ -1,0 +1,60 @@
+#!python
+
+#!/usr/bin/env python3
+import os
+import sys
+from glob import glob
+from snakemake.utils import read_job_properties
+import pdb
+
+configfile:"config.itemized.withpball.withillumina.json"
+out_dir = "/global/scratch/gregoryowens/sebastes/snp_calling"
+bam_dir = "/global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling"
+
+
+def get_inputs(wildcards):
+    inputs = []
+    pattern = "{bam_dir}/{asm1}/{species1}/Illumina/{chr}/map.{species1}.{sample1}.msmcinput.txt"
+    for species1, asm1 in config["genomes_by_species"].items():
+        for smp in config["SAMPLES"]:
+            if re.match(species1, smp):
+                species1, sample1 = smp.split("/")
+                fn = "/global/scratch/gregoryowens/sebastes/snp_calling/{asm1}/{species1}/referencegenome.FAS.fai".format(asm1=asm1,species1=species1)
+                index_file=open(fn,"r")
+                lines=index_file.readlines()
+                for names in lines:
+                    chroms=names.split('\t')[0]
+                    if chroms != "Sebastes_entomelas.Sebento.W.HiC_scaffold_27":
+                        length=names.split('\t')[1]
+                        if int(length) >= 1000000:
+                            inputs.append(pattern.format(species1=species1, asm1=asm1,
+                                         out_dir=out_dir, smp=smp, chr=chroms, sample1=sample1, bam_dir=bam_dir))
+                    index_file.close()
+
+    return inputs
+
+rule all:
+    input:
+        get_inputs
+
+rule format_for_msmc:
+    input:
+        coverage_mask="{bam_dir}/{asm1}/{species1}/Illumina/{chr}/map.{species1}.{sample1}.mask.bed.gz",
+        kmer_mask="/global/scratch/gregoryowens/sebastes/snp_calling/{asm1}/{species1}/k50-2_50bp_negativemask.bed",
+        vcf="{bam_dir}/{asm1}/{species1}/Illumina/{chr}/map.{species1}.{sample1}.vcf.gz",
+    output:
+        out_msmc="{bam_dir}/{asm1}/{species1}/Illumina/{chr}/map.{species1}.{sample1}.msmcinput.txt",
+    params:
+        slurm_opts=lambda wildcards: "-N1 " \
+                                     "--time 24:00:00 " \
+                                    "-A co_genomicdata " \
+                                     "--qos=savio_lowprio " \
+                                     "-p savio " \
+                                     "-o {out_dir}/logs/format_{sp1}_{chr}.log " \
+                                     "-J {sp1}_format " \
+                                     .format(sp1=wildcards.species1, out_dir=out_dir, chr=wildcards.chr)
+    run:
+        shell("""
+            /global/scratch/gregoryowens/sebastes/bin/msmc-tools/generate_multihetsep.py --mask {coverage_mask} --negative_mask {kmer_mask} {vcf} > {out_msmc}
+            """.format(coverage_mask=input.coverage_mask, kmer_mask=input.kmer_mask, vcf=input.vcf,out_msmc=output.out_msmc,
+                       ))

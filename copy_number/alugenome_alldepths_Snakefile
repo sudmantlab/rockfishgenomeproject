@@ -1,0 +1,58 @@
+#!python
+
+#!/usr/bin/env python3
+import os
+import sys
+from glob import glob
+from snakemake.utils import read_job_properties
+import pdb
+
+configfile:"config.itemized.withpball.withillumina.json"
+genome_dir = "/global/scratch2/rohitkolora/Rockfish/Genomes/FREEZE"
+out_dir = "/global/scratch/gregoryowens/sebastes/snp_calling"
+bam_dir = "/global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling"
+
+
+def get_inputs(wildcards):
+    inputs = []
+    pattern = "{bam_dir}/aluetianus_genome/{species1}/Illumina/map.{species1}.{sample1}.{chr}.depth.gz"
+    for smp in config["SAMPLES"]:
+        species1, sample1 = smp.split("/")
+        fn = "/global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling/aleutianus_genome/referencegenome.lengths.txt"
+        index_file=open(fn,"r")
+        lines=index_file.readlines()
+        for names in lines:
+            chroms=names.split('\t')[0]
+            length=names.split('\t')[1]
+            if int(length) >= 1000000:
+                if "Sebastes_" in species1: 
+                    inputs.append(pattern.format(species1=species1,
+                        smp=smp,  sample1=sample1, bam_dir=bam_dir, chr=chroms,))
+
+    return inputs
+
+rule all:
+    input:
+        get_inputs
+
+rule ilmn_map:
+    input:
+        bam="{bam_dir}/aleutianus_genome/{species1}/Illumina/map.{species1}.{sample1}.bam"
+    output:
+        depths="{bam_dir}/aluetianus_genome/{species1}/Illumina/map.{species1}.{sample1}.{chr}.depth.gz"
+    params:
+        slurm_opts=lambda wildcards: "-N1 " \
+                                     "--time 3-00:00:00 " \
+                                    "-A co_genomicdata " \
+                                     "--qos=savio_lowprio " \
+                                     "-p savio,savio2,savio3 " \
+                                     "-o {out_dir}/logs/depths_{chr}_{sample1}.log " \
+                                     "-J {sp1} " \
+                                     .format(sp1=wildcards.species1, out_dir=out_dir,sample1=wildcards.sample1,chr=wildcards.chr)
+    run:
+        shell("""
+            module load samtools;
+            samtools bedcov /global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling/aleutianus_genome/{chr}.windows.bed {bam} | gzip > {depths}; 
+            """.format(sample1=wildcards.sample1, depths=output.depths, chr=wildcards.chr, bam=input.bam,  
+                       species1=wildcards.species1, bam_dir=bam_dir))
+

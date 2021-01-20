@@ -1,0 +1,79 @@
+#!python
+
+#!/usr/bin/env python3
+import os
+import sys
+from glob import glob
+from snakemake.utils import read_job_properties
+import pdb
+
+
+
+configfile:"config.itemized.withpball.withillumina.json"
+genome_dir = "/global/scratch2/rohitkolora/Rockfish/Genomes/FREEZE"
+out_dir = "/global/scratch/gregoryowens/sebastes/snp_calling"
+bam_dir = "/global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling"
+
+
+def get_inputs(wildcards):
+    inputs = []
+    pattern = "{bam_dir}/aleutianus_scaffolded/{species1}/Illumina/{species1}.{sample1}.autosome.final.txt"
+    for smp in config["SAMPLES"]:
+        species1, sample1 = smp.split("/")
+        if species1 != "Sebastes_aleutianus":
+            inputs.append(pattern.format(species1=species1,
+                smp=smp,  sample1=sample1, bam_dir=bam_dir))
+
+    return inputs
+
+rule all:
+    input:
+        get_inputs
+
+rule run_msmc_autosome:
+    input:
+    output:
+        msmc_out="{bam_dir}/aleutianus_scaffolded/{species1}/Illumina/{species1}.{sample1}.autosome.final.txt",
+
+    params:
+        slurm_opts=lambda wildcards: "-N1 " \
+                                     "--time 24:00:00 " \
+                                    "-A co_genomicdata " \
+                                     "--qos=savio_lowprio " \
+                                     "-p savio " \
+                                     "-o {out_dir}/logs/msmc_scaf_{sp1}_{smp1}.log " \
+                                     "-J {sp1}_het " \
+                                     .format(sp1=wildcards.species1, out_dir=out_dir,  smp1=wildcards.sample1)
+    run:
+        shell("""
+           cd /global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling/aleutianus_scaffolded/{species1}/Illumina/;
+           ls * | grep {sample1}| grep msmcinput.txt$ | grep -v _18__7_ | grep -v _63__14_ > map.{species1}.{sample1}.autosome.msmc_contigs.txt;
+           files=""
+           for file in `ls | grep RagTag | grep -v _18__7_ | grep -v _63__14_`; do files="$files $file/map.{species1}.{sample1}.msmcinput.txt"; done;
+            /global/scratch/gregoryowens/sebastes/bin/msmc_1.1.0_linux64bit -t 20 -R -o /global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling/aleutianus_scaffolded/{species1}/Illumina/{species1}.{sample1}.autosome $files
+            """.format(
+                         species1=wildcards.species1,
+                        sample1=wildcards.sample1))
+
+#rule run_msmc:
+#    input:
+#    output:
+#        msmc_out="{bam_dir}/aleutianus_scaffolded/{species1}/Illumina/{species1}.{sample1}.final.txt",
+#
+#    params:
+#        slurm_opts=lambda wildcards: "-N1 " \
+#                                     "--time 24:00:00 " \
+#                                    "-A co_genomicdata " \
+#                                     "--qos=savio_lowprio " \
+#                                     "-p savio3 " \
+#                                     "-o {out_dir}/logs/msmc_scaf_{sp1}_{smp1}.log " \
+#                                     "-J {sp1}_het " \
+#                                     .format(sp1=wildcards.species1, out_dir=out_dir,  smp1=wildcards.sample1)
+#    run:
+#        shell("""
+#           cd /global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling/aleutianus_scaffolded/{species1}/Illumina/;
+#           ls * | grep msmcinput.txt$ > map.{species1}.{sample1}.msmc_contigs.txt;
+#            /global/scratch/gregoryowens/sebastes/bin/msmc_1.1.0_linux64bit -t 20 -R -o /global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling/aleutianus_scaffolded/{species1}/Illumina/{species1}.{sample1} /global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling/aleutianus_scaffolded/{species1}/Illumina/*/map.{species1}.{sample1}.msmcinput.txt
+#            """.format(
+#                         species1=wildcards.species1,
+#                        sample1=wildcards.sample1))

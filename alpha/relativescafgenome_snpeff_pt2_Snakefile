@@ -1,0 +1,78 @@
+#!python
+
+#!/usr/bin/env python3
+import os
+import sys
+from glob import glob
+from snakemake.utils import read_job_properties
+import pdb
+
+configfile:"config.itemized.withpball.withillumina.json"
+genome_dir = "/global/scratch2/rohitkolora/Rockfish/Genomes/FREEZE"
+out_dir = "/global/scratch/gregoryowens/sebastes/snp_calling"
+bam_dir = "/global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling"
+
+def get_inputs(wildcards):
+    inputs = []
+    pattern = "{bam_dir}/{reference_species}_scaffolded/{species1}/Illumina/{chr}/{chr}.{species1}.{sample1}.geneano.txt"
+    for smp in config["SAMPLES"]:
+        species1, sample1 = smp.split("/")
+        fn = "species_scaffold_list.txt"
+        index_file=open(fn,"r")
+        lines=index_file.readlines()
+        for line in lines:
+            species=line.split('\t')[0]
+            sample=line.split('\t')[1]
+            reference_full=line.split('\t')[2]
+            reference_species = reference_full.split('_')[1].rstrip()
+            if sample1 == sample:
+               fai = "/global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling/{reference_species}_scaffolded/{species1}/referencegenome.fasta.fai".format(species1=species1,reference_species=reference_species)
+               fai_file=open(fai,"r")
+               fai_lines=fai_file.readlines()
+               for names in fai_lines:
+                   chroms=names.split('\t')[0]
+                   length=names.split('\t')[1]
+                   if int(length) >= 1000000:
+                    inputs.append(pattern.format(species1=species1, 
+                        smp=smp,  sample1=sample1, bam_dir=bam_dir, chr=chroms,reference_species=reference_species))
+            index_file.close() 
+            fai_file.close()
+
+    return inputs
+
+rule all:
+    input:
+        get_inputs
+
+
+rule snpeff:
+    input:
+        vcf="{bam_dir}/{reference_species}_scaffolded/{species1}/Illumina/{chr}/map.{species1}.{sample1}.vcf.gz",
+    output:
+        het_vcf="{bam_dir}/{reference_species}_scaffolded/{species1}/Illumina/{chr}/map.{species1}.{sample1}.het.vcf.gz",
+        ano_vcf="{bam_dir}/{reference_species}_scaffolded/{species1}/Illumina/{chr}/map.{species1}.{sample1}.het.ano.vcf.gz",
+        gene_ano="{bam_dir}/{reference_species}_scaffolded/{species1}/Illumina/{chr}/{chr}.{species1}.{sample1}.geneano.txt", 
+    params:
+        slurm_opts=lambda wildcards: "-N1 " \
+                                     "--time 12:00:00 " \
+                                    "-A co_genomicdata " \
+                                     "--qos=savio_lowprio " \
+                                     "-p savio,savio3_bigmem,savio2_bigmem,savio2 " \
+                                     "-o {out_dir}/logs/snpeff_{sample1}_{chr}.log " \
+                                     "-J {sample1}_realign " \
+                                     .format(sample1=wildcards.sample1, out_dir=out_dir, chr=wildcards.chr)
+    run:
+        shell("""
+            module load java;
+            zcat {vcf} | grep -v "1/1" | grep -v "0/0" | gzip > {het_vcf};
+            cd /global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling/{reference_species}_scaffolded/{species1}/Illumina/{chr};
+            mkdir -p {sample1};
+            cd {sample1};
+            java -jar /global/scratch/gregoryowens/bin/snpEff/snpEff.jar -v {reference_species}.{species1} -no-downstream -no-intergenic -no-intron -no-upstream -no-utr {het_vcf} | gzip > {ano_vcf};
+            cat snpEff_genes.txt | cut -f 1,5- |  sed s/^/{species1}\	{sample1}\	/g > {gene_ano}; 
+            """.format(vcf=input.vcf, 
+                       het_vcf=output.het_vcf, ano_vcf=output.ano_vcf,
+                       gene_ano=output.gene_ano,
+                       sample1=wildcards.sample1, chr=wildcards.chr, species1=wildcards.species1, 
+                       reference_species=wildcards.reference_species ))
+

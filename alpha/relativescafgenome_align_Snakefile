@@ -1,0 +1,136 @@
+#!python
+
+#!/usr/bin/env python3
+import os
+import sys
+from glob import glob
+from snakemake.utils import read_job_properties
+import pdb
+
+configfile:"config.itemized.withpball.withillumina.json"
+genome_dir = "/global/scratch2/rohitkolora/Rockfish/Genomes/FREEZE"
+out_dir = "/global/scratch/gregoryowens/sebastes/snp_calling"
+bam_dir = "/global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling"
+
+
+def get_inputs(wildcards):
+    inputs = []
+    reference_pattern ="/global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling/{reference_species}_scaffolded/{species1}/referencegenome.fasta"
+    bai_pattern = "/global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling/{reference_species}_scaffolded/{species1}/Illumina/map.{species1}.{sample1}.bam.bai"
+    for smp in config["SAMPLES"]:
+        species1, sample1 = smp.split("/")
+        fn = "species_scaffold_list.txt"
+        index_file=open(fn,"r")
+        lines=index_file.readlines()
+        for line in lines:
+            species=line.split('\t')[0]
+            sample=line.split('\t')[1]
+            reference_full=line.split('\t')[2]
+            reference_species = reference_full.split('_')[1].rstrip()
+            if sample1 == sample:
+#                inputs.append(reference_pattern.format(species1=species1,
+#                     sample1=sample1, bam_dir=bam_dir, reference_species=reference_species,))
+                inputs.append(bai_pattern.format(species1=species1,
+                     sample1=sample1, bam_dir=bam_dir, reference_species=reference_species,))
+
+    return inputs
+
+rule all:
+    input:
+        get_inputs
+
+
+rule gather_ref:
+    input:
+    output:
+        reference="/global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling/{reference_species}_scaffolded/{species1}/referencegenome.fasta",
+        index_file="/global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling/{reference_species}_scaffolded/{species1}/referencegenome.fasta.bwt.8bit.32",
+    params:
+        slurm_opts=lambda wildcards: "-N1 " \
+                                     "--time 02:00:00 " \
+                                    "-A co_genomicdata " \
+                                     "--qos=savio_lowprio " \
+                                     "-p savio " \
+                                     "-o {out_dir}/logs/idx_{sp1}.log " \
+                                     "-J {sp1} " \
+                                     .format(sp1=wildcards.species1, out_dir=out_dir)
+    run:
+        shell("""
+            mkdir -p /global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling/{reference_species}_scaffolded/{species1};
+            if [ -f /global/scratch2/rohitkolora/Rockfish/Genomes/FREEZE/*/{species1}/referencegenome.fasta ]
+            then
+             cat /global/scratch2/rohitkolora/Rockfish/Genomes/FREEZE/*/{species1}/referencegenome.fasta.fai | cut -f 1 | grep -v _assoc > /global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling/{reference_species}_scaffolded/{species1}/good_scaffolds.txt;
+            /global/scratch/gregoryowens/sebastes/bin/samtools-1.10/samtools faidx -r /global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling/{reference_species}_scaffolded/{species1}/good_scaffolds.txt \
+                    /global/scratch2/rohitkolora/Rockfish/Genomes/FREEZE/*/{species1}/referencegenome.fasta > {reference} ; 
+            else
+                ln -s -f /global/scratch2/rohitkolora/Rockfish/Genomes/FREEZE/*/*_{reference_species}/RagTag/{species1}/*/ragtag_output/ragtag.scaffolds.fasta {reference};
+            fi
+            if [ ! -f  /global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling/{reference_species}_scaffolded/{species1}/referencegenome.dict ]
+            then
+                module load java;
+                /global/scratch/gregoryowens/sebastes/bin/gatk-4.1.7.0/gatk  CreateSequenceDictionary -R {reference};
+            fi
+            /global/scratch/gregoryowens/sebastes/bin/samtools-1.10/samtools faidx {reference};
+            /global/scratch2/rohitkolora/Software/bwa-mem2/bwa-mem2 index {reference};
+           """.format(
+                       reference_species=wildcards.reference_species,
+                       reference=output.reference,
+                       species1=wildcards.species1, ))
+
+rule ilmn_map:
+    input:
+        reference="/global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling/{reference_species}_scaffolded/{species1}/referencegenome.fasta",
+        index_file="/global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling/{reference_species}_scaffolded/{species1}/referencegenome.fasta.bwt.8bit.32",
+        query_R1="/global/scratch2/rohitkolora/Rockfish/Genomes/sequencing/illumina/output/{species1}/{sample1}/assembly/masurca/illumina_R1.fastq.gz",
+        query_R2="/global/scratch2/rohitkolora/Rockfish/Genomes/sequencing/illumina/output/{species1}/{sample1}/assembly/masurca/illumina_R2.fastq.gz",
+    output:
+        sam="{bam_dir}/{reference_species}_scaffolded/{species1}/Illumina/map.{species1}.{sample1}.bam.sam",
+        status="{bam_dir}/{reference_species}_scaffolded/{species1}/Illumina/map.{species1}.{sample1}.bam.status",
+    params:
+        slurm_opts=lambda wildcards: "-N1 " \
+                                     "--time 3-00:00:00 " \
+                                    "-A co_genomicdata " \
+                                     "--qos=savio_lowprio " \
+                                     "-p savio2 " \
+                                     "-o {out_dir}/logs/ilmmap_{sample1}.log " \
+                                     "-J {sp1} " \
+                                     .format(sp1=wildcards.species1, out_dir=out_dir,sample1=wildcards.sample1)
+    run:
+        shell("""
+            module load samtools;
+            echo "/global/scratch2/rohitkolora/Software/bwa-mem2/bwa-mem2 mem \
+                -t 20 {reference} {query_R1} {query_R2} >{sam} ";
+            /global/scratch2/rohitkolora/Software/bwa-mem2/bwa-mem2 mem \
+                -t 20 {reference} {query_R1} {query_R2} >{sam} ;
+            echo "done" > {status};
+            """.format(out_dir=out_dir, sam=output.sam, status=output.status,
+                       reference=input.reference, query_R1=input.query_R1, query_R2=input.query_R2,
+                       species1=wildcards.species1, bam_dir=bam_dir))
+
+rule ilmn_sort:
+    input:
+        reference="/global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling/{reference_species}_scaffolded/{species1}/referencegenome.fasta",
+        index_file="/global/scratch2/rohitkolora/Rockfish/Data/Greg/snp_calling/{reference_species}_scaffolded/{species1}/referencegenome.fasta.bwt.8bit.32",
+        status="{bam_dir}/{reference_species}_scaffolded/{species1}/Illumina/map.{species1}.{sample1}.bam.status",
+    output:
+        bam="{bam_dir}/{reference_species}_scaffolded/{species1}/Illumina/map.{species1}.{sample1}.bam",
+        bai="{bam_dir}/{reference_species}_scaffolded/{species1}/Illumina/map.{species1}.{sample1}.bam.bai"
+    params:
+        slurm_opts=lambda wildcards: "-N1 " \
+                                     "--time 3-00:00:00 " \
+                                    "-A co_genomicdata " \
+                                     "--qos=savio_lowprio " \
+                                     "-p savio " \
+                                     "-o {out_dir}/logs/sort_{sample1}.log " \
+                                     "-J {sp1} " \
+                                     .format(sp1=wildcards.species1, out_dir=out_dir,sample1=wildcards.sample1)
+    run:
+        shell("""
+            #!/bin/sh;
+            module load samtools;
+            samtools sort -@ 20 -T {bam_dir}/tmp \
+                -o {bam} {bam}.sam ;
+            samtools index -@ 20 {bam} ;rm -f {bam}.sam;
+            """.format(out_dir=out_dir, bam=output.bam,
+                       reference=input.reference,
+                       species1=wildcards.species1, genome_dir=genome_dir, bam_dir=bam_dir))
