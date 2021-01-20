@@ -1,0 +1,77 @@
+SAMPLES, = glob_wildcards("sebasto_sebaste_acti_per_gene/{sample}.FNA")
+
+rule all:
+    input:
+        expand("sebasto_sebaste_acti_per_gene_aligned/{sample}_NT.FNA", sample=SAMPLES),
+        "meta/sample_renames.txt",
+        expand("sebasto_sebaste_acti_per_gene_aligned_reformat/{sample}_NT.fas", sample=SAMPLES),
+        "sebasto_sebaste_acti_per_gene_aligned_concat/FcC_supermatrix.phy",
+        "sebasto_sebaste_acti_per_gene_aligned_concat/analysis/best_scheme.txt"
+
+rule trimse:
+    input:
+        "sebasto_sebaste_acti_per_gene/{sample}.FNA"
+    output:
+        NT_out="sebasto_sebaste_acti_per_gene_aligned/{sample}_NT.FNA",
+        AA_out="sebasto_sebaste_acti_per_gene_aligned/{sample}_AA.FNA"
+    log:
+        "logs/macse/{sample}.log"
+    benchmark:
+        "benchmarks/{sample}.benchmark.txt"
+    shell:
+        "java -jar ../../bin/macse_v2.03.jar -prog alignSequences -seq {input}  -max_refine_iter 3 -local_realign_init 0.3 -local_realign_dec 0.2 -out_NT {output.NT_out} -out_AA {output.AA_out}"
+
+rule rename_set:
+    input:
+        "sebasto_sebaste_acti_per_gene_aligned/EOG090C024Z_NT.FNA"
+    output:
+        "meta/sample_renames.txt"
+    shell:
+        """
+        cat {input} | grep ">" | sed 's/>//g' | bash ../../bin/add_names.sh > {output}
+        """
+
+rule 
+
+
+rule fix_fasta:
+    input: 
+        "sebasto_sebaste_acti_per_gene_aligned/{sample}_NT.FNA"
+    output:
+        temp("sebasto_sebaste_acti_per_gene_aligned_reformat/{sample}_tmp_NT.fas")
+    shell:
+        """
+        cat {input} | sed 's/!/-/g' > {output}
+        """
+
+rule rename_fasta:
+    input:
+        "sebasto_sebaste_acti_per_gene_aligned_reformat/{sample}_tmp_NT.fas"
+    output:
+        "sebasto_sebaste_acti_per_gene_aligned_reformat/{sample}_NT.fas"
+    shell:
+        """
+        bash ../../bin/rename_forward.sh {input} meta/sample_renames.txt > {output}
+        """
+
+rule concatenate_fastas:
+    input:
+        expand("sebasto_sebaste_acti_per_gene_aligned_reformat/{sample}_NT.fas", sample=SAMPLES)
+    output:
+        "sebasto_sebaste_acti_per_gene_aligned_concat/FcC_supermatrix.phy"
+    shell:
+        """
+        mkdir -p sebasto_sebaste_acti_per_gene_aligned_concat
+        cd sebasto_sebaste_acti_per_gene_aligned_reformat
+        perl ../../../bin/FASconCAT-G/FASconCAT-G_v1.04.pl -s -a -p -l
+        mv FcC* ../sebasto_sebaste_acti_per_gene_aligned_concat/
+        """
+
+
+rule determine_partitions:
+    output:
+        "sebasto_sebaste_acti_per_gene_aligned_concat/analysis/best_scheme.txt"
+    shell:
+        """
+        /home/owens/bin/miniconda2/bin/python2.7 ../../bin/partitionfinder-2.1.1/PartitionFinder.py sebasto_sebaste_acti_per_gene_aligned_concat --raxml
+        """

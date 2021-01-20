@@ -1,0 +1,1344 @@
+#nexus
+begin sets;
+  charset EOG090C001K_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C001K_NT.fasta: ;
+  charset EOG090C003B_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C003B_NT.fasta: ;
+  charset EOG090C003K_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C003K_NT.fasta: ;
+  charset EOG090C003L_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C003L_NT.fasta: ;
+  charset EOG090C003V_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C003V_NT.fasta: ;
+  charset EOG090C005H_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C005H_NT.fasta: ;
+  charset EOG090C006S_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C006S_NT.fasta: ;
+  charset EOG090C007Z_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C007Z_NT.fasta: ;
+  charset EOG090C008I_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C008I_NT.fasta: ;
+  charset EOG090C008M_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C008M_NT.fasta: ;
+  charset EOG090C00AN_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00AN_NT.fasta: ;
+  charset EOG090C00AV_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00AV_NT.fasta: ;
+  charset EOG090C00B1_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00B1_NT.fasta: ;
+  charset EOG090C00B3_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00B3_NT.fasta: ;
+  charset EOG090C00BE_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00BE_NT.fasta: ;
+  charset EOG090C00BT_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00BT_NT.fasta: ;
+  charset EOG090C00DS_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00DS_NT.fasta: ;
+  charset EOG090C00E5_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00E5_NT.fasta: ;
+  charset EOG090C00E9_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00E9_NT.fasta: ;
+  charset EOG090C00HT_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00HT_NT.fasta: ;
+  charset EOG090C00J0_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00J0_NT.fasta: ;
+  charset EOG090C00J3_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00J3_NT.fasta: ;
+  charset EOG090C00JA_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00JA_NT.fasta: ;
+  charset EOG090C00M8_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00M8_NT.fasta: ;
+  charset EOG090C00P3_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00P3_NT.fasta: ;
+  charset EOG090C00PH_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00PH_NT.fasta: ;
+  charset EOG090C00PQ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00PQ_NT.fasta: ;
+  charset EOG090C00Q2_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00Q2_NT.fasta: ;
+  charset EOG090C00S8_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00S8_NT.fasta: ;
+  charset EOG090C00SD_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00SD_NT.fasta: ;
+  charset EOG090C00UV_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00UV_NT.fasta: ;
+  charset EOG090C00VF_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00VF_NT.fasta: ;
+  charset EOG090C00X6_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00X6_NT.fasta: ;
+  charset EOG090C00XD_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00XD_NT.fasta: ;
+  charset EOG090C00YB_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00YB_NT.fasta: ;
+  charset EOG090C00ZG_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00ZG_NT.fasta: ;
+  charset EOG090C010H_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C010H_NT.fasta: ;
+  charset EOG090C0114_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0114_NT.fasta: ;
+  charset EOG090C0128_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0128_NT.fasta: ;
+  charset EOG090C012B_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C012B_NT.fasta: ;
+  charset EOG090C012C_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C012C_NT.fasta: ;
+  charset EOG090C014X_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C014X_NT.fasta: ;
+  charset EOG090C015S_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C015S_NT.fasta: ;
+  charset EOG090C0160_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0160_NT.fasta: ;
+  charset EOG090C016A_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C016A_NT.fasta: ;
+  charset EOG090C016M_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C016M_NT.fasta: ;
+  charset EOG090C016V_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C016V_NT.fasta: ;
+  charset EOG090C017B_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C017B_NT.fasta: ;
+  charset EOG090C017P_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C017P_NT.fasta: ;
+  charset EOG090C01AR_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01AR_NT.fasta: ;
+  charset EOG090C01BG_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01BG_NT.fasta: ;
+  charset EOG090C01CH_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01CH_NT.fasta: ;
+  charset EOG090C01CI_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01CI_NT.fasta: ;
+  charset EOG090C01CW_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01CW_NT.fasta: ;
+  charset EOG090C01DA_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01DA_NT.fasta: ;
+  charset EOG090C01F6_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01F6_NT.fasta: ;
+  charset EOG090C01H6_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01H6_NT.fasta: ;
+  charset EOG090C01I3_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01I3_NT.fasta: ;
+  charset EOG090C01I8_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01I8_NT.fasta: ;
+  charset EOG090C01IQ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01IQ_NT.fasta: ;
+  charset EOG090C01JR_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01JR_NT.fasta: ;
+  charset EOG090C01KZ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01KZ_NT.fasta: ;
+  charset EOG090C01LR_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01LR_NT.fasta: ;
+  charset EOG090C01M7_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01M7_NT.fasta: ;
+  charset EOG090C01NW_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01NW_NT.fasta: ;
+  charset EOG090C01O3_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01O3_NT.fasta: ;
+  charset EOG090C01OB_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01OB_NT.fasta: ;
+  charset EOG090C01OT_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01OT_NT.fasta: ;
+  charset EOG090C01PW_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01PW_NT.fasta: ;
+  charset EOG090C01SC_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01SC_NT.fasta: ;
+  charset EOG090C01SN_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01SN_NT.fasta: ;
+  charset EOG090C01SV_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01SV_NT.fasta: ;
+  charset EOG090C01T7_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01T7_NT.fasta: ;
+  charset EOG090C01US_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01US_NT.fasta: ;
+  charset EOG090C01V0_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01V0_NT.fasta: ;
+  charset EOG090C01V7_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01V7_NT.fasta: ;
+  charset EOG090C01VW_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01VW_NT.fasta: ;
+  charset EOG090C01W9_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01W9_NT.fasta: ;
+  charset EOG090C01WG_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01WG_NT.fasta: ;
+  charset EOG090C01Y6_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01Y6_NT.fasta: ;
+  charset EOG090C01YE_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01YE_NT.fasta: ;
+  charset EOG090C01Z2_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01Z2_NT.fasta: ;
+  charset EOG090C01ZW_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01ZW_NT.fasta: ;
+  charset EOG090C01ZY_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01ZY_NT.fasta: ;
+  charset EOG090C0224_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0224_NT.fasta: ;
+  charset EOG090C023E_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C023E_NT.fasta: ;
+  charset EOG090C0240_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0240_NT.fasta: ;
+  charset EOG090C024L_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C024L_NT.fasta: ;
+  charset EOG090C024Z_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C024Z_NT.fasta: ;
+  charset EOG090C0255_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0255_NT.fasta: ;
+  charset EOG090C025K_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C025K_NT.fasta: ;
+  charset EOG090C0275_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0275_NT.fasta: ;
+  charset EOG090C027I_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C027I_NT.fasta: ;
+  charset EOG090C027J_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C027J_NT.fasta: ;
+  charset EOG090C028E_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C028E_NT.fasta: ;
+  charset EOG090C029M_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C029M_NT.fasta: ;
+  charset EOG090C02AS_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02AS_NT.fasta: ;
+  charset EOG090C02BD_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02BD_NT.fasta: ;
+  charset EOG090C02BH_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02BH_NT.fasta: ;
+  charset EOG090C02D4_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02D4_NT.fasta: ;
+  charset EOG090C02D5_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02D5_NT.fasta: ;
+  charset EOG090C02D7_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02D7_NT.fasta: ;
+  charset EOG090C02E2_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02E2_NT.fasta: ;
+  charset EOG090C02EA_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02EA_NT.fasta: ;
+  charset EOG090C02F4_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02F4_NT.fasta: ;
+  charset EOG090C02F5_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02F5_NT.fasta: ;
+  charset EOG090C02FW_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02FW_NT.fasta: ;
+  charset EOG090C02FX_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02FX_NT.fasta: ;
+  charset EOG090C02GF_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02GF_NT.fasta: ;
+  charset EOG090C02GG_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02GG_NT.fasta: ;
+  charset EOG090C02GR_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02GR_NT.fasta: ;
+  charset EOG090C02JG_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02JG_NT.fasta: ;
+  charset EOG090C02JL_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02JL_NT.fasta: ;
+  charset EOG090C02JQ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02JQ_NT.fasta: ;
+  charset EOG090C02JV_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02JV_NT.fasta: ;
+  charset EOG090C02JX_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02JX_NT.fasta: ;
+  charset EOG090C02KP_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02KP_NT.fasta: ;
+  charset EOG090C02LO_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02LO_NT.fasta: ;
+  charset EOG090C02M2_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02M2_NT.fasta: ;
+  charset EOG090C02M3_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02M3_NT.fasta: ;
+  charset EOG090C02MC_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02MC_NT.fasta: ;
+  charset EOG090C02MG_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02MG_NT.fasta: ;
+  charset EOG090C02NP_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02NP_NT.fasta: ;
+  charset EOG090C02O6_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02O6_NT.fasta: ;
+  charset EOG090C02O9_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02O9_NT.fasta: ;
+  charset EOG090C02OD_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02OD_NT.fasta: ;
+  charset EOG090C02P2_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02P2_NT.fasta: ;
+  charset EOG090C02PE_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02PE_NT.fasta: ;
+  charset EOG090C02RN_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02RN_NT.fasta: ;
+  charset EOG090C02S7_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02S7_NT.fasta: ;
+  charset EOG090C02ST_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02ST_NT.fasta: ;
+  charset EOG090C02TB_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02TB_NT.fasta: ;
+  charset EOG090C02TD_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02TD_NT.fasta: ;
+  charset EOG090C02UZ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02UZ_NT.fasta: ;
+  charset EOG090C02W1_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02W1_NT.fasta: ;
+  charset EOG090C02XM_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02XM_NT.fasta: ;
+  charset EOG090C02YD_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02YD_NT.fasta: ;
+  charset EOG090C02YV_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02YV_NT.fasta: ;
+  charset EOG090C0302_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0302_NT.fasta: ;
+  charset EOG090C0304_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0304_NT.fasta: ;
+  charset EOG090C030H_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C030H_NT.fasta: ;
+  charset EOG090C030R_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C030R_NT.fasta: ;
+  charset EOG090C0316_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0316_NT.fasta: ;
+  charset EOG090C031E_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C031E_NT.fasta: ;
+  charset EOG090C032T_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C032T_NT.fasta: ;
+  charset EOG090C0337_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0337_NT.fasta: ;
+  charset EOG090C033Q_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C033Q_NT.fasta: ;
+  charset EOG090C0343_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0343_NT.fasta: ;
+  charset EOG090C0349_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0349_NT.fasta: ;
+  charset EOG090C034S_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C034S_NT.fasta: ;
+  charset EOG090C0351_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0351_NT.fasta: ;
+  charset EOG090C035G_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C035G_NT.fasta: ;
+  charset EOG090C035N_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C035N_NT.fasta: ;
+  charset EOG090C036L_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C036L_NT.fasta: ;
+  charset EOG090C036M_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C036M_NT.fasta: ;
+  charset EOG090C037U_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C037U_NT.fasta: ;
+  charset EOG090C037V_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C037V_NT.fasta: ;
+  charset EOG090C037Z_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C037Z_NT.fasta: ;
+  charset EOG090C038L_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C038L_NT.fasta: ;
+  charset EOG090C038M_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C038M_NT.fasta: ;
+  charset EOG090C038W_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C038W_NT.fasta: ;
+  charset EOG090C039P_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C039P_NT.fasta: ;
+  charset EOG090C039X_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C039X_NT.fasta: ;
+  charset EOG090C03A3_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03A3_NT.fasta: ;
+  charset EOG090C03A8_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03A8_NT.fasta: ;
+  charset EOG090C03AS_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03AS_NT.fasta: ;
+  charset EOG090C03B7_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03B7_NT.fasta: ;
+  charset EOG090C03BX_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03BX_NT.fasta: ;
+  charset EOG090C03CU_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03CU_NT.fasta: ;
+  charset EOG090C03DJ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03DJ_NT.fasta: ;
+  charset EOG090C03FA_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03FA_NT.fasta: ;
+  charset EOG090C03FD_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03FD_NT.fasta: ;
+  charset EOG090C03FE_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03FE_NT.fasta: ;
+  charset EOG090C03FG_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03FG_NT.fasta: ;
+  charset EOG090C03FH_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03FH_NT.fasta: ;
+  charset EOG090C03FJ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03FJ_NT.fasta: ;
+  charset EOG090C03H4_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03H4_NT.fasta: ;
+  charset EOG090C03HC_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03HC_NT.fasta: ;
+  charset EOG090C03HK_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03HK_NT.fasta: ;
+  charset EOG090C03IP_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03IP_NT.fasta: ;
+  charset EOG090C03IV_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03IV_NT.fasta: ;
+  charset EOG090C03JN_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03JN_NT.fasta: ;
+  charset EOG090C03L5_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03L5_NT.fasta: ;
+  charset EOG090C03LR_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03LR_NT.fasta: ;
+  charset EOG090C03LW_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03LW_NT.fasta: ;
+  charset EOG090C03M2_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03M2_NT.fasta: ;
+  charset EOG090C03MH_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03MH_NT.fasta: ;
+  charset EOG090C03N0_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03N0_NT.fasta: ;
+  charset EOG090C03NV_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03NV_NT.fasta: ;
+  charset EOG090C03O0_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03O0_NT.fasta: ;
+  charset EOG090C03P0_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03P0_NT.fasta: ;
+  charset EOG090C03Q4_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03Q4_NT.fasta: ;
+  charset EOG090C03QE_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03QE_NT.fasta: ;
+  charset EOG090C03QN_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03QN_NT.fasta: ;
+  charset EOG090C03R4_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03R4_NT.fasta: ;
+  charset EOG090C03S5_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03S5_NT.fasta: ;
+  charset EOG090C03TA_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03TA_NT.fasta: ;
+  charset EOG090C03TZ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03TZ_NT.fasta: ;
+  charset EOG090C03U5_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03U5_NT.fasta: ;
+  charset EOG090C03UH_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03UH_NT.fasta: ;
+  charset EOG090C03V7_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03V7_NT.fasta: ;
+  charset EOG090C03VT_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03VT_NT.fasta: ;
+  charset EOG090C03VZ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03VZ_NT.fasta: ;
+  charset EOG090C03W4_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03W4_NT.fasta: ;
+  charset EOG090C03WC_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03WC_NT.fasta: ;
+  charset EOG090C03WJ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03WJ_NT.fasta: ;
+  charset EOG090C03WP_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03WP_NT.fasta: ;
+  charset EOG090C03WQ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03WQ_NT.fasta: ;
+  charset EOG090C03WV_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03WV_NT.fasta: ;
+  charset EOG090C03XA_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03XA_NT.fasta: ;
+  charset EOG090C03YN_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03YN_NT.fasta: ;
+  charset EOG090C03YX_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03YX_NT.fasta: ;
+  charset EOG090C03Z6_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03Z6_NT.fasta: ;
+  charset EOG090C03ZU_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03ZU_NT.fasta: ;
+  charset EOG090C0408_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0408_NT.fasta: ;
+  charset EOG090C041F_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C041F_NT.fasta: ;
+  charset EOG090C041Y_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C041Y_NT.fasta: ;
+  charset EOG090C0427_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0427_NT.fasta: ;
+  charset EOG090C042P_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C042P_NT.fasta: ;
+  charset EOG090C042U_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C042U_NT.fasta: ;
+  charset EOG090C0432_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0432_NT.fasta: ;
+  charset EOG090C043C_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C043C_NT.fasta: ;
+  charset EOG090C043F_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C043F_NT.fasta: ;
+  charset EOG090C044B_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C044B_NT.fasta: ;
+  charset EOG090C044D_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C044D_NT.fasta: ;
+  charset EOG090C044Q_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C044Q_NT.fasta: ;
+  charset EOG090C044T_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C044T_NT.fasta: ;
+  charset EOG090C044Z_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C044Z_NT.fasta: ;
+  charset EOG090C047G_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C047G_NT.fasta: ;
+  charset EOG090C047M_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C047M_NT.fasta: ;
+  charset EOG090C048B_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C048B_NT.fasta: ;
+  charset EOG090C049C_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C049C_NT.fasta: ;
+  charset EOG090C04AZ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04AZ_NT.fasta: ;
+  charset EOG090C04B3_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04B3_NT.fasta: ;
+  charset EOG090C04BM_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04BM_NT.fasta: ;
+  charset EOG090C04BP_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04BP_NT.fasta: ;
+  charset EOG090C04BT_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04BT_NT.fasta: ;
+  charset EOG090C04BU_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04BU_NT.fasta: ;
+  charset EOG090C04CB_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04CB_NT.fasta: ;
+  charset EOG090C04CG_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04CG_NT.fasta: ;
+  charset EOG090C04CM_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04CM_NT.fasta: ;
+  charset EOG090C04CX_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04CX_NT.fasta: ;
+  charset EOG090C04D6_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04D6_NT.fasta: ;
+  charset EOG090C04DD_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04DD_NT.fasta: ;
+  charset EOG090C04DJ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04DJ_NT.fasta: ;
+  charset EOG090C04F5_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04F5_NT.fasta: ;
+  charset EOG090C04FD_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04FD_NT.fasta: ;
+  charset EOG090C04FT_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04FT_NT.fasta: ;
+  charset EOG090C04FX_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04FX_NT.fasta: ;
+  charset EOG090C04H0_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04H0_NT.fasta: ;
+  charset EOG090C04HL_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04HL_NT.fasta: ;
+  charset EOG090C04IP_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04IP_NT.fasta: ;
+  charset EOG090C04J6_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04J6_NT.fasta: ;
+  charset EOG090C04J8_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04J8_NT.fasta: ;
+  charset EOG090C04JE_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04JE_NT.fasta: ;
+  charset EOG090C04JV_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04JV_NT.fasta: ;
+  charset EOG090C04K4_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04K4_NT.fasta: ;
+  charset EOG090C04KT_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04KT_NT.fasta: ;
+  charset EOG090C04L4_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04L4_NT.fasta: ;
+  charset EOG090C04LG_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04LG_NT.fasta: ;
+  charset EOG090C04LN_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04LN_NT.fasta: ;
+  charset EOG090C04MI_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04MI_NT.fasta: ;
+  charset EOG090C04MJ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04MJ_NT.fasta: ;
+  charset EOG090C04MN_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04MN_NT.fasta: ;
+  charset EOG090C04NO_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04NO_NT.fasta: ;
+  charset EOG090C04OC_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04OC_NT.fasta: ;
+  charset EOG090C04OU_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04OU_NT.fasta: ;
+  charset EOG090C04PT_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04PT_NT.fasta: ;
+  charset EOG090C04QB_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04QB_NT.fasta: ;
+  charset EOG090C04QC_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04QC_NT.fasta: ;
+  charset EOG090C04QF_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04QF_NT.fasta: ;
+  charset EOG090C04QT_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04QT_NT.fasta: ;
+  charset EOG090C04R6_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04R6_NT.fasta: ;
+  charset EOG090C04RC_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04RC_NT.fasta: ;
+  charset EOG090C04RD_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04RD_NT.fasta: ;
+  charset EOG090C04SV_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04SV_NT.fasta: ;
+  charset EOG090C04TG_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04TG_NT.fasta: ;
+  charset EOG090C04TO_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04TO_NT.fasta: ;
+  charset EOG090C04TR_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04TR_NT.fasta: ;
+  charset EOG090C04U4_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04U4_NT.fasta: ;
+  charset EOG090C04U7_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04U7_NT.fasta: ;
+  charset EOG090C04UV_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04UV_NT.fasta: ;
+  charset EOG090C04VE_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04VE_NT.fasta: ;
+  charset EOG090C04VG_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04VG_NT.fasta: ;
+  charset EOG090C04WO_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04WO_NT.fasta: ;
+  charset EOG090C04WZ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04WZ_NT.fasta: ;
+  charset EOG090C04X7_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04X7_NT.fasta: ;
+  charset EOG090C04XQ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04XQ_NT.fasta: ;
+  charset EOG090C04Y2_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04Y2_NT.fasta: ;
+  charset EOG090C04Y6_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04Y6_NT.fasta: ;
+  charset EOG090C04YP_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04YP_NT.fasta: ;
+  charset EOG090C04YR_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04YR_NT.fasta: ;
+  charset EOG090C050C_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C050C_NT.fasta: ;
+  charset EOG090C050Q_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C050Q_NT.fasta: ;
+  charset EOG090C050T_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C050T_NT.fasta: ;
+  charset EOG090C051A_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C051A_NT.fasta: ;
+  charset EOG090C053D_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C053D_NT.fasta: ;
+  charset EOG090C053Z_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C053Z_NT.fasta: ;
+  charset EOG090C054C_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C054C_NT.fasta: ;
+  charset EOG090C055A_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C055A_NT.fasta: ;
+  charset EOG090C055V_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C055V_NT.fasta: ;
+  charset EOG090C057B_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C057B_NT.fasta: ;
+  charset EOG090C058Y_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C058Y_NT.fasta: ;
+  charset EOG090C059F_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C059F_NT.fasta: ;
+  charset EOG090C059M_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C059M_NT.fasta: ;
+  charset EOG090C05AP_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05AP_NT.fasta: ;
+  charset EOG090C05B2_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05B2_NT.fasta: ;
+  charset EOG090C05BP_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05BP_NT.fasta: ;
+  charset EOG090C05C1_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05C1_NT.fasta: ;
+  charset EOG090C05DF_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05DF_NT.fasta: ;
+  charset EOG090C05E0_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05E0_NT.fasta: ;
+  charset EOG090C05E1_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05E1_NT.fasta: ;
+  charset EOG090C05FV_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05FV_NT.fasta: ;
+  charset EOG090C05G3_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05G3_NT.fasta: ;
+  charset EOG090C05GQ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05GQ_NT.fasta: ;
+  charset EOG090C05GZ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05GZ_NT.fasta: ;
+  charset EOG090C05HY_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05HY_NT.fasta: ;
+  charset EOG090C05KU_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05KU_NT.fasta: ;
+  charset EOG090C05L0_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05L0_NT.fasta: ;
+  charset EOG090C05MB_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05MB_NT.fasta: ;
+  charset EOG090C05N1_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05N1_NT.fasta: ;
+  charset EOG090C05N2_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05N2_NT.fasta: ;
+  charset EOG090C05NC_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05NC_NT.fasta: ;
+  charset EOG090C05NL_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05NL_NT.fasta: ;
+  charset EOG090C05O3_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05O3_NT.fasta: ;
+  charset EOG090C05OL_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05OL_NT.fasta: ;
+  charset EOG090C05OM_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05OM_NT.fasta: ;
+  charset EOG090C05PO_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05PO_NT.fasta: ;
+  charset EOG090C05QZ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05QZ_NT.fasta: ;
+  charset EOG090C05RM_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05RM_NT.fasta: ;
+  charset EOG090C05RQ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05RQ_NT.fasta: ;
+  charset EOG090C05S7_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05S7_NT.fasta: ;
+  charset EOG090C05TO_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05TO_NT.fasta: ;
+  charset EOG090C05U5_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05U5_NT.fasta: ;
+  charset EOG090C05UN_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05UN_NT.fasta: ;
+  charset EOG090C05VA_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05VA_NT.fasta: ;
+  charset EOG090C05VD_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05VD_NT.fasta: ;
+  charset EOG090C05X3_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05X3_NT.fasta: ;
+  charset EOG090C05X7_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05X7_NT.fasta: ;
+  charset EOG090C05XW_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05XW_NT.fasta: ;
+  charset EOG090C05Y0_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05Y0_NT.fasta: ;
+  charset EOG090C05Y6_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05Y6_NT.fasta: ;
+  charset EOG090C05YQ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05YQ_NT.fasta: ;
+  charset EOG090C05Z8_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05Z8_NT.fasta: ;
+  charset EOG090C05ZG_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05ZG_NT.fasta: ;
+  charset EOG090C0601_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0601_NT.fasta: ;
+  charset EOG090C061K_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C061K_NT.fasta: ;
+  charset EOG090C061N_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C061N_NT.fasta: ;
+  charset EOG090C0620_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0620_NT.fasta: ;
+  charset EOG090C0621_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0621_NT.fasta: ;
+  charset EOG090C062I_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C062I_NT.fasta: ;
+  charset EOG090C062M_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C062M_NT.fasta: ;
+  charset EOG090C063D_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C063D_NT.fasta: ;
+  charset EOG090C0651_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0651_NT.fasta: ;
+  charset EOG090C065J_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C065J_NT.fasta: ;
+  charset EOG090C066J_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C066J_NT.fasta: ;
+  charset EOG090C067F_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C067F_NT.fasta: ;
+  charset EOG090C067N_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C067N_NT.fasta: ;
+  charset EOG090C0695_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0695_NT.fasta: ;
+  charset EOG090C069K_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C069K_NT.fasta: ;
+  charset EOG090C06AW_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06AW_NT.fasta: ;
+  charset EOG090C06BB_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06BB_NT.fasta: ;
+  charset EOG090C06CK_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06CK_NT.fasta: ;
+  charset EOG090C06CQ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06CQ_NT.fasta: ;
+  charset EOG090C06CR_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06CR_NT.fasta: ;
+  charset EOG090C06CX_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06CX_NT.fasta: ;
+  charset EOG090C06D0_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06D0_NT.fasta: ;
+  charset EOG090C06DR_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06DR_NT.fasta: ;
+  charset EOG090C06E3_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06E3_NT.fasta: ;
+  charset EOG090C06E8_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06E8_NT.fasta: ;
+  charset EOG090C06ED_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06ED_NT.fasta: ;
+  charset EOG090C06EI_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06EI_NT.fasta: ;
+  charset EOG090C06FO_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06FO_NT.fasta: ;
+  charset EOG090C06FP_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06FP_NT.fasta: ;
+  charset EOG090C06FQ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06FQ_NT.fasta: ;
+  charset EOG090C06GH_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06GH_NT.fasta: ;
+  charset EOG090C06GP_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06GP_NT.fasta: ;
+  charset EOG090C06HE_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06HE_NT.fasta: ;
+  charset EOG090C06I2_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06I2_NT.fasta: ;
+  charset EOG090C06IB_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06IB_NT.fasta: ;
+  charset EOG090C06IP_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06IP_NT.fasta: ;
+  charset EOG090C06IV_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06IV_NT.fasta: ;
+  charset EOG090C06J4_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06J4_NT.fasta: ;
+  charset EOG090C06JO_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06JO_NT.fasta: ;
+  charset EOG090C06JS_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06JS_NT.fasta: ;
+  charset EOG090C06JZ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06JZ_NT.fasta: ;
+  charset EOG090C06K8_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06K8_NT.fasta: ;
+  charset EOG090C06LC_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06LC_NT.fasta: ;
+  charset EOG090C06M4_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06M4_NT.fasta: ;
+  charset EOG090C06MB_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06MB_NT.fasta: ;
+  charset EOG090C06ME_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06ME_NT.fasta: ;
+  charset EOG090C06OU_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06OU_NT.fasta: ;
+  charset EOG090C06PD_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06PD_NT.fasta: ;
+  charset EOG090C06PQ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06PQ_NT.fasta: ;
+  charset EOG090C06Q1_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06Q1_NT.fasta: ;
+  charset EOG090C06Q7_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06Q7_NT.fasta: ;
+  charset EOG090C06Q8_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06Q8_NT.fasta: ;
+  charset EOG090C06QV_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06QV_NT.fasta: ;
+  charset EOG090C06RL_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06RL_NT.fasta: ;
+  charset EOG090C06S5_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06S5_NT.fasta: ;
+  charset EOG090C06SJ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06SJ_NT.fasta: ;
+  charset EOG090C06T5_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06T5_NT.fasta: ;
+  charset EOG090C06TR_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06TR_NT.fasta: ;
+  charset EOG090C06UH_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06UH_NT.fasta: ;
+  charset EOG090C06UQ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06UQ_NT.fasta: ;
+  charset EOG090C06UT_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06UT_NT.fasta: ;
+  charset EOG090C06W8_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06W8_NT.fasta: ;
+  charset EOG090C06XD_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06XD_NT.fasta: ;
+  charset EOG090C06XU_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06XU_NT.fasta: ;
+  charset EOG090C06XX_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06XX_NT.fasta: ;
+  charset EOG090C06ZM_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06ZM_NT.fasta: ;
+  charset EOG090C06ZU_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06ZU_NT.fasta: ;
+  charset EOG090C0706_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0706_NT.fasta: ;
+  charset EOG090C071F_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C071F_NT.fasta: ;
+  charset EOG090C071P_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C071P_NT.fasta: ;
+  charset EOG090C071U_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C071U_NT.fasta: ;
+  charset EOG090C0724_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0724_NT.fasta: ;
+  charset EOG090C0729_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0729_NT.fasta: ;
+  charset EOG090C072G_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C072G_NT.fasta: ;
+  charset EOG090C072N_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C072N_NT.fasta: ;
+  charset EOG090C0737_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0737_NT.fasta: ;
+  charset EOG090C074A_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C074A_NT.fasta: ;
+  charset EOG090C0750_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0750_NT.fasta: ;
+  charset EOG090C0755_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0755_NT.fasta: ;
+  charset EOG090C0764_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0764_NT.fasta: ;
+  charset EOG090C076H_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C076H_NT.fasta: ;
+  charset EOG090C076X_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C076X_NT.fasta: ;
+  charset EOG090C077E_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C077E_NT.fasta: ;
+  charset EOG090C077H_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C077H_NT.fasta: ;
+  charset EOG090C077L_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C077L_NT.fasta: ;
+  charset EOG090C077V_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C077V_NT.fasta: ;
+  charset EOG090C078H_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C078H_NT.fasta: ;
+  charset EOG090C078M_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C078M_NT.fasta: ;
+  charset EOG090C078U_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C078U_NT.fasta: ;
+  charset EOG090C0792_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0792_NT.fasta: ;
+  charset EOG090C079E_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C079E_NT.fasta: ;
+  charset EOG090C079V_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C079V_NT.fasta: ;
+  charset EOG090C079Z_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C079Z_NT.fasta: ;
+  charset EOG090C07AC_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07AC_NT.fasta: ;
+  charset EOG090C07AG_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07AG_NT.fasta: ;
+  charset EOG090C07AW_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07AW_NT.fasta: ;
+  charset EOG090C07AZ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07AZ_NT.fasta: ;
+  charset EOG090C07D4_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07D4_NT.fasta: ;
+  charset EOG090C07DM_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07DM_NT.fasta: ;
+  charset EOG090C07EH_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07EH_NT.fasta: ;
+  charset EOG090C07EI_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07EI_NT.fasta: ;
+  charset EOG090C07FG_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07FG_NT.fasta: ;
+  charset EOG090C07FM_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07FM_NT.fasta: ;
+  charset EOG090C07FU_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07FU_NT.fasta: ;
+  charset EOG090C07FV_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07FV_NT.fasta: ;
+  charset EOG090C07FY_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07FY_NT.fasta: ;
+  charset EOG090C07GV_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07GV_NT.fasta: ;
+  charset EOG090C07HG_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07HG_NT.fasta: ;
+  charset EOG090C07IL_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07IL_NT.fasta: ;
+  charset EOG090C07J7_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07J7_NT.fasta: ;
+  charset EOG090C07JM_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07JM_NT.fasta: ;
+  charset EOG090C07KY_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07KY_NT.fasta: ;
+  charset EOG090C07N2_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07N2_NT.fasta: ;
+  charset EOG090C07OT_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07OT_NT.fasta: ;
+  charset EOG090C07OV_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07OV_NT.fasta: ;
+  charset EOG090C07OX_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07OX_NT.fasta: ;
+  charset EOG090C07QB_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07QB_NT.fasta: ;
+  charset EOG090C07QS_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07QS_NT.fasta: ;
+  charset EOG090C07R2_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07R2_NT.fasta: ;
+  charset EOG090C07R9_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07R9_NT.fasta: ;
+  charset EOG090C07RZ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07RZ_NT.fasta: ;
+  charset EOG090C07SG_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07SG_NT.fasta: ;
+  charset EOG090C07SU_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07SU_NT.fasta: ;
+  charset EOG090C07T9_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07T9_NT.fasta: ;
+  charset EOG090C07U0_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07U0_NT.fasta: ;
+  charset EOG090C07UF_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07UF_NT.fasta: ;
+  charset EOG090C07UM_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07UM_NT.fasta: ;
+  charset EOG090C07VC_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07VC_NT.fasta: ;
+  charset EOG090C07WX_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07WX_NT.fasta: ;
+  charset EOG090C07XT_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07XT_NT.fasta: ;
+  charset EOG090C07YR_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07YR_NT.fasta: ;
+  charset EOG090C07Z5_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07Z5_NT.fasta: ;
+  charset EOG090C0814_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0814_NT.fasta: ;
+  charset EOG090C081U_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C081U_NT.fasta: ;
+  charset EOG090C081V_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C081V_NT.fasta: ;
+  charset EOG090C082D_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C082D_NT.fasta: ;
+  charset EOG090C082R_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C082R_NT.fasta: ;
+  charset EOG090C084B_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C084B_NT.fasta: ;
+  charset EOG090C085C_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C085C_NT.fasta: ;
+  charset EOG090C085V_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C085V_NT.fasta: ;
+  charset EOG090C0865_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0865_NT.fasta: ;
+  charset EOG090C086L_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C086L_NT.fasta: ;
+  charset EOG090C0877_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0877_NT.fasta: ;
+  charset EOG090C087L_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C087L_NT.fasta: ;
+  charset EOG090C088U_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C088U_NT.fasta: ;
+  charset EOG090C0898_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0898_NT.fasta: ;
+  charset EOG090C089F_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C089F_NT.fasta: ;
+  charset EOG090C089X_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C089X_NT.fasta: ;
+  charset EOG090C08AJ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08AJ_NT.fasta: ;
+  charset EOG090C08AT_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08AT_NT.fasta: ;
+  charset EOG090C08B5_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08B5_NT.fasta: ;
+  charset EOG090C08BI_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08BI_NT.fasta: ;
+  charset EOG090C08BX_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08BX_NT.fasta: ;
+  charset EOG090C08CA_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08CA_NT.fasta: ;
+  charset EOG090C08D0_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08D0_NT.fasta: ;
+  charset EOG090C08E3_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08E3_NT.fasta: ;
+  charset EOG090C08EW_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08EW_NT.fasta: ;
+  charset EOG090C08FD_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08FD_NT.fasta: ;
+  charset EOG090C08GU_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08GU_NT.fasta: ;
+  charset EOG090C08GX_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08GX_NT.fasta: ;
+  charset EOG090C08GY_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08GY_NT.fasta: ;
+  charset EOG090C08HR_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08HR_NT.fasta: ;
+  charset EOG090C08IP_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08IP_NT.fasta: ;
+  charset EOG090C08IU_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08IU_NT.fasta: ;
+  charset EOG090C08KK_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08KK_NT.fasta: ;
+  charset EOG090C08L2_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08L2_NT.fasta: ;
+  charset EOG090C08L3_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08L3_NT.fasta: ;
+  charset EOG090C08LT_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08LT_NT.fasta: ;
+  charset EOG090C08M6_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08M6_NT.fasta: ;
+  charset EOG090C08MD_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08MD_NT.fasta: ;
+  charset EOG090C08MO_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08MO_NT.fasta: ;
+  charset EOG090C08N0_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08N0_NT.fasta: ;
+  charset EOG090C08OH_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08OH_NT.fasta: ;
+  charset EOG090C08OR_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08OR_NT.fasta: ;
+  charset EOG090C08OU_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08OU_NT.fasta: ;
+  charset EOG090C08PT_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08PT_NT.fasta: ;
+  charset EOG090C08QB_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08QB_NT.fasta: ;
+  charset EOG090C08QI_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08QI_NT.fasta: ;
+  charset EOG090C08QN_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08QN_NT.fasta: ;
+  charset EOG090C08QX_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08QX_NT.fasta: ;
+  charset EOG090C08RM_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08RM_NT.fasta: ;
+  charset EOG090C08RS_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08RS_NT.fasta: ;
+  charset EOG090C08S9_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08S9_NT.fasta: ;
+  charset EOG090C08U5_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08U5_NT.fasta: ;
+  charset EOG090C08U7_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08U7_NT.fasta: ;
+  charset EOG090C08V4_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08V4_NT.fasta: ;
+  charset EOG090C08VJ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08VJ_NT.fasta: ;
+  charset EOG090C08VL_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08VL_NT.fasta: ;
+  charset EOG090C08VR_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08VR_NT.fasta: ;
+  charset EOG090C08W9_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08W9_NT.fasta: ;
+  charset EOG090C08X2_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08X2_NT.fasta: ;
+  charset EOG090C08XW_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08XW_NT.fasta: ;
+  charset EOG090C08Y7_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08Y7_NT.fasta: ;
+  charset EOG090C08YU_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08YU_NT.fasta: ;
+  charset EOG090C08YW_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08YW_NT.fasta: ;
+  charset EOG090C08ZG_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08ZG_NT.fasta: ;
+  charset EOG090C090F_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C090F_NT.fasta: ;
+  charset EOG090C0910_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0910_NT.fasta: ;
+  charset EOG090C091M_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C091M_NT.fasta: ;
+  charset EOG090C091S_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C091S_NT.fasta: ;
+  charset EOG090C0942_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0942_NT.fasta: ;
+  charset EOG090C094B_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C094B_NT.fasta: ;
+  charset EOG090C094O_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C094O_NT.fasta: ;
+  charset EOG090C095P_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C095P_NT.fasta: ;
+  charset EOG090C0968_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0968_NT.fasta: ;
+  charset EOG090C0969_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0969_NT.fasta: ;
+  charset EOG090C0979_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0979_NT.fasta: ;
+  charset EOG090C097N_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C097N_NT.fasta: ;
+  charset EOG090C098S_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C098S_NT.fasta: ;
+  charset EOG090C09AF_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09AF_NT.fasta: ;
+  charset EOG090C09AT_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09AT_NT.fasta: ;
+  charset EOG090C09CL_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09CL_NT.fasta: ;
+  charset EOG090C09DA_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09DA_NT.fasta: ;
+  charset EOG090C09DM_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09DM_NT.fasta: ;
+  charset EOG090C09E0_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09E0_NT.fasta: ;
+  charset EOG090C09EJ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09EJ_NT.fasta: ;
+  charset EOG090C09G1_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09G1_NT.fasta: ;
+  charset EOG090C09G2_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09G2_NT.fasta: ;
+  charset EOG090C09HS_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09HS_NT.fasta: ;
+  charset EOG090C09II_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09II_NT.fasta: ;
+  charset EOG090C09IS_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09IS_NT.fasta: ;
+  charset EOG090C09JP_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09JP_NT.fasta: ;
+  charset EOG090C09K5_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09K5_NT.fasta: ;
+  charset EOG090C09L0_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09L0_NT.fasta: ;
+  charset EOG090C09LP_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09LP_NT.fasta: ;
+  charset EOG090C09O8_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09O8_NT.fasta: ;
+  charset EOG090C09O9_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09O9_NT.fasta: ;
+  charset EOG090C09PS_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09PS_NT.fasta: ;
+  charset EOG090C09QS_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09QS_NT.fasta: ;
+  charset EOG090C09QZ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09QZ_NT.fasta: ;
+  charset EOG090C09RL_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09RL_NT.fasta: ;
+  charset EOG090C09S9_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09S9_NT.fasta: ;
+  charset EOG090C09T7_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09T7_NT.fasta: ;
+  charset EOG090C09TH_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09TH_NT.fasta: ;
+  charset EOG090C09TY_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09TY_NT.fasta: ;
+  charset EOG090C09UD_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09UD_NT.fasta: ;
+  charset EOG090C09VT_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09VT_NT.fasta: ;
+  charset EOG090C09VW_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09VW_NT.fasta: ;
+  charset EOG090C09WD_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09WD_NT.fasta: ;
+  charset EOG090C09XK_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09XK_NT.fasta: ;
+  charset EOG090C09XN_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09XN_NT.fasta: ;
+  charset EOG090C09Y7_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09Y7_NT.fasta: ;
+  charset EOG090C09YB_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09YB_NT.fasta: ;
+  charset EOG090C09YT_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09YT_NT.fasta: ;
+  charset EOG090C09YU_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09YU_NT.fasta: ;
+  charset EOG090C09ZT_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09ZT_NT.fasta: ;
+  charset EOG090C0A03_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A03_NT.fasta: ;
+  charset EOG090C0A1N_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A1N_NT.fasta: ;
+  charset EOG090C0A1O_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A1O_NT.fasta: ;
+  charset EOG090C0A2Z_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A2Z_NT.fasta: ;
+  charset EOG090C0A32_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A32_NT.fasta: ;
+  charset EOG090C0A3E_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A3E_NT.fasta: ;
+  charset EOG090C0A4J_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A4J_NT.fasta: ;
+  charset EOG090C0A4K_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A4K_NT.fasta: ;
+  charset EOG090C0A4P_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A4P_NT.fasta: ;
+  charset EOG090C0A4Y_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A4Y_NT.fasta: ;
+  charset EOG090C0A5A_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A5A_NT.fasta: ;
+  charset EOG090C0A5O_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A5O_NT.fasta: ;
+  charset EOG090C0A5R_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A5R_NT.fasta: ;
+  charset EOG090C0A60_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A60_NT.fasta: ;
+  charset EOG090C0A64_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A64_NT.fasta: ;
+  charset EOG090C0A9U_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A9U_NT.fasta: ;
+  charset EOG090C0AAQ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0AAQ_NT.fasta: ;
+  charset EOG090C0AFD_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0AFD_NT.fasta: ;
+  charset EOG090C0AFJ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0AFJ_NT.fasta: ;
+  charset EOG090C0AHG_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0AHG_NT.fasta: ;
+  charset EOG090C0AJF_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0AJF_NT.fasta: ;
+  charset EOG090C0AL1_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0AL1_NT.fasta: ;
+  charset EOG090C0ALG_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0ALG_NT.fasta: ;
+  charset EOG090C0ALS_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0ALS_NT.fasta: ;
+  charset EOG090C0ALV_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0ALV_NT.fasta: ;
+  charset EOG090C0ANT_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0ANT_NT.fasta: ;
+  charset EOG090C0AO4_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0AO4_NT.fasta: ;
+  charset EOG090C0AQ9_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0AQ9_NT.fasta: ;
+  charset EOG090C0AQX_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0AQX_NT.fasta: ;
+  charset EOG090C0ASA_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0ASA_NT.fasta: ;
+  charset EOG090C0ATT_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0ATT_NT.fasta: ;
+  charset EOG090C0ATW_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0ATW_NT.fasta: ;
+  charset EOG090C0AU9_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0AU9_NT.fasta: ;
+  charset EOG090C0AWD_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0AWD_NT.fasta: ;
+  charset EOG090C0AXB_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0AXB_NT.fasta: ;
+  charset EOG090C0B1U_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0B1U_NT.fasta: ;
+  charset EOG090C0B20_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0B20_NT.fasta: ;
+  charset EOG090C0B4A_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0B4A_NT.fasta: ;
+  charset EOG090C0B8Z_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0B8Z_NT.fasta: ;
+  charset EOG090C0B9J_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0B9J_NT.fasta: ;
+  charset EOG090C0BBZ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BBZ_NT.fasta: ;
+  charset EOG090C0BC8_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BC8_NT.fasta: ;
+  charset EOG090C0BC9_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BC9_NT.fasta: ;
+  charset EOG090C0BCB_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BCB_NT.fasta: ;
+  charset EOG090C0BDA_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BDA_NT.fasta: ;
+  charset EOG090C0BDZ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BDZ_NT.fasta: ;
+  charset EOG090C0BEF_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BEF_NT.fasta: ;
+  charset EOG090C0BIV_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BIV_NT.fasta: ;
+  charset EOG090C0BJ8_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BJ8_NT.fasta: ;
+  charset EOG090C0BJH_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BJH_NT.fasta: ;
+  charset EOG090C0BMD_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BMD_NT.fasta: ;
+  charset EOG090C0BO8_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BO8_NT.fasta: ;
+  charset EOG090C0BPO_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BPO_NT.fasta: ;
+  charset EOG090C0BT5_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BT5_NT.fasta: ;
+  charset EOG090C0C6F_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0C6F_NT.fasta: ;
+  charset EOG090C0C9R_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0C9R_NT.fasta: ;
+  charset EOG090C0CB3_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0CB3_NT.fasta: ;
+  charset EOG090C0CD3_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0CD3_NT.fasta: ;
+  charset EOG090C0CEI_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0CEI_NT.fasta: ;
+  charset EOG090C0CFR_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0CFR_NT.fasta: ;
+  charset EOG090C0CI9_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0CI9_NT.fasta: ;
+  charset EOG090C0CJ9_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0CJ9_NT.fasta: ;
+  charset EOG090C0CL1_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0CL1_NT.fasta: ;
+  charset EOG090C0COA_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0COA_NT.fasta: ;
+  charset EOG090C0CVZ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0CVZ_NT.fasta: ;
+  charset EOG090C0CWB_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0CWB_NT.fasta: ;
+  charset EOG090C0D0D_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0D0D_NT.fasta: ;
+  charset EOG090C0D8Y_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0D8Y_NT.fasta: ;
+  charset EOG090C0DAJ_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0DAJ_NT.fasta: ;
+  charset EOG090C0DBC_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0DBC_NT.fasta: ;
+  charset EOG090C0DCG_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0DCG_NT.fasta: ;
+  charset EOG090C0DH1_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0DH1_NT.fasta: ;
+  charset EOG090C0DKM_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0DKM_NT.fasta: ;
+  charset EOG090C0DO4_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0DO4_NT.fasta: ;
+  charset EOG090C0E36_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0E36_NT.fasta: ;
+  charset EOG090C0ERB_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0ERB_NT.fasta: ;
+  charset EOG090C0F46_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0F46_NT.fasta: ;
+  charset EOG090C0FRI_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0FRI_NT.fasta: ;
+  charset EOG090C0G9X_NT.fasta = sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0G9X_NT.fasta: ;
+  charpartition mymodels =
+    TN+F+R2: EOG090C001K_NT.fasta,
+    GTR+F+R3: EOG090C003B_NT.fasta,
+    TIM3+F+R4: EOG090C003K_NT.fasta,
+    TPM2+F+R3: EOG090C003L_NT.fasta,
+    TVM+F+R3: EOG090C003V_NT.fasta,
+    TIM2+F+R3: EOG090C005H_NT.fasta,
+    K2P+R3: EOG090C006S_NT.fasta,
+    TIM2e+R3: EOG090C007Z_NT.fasta,
+    GTR+F+R3: EOG090C008I_NT.fasta,
+    GTR+F+R3: EOG090C008M_NT.fasta,
+    TIM3+F+R4: EOG090C00AN_NT.fasta,
+    TN+F+R4: EOG090C00AV_NT.fasta,
+    HKY+F+R3: EOG090C00B1_NT.fasta,
+    TIM2+F+R3: EOG090C00B3_NT.fasta,
+    TN+F+R3: EOG090C00BE_NT.fasta,
+    TIM2+F+R4: EOG090C00BT_NT.fasta,
+    TVM+F+R3: EOG090C00DS_NT.fasta,
+    TIM2+F+R3: EOG090C00E5_NT.fasta,
+    TVMe+R3: EOG090C00E9_NT.fasta,
+    TPM2+F+R2: EOG090C00HT_NT.fasta,
+    TPM3+F+R4: EOG090C00J0_NT.fasta,
+    TIM+F+R4: EOG090C00J3_NT.fasta,
+    TIM+F+R3: EOG090C00JA_NT.fasta,
+    TNe+R3: EOG090C00M8_NT.fasta,
+    TIM2e+R2: EOG090C00P3_NT.fasta,
+    TN+F+R2: EOG090C00PH_NT.fasta,
+    GTR+F+R3: EOG090C00PQ_NT.fasta,
+    TVMe+R3: EOG090C00Q2_NT.fasta,
+    GTR+F+R6: EOG090C00S8_NT.fasta,
+    GTR+F+R4: EOG090C00SD_NT.fasta,
+    TIM2e+R4: EOG090C00UV_NT.fasta,
+    TIM3+F+R3: EOG090C00VF_NT.fasta,
+    TPM2+F+R4: EOG090C00X6_NT.fasta,
+    GTR+F+R3: EOG090C00XD_NT.fasta,
+    TN+F+R3: EOG090C00YB_NT.fasta,
+    TIM+F+R3: EOG090C00ZG_NT.fasta,
+    TIM2+F+R3: EOG090C010H_NT.fasta,
+    TN+F+R2: EOG090C0114_NT.fasta,
+    TPM3+F+R4: EOG090C0128_NT.fasta,
+    TIM2e+R4: EOG090C012B_NT.fasta,
+    TIM3+F+R3: EOG090C012C_NT.fasta,
+    HKY+F+I: EOG090C014X_NT.fasta,
+    TIM3+F+R3: EOG090C015S_NT.fasta,
+    TN+F+R4: EOG090C0160_NT.fasta,
+    K3Pu+F+R3: EOG090C016A_NT.fasta,
+    HKY+F+G4: EOG090C016M_NT.fasta,
+    HKY+F+R2: EOG090C016V_NT.fasta,
+    TN+F+R3: EOG090C017B_NT.fasta,
+    TIMe+R3: EOG090C017P_NT.fasta,
+    TPM2+F+R3: EOG090C01AR_NT.fasta,
+    TIM+F+R3: EOG090C01BG_NT.fasta,
+    K3P+R4: EOG090C01CH_NT.fasta,
+    TIM2e+R3: EOG090C01CI_NT.fasta,
+    TPM3+F+R3: EOG090C01CW_NT.fasta,
+    TVMe+R3: EOG090C01DA_NT.fasta,
+    TPM2+F+R4: EOG090C01F6_NT.fasta,
+    GTR+F+R5: EOG090C01H6_NT.fasta,
+    TIM3+F+R3: EOG090C01I3_NT.fasta,
+    K2P+R3: EOG090C01I8_NT.fasta,
+    TIM2e+R4: EOG090C01IQ_NT.fasta,
+    TIM+F+R3: EOG090C01JR_NT.fasta,
+    TN+F+R2: EOG090C01KZ_NT.fasta,
+    TVM+F+R3: EOG090C01LR_NT.fasta,
+    TPM2+F+R3: EOG090C01M7_NT.fasta,
+    K3P+R4: EOG090C01NW_NT.fasta,
+    HKY+F+R2: EOG090C01O3_NT.fasta,
+    TPM3+F+R4: EOG090C01OB_NT.fasta,
+    K3P+R3: EOG090C01OT_NT.fasta,
+    TVM+F+R4: EOG090C01PW_NT.fasta,
+    TIM2+F+R3: EOG090C01SC_NT.fasta,
+    TIM+F+R4: EOG090C01SN_NT.fasta,
+    TIM2+F+R3: EOG090C01SV_NT.fasta,
+    TIM+F+R3: EOG090C01T7_NT.fasta,
+    TIM3e+R3: EOG090C01US_NT.fasta,
+    TIM2e+R4: EOG090C01V0_NT.fasta,
+    TNe+R2: EOG090C01V7_NT.fasta,
+    TN+F+R4: EOG090C01VW_NT.fasta,
+    K3Pu+F+R4: EOG090C01W9_NT.fasta,
+    K3Pu+F+R4: EOG090C01WG_NT.fasta,
+    GTR+F+R4: EOG090C01Y6_NT.fasta,
+    TVM+F+R5: EOG090C01YE_NT.fasta,
+    TVMe+R3: EOG090C01Z2_NT.fasta,
+    K3Pu+F+R2: EOG090C01ZW_NT.fasta,
+    TPM3+F+R3: EOG090C01ZY_NT.fasta,
+    GTR+F+R4: EOG090C0224_NT.fasta,
+    K2P+R3: EOG090C023E_NT.fasta,
+    K2P+R3: EOG090C0240_NT.fasta,
+    HKY+F+R3: EOG090C024L_NT.fasta,
+    TVM+F+R4: EOG090C024Z_NT.fasta,
+    HKY+F+R2: EOG090C0255_NT.fasta,
+    TPM2+F+R3: EOG090C025K_NT.fasta,
+    TPM2+F+R3: EOG090C0275_NT.fasta,
+    GTR+F+R3: EOG090C027I_NT.fasta,
+    TPM3+F+R4: EOG090C027J_NT.fasta,
+    TPM3+F+R3: EOG090C028E_NT.fasta,
+    TN+F+R2: EOG090C029M_NT.fasta,
+    GTR+F+R4: EOG090C02AS_NT.fasta,
+    TPM2+F+R2: EOG090C02BD_NT.fasta,
+    K3P+R3: EOG090C02BH_NT.fasta,
+    K2P+R2: EOG090C02D4_NT.fasta,
+    K3P+R3: EOG090C02D5_NT.fasta,
+    K3P+R4: EOG090C02D7_NT.fasta,
+    HKY+F+R3: EOG090C02E2_NT.fasta,
+    TVM+F+R4: EOG090C02EA_NT.fasta,
+    TPM3+F+R3: EOG090C02F4_NT.fasta,
+    TPM3+F+R3: EOG090C02F5_NT.fasta,
+    TVMe+R4: EOG090C02FW_NT.fasta,
+    TN+F+R3: EOG090C02FX_NT.fasta,
+    TPM2+F+R3: EOG090C02GF_NT.fasta,
+    TPM2+F+R3: EOG090C02GG_NT.fasta,
+    GTR+F+R4: EOG090C02GR_NT.fasta,
+    TIM3e+R3: EOG090C02JG_NT.fasta,
+    HKY+F+R3: EOG090C02JL_NT.fasta,
+    K3P+R3: EOG090C02JQ_NT.fasta,
+    K2P+R3: EOG090C02JV_NT.fasta,
+    TVM+F+R4: EOG090C02JX_NT.fasta,
+    TVMe+R3: EOG090C02KP_NT.fasta,
+    K3P+R3: EOG090C02LO_NT.fasta,
+    TNe+R3: EOG090C02M2_NT.fasta,
+    K2P+R3: EOG090C02M3_NT.fasta,
+    HKY+F+R2: EOG090C02MC_NT.fasta,
+    TN+F+R3: EOG090C02MG_NT.fasta,
+    GTR+F+R4: EOG090C02NP_NT.fasta,
+    GTR+F+R3: EOG090C02O6_NT.fasta,
+    TVMe+R3: EOG090C02O9_NT.fasta,
+    K2P+R3: EOG090C02OD_NT.fasta,
+    TIM2+F+R2: EOG090C02P2_NT.fasta,
+    TPM3+F+R3: EOG090C02PE_NT.fasta,
+    TN+F+R3: EOG090C02RN_NT.fasta,
+    K2P+R2: EOG090C02S7_NT.fasta,
+    TN+F+R3: EOG090C02ST_NT.fasta,
+    TIM3+F+R2: EOG090C02TB_NT.fasta,
+    GTR+F+R4: EOG090C02TD_NT.fasta,
+    TN+F+R3: EOG090C02UZ_NT.fasta,
+    K3Pu+F+R3: EOG090C02W1_NT.fasta,
+    K2P+R4: EOG090C02XM_NT.fasta,
+    K3P+R3: EOG090C02YD_NT.fasta,
+    K3Pu+F+R4: EOG090C02YV_NT.fasta,
+    TPM2+F+R2: EOG090C0302_NT.fasta,
+    TPM2+F+R3: EOG090C0304_NT.fasta,
+    TIM+F+R3: EOG090C030H_NT.fasta,
+    K2P+R3: EOG090C030R_NT.fasta,
+    TPM2+F+R3: EOG090C0316_NT.fasta,
+    HKY+F+R2: EOG090C031E_NT.fasta,
+    TIM+F+R4: EOG090C032T_NT.fasta,
+    K2P+R3: EOG090C0337_NT.fasta,
+    TN+F+R4: EOG090C033Q_NT.fasta,
+    K3P+R3: EOG090C0343_NT.fasta,
+    TIM+F+R3: EOG090C0349_NT.fasta,
+    TIM3e+R3: EOG090C034S_NT.fasta,
+    GTR+F+R5: EOG090C0351_NT.fasta,
+    HKY+F+R2: EOG090C035G_NT.fasta,
+    TPM3+F+R3: EOG090C035N_NT.fasta,
+    TN+F+R2: EOG090C036L_NT.fasta,
+    GTR+F+R5: EOG090C036M_NT.fasta,
+    GTR+F+R3: EOG090C037U_NT.fasta,
+    K3Pu+F+R3: EOG090C037V_NT.fasta,
+    HKY+F+R3: EOG090C037Z_NT.fasta,
+    TIM3e+R3: EOG090C038L_NT.fasta,
+    TIM2e+R3: EOG090C038M_NT.fasta,
+    HKY+F+R3: EOG090C038W_NT.fasta,
+    TIM3+F+R3: EOG090C039P_NT.fasta,
+    HKY+F+R3: EOG090C039X_NT.fasta,
+    K2P+R3: EOG090C03A3_NT.fasta,
+    K2P+R2: EOG090C03A8_NT.fasta,
+    HKY+F+R2: EOG090C03AS_NT.fasta,
+    TN+F+R2: EOG090C03B7_NT.fasta,
+    GTR+F+R3: EOG090C03BX_NT.fasta,
+    K2P+R4: EOG090C03CU_NT.fasta,
+    TNe+R3: EOG090C03DJ_NT.fasta,
+    TPM3+F+R4: EOG090C03FA_NT.fasta,
+    K2P+R4: EOG090C03FD_NT.fasta,
+    TPM3+F+R4: EOG090C03FE_NT.fasta,
+    TPM2+F+R3: EOG090C03FG_NT.fasta,
+    TIM3+F+R3: EOG090C03FH_NT.fasta,
+    TIM2e+R4: EOG090C03FJ_NT.fasta,
+    TVMe+R4: EOG090C03H4_NT.fasta,
+    HKY+F+R2: EOG090C03HC_NT.fasta,
+    TNe+R2: EOG090C03HK_NT.fasta,
+    K3P+R3: EOG090C03IP_NT.fasta,
+    TIM3+F+R3: EOG090C03IV_NT.fasta,
+    TN+F+R3: EOG090C03JN_NT.fasta,
+    TIM+F+R3: EOG090C03L5_NT.fasta,
+    TIM3+F+R4: EOG090C03LR_NT.fasta,
+    TPM3+F+R3: EOG090C03LW_NT.fasta,
+    K3Pu+F+R3: EOG090C03M2_NT.fasta,
+    HKY+F+R3: EOG090C03MH_NT.fasta,
+    TVM+F+R3: EOG090C03N0_NT.fasta,
+    TIM3+F+R3: EOG090C03NV_NT.fasta,
+    TIM2e+R4: EOG090C03O0_NT.fasta,
+    TIM2e+R5: EOG090C03P0_NT.fasta,
+    TPM3+F+R4: EOG090C03Q4_NT.fasta,
+    TIM2e+R3: EOG090C03QE_NT.fasta,
+    TIM3+F+R3: EOG090C03QN_NT.fasta,
+    TIM3e+R3: EOG090C03R4_NT.fasta,
+    HKY+F+R3: EOG090C03S5_NT.fasta,
+    TIM3+F+R2: EOG090C03TA_NT.fasta,
+    K3Pu+F+R3: EOG090C03TZ_NT.fasta,
+    TVMe+R3: EOG090C03U5_NT.fasta,
+    TIM+F+R3: EOG090C03UH_NT.fasta,
+    TN+F+R3: EOG090C03V7_NT.fasta,
+    TIM3+F+R4: EOG090C03VT_NT.fasta,
+    K2P+R3: EOG090C03VZ_NT.fasta,
+    K3P+R3: EOG090C03W4_NT.fasta,
+    TPM3+F+R2: EOG090C03WC_NT.fasta,
+    K3P+R3: EOG090C03WJ_NT.fasta,
+    HKY+F+R3: EOG090C03WP_NT.fasta,
+    TIM2e+R3: EOG090C03WQ_NT.fasta,
+    K2P+R3: EOG090C03WV_NT.fasta,
+    TN+F+R3: EOG090C03XA_NT.fasta,
+    TVM+F+R5: EOG090C03YN_NT.fasta,
+    K2P+R3: EOG090C03YX_NT.fasta,
+    HKY+F+R4: EOG090C03Z6_NT.fasta,
+    TIM2+F+R3: EOG090C03ZU_NT.fasta,
+    TIM3+F+R4: EOG090C0408_NT.fasta,
+    K3P+R3: EOG090C041F_NT.fasta,
+    TVMe+R2: EOG090C041Y_NT.fasta,
+    GTR+F+I+G4: EOG090C0427_NT.fasta,
+    K2P+R3: EOG090C042P_NT.fasta,
+    K3P+R4: EOG090C042U_NT.fasta,
+    TIM2+F+R2: EOG090C0432_NT.fasta,
+    TIM2+F+R2: EOG090C043C_NT.fasta,
+    HKY+F+R3: EOG090C043F_NT.fasta,
+    TNe+R3: EOG090C044B_NT.fasta,
+    K3Pu+F+R2: EOG090C044D_NT.fasta,
+    TNe+R3: EOG090C044Q_NT.fasta,
+    HKY+F+R3: EOG090C044T_NT.fasta,
+    TIM3e+R3: EOG090C044Z_NT.fasta,
+    TVM+F+R3: EOG090C047G_NT.fasta,
+    TIM3e+R4: EOG090C047M_NT.fasta,
+    TIMe+R3: EOG090C048B_NT.fasta,
+    TN+F+R3: EOG090C049C_NT.fasta,
+    TIM2+F+R3: EOG090C04AZ_NT.fasta,
+    TNe+R2: EOG090C04B3_NT.fasta,
+    TIM2e+R3: EOG090C04BM_NT.fasta,
+    K3Pu+F+R3: EOG090C04BP_NT.fasta,
+    TIM2+F+R4: EOG090C04BT_NT.fasta,
+    TPM3+F+R3: EOG090C04BU_NT.fasta,
+    K2P+R3: EOG090C04CB_NT.fasta,
+    TIM2+F+R3: EOG090C04CG_NT.fasta,
+    TVMe+R2: EOG090C04CM_NT.fasta,
+    HKY+F+R2: EOG090C04CX_NT.fasta,
+    TVM+F+R3: EOG090C04D6_NT.fasta,
+    TIM+F+R3: EOG090C04DD_NT.fasta,
+    TN+F+R3: EOG090C04DJ_NT.fasta,
+    HKY+F+R2: EOG090C04F5_NT.fasta,
+    TVM+F+R4: EOG090C04FD_NT.fasta,
+    HKY+F+R4: EOG090C04FT_NT.fasta,
+    K3Pu+F+R3: EOG090C04FX_NT.fasta,
+    TPM2+F+R3: EOG090C04H0_NT.fasta,
+    K3P+R3: EOG090C04HL_NT.fasta,
+    K2P+R2: EOG090C04IP_NT.fasta,
+    TNe+R3: EOG090C04J6_NT.fasta,
+    TPM3+F+R3: EOG090C04J8_NT.fasta,
+    TPM2+F+R3: EOG090C04JE_NT.fasta,
+    TVMe+R3: EOG090C04JV_NT.fasta,
+    K2P+R3: EOG090C04K4_NT.fasta,
+    TVMe+R3: EOG090C04KT_NT.fasta,
+    K2P+R2: EOG090C04L4_NT.fasta,
+    HKY+F+R4: EOG090C04LG_NT.fasta,
+    HKY+F+R3: EOG090C04LN_NT.fasta,
+    TIM2e+G4: EOG090C04MI_NT.fasta,
+    K2P+R2: EOG090C04MJ_NT.fasta,
+    TIM2+F+R4: EOG090C04MN_NT.fasta,
+    TIM+F+R3: EOG090C04NO_NT.fasta,
+    GTR+F+R4: EOG090C04OC_NT.fasta,
+    HKY+F+R3: EOG090C04OU_NT.fasta,
+    K2P+R3: EOG090C04PT_NT.fasta,
+    TIMe+R4: EOG090C04QB_NT.fasta,
+    TN+F+R4: EOG090C04QC_NT.fasta,
+    K2P+R3: EOG090C04QF_NT.fasta,
+    TPM2+F+R3: EOG090C04QT_NT.fasta,
+    TPM2+F+R3: EOG090C04R6_NT.fasta,
+    TIM3+F+R3: EOG090C04RC_NT.fasta,
+    K2P+R3: EOG090C04RD_NT.fasta,
+    HKY+F+R2: EOG090C04SV_NT.fasta,
+    K3P+R3: EOG090C04TG_NT.fasta,
+    TPM2+F+R3: EOG090C04TO_NT.fasta,
+    TPM2+F+R3: EOG090C04TR_NT.fasta,
+    TIM3+F+R3: EOG090C04U4_NT.fasta,
+    TVMe+R3: EOG090C04U7_NT.fasta,
+    TPM3+F+R3: EOG090C04UV_NT.fasta,
+    HKY+F+R2: EOG090C04VE_NT.fasta,
+    TIM3+F+R4: EOG090C04VG_NT.fasta,
+    TPM2+F+R3: EOG090C04WO_NT.fasta,
+    HKY+F+R3: EOG090C04WZ_NT.fasta,
+    TIM3+F+R4: EOG090C04X7_NT.fasta,
+    HKY+F+R3: EOG090C04XQ_NT.fasta,
+    HKY+F+R2: EOG090C04Y2_NT.fasta,
+    K2P+R3: EOG090C04Y6_NT.fasta,
+    K3Pu+F+R3: EOG090C04YP_NT.fasta,
+    TN+F+R3: EOG090C04YR_NT.fasta,
+    K3P+R4: EOG090C050C_NT.fasta,
+    K3Pu+F+R3: EOG090C050Q_NT.fasta,
+    TIM2e+R3: EOG090C050T_NT.fasta,
+    TPM3+F+R4: EOG090C051A_NT.fasta,
+    TN+F+R3: EOG090C053D_NT.fasta,
+    TVM+F+R3: EOG090C053Z_NT.fasta,
+    HKY+F+R3: EOG090C054C_NT.fasta,
+    TVM+F+R2: EOG090C055A_NT.fasta,
+    TPM2+F+R3: EOG090C055V_NT.fasta,
+    K3P+R2: EOG090C057B_NT.fasta,
+    K2P+R3: EOG090C058Y_NT.fasta,
+    HKY+F+R3: EOG090C059F_NT.fasta,
+    TIM2e+R3: EOG090C059M_NT.fasta,
+    TN+F+R3: EOG090C05AP_NT.fasta,
+    K2P+G4: EOG090C05B2_NT.fasta,
+    TN+F+R3: EOG090C05BP_NT.fasta,
+    TPM2+F+R2: EOG090C05C1_NT.fasta,
+    TIM2e+R3: EOG090C05DF_NT.fasta,
+    K2P+R3: EOG090C05E0_NT.fasta,
+    K2P+R2: EOG090C05E1_NT.fasta,
+    K3Pu+F+R3: EOG090C05FV_NT.fasta,
+    HKY+F+R3: EOG090C05G3_NT.fasta,
+    K2P+R2: EOG090C05GQ_NT.fasta,
+    HKY+F+R2: EOG090C05GZ_NT.fasta,
+    TPM2+F+R3: EOG090C05HY_NT.fasta,
+    K2P+R2: EOG090C05KU_NT.fasta,
+    TN+F+R3: EOG090C05L0_NT.fasta,
+    HKY+F+R3: EOG090C05MB_NT.fasta,
+    HKY+F+R2: EOG090C05N1_NT.fasta,
+    TVM+F+R4: EOG090C05N2_NT.fasta,
+    TIM2e+R2: EOG090C05NC_NT.fasta,
+    TIM3e+R3: EOG090C05NL_NT.fasta,
+    TIM2e+R4: EOG090C05O3_NT.fasta,
+    K3P+R3: EOG090C05OL_NT.fasta,
+    TN+F+R2: EOG090C05OM_NT.fasta,
+    HKY+F+R3: EOG090C05PO_NT.fasta,
+    HKY+F+R2: EOG090C05QZ_NT.fasta,
+    K3P+R3: EOG090C05RM_NT.fasta,
+    TIM+F+I: EOG090C05RQ_NT.fasta,
+    TPM3+F+R3: EOG090C05S7_NT.fasta,
+    TIM3e+R4: EOG090C05TO_NT.fasta,
+    TN+F+R2: EOG090C05U5_NT.fasta,
+    TIM+F+R3: EOG090C05UN_NT.fasta,
+    K2P+R3: EOG090C05VA_NT.fasta,
+    K3P+R3: EOG090C05VD_NT.fasta,
+    TIM3e+R3: EOG090C05X3_NT.fasta,
+    TVMe+R4: EOG090C05X7_NT.fasta,
+    K2P+R2: EOG090C05XW_NT.fasta,
+    HKY+F+R3: EOG090C05Y0_NT.fasta,
+    TIM3e+R2: EOG090C05Y6_NT.fasta,
+    TIM2+F+R2: EOG090C05YQ_NT.fasta,
+    SYM+R3: EOG090C05Z8_NT.fasta,
+    K2P+R2: EOG090C05ZG_NT.fasta,
+    TVM+F+R4: EOG090C0601_NT.fasta,
+    TN+F+R2: EOG090C061K_NT.fasta,
+    K2P+R3: EOG090C061N_NT.fasta,
+    TPM3+F+R3: EOG090C0620_NT.fasta,
+    K2P+R3: EOG090C0621_NT.fasta,
+    TPM3+F+R4: EOG090C062I_NT.fasta,
+    TIM+F+R3: EOG090C062M_NT.fasta,
+    K2P+R3: EOG090C063D_NT.fasta,
+    K2P+R3: EOG090C0651_NT.fasta,
+    K2P+R4: EOG090C065J_NT.fasta,
+    TIM2+F+R4: EOG090C066J_NT.fasta,
+    K2P+R3: EOG090C067F_NT.fasta,
+    TN+F+R2: EOG090C067N_NT.fasta,
+    K3Pu+F+R3: EOG090C0695_NT.fasta,
+    K2P+R3: EOG090C069K_NT.fasta,
+    TIMe+R3: EOG090C06AW_NT.fasta,
+    TIMe+R3: EOG090C06BB_NT.fasta,
+    K2P+R2: EOG090C06CK_NT.fasta,
+    GTR+F+R4: EOG090C06CQ_NT.fasta,
+    TPM2+F+R3: EOG090C06CR_NT.fasta,
+    K3P+R3: EOG090C06CX_NT.fasta,
+    K2P+R3: EOG090C06D0_NT.fasta,
+    TNe+I: EOG090C06DR_NT.fasta,
+    TN+F+R2: EOG090C06E3_NT.fasta,
+    K2P+R3: EOG090C06E8_NT.fasta,
+    GTR+F+R3: EOG090C06ED_NT.fasta,
+    TPM3+F+R2: EOG090C06EI_NT.fasta,
+    TPM3+F+R2: EOG090C06FO_NT.fasta,
+    TIM2e+R4: EOG090C06FP_NT.fasta,
+    K2P+R2: EOG090C06FQ_NT.fasta,
+    TIM3e+R3: EOG090C06GH_NT.fasta,
+    TIMe+R3: EOG090C06GP_NT.fasta,
+    TIM+F+R3: EOG090C06HE_NT.fasta,
+    TIM2+F+R3: EOG090C06I2_NT.fasta,
+    TNe+R3: EOG090C06IB_NT.fasta,
+    TPM2+F+R3: EOG090C06IP_NT.fasta,
+    TN+F+R2: EOG090C06IV_NT.fasta,
+    TPM2+F+R4: EOG090C06J4_NT.fasta,
+    TN+F+R3: EOG090C06JO_NT.fasta,
+    TIMe+R2: EOG090C06JS_NT.fasta,
+    TVM+F+R2: EOG090C06JZ_NT.fasta,
+    K3Pu+F+R3: EOG090C06K8_NT.fasta,
+    TN+F+R2: EOG090C06LC_NT.fasta,
+    TNe+R3: EOG090C06M4_NT.fasta,
+    TNe+R3: EOG090C06MB_NT.fasta,
+    K2P+R3: EOG090C06ME_NT.fasta,
+    TIM+F+R3: EOG090C06OU_NT.fasta,
+    TIM2e+R2: EOG090C06PD_NT.fasta,
+    TN+F+R3: EOG090C06PQ_NT.fasta,
+    K2P+R2: EOG090C06Q1_NT.fasta,
+    TIM3e+R4: EOG090C06Q7_NT.fasta,
+    TPM2+F+R3: EOG090C06Q8_NT.fasta,
+    TIM2e+R3: EOG090C06QV_NT.fasta,
+    K2P+R3: EOG090C06RL_NT.fasta,
+    TPM3+F+R3: EOG090C06S5_NT.fasta,
+    K2P+R3: EOG090C06SJ_NT.fasta,
+    TPM2+F+R2: EOG090C06T5_NT.fasta,
+    K2P+R3: EOG090C06TR_NT.fasta,
+    TIM3+F+R3: EOG090C06UH_NT.fasta,
+    K3Pu+F+R2: EOG090C06UQ_NT.fasta,
+    TPM3+F+R3: EOG090C06UT_NT.fasta,
+    K2P+R3: EOG090C06W8_NT.fasta,
+    TIM2e+R3: EOG090C06XD_NT.fasta,
+    K2P+R2: EOG090C06XU_NT.fasta,
+    HKY+F+R4: EOG090C06XX_NT.fasta,
+    K2P+R4: EOG090C06ZM_NT.fasta,
+    K2P+R2: EOG090C06ZU_NT.fasta,
+    HKY+F+I: EOG090C0706_NT.fasta,
+    TIM2e+R3: EOG090C071F_NT.fasta,
+    TNe+R3: EOG090C071P_NT.fasta,
+    K3P+R2: EOG090C071U_NT.fasta,
+    K2P+R3: EOG090C0724_NT.fasta,
+    K2P+R2: EOG090C0729_NT.fasta,
+    TN+F+R2: EOG090C072G_NT.fasta,
+    TIM+F+R3: EOG090C072N_NT.fasta,
+    K2P+R2: EOG090C0737_NT.fasta,
+    K2P+R3: EOG090C074A_NT.fasta,
+    K3P+R5: EOG090C0750_NT.fasta,
+    TIM2e+R3: EOG090C0755_NT.fasta,
+    HKY+F+R2: EOG090C0764_NT.fasta,
+    SYM+R3: EOG090C076H_NT.fasta,
+    K2P+R3: EOG090C076X_NT.fasta,
+    K2P+R2: EOG090C077E_NT.fasta,
+    TIM3e+R5: EOG090C077H_NT.fasta,
+    TIM2+F+R3: EOG090C077L_NT.fasta,
+    TNe+R3: EOG090C077V_NT.fasta,
+    K2P+R2: EOG090C078H_NT.fasta,
+    TN+F+R3: EOG090C078M_NT.fasta,
+    K2P+R3: EOG090C078U_NT.fasta,
+    TVMe+R2: EOG090C0792_NT.fasta,
+    TIM2e+R4: EOG090C079E_NT.fasta,
+    TN+F+R3: EOG090C079V_NT.fasta,
+    K3P+R4: EOG090C079Z_NT.fasta,
+    K3Pu+F+R3: EOG090C07AC_NT.fasta,
+    TIM+F+R3: EOG090C07AG_NT.fasta,
+    K2P+R3: EOG090C07AW_NT.fasta,
+    TIM+F+R3: EOG090C07AZ_NT.fasta,
+    TIM3e+R3: EOG090C07D4_NT.fasta,
+    TPM3+F+R2: EOG090C07DM_NT.fasta,
+    HKY+F+R3: EOG090C07EH_NT.fasta,
+    TN+F+R2: EOG090C07EI_NT.fasta,
+    TN+F+R2: EOG090C07FG_NT.fasta,
+    K3Pu+F+R3: EOG090C07FM_NT.fasta,
+    TVMe+R3: EOG090C07FU_NT.fasta,
+    K2P+R3: EOG090C07FV_NT.fasta,
+    TPM3+F+R3: EOG090C07FY_NT.fasta,
+    TIM2e+R3: EOG090C07GV_NT.fasta,
+    K2P+R3: EOG090C07HG_NT.fasta,
+    K3Pu+F+R3: EOG090C07IL_NT.fasta,
+    HKY+F+R3: EOG090C07J7_NT.fasta,
+    HKY+F+G4: EOG090C07JM_NT.fasta,
+    K3Pu+F+R3: EOG090C07KY_NT.fasta,
+    TPM3+F+R3: EOG090C07N2_NT.fasta,
+    TVM+F+R3: EOG090C07OT_NT.fasta,
+    K2P+R2: EOG090C07OV_NT.fasta,
+    TN+F+R2: EOG090C07OX_NT.fasta,
+    GTR+F+R4: EOG090C07QB_NT.fasta,
+    TIM2+F+R3: EOG090C07QS_NT.fasta,
+    K3Pu+F+R3: EOG090C07R2_NT.fasta,
+    TPM3+F+R3: EOG090C07R9_NT.fasta,
+    TPM2+F+R4: EOG090C07RZ_NT.fasta,
+    K2P+R3: EOG090C07SG_NT.fasta,
+    TVMe+R2: EOG090C07SU_NT.fasta,
+    HKY+F+R3: EOG090C07T9_NT.fasta,
+    K2P+R2: EOG090C07U0_NT.fasta,
+    K2P+R2: EOG090C07UF_NT.fasta,
+    K2P+R3: EOG090C07UM_NT.fasta,
+    TVM+F+R3: EOG090C07VC_NT.fasta,
+    HKY+F+R3: EOG090C07WX_NT.fasta,
+    K3P+R4: EOG090C07XT_NT.fasta,
+    K2P+R3: EOG090C07YR_NT.fasta,
+    HKY+F+R2: EOG090C07Z5_NT.fasta,
+    TIM3+F+R3: EOG090C0814_NT.fasta,
+    TIM3e+R3: EOG090C081U_NT.fasta,
+    TIM3+F+R3: EOG090C081V_NT.fasta,
+    TNe+R2: EOG090C082D_NT.fasta,
+    TVM+F+R4: EOG090C082R_NT.fasta,
+    K3P+R3: EOG090C084B_NT.fasta,
+    K2P+R4: EOG090C085C_NT.fasta,
+    K3Pu+F+R3: EOG090C085V_NT.fasta,
+    K3P+R2: EOG090C0865_NT.fasta,
+    TIM+F+R3: EOG090C086L_NT.fasta,
+    HKY+F+R3: EOG090C0877_NT.fasta,
+    K2P+R2: EOG090C087L_NT.fasta,
+    GTR+F+R4: EOG090C088U_NT.fasta,
+    K2P+R2: EOG090C0898_NT.fasta,
+    TIM2+F+R3: EOG090C089F_NT.fasta,
+    TN+F+R3: EOG090C089X_NT.fasta,
+    TIM3+F+R3: EOG090C08AJ_NT.fasta,
+    TVMe+R3: EOG090C08AT_NT.fasta,
+    TIM3+F+R3: EOG090C08B5_NT.fasta,
+    K2P+R3: EOG090C08BI_NT.fasta,
+    K2P+R4: EOG090C08BX_NT.fasta,
+    TPM2+F+R3: EOG090C08CA_NT.fasta,
+    K2P+R2: EOG090C08D0_NT.fasta,
+    GTR+F+R4: EOG090C08E3_NT.fasta,
+    TPM2+F+R2: EOG090C08EW_NT.fasta,
+    K2P+R3: EOG090C08FD_NT.fasta,
+    TIM3+F+R3: EOG090C08GU_NT.fasta,
+    TIM3e+R3: EOG090C08GX_NT.fasta,
+    K2P+R3: EOG090C08GY_NT.fasta,
+    TIM3e+R3: EOG090C08HR_NT.fasta,
+    K2P+R2: EOG090C08IP_NT.fasta,
+    GTR+F+R3: EOG090C08IU_NT.fasta,
+    TIM3e+R3: EOG090C08KK_NT.fasta,
+    K3P+R3: EOG090C08L2_NT.fasta,
+    TNe+R3: EOG090C08L3_NT.fasta,
+    TN+F+R2: EOG090C08LT_NT.fasta,
+    HKY+F+R2: EOG090C08M6_NT.fasta,
+    TVM+F+R4: EOG090C08MD_NT.fasta,
+    K2P+R2: EOG090C08MO_NT.fasta,
+    K3P+R4: EOG090C08N0_NT.fasta,
+    K2P+R4: EOG090C08OH_NT.fasta,
+    TNe+R2: EOG090C08OR_NT.fasta,
+    TIM2+F+R4: EOG090C08OU_NT.fasta,
+    K2P+R4: EOG090C08PT_NT.fasta,
+    K2P+R2: EOG090C08QB_NT.fasta,
+    TIM+F+I+G4: EOG090C08QI_NT.fasta,
+    K2P+R3: EOG090C08QN_NT.fasta,
+    TVMe+R2: EOG090C08QX_NT.fasta,
+    TIM2e+R3: EOG090C08RM_NT.fasta,
+    JC+R4: EOG090C08RS_NT.fasta,
+    HKY+F+R2: EOG090C08S9_NT.fasta,
+    HKY+F+R2: EOG090C08U5_NT.fasta,
+    K3P+R2: EOG090C08U7_NT.fasta,
+    K2P+R2: EOG090C08V4_NT.fasta,
+    K2P+I: EOG090C08VJ_NT.fasta,
+    TN+F+G4: EOG090C08VL_NT.fasta,
+    K2P+R2: EOG090C08VR_NT.fasta,
+    TN+F+R2: EOG090C08W9_NT.fasta,
+    K2P+R3: EOG090C08X2_NT.fasta,
+    K2P+R3: EOG090C08XW_NT.fasta,
+    TN+F+R3: EOG090C08Y7_NT.fasta,
+    K3P+R3: EOG090C08YU_NT.fasta,
+    TVMe+R3: EOG090C08YW_NT.fasta,
+    K3P+R3: EOG090C08ZG_NT.fasta,
+    K3P+R2: EOG090C090F_NT.fasta,
+    HKY+F+R3: EOG090C0910_NT.fasta,
+    K2P+R3: EOG090C091M_NT.fasta,
+    TIM3e+R3: EOG090C091S_NT.fasta,
+    TPM3+F+R4: EOG090C0942_NT.fasta,
+    TIM2e+R3: EOG090C094B_NT.fasta,
+    K2P+R3: EOG090C094O_NT.fasta,
+    TIM2+F+R2: EOG090C095P_NT.fasta,
+    K2P+R2: EOG090C0968_NT.fasta,
+    TIM2e+R3: EOG090C0969_NT.fasta,
+    K2P+R3: EOG090C0979_NT.fasta,
+    TIM2e+R2: EOG090C097N_NT.fasta,
+    K2P+R3: EOG090C098S_NT.fasta,
+    TN+F+R3: EOG090C09AF_NT.fasta,
+    TIM3+F+R2: EOG090C09AT_NT.fasta,
+    TN+F+R3: EOG090C09CL_NT.fasta,
+    TIM2+F+R3: EOG090C09DA_NT.fasta,
+    K2P+R4: EOG090C09DM_NT.fasta,
+    TPM3+F+R3: EOG090C09E0_NT.fasta,
+    TNe+R3: EOG090C09EJ_NT.fasta,
+    SYM+R4: EOG090C09G1_NT.fasta,
+    TNe+R4: EOG090C09G2_NT.fasta,
+    K3Pu+F+R4: EOG090C09HS_NT.fasta,
+    TIM3e+R3: EOG090C09II_NT.fasta,
+    TIM2e+R2: EOG090C09IS_NT.fasta,
+    K2P+R3: EOG090C09JP_NT.fasta,
+    TPM2+F+R3: EOG090C09K5_NT.fasta,
+    TNe+R4: EOG090C09L0_NT.fasta,
+    TIM3e+R3: EOG090C09LP_NT.fasta,
+    HKY+F+R2: EOG090C09O8_NT.fasta,
+    TNe+G4: EOG090C09O9_NT.fasta,
+    TIM2e+R3: EOG090C09PS_NT.fasta,
+    K2P+R2: EOG090C09QS_NT.fasta,
+    HKY+F+R2: EOG090C09QZ_NT.fasta,
+    TVM+F+R3: EOG090C09RL_NT.fasta,
+    TN+F+R3: EOG090C09S9_NT.fasta,
+    K2P+R3: EOG090C09T7_NT.fasta,
+    TNe+R3: EOG090C09TH_NT.fasta,
+    K2P+R3: EOG090C09TY_NT.fasta,
+    TIM+F+R3: EOG090C09UD_NT.fasta,
+    TVM+F+R3: EOG090C09VT_NT.fasta,
+    K2P+R3: EOG090C09VW_NT.fasta,
+    TVMe+R2: EOG090C09WD_NT.fasta,
+    HKY+F+R2: EOG090C09XK_NT.fasta,
+    TPM3+F+R2: EOG090C09XN_NT.fasta,
+    TPM3+F+R3: EOG090C09Y7_NT.fasta,
+    SYM+R4: EOG090C09YB_NT.fasta,
+    TIM2+F+R3: EOG090C09YT_NT.fasta,
+    GTR+F+R3: EOG090C09YU_NT.fasta,
+    K2P+I: EOG090C09ZT_NT.fasta,
+    HKY+F+R2: EOG090C0A03_NT.fasta,
+    K2P+R3: EOG090C0A1N_NT.fasta,
+    K2P+R3: EOG090C0A1O_NT.fasta,
+    HKY+F+I: EOG090C0A2Z_NT.fasta,
+    TIMe+R2: EOG090C0A32_NT.fasta,
+    HKY+F+R3: EOG090C0A3E_NT.fasta,
+    HKY+F+R3: EOG090C0A4J_NT.fasta,
+    TIM3+F+R3: EOG090C0A4K_NT.fasta,
+    TIM+F+R2: EOG090C0A4P_NT.fasta,
+    TIM3+F+R4: EOG090C0A4Y_NT.fasta,
+    TIM3+F+R3: EOG090C0A5A_NT.fasta,
+    K2P+R3: EOG090C0A5O_NT.fasta,
+    K2P+R3: EOG090C0A5R_NT.fasta,
+    K2P+R3: EOG090C0A60_NT.fasta,
+    K3P+R3: EOG090C0A64_NT.fasta,
+    K3Pu+F+R2: EOG090C0A9U_NT.fasta,
+    TIM3+F+R3: EOG090C0AAQ_NT.fasta,
+    GTR+F+R6: EOG090C0AFD_NT.fasta,
+    K2P+R2: EOG090C0AFJ_NT.fasta,
+    K2P+R2: EOG090C0AHG_NT.fasta,
+    K2P+R4: EOG090C0AJF_NT.fasta,
+    TPM2+F+R3: EOG090C0AL1_NT.fasta,
+    TN+F+R3: EOG090C0ALG_NT.fasta,
+    TPM2+F+R4: EOG090C0ALS_NT.fasta,
+    GTR+F+R3: EOG090C0ALV_NT.fasta,
+    TVM+F+R3: EOG090C0ANT_NT.fasta,
+    TNe+R3: EOG090C0AO4_NT.fasta,
+    TIMe+R4: EOG090C0AQ9_NT.fasta,
+    GTR+F+R3: EOG090C0AQX_NT.fasta,
+    K2P+R3: EOG090C0ASA_NT.fasta,
+    K3Pu+F+R3: EOG090C0ATT_NT.fasta,
+    HKY+F+R3: EOG090C0ATW_NT.fasta,
+    TPM3+F+R4: EOG090C0AU9_NT.fasta,
+    K3Pu+F+R3: EOG090C0AWD_NT.fasta,
+    K2P+R3: EOG090C0AXB_NT.fasta,
+    TVM+F+R3: EOG090C0B1U_NT.fasta,
+    TIM3+F+R2: EOG090C0B20_NT.fasta,
+    TIMe+R2: EOG090C0B4A_NT.fasta,
+    K2P+R3: EOG090C0B8Z_NT.fasta,
+    K3Pu+F+R3: EOG090C0B9J_NT.fasta,
+    GTR+F+I+G4: EOG090C0BBZ_NT.fasta,
+    TN+F+R2: EOG090C0BC8_NT.fasta,
+    TIM3+F+R3: EOG090C0BC9_NT.fasta,
+    TIM2+F+R4: EOG090C0BCB_NT.fasta,
+    TVMe+R5: EOG090C0BDA_NT.fasta,
+    TPM3+F+R3: EOG090C0BDZ_NT.fasta,
+    TIM2e+R4: EOG090C0BEF_NT.fasta,
+    K2P+R2: EOG090C0BIV_NT.fasta,
+    GTR+F+R3: EOG090C0BJ8_NT.fasta,
+    TN+F+R3: EOG090C0BJH_NT.fasta,
+    K3P+R4: EOG090C0BMD_NT.fasta,
+    TN+F+R3: EOG090C0BO8_NT.fasta,
+    K2P+R3: EOG090C0BPO_NT.fasta,
+    K2P+R3: EOG090C0BT5_NT.fasta,
+    TIM+F+R4: EOG090C0C6F_NT.fasta,
+    TN+F+R3: EOG090C0C9R_NT.fasta,
+    TN+F+R3: EOG090C0CB3_NT.fasta,
+    K2P+R3: EOG090C0CD3_NT.fasta,
+    SYM+R3: EOG090C0CEI_NT.fasta,
+    GTR+F+R4: EOG090C0CFR_NT.fasta,
+    TVM+F+R3: EOG090C0CI9_NT.fasta,
+    TN+F+R2: EOG090C0CJ9_NT.fasta,
+    TPM2+F+R3: EOG090C0CL1_NT.fasta,
+    GTR+F+R3: EOG090C0COA_NT.fasta,
+    TIM3+F+R3: EOG090C0CVZ_NT.fasta,
+    TVMe+R3: EOG090C0CWB_NT.fasta,
+    K3P+R4: EOG090C0D0D_NT.fasta,
+    K2P+R2: EOG090C0D8Y_NT.fasta,
+    TPM3+F+R2: EOG090C0DAJ_NT.fasta,
+    TPM3u+F+I+G4: EOG090C0DBC_NT.fasta,
+    HKY+F+R3: EOG090C0DCG_NT.fasta,
+    TVMe+R3: EOG090C0DH1_NT.fasta,
+    HKY+F+R3: EOG090C0DKM_NT.fasta,
+    TPM2+F+R2: EOG090C0DO4_NT.fasta,
+    TPM3+F+R4: EOG090C0E36_NT.fasta,
+    TPM3+F+R2: EOG090C0ERB_NT.fasta,
+    TN+F+R4: EOG090C0F46_NT.fasta,
+    TPM3+F+R3: EOG090C0FRI_NT.fasta,
+    TIM3+F+R3: EOG090C0G9X_NT.fasta;
+end;
