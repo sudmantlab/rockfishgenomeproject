@@ -748,6 +748,7 @@ pdf(paste(paste(outdir,"/rockfish_vital_Tfels_vs_TMAX.pdf",sep="")),width=1.25, 
 print(g)
 dev.off()
 
+write.table(combined_params %>% dplyr::select(tmax,fels_T,Species),paste(outdir,"/generation_time_fits.tsv",sep=""),sep="\t")
 
 ```
 
