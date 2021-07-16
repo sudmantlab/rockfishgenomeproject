@@ -1,0 +1,753 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(gtools)
+library(dplyr)
+library(ggplot2)
+library(tidyverse)
+library(PNWColors)
+library(ggrepel)
+
+outdir="/Users/petersudmant/Documents/science/sudmantlab/projects/sebastes_genome/analysis/lifespan/lifespan_modeling_final/output"
+
+#M calculated from Then et al 2015
+t_lifespan = read.table("/Users/petersudmant/Documents/science/sudmantlab/projects/sebastes_genome/analysis/lifespan/sebastes_longevity/sebastes_lifespan.txt",header=T,sep="\t") %>%
+  mutate(tmax=MaxLifespan) %>% mutate(M=4.899*tmax^(-0.916)) %>%
+  filter(!is.na(tmax)) %>%
+  dplyr::select(Species,CommonName,tmax,M) %>%
+  filter(grepl("Sebastes",Species))
+
+```
+
+```{r}
+### FIT GOMPERTZ CURVES
+library(nleqslv)
+
+gmp_slv = function(z, tmax, m, N, step=1e-4){
+  x = z^2 #FORCE POSITIVE PARAMETERS
+  y=numeric(2)
+  G = x[1]
+  A0 = x[2]
+  ts = seq(0,2*tmax,step)
+  y[1]=(log(1+((G/A0)*log(N)))/G)-tmax
+  y[2] = (1/(sum(exp((A0/G)*(1-exp(G*ts)))*step)))-m
+  y
+}
+
+Ns = c(1e4,2e4,1e5,1e6)
+fit_list = list()
+i=1
+fish_count = 0
+
+for (fish_species in t_lifespan$Species){
+  fish_count = fish_count + 1
+  print(paste(fish_species," ",fish_count,"/",length(t_lifespan$Species)),sep="")
+  curr_fish = t_lifespan %>% filter(Species==fish_species)
+  
+  m= curr_fish$M
+  x_start = c(0.001,m)
+  for (N in Ns){
+    slv = nleqslv(x_start, gmp_slv, jac=NULL, curr_fish$tmax, curr_fish$M, N, method="Broyden",global="cline")
+    G = slv$x[1]^2
+    A0 = slv$x[2]^2
+    df = data.frame(G=G,
+                    A0=A0,
+                    M=m,
+                    tmax=curr_fish$tmax,
+                    N=N,
+                    Species=fish_species,
+                    term = slv$termcd,
+                    MRDT = log(2)/G)
+    fit_list[[i]] = df
+    i=i+1
+  }  
+}
+
+df_fits = do.call(rbind,fit_list) %>% dplyr::select(-term)
+write.table(df_fits,paste(outdir,"/gompertz_fits.csv",sep=""),sep="\t")
+
+```
+
+```{r}
+#can load starting here instead of fitting params
+df_fits = read.table(paste(outdir,"/gompertz_fits.csv",sep=""),sep="\t")
+```
+
+```{r}
+##########
+library(PNWColors)
+g=ggplot(df_fits)
+g=g+geom_point(aes(x=G,y=A0,color=factor(N)),size=1,shape=21)+
+  geom_line(aes(x=G,y=A0,color=factor(N)))+
+  theme_bw(base_size=5)+
+  scale_color_manual("",values=pnw_palette("Bay",7))+
+  theme(legend.position=c(0.8,0.35),
+        legend.key.size=unit(0.10,"cm"),
+        legend.background=element_blank())
+
+pdf(paste(paste(outdir,"/rockfish_gomp_params.pdf",sep="")),width=1, height=1, useDingbats = FALSE)
+print(g)
+dev.off()
+
+
+```
+
+
+```{r}
+
+
+#PLot survival and hazard
+gomp_hazard = function(A0,G,tmax,Species,step=1){
+  ts = seq(0,tmax,1)
+  df_gomp = data.frame(age=ts, m = A0*exp(G*ts),A0=A0,G=G,Species=Species)
+  return(df_gomp)
+}
+
+gomp_survival = function(A0,G,tmax,Species,step=1){
+  ts = seq(0,tmax,1)
+  df_surv = data.frame(age=ts, surviving = exp((A0/G)*(1-exp(G*ts))),A0=A0,Species=Species)
+  return(df_surv)
+}
+
+simple_survival = function(M,tmax,Species,step=1){
+  ts = seq(0,tmax,1)
+  df_surv = data.frame(age=ts, surviving = (1-M)^ts,M=M,Species=Species)
+  return(df_surv)
+}
+
+
+Gsurv = list()
+Ghazard = list()
+simple_surv = list()
+i=1
+fit_subset = df_fits %>% filter(N==1e6)
+for (S in fit_subset$Species){
+  curr_fish = fit_subset %>% filter(Species==S)
+  Ghazard[[i]] = gomp_hazard(curr_fish$A0, curr_fish$G, curr_fish$tmax, S)
+  Gsurv[[i]] = gomp_survival(curr_fish$A0, curr_fish$G, curr_fish$tmax, S)
+  simple_surv[[i]] = simple_survival(curr_fish$M, curr_fish$tmax, S)
+  i=i+1
+}
+
+df_Gsurv = do.call(rbind,Gsurv)
+df_Ghazard = do.call(rbind,Ghazard)
+df_simple_surv = do.call(rbind,simple_surv)
+
+
+g=ggplot(df_Ghazard)
+g=g+geom_line(aes(x=age,
+                y=m,
+                color=Species),
+              size=.1)+
+  theme_bw(base_size=5)+
+  theme(legend.position = "None")+
+  scale_color_viridis_d()+
+  scale_y_continuous("p(mortality)", lim=c(0,2))+
+  ggtitle("Mortality hazard")
+
+pdf(paste(paste(outdir,"/rockfish_hazard.pdf",sep="")),width=1, height=1)
+print(g)
+dev.off()
+
+
+g=ggplot(df_Gsurv)
+g=g+geom_line(aes(x=age,
+                y=surviving,
+                color=Species),
+              size=.1)+
+  theme_bw(base_size=5)+
+  theme(legend.position = "None")+
+  scale_color_viridis_d()+
+  scale_y_continuous("p(survival)", lim=c(0,1))+
+  ggtitle("Survival")
+  
+
+pdf(paste(paste(outdir,"/rockfish_survival.pdf",sep="")),width=1, height=1)
+print(g)
+dev.off()
+
+g=ggplot(df_simple_surv)
+g=g+geom_line(aes(x=age,
+                  y=surviving,
+                   color=Species),
+              size=.1)+
+  theme_bw(base_size=5)+
+  theme(legend.position = "None")+
+  scale_color_viridis_d()+
+  scale_y_continuous("p(survical)", lim=c(0,1))
+
+pdf(paste(paste(outdir,"/rockfish_survival_simple.pdf",sep="")),width=1, height=1)
+print(g)
+dev.off()
+
+g=ggplot(df_simple_surv)
+g=g+geom_line(aes(x=age,
+                  y=surviving,
+                   color=Species),
+              size=.1)+
+  theme_bw(base_size=5)+
+  theme(legend.position = "None")+
+  scale_color_viridis_d()+
+  scale_y_continuous("p(survival)", lim=c(0,1))+
+  scale_x_log10()+
+  annotation_logticks(sides="b",size=0.1)
+
+pdf(paste(paste(outdir,"/rockfish_survival_simple_log10.pdf",sep="")),width=1, height=1)
+print(g)
+dev.off()
+
+g=ggplot(df_Gsurv)
+g=g+geom_line(aes(x=age,
+                y=surviving,
+                color=Species),
+              size=.1)+
+  theme_bw(base_size=5)+
+  theme(legend.position = "None")+
+  scale_color_viridis_d()+
+  scale_y_continuous("p(survival)", lim=c(0,1))+
+  scale_x_log10()+
+  annotation_logticks(sides="b",size=0.1)+
+  ggtitle("Survival (log10)")
+  #ggtitle(expression("Survival "*(log[10])))
+
+pdf(paste(paste(outdir,"/rockfish_survival_logx.pdf",sep="")),width=1, height=1)
+print(g)
+dev.off()
+
+```
+
+```{r}
+#load fecundity information
+max_long = df_fits %>% dplyr::select(Species,tmax) %>% unique()
+t_growth_fec = read.table("/Users/petersudmant/Documents/science/sudmantlab/projects/sebastes_genome/analysis/lifespan/sebastes_longevity/growth_fecundity_parameters.tsv", header=T, sep="\t") %>% 
+  inner_join(max_long,by="Species") %>%
+  filter(!is.na(L50_pLinf))
+
+```
+
+```{r}
+library(scales)
+
+simple_VBF=function(L_inf,k,t0,t,S){
+  ret = data.frame(length=L_inf*(1-exp(-k*(t-t0))),
+                   age=t,
+                   species=S)
+}
+
+fecundity_by_age=function(L_inf,k,t0,a,b,L50_pLinf,tmax,S){
+  t = seq(0,tmax)
+  L=L_inf*(1-exp(-k*(t-t0)))
+  Lmat50 = L50_pLinf*L_inf
+  p_mat = plnorm(L-Lmat50,0,1)
+  F=exp(log(a)+b*log(L*10))*p_mat
+  ret = data.frame(length=L,
+                   age=t,
+                   fecundity=F,
+                   species=S)
+}
+
+fecundity_by_length=function(L_inf,k,t0,a,b,Lmax,S){
+  L = seq(0,Lmax)
+  F=exp(log(a)+b*log(L*10))
+  ret = data.frame(length=L,
+                   fecundity=F,
+                   species=S)
+}
+
+fec_by_age_list = list()
+fec_by_len_list = list()
+i=1
+for (S in t_growth_fec$Species){
+  curr_fish = t_growth_fec %>% filter(Species==S)
+  fec_by_age_list[[i]] = fecundity_by_age(curr_fish$Linf,
+                                    curr_fish$k,
+                                    curr_fish$t_0,
+                                    curr_fish$Fecundity.Intercept.exp.a.,
+                                    curr_fish$Fecundity.Slope.b,
+                                    curr_fish$L50_pLinf,
+                                    curr_fish$tmax,
+                                    S)
+
+    i=i+1
+}
+
+df_fec_by_age = do.call(rbind,fec_by_age_list)
+df_fec_by_len = do.call(rbind,fec_by_len_list)
+
+fec_labels = df_fec_by_age %>% 
+              filter(!is.na(fecundity)) %>% 
+              group_by(species) %>% 
+              summarise(max_fec=max(fecundity),
+                        max_age=max(age)) %>%
+              arrange(max_fec) %>%
+              mutate(delta=(max(max_fec))/(n()-1)) %>%
+              mutate(x_start=max_age,
+                     x_end=230,
+                     y_start=max_fec,
+                     y_end=(row_number()-1)*delta)
+
+g=ggplot(df_fec_by_age)
+g=g+geom_line(aes(x=age,y=fecundity,color=species),size=.2)+
+  geom_text(aes(x=x_end+2,y=y_end,label=species),data=fec_labels,size=.6,hjust=0)+
+  geom_segment(aes(x=210,xend=x_end,y=y_start,yend=y_end,color=species),data=fec_labels,size=.1)+
+  geom_segment(aes(x=max_age,xend=210,y=y_start,yend=y_start),data=fec_labels,size=.1,alpha=.2,linetype=2)+
+  theme_bw(base_size=5)+
+  scale_color_manual("",values=pnw_palette("Bay",36,type="continuous"))+
+  theme(legend.position="None")+
+  scale_y_continuous(labels = scientific)
+
+pdf(paste(paste(outdir,"/rockfish_fecundity.pdf",sep="")),width=2, height=1)
+print(g+scale_x_continuous(lim=c(0,280)))
+dev.off()
+
+pdf(paste(paste(outdir,"/rockfish_fecundity_logx.pdf",sep="")),width=2, height=1)
+print(g+scale_x_log10(lim=c(1,1e3),breaks=c(1,10,50,100,200)))
+dev.off()
+
+g=ggplot(df_fec_by_age)
+g=g+geom_line(aes(x=age,y=fecundity,color=species),size=.2)+
+  theme_bw(base_size=5)+
+  scale_color_manual("",values=pnw_palette("Bay",36,type="continuous"))+
+  theme(legend.position="None")+
+  scale_y_continuous(labels = scientific)
+
+pdf(paste(paste(outdir,"/rockfish_fecundity.pdf",sep="")),width=1.25, height=1)
+print(g)
+dev.off()
+
+
+pdf(paste(paste(outdir,"/rockfish_fecundity_legend.pdf",sep="")),width=1.25, height=3)
+print(g+theme(legend.position="right")+
+        theme(legend.key.size=unit(.1,"cm"))+
+        guides(color=guide_legend(ncol=1,override.aes = list(size=2))))
+dev.off()
+
+
+```
+
+
+```{r}
+#### SOLVE FOR R
+#install.packages("nleqslv")
+library(nleqslv)
+library(tidyverse)
+
+t_growth_fec_longevity = read.table("/Users/petersudmant/Documents/science/sudmantlab/projects/sebastes_genome/analysis/lifespan/sebastes_longevity/growth_fecundity_parameters.tsv", header=T, sep="\t") %>% 
+  inner_join(df_fits,by="Species") %>%
+  filter(!is.na(L50_pLinf))
+
+```
+
+```{r}
+rpr_slv = function(z, A0, G, M, L_inf, k, t0, a, b, L50_pLinf, tmax, step=1e-2){
+  x = z
+  y=numeric(1)
+  r = x[1]
+  ts = seq(0,2*tmax,step)
+  L=L_inf*(1-exp(-k*(ts-t0)))
+  F=exp(log(a)+b*log(L*10))
+  F[is.na(F)]=0
+  surv = exp((A0/G)*(1-exp(G*ts))) #GOMPERTZIAN
+  Lmat50 = L50_pLinf*L_inf
+  p_mat = plnorm(L-Lmat50,0,1)
+  y[1] = (sum(exp(-r*ts)*F*p_mat*surv))*(step)-1
+  y
+}
+
+```
+
+
+
+```{r}
+library(nleqslv)
+r_fit_list = list()
+i=1
+species = (t_growth_fec_longevity %>% dplyr::select(Species) %>% unique())$Species
+
+curr_N = 1e6
+for (fish_species in species){
+  print(fish_species)
+  
+  curr_fish = t_growth_fec_longevity %>% filter(Species==fish_species) %>% filter(N==curr_N)
+  slv = nleqslv(0, 
+                rpr_slv, 
+                jac=NULL, 
+                curr_fish$A0,
+                curr_fish$G,
+                curr_fish$M,
+                curr_fish$Linf,
+                curr_fish$k,
+                curr_fish$t_0,
+                curr_fish$Fecundity.Intercept.exp.a.,
+                curr_fish$Fecundity.Slope.b,
+                curr_fish$L50_pLinf,
+                curr_fish$tmax,
+                method="Broyden",
+                global="cline")
+      r=slv$x[1]
+      print(slv$termcd) 
+      df = data.frame(A0=curr_fish$A0,
+                      G=curr_fish$G,
+                      L_inf=curr_fish$Linf,
+                      k = curr_fish$k,
+                      t_0 = curr_fish$t_0,
+                      a=curr_fish$Fecundity.Intercept.exp.a.,
+                      b=curr_fish$Fecundity.Slope.b,
+                      L50_pLinf=curr_fish$L50_pLinf,
+                      r=r,
+                      N=curr_N,
+                      M=curr_fish$M,
+                      tmax=curr_fish$tmax,
+                      Species=fish_species,
+                      term = slv$termcd)
+      r_fit_list[[i]] = df
+      i=i+1
+}
+
+r_fits = do.call(rbind,r_fit_list) 
+
+```
+```{r}
+
+#rpr_fnc=function(r, A0, G, M, L_inf, k, t0, a, b, L50_pLinf, tmax, S, step=1e-4, sample_step=1e4){
+rpr_fnc=function(r, A0, G, M, L_inf, k, t0, a, b, L50_pLinf, tmax, S, step=1, sample_step=1){
+
+  ts = seq(0,tmax,step)
+  L=L_inf*(1-exp(-k*(ts-t0)))
+  F=exp(log(a)+b*log(L*10))
+  hazard = A0*exp(G*ts)
+  surv = exp((A0/G)*(1-exp(G*ts)))
+  Lmat50 = L50_pLinf*L_inf
+  p_mat = plnorm(L-Lmat50,0,1)
+  
+  amat50 = ((-1/k)*log(1-Lmat50/L_inf))+t0
+  Lmat50 = L_inf*(1-exp(-k*(amat50-t0)))
+  
+  y = exp(-r*ts)*F*p_mat*surv
+  ysum = sum(y)*step
+  cumy = cumsum(y)*step
+  inv_cumy=(cumy-ysum)
+  v = (exp(r*ts)/surv)*(ysum-cumy)
+  T = sum(y*ts)*step
+  dr_lnPa = (ysum-cumy)/T 
+  dr_ma = exp(-r*ts)*surv/T
+  
+  N1=1e5
+  Nx_sum = sum(N1*surv)
+  #fels norm factor from waples et al to make sum(li*bi)=1
+  fels_norm_factor = sum(F*p_mat*surv)#*step
+  
+  k=cumsum(F*p_mat/fels_norm_factor)*step
+  
+  #p_mat=0
+  fels_T = sum(ts*F*p_mat*surv/fels_norm_factor)*step
+  fels_v = (1/surv)*(1-cumsum(surv*F*p_mat/fels_norm_factor))
+
+  fels_y = F*p_mat*surv/fels_norm_factor
+  fels_ysum = sum(fels_y)*step
+  fels_cumy = cumsum(fels_y)*step
+  
+  fels_dr_lnPa = (fels_ysum-fels_cumy)/fels_T ####
+  
+  v_shift = data.table::shift(v,n=-1,fill=0)
+
+  denom1 = sum(F*p_mat*surv*(1-surv)*step*(v_shift^2)*exp(-r*ts))
+  denom2 = sum(step*surv*((F*p_mat)^2)*(exp(-r*ts)))
+  
+  Bprime = N1*sum(F*p_mat*exp(-r*ts))
+  Ne_fels_EL = (Bprime*T) / (1+denom1-denom2)
+  
+  surv_shift = data.table::shift(surv,n=-1,fill=0)
+  
+  sx=surv_shift/surv
+  dx = 1-sx
+  fels_vx_p1 = data.table::shift(fels_v,n=-1,fill=0)
+
+  alpha=3
+  
+  Vrx = alpha*k
+  Dx = c(abs(diff((surv)*N1)),0)
+  SSDix = Vrx*Dx
+  k_bar = sum(k*Dx)/N1
+  delta_x = k-k_bar
+  SSD_Gx = Dx*(delta_x^2)
+  SSDx = SSDix+SSD_Gx
+  Vk = sum(SSDx)/N1
+  
+  Ne_waples = (4*N1*fels_T)/(Vk+2)
+  Ne_hill = (4*N1*fels_T)/(sum(surv*dx*k*(1+k)*step)-2)
+  Ne_fels = (N1*fels_T)/(1+sum(surv*sx*dx*(fels_vx_p1^2)*step))
+  kparam=0
+  Ne_nunney = N1/(1+kparam-(1/fels_T))
+
+  t_idxs = seq(0,tmax*(1/step),1/step)+1
+  t_idxs = seq(0,tmax*(1/step),sample_step)+1
+  
+  df = data.frame(t=ts[t_idxs],
+                  L=L[t_idxs],
+                  F=F[t_idxs],
+                  s=surv[t_idxs],
+                  p_mat=p_mat[t_idxs],
+                  FxSurv=(F*p_mat*surv/fels_norm_factor)[t_idxs],
+                  #y=y[t_idxs],
+                  v=v[t_idxs],
+                  T=T,
+                  amat50=amat50,
+                  Lmat50=Lmat50,
+                  dr_lnPa=dr_lnPa[t_idxs],
+                  dr_ma =  dr_ma[t_idxs],
+                  Species=S,
+                  Ne_hill=Ne_hill,
+                  Ne_fels=Ne_fels,
+                  Ne_waples = Ne_waples,
+                  Ne_nunney = Ne_nunney,
+                  Ne_fels_EL = Ne_fels_EL,
+                  fels_T = fels_T,
+                  fels_v = fels_v[t_idxs],
+                  N1=N1,
+                  Nx_sum=Nx_sum,
+                  fels_dr_lnPa = fels_dr_lnPa[t_idxs],
+                  max_L = max(L))
+}
+
+species = (r_fits %>% dplyr::select(Species) %>% unique())$Species
+curr_N= unique(r_fits$N)
+fit_fish = r_fits %>% filter(Species==species) %>% filter(N==curr_N)
+
+df_list = list()
+i=1
+for (fish_species in species){
+  print(fish_species)
+  fit_fish = r_fits %>% filter(Species==fish_species) %>% filter(N==curr_N)
+  df = rpr_fnc(fit_fish$r, 
+              fit_fish$A0,
+              fit_fish$G,
+              fit_fish$M,
+              fit_fish$L_inf,
+              fit_fish$k,
+              fit_fish$t_0,
+              fit_fish$a,
+              fit_fish$b,
+              fit_fish$L50_pLinf,
+              fit_fish$tmax,
+              fish_species)
+  df_list[[i]]=df
+  i=i+1
+}
+df = do.call(rbind,df_list) 
+
+tidy_df =df %>% pivot_longer(-c(t,Species),names_to="parameter",values_to="value") 
+
+
+```
+
+```{r}
+
+combined_params=inner_join(r_fits, df %>% dplyr::select(Species,Ne_fels, Ne_hill, Ne_waples, Ne_nunney,T,fels_T,N1,Nx_sum,max_L,Lmat50,amat50,Ne_fels_EL) %>% unique(),by="Species")
+write.table(combined_params,paste(outdir,"/popgen_paramters.tsv",sep=""),sep="\t")
+
+g=ggplot(combined_params %>% dplyr::select(Species,amat50))
+g=g+geom_point(aes(x=amat50,y=reorder(Species,amat50),color=Species),size=.1)+
+  scale_color_manual("",values=pnw_palette("Bay",36,type="continuous"))+
+  theme_bw(base_size=5)+
+  theme(strip.background=element_blank())+
+  theme(legend.position="None")+
+  scale_y_discrete("Species")+
+  scale_x_continuous("age at 50% maturity")+
+  ggtitle("50% maturity")
+
+pdf(paste(paste(outdir,"/age_at_50pct_maturity.pdf",sep="")),width=2, height=2)
+print(g)
+dev.off()
+
+```
+
+```{r}
+g=ggplot(tidy_df %>% filter(parameter %in% c("s", "F" )) %>% mutate(Species=str_replace(Species,"Sebastes","S.")))
+g=g+geom_line(aes(x=t,y=value,color=Species),size=0.25)+
+  facet_wrap(~parameter,scales="free")+
+  scale_color_manual("",values=pnw_palette("Bay",36,type="continuous"))+
+  theme_bw(base_size=5)+
+  theme(strip.background=element_blank())+
+  theme(legend.key.size=unit(.1,"cm"))+
+  theme(legend.text = element_text(face = "italic"))+
+  guides(color = guide_legend(override.aes = list(size=1)))
+
+pdf(paste(paste(outdir,"/rockfish_vital_rates_F_S.pdf",sep="")),width=4, height=1)
+print(g)
+dev.off()
+
+g=ggplot(tidy_df %>% filter(parameter %in% c("F" )))
+g=g+geom_line(aes(x=t,y=value/1000,color=Species),size=0.25)+
+  #facet_wrap(~parameter,scales="free")+
+  scale_color_manual("",values=pnw_palette("Bay",36,type="continuous"))+
+  theme_bw(base_size=5)+
+  theme(strip.background=element_blank())+
+  theme(legend.key.size=unit(.1,"cm"))+
+  theme(legend.position = "None")+
+  ggtitle("Fecundity")+
+  scale_y_continuous("Fecundity (1000s)")+
+  scale_x_continuous("age")
+
+pdf(paste(paste(outdir,"/rockfish_vital_rates_F.pdf",sep="")),width=1.25, height=1)
+print(g)
+dev.off()
+
+include = c("S. melanops",
+            "S. ruberrimus",
+            "S. pinniger",
+            "S. caurinus",
+            "S. aleutianus",
+            "S. flavidus",
+            "S. maliger",
+            "S. rufus",
+            "S. crameri",
+            "S. aurora",
+            "S. melanostomas")
+fec_labels = tidy_df %>% 
+              filter(parameter %in% c("F" )) %>%
+              group_by(Species) %>% 
+              summarise(max_fec=max(value/1000),
+                        max_age=max(t)+1) %>%
+              mutate(Species=str_replace(Species,"Sebastes","S.")) %>%
+              mutate(max_fec = ifelse(Species=="S. aleutianus",850,max_fec),
+                     max_age = ifelse(Species=="S. aleutianus",150,max_age)) %>%
+              #mutate(doplot = max_age>50) %>%
+              mutate(doplot = ifelse(Species %in% include ,TRUE,FALSE))
+            
+
+g=ggplot(tidy_df %>% filter(parameter %in% c("F")) %>% mutate(Species=str_replace(Species,"Sebastes","S.")))
+g=g+geom_line(aes(x=t,y=value/1000,color=Species),size=0.25)+
+  geom_text(aes(x=max_age,y=max_fec,label=Species,color=Species,alpha=doplot),data=fec_labels,size=1,hjust=0,fontface="italic")+
+  #facet_wrap(~parameter,scales="free")+
+  scale_color_manual("",values=pnw_palette("Bay",36,type="continuous"))+
+  theme_bw(base_size=5)+
+  theme(strip.background=element_blank())+
+  theme(legend.key.size=unit(.1,"cm"))+
+  theme(legend.position = "None")+
+  ggtitle("Fecundity")+
+  scale_y_continuous("Fecundity (1000s)")+
+  scale_x_continuous("age")+
+  scale_alpha_manual(values=c(0,1))
+
+pdf(paste(paste(outdir,"/rockfish_vital_rates_F_wlab.pdf",sep="")),width=1.25, height=1)
+print(g)
+dev.off()
+
+
+g=ggplot(tidy_df %>% filter(parameter %in% c("s" )))
+g=g+geom_line(aes(x=t,y=value,color=Species),size=0.25)+
+  #facet_wrap(~parameter,scales="free")+
+  scale_color_manual("",values=pnw_palette("Bay",36,type="continuous"))+
+  theme_bw(base_size=5)+
+  theme(strip.background=element_blank())+
+  theme(legend.key.size=unit(.1,"cm"))+
+  theme(legend.position = "None")+
+  ggtitle("Survival")+
+  scale_y_continuous("p(survival)")+
+  scale_x_continuous("age")
+
+pdf(paste(paste(outdir,"/rockfish_vital_rates_s.pdf",sep="")),width=1.25, height=1)
+print(g)
+dev.off()
+
+```
+```{r}
+surv_curve = function(A0,G,tmax,step=1){
+  ts = seq(0,tmax,1)
+  df_surv = data.frame(age=ts,
+                       t=ts,
+                       s = exp((A0/G)*(1-exp(G*ts))),
+                       A0=A0,
+                       G=G)
+  return(df_surv)
+}
+
+#IMR = A0 G = log(2)/MRDT
+#Macaque
+#G = log(2)/15
+#IMR = 0.02
+
+#HSA
+#G = log(2)/8
+#IMR = 0.0002
+
+HSA_surv = surv_curve(0.0002,log(2)/8,100) 
+MQ_surv = surv_curve(0.02,log(2)/15,100) 
+elephant_surv = surv_curve(0.002,log(2)/8,100) 
+  
+finnish_1990 = read.table("/Users/petersudmant/Documents/science/sudmantlab/projects/sebastes_genome/analysis/lifespan/mortality.org/mltper_1x1.txt",header=T,sep="") %>%
+  mutate(Age=ifelse(Age=="110+",110,as.numeric(as.character(Age)))) %>% 
+  filter(Year==1980) %>%
+  mutate(surv=lx/100000)
+
+g=ggplot(tidy_df %>% filter(parameter %in% c("s" ))  %>% mutate(Species=str_replace(Species,"Sebastes","S.")))
+g=g+geom_line(aes(x=Age,y=surv),data=finnish_1990,color='grey',linetype='dashed',size=0.25)+
+  geom_line(aes(x=t,y=s),data=elephant_surv,color='darkgrey',linetype='dashed',size=0.25)+
+  geom_line(aes(x=t,y=s),data=MQ_surv,color='black',linetype='dotted',size=0.25)+
+  geom_line(aes(x=t,y=value,color=Species),size=0.25)+
+  scale_color_manual("",values=pnw_palette("Bay",36,type="continuous"))+
+  theme_bw(base_size=5)+
+  theme(strip.background=element_blank())+
+  theme(legend.position = c(0.75,0.7))+
+  theme(legend.background = element_blank())+
+  ggtitle("Survival")+
+  scale_y_continuous("p(survival)")+
+  scale_x_continuous("age")+
+  theme(legend.key.size=unit(0,"lines"))+
+  theme(legend.spacing.x=unit(0,"lines"))+
+  theme(legend.text = element_text(face = "italic",size=2))+
+  guides(color = guide_legend(override.aes = list(size=.5)))
+
+pdf(paste(paste(outdir,"/rockfish_vital_rates_s_w_human.pdf",sep="")),width=1.25, height=1)
+print(g)
+dev.off()
+
+
+```
+```{r}
+
+
+g=ggplot(tidy_df %>% filter(parameter=="fels_v"))
+g=g+geom_line(aes(x=t,y=value,color=Species),size=0.25)+
+  #facet_wrap(~parameter,scales="free")+
+  scale_color_manual("",values=pnw_palette("Bay",36,type="continuous"))+
+  theme_bw(base_size=5)+
+  theme(strip.background=element_blank())+
+  theme(legend.key.size=unit(.1,"cm"))+
+  scale_x_continuous("age")+
+  theme(legend.position = "None")+
+  ggtitle("Reproductive Value")+
+  scale_y_continuous("Reproductive Value")
+
+pdf(paste(paste(outdir,"/rockfish_vital_v_fels.pdf",sep="")),width=1.25, height=1)
+print(g)
+dev.off()
+
+```
+
+
+```{r}
+combined_params=inner_join(r_fits, df %>% dplyr::select(Species,T, fels_T) %>% unique(),by="Species")
+
+g=ggplot(combined_params)
+g=g+geom_point(aes(x=tmax, y = fels_T,color=Species),size=.2)+
+  geom_smooth(aes(x=tmax, y = fels_T),method='lm',color='black',size=.2)+
+  scale_color_manual("",values=pnw_palette("Bay",36,type="continuous"))+
+  theme_bw(base_size=5)+
+  #scale_y_continuous("Generation time")+
+  scale_y_continuous("Generation time\n(years)")+
+  scale_x_continuous("Maximum lifespan")+
+  theme(legend.position="None")+
+  ggtitle("Generation time")
+
+pdf(paste(paste(outdir,"/rockfish_vital_Tfels_vs_TMAX.pdf",sep="")),width=1.25, height=1,useDingbats = FALSE)
+print(g)
+dev.off()
+
+
+```
+
