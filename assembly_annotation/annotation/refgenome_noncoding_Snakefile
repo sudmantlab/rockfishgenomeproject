@@ -1,0 +1,54 @@
+#!python
+#!/usr/bin/env python3
+import os
+import sys
+from glob import glob
+from snakemake.utils import read_job_properties
+import pdb
+
+configfile: "config.freeze.json"
+work_dir = "/global/scratch2/Rockfish/Genomes/FREEZE"
+
+def get_inputs(wildcards):
+    inputs = []    
+    pattern = "{work_dir}/{assembler}/{species}/RFAM/infernal.done"
+    for s in config["SAMPLES"]:
+        assembler, species = s.split("/")
+        inputs.append(pattern.format(species=species, assembler=assembler, work_dir=work_dir))
+    return inputs
+
+rule all: 
+    input: 
+          get_inputs
+
+rule noncodingRNA:
+    input:
+        asmb="{work_dir}/{assembler}/{species}/referencegenome.FASTA"
+    output:
+        cmmtbl="{work_dir}/{assembler}/{species}/RFAM/infernal.tbl",
+        cmmout="{work_dir}/{assembler}/{species}/RFAM/infernal.cmscan",
+        cmmlog="{work_dir}/{assembler}/{species}/RFAM/infernal.done",
+    params:
+        slurm_opts=lambda wildcards: "-N 1 " \
+                                    "--time 3-00:00:00 " \
+                                    "-A co_genomicdata " \
+                                    "--qos=savio_lowprio " \
+                                    "-p savio3_bigmem,savio_bigmem,savio2_bigmem " \
+                                    "-o {work_dir}/logs/Infernal_{species}.log " \
+                                    "-J Inf_{species} " \
+                                    .format(species=wildcards.species, work_dir=work_dir)
+    run:
+        masker="""
+        module load repeatmasker trnascan infernal;
+        cmscan --cut_ga --rfam \
+                --nohmmonly \
+                --tblout {cmmtbl} \
+                --fmt 2 --cpu $(eval nproc) \
+                --clanin /global/scratch2/databases/rfam/14.1/Rfam.clanin \
+                /global/scratch2/databases/rfam/14.1/Rfam.cm \
+                {asmb} >{cmmout};
+        echo "" > {cmmlog} ;
+        """.format(asmb=input.asmb, cmmtbl=output.cmmtbl, cmmout=output.cmmout, cmmlog=output.cmmlog, \
+                assembler=wildcards.assembler, species=wildcards.species, work_dir=work_dir)
+        shell(masker)
+

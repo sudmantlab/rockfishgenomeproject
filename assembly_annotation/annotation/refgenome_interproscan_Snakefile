@@ -1,0 +1,58 @@
+#!python
+
+### #!/usr/bin/env python3
+import os
+import sys
+from glob import glob
+from snakemake.utils import read_job_properties
+import pdb
+
+configfile: "/global/scratch2/Rockfish/Genomes/FREEZE/config.freeze.json_noaleutianus"
+work_dir = "/global/scratch2/Rockfish/Genomes/FREEZE"
+
+def get_inputs(wildcards):
+    inputs = []   
+    pattern = "{work_dir}/{assembler}/{species}/INTERPROSCAN_Fun/DONE.ipro"
+    for s in config["SAMPLES"]:
+    #for species, assembler in config["genomes_by_species"].items():
+        assembler,species = s.split("/")
+        inputs.append(pattern.format(assembler=assembler, species=species, work_dir=work_dir))
+    return inputs
+
+rule all: 
+    input: 
+          get_inputs
+
+rule interproscan:
+    input:
+        #peps="{work_dir}/{assembler}/{species}/Funannotate/predict_results/Filt_BRK_{species}.proteins.faa",
+        peps="{work_dir}/{assembler}/{species}/Funannotate/predict_results/Final_filt_BRK_{species}.proteins.faa",
+    output:
+        peps_edit="{work_dir}/{assembler}/{species}/Funannotate/predict_results/Filt_BRK_{species}.proteins.edit.aa",
+        interprotbl="{work_dir}/{assembler}/{species}/INTERPROSCAN_Fun/interproscan.tsv",
+        done_ipro="{work_dir}/{assembler}/{species}/INTERPROSCAN_Fun/DONE.ipro",
+    params:
+        slurm_opts=lambda wildcards: "-N 1 " \
+                                    "--time 72:00:00 " \
+                                    "-A co_genomicdata " \
+                                    "--qos=savio_lowprio " \
+                                    "-p savio3_bigmem,savio2,savio,savio3_bigmem,savio2_bigmem " \
+                                    "-o {work_dir}/logs/iproscan_{species}.log " \
+                                    "-J Ipr_{species} " \
+                                    .format(species=wildcards.species, work_dir=work_dir)
+    run: 
+        shell("""
+        module load interproscan java gcc;        
+        perl -pe '$. > 1 and /^>/ ? print "\n" : chomp' {input_peps} | \
+            sed -e 's/\*$//' -e 's/\*/X/g' \
+            >{output_peps};
+        interproscan.sh -hm -i {output_peps} \
+            -b {work_dir}/{assembler}/{species}/INTERPROSCAN_Fun/interproscan -f tsv \
+            -T {work_dir}/{assembler}/{species}/INTERPROSCAN_Fun \
+            -dp -m standalone --cpu $(eval nproc) \
+            --iprlookup -pa -goterms;      
+        echo "" >{done_ipro} ;
+        """.format(input_peps=input.peps, output_peps=output.peps_edit, done_ipro=output.done_ipro, \
+                assembler=wildcards.assembler, species=wildcards.species, work_dir=work_dir, \
+                interprotbl=output.interprotbl))
+                

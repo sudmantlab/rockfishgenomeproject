@@ -1,0 +1,20 @@
+{
+    "working_dir":{
+        "directory":"/global/scratch2/Rockfish/Genomes/FREEZE"
+    },
+    "busco_libs":{
+        "vert":"/global/scratch2/databases/busco/vertebrata_odb9",
+        "acti":"/global/scratch2/databases/busco/actinopterygii_odb9",
+        "cvg":"/global/scratch2/databases/busco/CVG"
+    },
+    "SAMPLE" : [ "FALCON/Sebastes_umbrosus" ],
+    "SAMPLES":[
+        "FALCON/Sebastes_aleutianus",
+        "FALCON/Sebastes_pinniger",
+        "FALCON/Sebastes_rosaceus",
+        "FALCON/Sebastes_ruberrimus",
+        "FALCON/Sebastes_umbrosus",
+        "WTDBG/Sebastes_entomelas",
+        "WTDBG/Sebastolobus_alascanus"
+    ]
+}

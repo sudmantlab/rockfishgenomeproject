@@ -1,0 +1,67 @@
+#!python
+
+### #!/usr/bin/env python3
+import os
+import sys
+from glob import glob
+from snakemake.utils import read_job_properties
+import pdb
+
+configfile: "/global/scratch2/Rockfish/Genomes/FREEZE/config.freeze.json"
+work_dir = "/global/scratch2/Rockfish/Genomes/FREEZE"
+
+def get_inputs(wildcards):
+    inputs = []   
+    pattern = "{work_dir}/{assembler}/{species}/FUNANNOTATE/Done.txt"
+    for s in config["SAMPLES"]:
+        assembler, species = s.split("/")
+        inputs.append(pattern.format(species=species,  
+                                     assembler=assembler, work_dir=work_dir))
+    return inputs
+
+rule all: 
+    input: 
+          get_inputs
+
+rule funotate:
+    input:
+        asmb_edit="{work_dir}/{assembler}/{species}/REPEAT/referencegenome.fasta.softmask.FASTA",
+        genemark="{work_dir}/{assembler}/{species}/BRAKER/GeneMark-ES/genemark.d.gtf",
+        augustus="{work_dir}/{assembler}/{species}/BRAKER/augustus.ab_initio.gtf",
+        prot_align="{work_dir}/{assembler}/{species}/crossprots_{assembler}_{species}.gff3",
+        tran_align="{work_dir}/{assembler}/{species}/crosstran_{assembler}_{species}.gtf",
+        bam="{work_dir}/{assembler}/{species}/mapRNAseq/merge.bam",
+    output:
+        logger="{work_dir}/{assembler}/{species}/FUNANNOTATE/Done.txt",
+    params:
+        slurm_opts=lambda wildcards: "-N 1 " \
+                                    "--time 3-00:00:00 " \
+                                    "-A co_genomicdata " \
+                                    "--qos=savio_lowprio " \
+                                    "-p savio3_bigmem,savio3_xlmem " \
+                                    "-o {work_dir}/logs/funotate2_{species}.log " \
+                                    "-J BRK_{species} " \
+                                    .format(species=wildcards.species,work_dir=work_dir)
+    run:
+        shell("""
+            cd {work_dir}/{assembler}/{species}/;
+            if [ [ ! -f "Funannotate/predict_misc/snap-predictions.gff3" ] && [ -f "Funannotate/predict_misc/snap-trained.hmm" ] ]; then
+                cd Funannotate/predict_misc/ ;
+                snap ./snap-trained.hmm ./genome.softmasked.fa -quiet >snap-prediction.zff ;
+                zff2gff3.pl snap-prediction.zff >snap-predictions.gff;
+                cd ../../ ;
+            fi
+            funannotate predict -i {asmb_edit} -o {work_dir}/{assembler}/{species}/Funannotate \
+                -s {species} --genemark_gtf {genemark} --rna_bam {bam} \
+                --protein_alignments {prot_align} --transcript_alignments {tran_align} \
+                --weights codingquarry:0 \
+                --cpu 32 --species BRK_{species} --ploidy 2 --busco_seed_species zebrafish \
+                --augustus_species BRK_{species} --busco_db vertebrata_odb10 --organism other ;
+            echo "" >{logger};
+            """.format(asmb_edit=input.asmb_edit, genemark=input.genemark, bam=input.bam,
+                       tran_align=input.tran_align, prot_align=input.prot_align,
+                       logger=output.logger,
+                       species=wildcards.species,
+                       assembler=wildcards.assembler, work_dir=work_dir))
+
+
