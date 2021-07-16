@@ -1,0 +1,87 @@
+#!python
+
+#!/usr/bin/env python3
+import os
+import sys
+from glob import glob
+from snakemake.utils import read_job_properties
+import pdb
+
+configfile:"/global/scratch2/Rockfish/Genomes/FREEZE/config.itemized.withpball.withillumina.json"
+work_dir = "/global/scratch2/Rockfish/Genomes/FREEZE"
+work_dir2 = "/global/scratch2/Rockfish/Genomes/sequencing/illumina"
+
+def get_inputs(wildcards):
+    inputs = []
+    pattern = "{work_dir}/{asm1}/{species1}/Illumina/{species2}/map.{species1}.{species2}__{sample2}.bam.bai"
+    for species1, asm1 in config["genomes_by_species"].items():
+        for smp in config["SAMPLES"]:
+            species2, sample2 = smp.split("/")
+            inputs.append(pattern.format(species2=species2, species1=species1, asm1=asm1,
+                                     sample2=sample2, work_dir=work_dir))
+    return inputs
+
+rule all:
+    input:
+        get_inputs
+
+
+rule ilmn_map:
+    input:
+        reference="{work_dir}/{asm1}/{species1}/referencegenome.FAS",
+        idx="{work_dir}/{asm1}/{species1}/Illumina/indexed.Done",
+        query_R1="/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{species2}/{sample2}/assembly/masurca/illumina_R1.fastq.gz",
+        query_R2="/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{species2}/{sample2}/assembly/masurca/illumina_R2.fastq.gz",
+    output:
+        bam="{work_dir}/{asm1}/{species1}/Illumina/{species2}/map.{species1}.{species2}__{sample2}.bam",
+        bai="{work_dir}/{asm1}/{species1}/Illumina/{species2}/map.{species1}.{species2}__{sample2}.bam.bai"
+    params:
+        slurm_opts=lambda wildcards: "-N1 " \
+                                     "--time 72:00:00 " \
+                                    "-A co_genomicdata " \
+                                     "--qos=savio_lowprio " \
+                                     "-p savio,savio3_bigmem,savio_bigmem,savio2_bigmem " \
+                                     "-o {work_dir}/logs/ilmmap_{sp1}-{sp2}_{sample2}.log " \
+                                     "-J {sp1}-{sp2} " \
+                                     .format(sp1=wildcards.species1, sp2=wildcards.species2,sample2=wildcards.sample2, work_dir=work_dir)
+    run:
+        shell("""
+            module load samtools;
+            cd {work_dir}/{asm1}/{species1}/Illumina/;
+            /global/scratch2/Software/bwa-mem2/bwa-mem2 mem \
+                -t $(eval nproc) {reference} {query_R1} {query_R2} >{bam}.sam ;
+            samtools sort -@ $(eval nproc) -T $PWD/{sample2} \
+                -o {bam} {bam}.sam ;
+            rm -f {bam}.sam ;
+            samtools index {bam} ;        
+            """.format(work_dir=work_dir, bam=output.bam, 
+                       reference=input.reference, query_R1=input.query_R1, query_R2=input.query_R2, #pb2=wildcards.pb2, 
+                       sample2=wildcards.sample2, asm1=wildcards.asm1, 
+                       species1=wildcards.species1, species2=wildcards.species2))
+            
+rule ilmidx:
+    input:
+        reference="{work_dir}/{asm1}/{species1}/referencegenome.FAS",
+    output:
+        idx="{work_dir}/{asm1}/{species1}/Illumina/indexed.Done",
+    params:
+        slurm_opts=lambda wildcards: "-N1 " \
+                                     "--time 3-00:00:00 " \
+                                    "-A co_genomicdata " \
+                                     "--qos=savio_lowprio " \
+                                     "-p savio,savio3_bigmem,savio2_bigmem " \
+                                     "-o {work_dir}/logs/idx_{sp1}.log " \
+                                     "-J {sp1} " \
+                                     .format(sp1=wildcards.species1, work_dir=work_dir)
+    run:
+        shell("""
+            module load samtools ;
+            cd {work_dir}/{asm1}/{species1}/Illumina/ ;
+            /global/scratch2/Software/bwa-mem2/bwa-mem2 index \
+                    {reference} ;
+            echo >{idx} ;    
+            """.format(work_dir=work_dir, 
+                       reference=input.reference, idx=output.idx, 
+                       species1=wildcards.species1, asm1=wildcards.asm1))
+        
+            

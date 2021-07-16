@@ -1,0 +1,49 @@
+#!python
+
+### #!/usr/bin/env python3
+import os
+import sys
+from glob import glob
+from snakemake.utils import read_job_properties
+import pdb
+
+configfile: "config.asmb_ref.json"
+work_dir = "/global/scratch2/Rockfish/Genomes"
+
+def get_inputs(wildcards):
+    inputs = []   
+    pattern = "{work_dir}/merqury/{species}/{assembler}.refgnm.DONE"
+    for s in config["SAMPLES"]:
+        assembler, species = s.split("/")
+        inputs.append(pattern.format(assembler=assembler,
+                                     species=species, work_dir=work_dir))  
+    return inputs
+
+rule all: 
+    input: 
+          get_inputs
+
+rule merqury_refgnm:
+  input: 
+    refgnm="{work_dir}/FREEZE/{assembler}/{species}/referencegenome.fasta",
+    meryldb="{work_dir}/merqury/{species}/illumina_meryldb.meryl/merylIndex",
+  output: 
+    catcher="{work_dir}/merqury/{species}/{assembler}.refgnm.DONE",
+  params:
+        slurm_opts=lambda wildcards: "-n 1 " \
+                                     "--time 45:00:00 " \
+                                     "-A co_genomicdata " \
+                                     "-p savio3_bigmem --qos=savio_lowprio " \
+                                     "-e /global/scratch2/Rockfish/Genomes/merqury/logs/mqry_{species}.log " \
+                                     "-J mrqy_{species} " \
+                                     .format(species=wildcards.species)    
+  run:
+    shell("""
+        module load merqury;
+        cd {work_dir}/merqury/{species}/;
+        merqury.sh {work_dir}/merqury/{species}/illumina_meryldb.meryl {refgnm} refgenome2.meryl;
+        touch {assembler}.refgnm.DONE;
+        """.format(refgnm=input.refgnm, work_dir=work_dir, 
+                   species=wildcards.species, assembler=wildcards.assembler))
+
+

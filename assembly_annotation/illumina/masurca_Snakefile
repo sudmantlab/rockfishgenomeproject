@@ -1,0 +1,168 @@
+#!python
+
+### #!/usr/bin/env python3
+import os
+import sys
+from glob import glob
+from snakemake.utils import read_job_properties
+import pdb
+
+configfile: "/global/scratch2/Rockfish/Genomes/sequencing/illumina/config.all.json"
+
+def get_inputs(wildcards):
+    inputs = []   
+    pattern = "/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{species}/{smp}/assembly/masurca/crossprots_{species}.gff"
+    for s in config["SAMPLES"]:
+        species, sample = s.split("/")
+        inputs.append(pattern.format(species=species,  
+                                     smp=sample))
+    return inputs
+
+rule all: 
+    input: 
+          get_inputs
+
+rule creator:
+  input: 
+    fwd=lambda wildcards: glob("/global/scratch2/Rockfish/Genomes/sequencing/illumina/fastq/{species}/{smp}/*_R1_*.fastq.gz"\
+                        .format(species=wildcards.species,smp=wildcards.smp)),
+    rev=lambda wildcards: glob("/global/scratch2/Rockfish/Genomes/sequencing/illumina/fastq/{species}/{smp}/*_R2_*.fastq.gz".\
+                        format(species=wildcards.species,smp=wildcards.smp)),
+  output: 
+    runner="/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{species}/{smp}/assembly/masurca/assemble.sh",
+  params:
+        slurm_opts=lambda wildcards: "-n 1 " \
+                                     "--time 5:00 " \
+                                     "-A co_genomicdata " \
+                                     "-p savio2_htc " \
+                                     "-e /global/scratch2/Rockfish/Genomes/sequencing/illumina/logs/{smp}.log " \
+                                     "-J start_{smp} " \
+                                     .format(smp=wildcards.smp)    
+  shell: """
+    printf "\n\nDATA\n" \
+            >/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{wildcards.species}/{wildcards.smp}/assembly/masurca/config.txt;
+    printf "PE= pe 450 150  {input.fwd} {input.rev}\n" \
+            >>/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{wildcards.species}/{wildcards.smp}/assembly/masurca/config.txt;
+    printf "END\n\n" \
+            >>/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{wildcards.species}/{wildcards.smp}/assembly/masurca/config.txt;
+
+    printf "PARAMETERS\n" \
+            >>/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{wildcards.species}/{wildcards.smp}/assembly/masurca/config.txt; 
+    printf "GRAPH_KMER_SIZE = auto\n" \
+            >>/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{wildcards.species}/{wildcards.smp}/assembly/masurca/config.txt;
+    printf "USE_LINKING_MATES = 1\n" \
+            >>/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{wildcards.species}/{wildcards.smp}/assembly/masurca/config.txt;
+    printf "USE_GRID = 0\n" \
+            >>/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{wildcards.species}/{wildcards.smp}/assembly/masurca/config.txt;
+    printf "GRID_ENGINE = SLURM\n" \
+            >>/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{wildcards.species}/{wildcards.smp}/assembly/masurca/config.txt;
+    printf "GRID_QUEUE = savio3_bigmem\n" \
+            >>/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{wildcards.species}/{wildcards.smp}/assembly/masurca/config.txt;
+    printf "GRID_BATCH_SIZE = 500000000\n" \
+            >>/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{wildcards.species}/{wildcards.smp}/assembly/masurca/config.txt;
+    printf "LHE_COVERAGE = 25\n" \
+            >>/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{wildcards.species}/{wildcards.smp}/assembly/masurca/config.txt;
+    printf "MEGA_READS_ONE_PASS = 0\n" \
+            >>/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{wildcards.species}/{wildcards.smp}/assembly/masurca/config.txt;
+    printf "LIMIT_JUMP_COVERAGE = 300\n" \
+            >>/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{wildcards.species}/{wildcards.smp}/assembly/masurca/config.txt;
+    printf "CA_PARAMETERS =  cgwErrorRate=0.15\n" \
+            >>/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{wildcards.species}/{wildcards.smp}/assembly/masurca/config.txt;
+    printf "CLOSE_GAPS = 1\n" \
+            >>/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{wildcards.species}/{wildcards.smp}/assembly/masurca/config.txt;
+    printf "NUM_THREADS = 32\n" \
+            >>/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{wildcards.species}/{wildcards.smp}/assembly/masurca/config.txt;
+    printf "JF_SIZE = 17000000000\n" \
+            >>/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{wildcards.species}/{wildcards.smp}/assembly/masurca/config.txt;
+    printf "SOAP_ASSEMBLY = 0\n" \
+            >>/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{wildcards.species}/{wildcards.smp}/assembly/masurca/config.txt;
+    printf "#FLYE_ASSEMBLY = 0\n" \
+            >>/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{wildcards.species}/{wildcards.smp}/assembly/masurca/config.txt;
+    printf "END\n\n\n" \
+            >>/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{wildcards.species}/{wildcards.smp}/assembly/masurca/config.txt;
+    cd /global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{wildcards.species}/{wildcards.smp}/assembly/masurca/;
+    masurca config.txt;
+  """
+
+rule masurca_assembly:
+    input:
+        runner="/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{species}/{smp}/assembly/masurca/assemble.sh",
+    output: 
+        asmb="/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{species}/{smp}/assembly/masurca/CA/final.genome.scf.fasta",
+        asmb_edit="/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{species}/{smp}/assembly/masurca/final.genome.scf.FAS",
+        logger="/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{species}/{smp}/assembly/masurca/run.Log",
+        gaperr="/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{species}/{smp}/assembly/masurca/gapClose.err",
+    params:
+        slurm_opts=lambda wildcards: "-N1 " \
+                                     "--time 5-00:00:00 " \
+                                     "-A co_genomicdata -p savio3_bigmem " \
+                                     #"-p savio3_bigmem --qos savio_lowprio " \
+                                     "-o /global/scratch2/Rockfish/Genomes/sequencing/illumina/logs/masurca_{smp}.log " \
+                                     "-J {smp} " \
+                                     .format(smp=wildcards.smp)
+    shell:""" 
+        cd /global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{wildcards.species}/{wildcards.smp}/assembly/masurca/;
+        ./assemble.sh &>run.Log;
+        sed -e '/^>/ s/ .*//' -e "s/^>/>{wildcards.smp}_/" ./CA/final.genome.scf.fasta >./final.genome.scf.FAS;
+        rm -fr ./CA/[0-9]*-* ./CA/*Store*/ ./CA/genome.asm CA/overlaps_dedup.ovb.gz *.fa *.frg guillaumeKUnitigsAtLeast32bases_all* unitig_layout.txt genome.uid *.fastq *.jf *unitig* ./work1/*reduce* ./work1/*tmp* ./work1/*ead*;
+        """
+
+
+rule braker:
+    input:
+        asmb_edit="/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{species}/{smp}/assembly/masurca/final.genome.scf.FAS",
+    output:
+        genemark="/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{species}/{smp}/assembly/masurca/braker/GeneMark-ES/genemark.d.gtf",
+        augustus="/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{species}/{smp}/assembly/masurca/braker/augustus.ab_initio.gtf",
+    params:
+        slurm_opts=lambda wildcards: "-N 1 " \
+                                    "--time 3-00:00:00 " \
+                                    "-A co_genomicdata " \
+                                    "-p savio3_bigmem --qos savio_lowprio " \
+                                    "-o logs/braker_{smp}.log " \
+                                    "-J brk_{smp} " \
+                                    .format(smp=wildcards.smp)
+    run:
+        shell("""
+            module load braker/2.1.2 gcc augustus/2.5.5 blast;
+            AUGUSTUS_CONFIG_PATH="/global/home/users/local_modules_sw/augustus/2.5.5/config/";
+            AUGUSTUS_SCRIPTS_PATH="/global/home/users/local_modules_sw/augustus/2.5.5/scripts";
+            [ -d "/global/home/users/local_modules_sw/augustus/2.5.5/config//species/{species}" ] && 
+            echo "Directory /global/home/users/local_modules_sw/augustus/2.5.5/config/species/{species} exists." && \
+            rm -fr /global/home/users/local_modules_sw/augustus/2.5.5/config/species/{species};
+
+            braker.pl --cores=1 --workingdir=/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{species}/{smp}/assembly/masurca/braker --genome={asmb_edit} --useexisting \
+                --esmode --softmasking -species={species}__{smp};
+            """.format(asmb_edit = input.asmb_edit,
+                       species=wildcards.species,
+                       smp=wildcards.smp))
+
+rule crossmap:
+    input:
+        asmb_edit="/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{species}/{smp}/assembly/masurca/final.genome.scf.FAS",
+    output:
+        map_gff="/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{species}/{smp}/assembly/masurca/crossprots_{species}.gff",
+        map_log="/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{species}/{smp}/assembly/masurca/crossprots_{species}.LOG",
+    params:
+        slurm_opts=lambda wildcards: "-N 1 " \
+                                    "--time 3-00:00:00 " \
+                                    "-A co_genomicdata " \
+                                    "-p savio2_bigmem --qos savio_lowprio " \
+                                    "-o /global/scratch2/Rockfish/Genomes/sequencing/illumina/logs/spaln_{smp}.log " \
+                                    "-J spln_{smp} " \
+                                    .format(smp=wildcards.smp)            
+    run:
+        shell("""
+            module load spaln gcc;
+            cd /global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{species}/{smp}/assembly/masurca/;
+            ln -sf {asmb_edit} genomegnm.mfa;
+            makeidx.pl -inp genomegnm.mfa;
+            spaln -TTetrapod -KP -N -O0 -Q7 -pa -yL20 -yX -xG800k -Dgenomegnm -t24 \
+                    /global/scratch2/Rockfish/Public/Transcriptome/Others.transdecoder.pep \
+                    1>crossprots_{species}.gff 2>crossprots_{species}.LOG;
+            awk -F'\t' '$3=="gene"' crossprots_{species}.gff >crossprots_{species}.Genes.gff;
+            """.format(asmb_edit = input.asmb_edit,
+                       smp=wildcards.smp,
+                       species=wildcards.species))
+
+

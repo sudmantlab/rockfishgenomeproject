@@ -1,0 +1,63 @@
+#!python
+
+#!/usr/bin/env python3
+import os
+import sys
+from glob import glob
+from snakemake.utils import read_job_properties
+import pdb
+
+configfile: "/global/scratch2/Rockfish/Genomes/FREEZE/config.freeze.json"
+work_dir = "/global/scratch2/Rockfish/Genomes/FREEZE"
+
+def get_inputs(wildcards):
+    inputs = []
+    pattern = "{work_dir}/{assembler}/{species}/BUSCO/run_busco_{assembler}_{species}_vert_pep_DONE.txt"
+    for lineage, path in config["busco_libs"].items():
+        for s in config["SAMPLES"]:
+            assembler, species = s.split("/")
+            inputs.append(pattern.format(species=species, assembler=assembler, work_dir=work_dir))
+    return inputs
+
+rule all: 
+   input: 
+        get_inputs
+
+rule busco_prot:
+   input:
+      brk_aug="{work_dir}/{assembler}/{species}/BRAKER/augustus.ab_initio.aa",
+      filcrs_ac="{work_dir}/{assembler}/{species}/FILTERED/CROSSPROT/Annot_crossprot.faa",
+      fil_fp="{work_dir}/{assembler}/{species}/FILTERED/final_prots.faa",
+   output:
+      brk_aug_out="{work_dir}/{assembler}/{species}/BUSCO/run_busco_{assembler}_{species}_vert_pep_Brk_AUG/short_summary_busco_{assembler}_{species}_vert_pep_Brk_AUG.txt",
+      filcrs_ac_out="{work_dir}/{assembler}/{species}/BUSCO/run_busco_{assembler}_{species}_vert_pep_FilCrs_AC/short_summary_busco_{assembler}_{species}_vert_pep_FilCrs_AC.txt",
+      fil_fp_out="{work_dir}/{assembler}/{species}/BUSCO/run_busco_{assembler}_{species}_vert_pep_Fil_FP/short_summary_busco_{assembler}_{species}_vert_pep_Fil_FP.txt",
+      log_done="{work_dir}/{assembler}/{species}/BUSCO/run_busco_{assembler}_{species}_vert_pep_DONE.txt",
+   params:
+      slurm_opts=lambda wildcards: "-N 1 " \
+                           "--time 0-24:00:00 " \
+                           "-A co_genomicdata " \
+                           "-p savio2_bigmem,savio_bigmem,savio,savio,savio2 --qos savio_lowprio " \
+                           "-o {work_dir}/logs/busco_{species}_vert_pep.log " \
+                           "-J {species}_busco " \
+                           .format(species=wildcards.species, work_dir=work_dir)
+   threads:
+      24
+   run:
+      shell("""
+         module load busco/3.1 augustus/2.5.5 hmmer blast/2.2.26 gcc;
+         AUGUSTUS_CONFIG_PATH="/global/home/users/local_modules_sw/augustus/2.5.5/config/";
+         cd {work_dir}/{assembler}/{species}/BUSCO;
+         python3 ~/local_modules_sw/busco/3.1/scripts/run_BUSCO.py -i {brk_aug} \
+            -o busco_{assembler}_{species}_vert_pep_Brk_AUG -t {work_dir}/BUSCO/tmp_{assembler}_{species}_ver_pep_Brk_AUG \
+            -c {threads} -m proteins -sp zebrafish -f -l /global/scratch2/databases/busco/vertebrata_odb10/;
+         python3 ~/local_modules_sw/busco/3.1/scripts/run_BUSCO.py -i {filcrs_ac} \
+            -o busco_{assembler}_{species}_vert_pep_FilCrs_AC -t {work_dir}/BUSCO/tmp_{assembler}_{species}_ver_pep_FilCrs_AC \
+            -c {threads} -m proteins -sp zebrafish -f -l /global/scratch2/databases/busco/vertebrata_odb10/;
+         python3 ~/local_modules_sw/busco/3.1/scripts/run_BUSCO.py -i {fil_fp} \
+            -o busco_{assembler}_{species}_vert_pep_Fil_FP -t {work_dir}/BUSCO/tmp_{assembler}_{species}_ver_pep_Fil_FP \
+            -c {threads} -m proteins -sp zebrafish -f -l /global/scratch2/databases/busco/vertebrata_odb10/;         
+         echo "" >{log_done};   
+         """.format(brk_aug=input.brk_aug, filcrs_ac=input.filcrs_ac, fil_fp=input.fil_fp, log_done=output.log_done,
+                  assembler=wildcards.assembler, species=wildcards.species, threads=threads, work_dir = work_dir))
+

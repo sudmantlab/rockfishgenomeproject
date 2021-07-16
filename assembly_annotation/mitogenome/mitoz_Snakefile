@@ -1,0 +1,58 @@
+#!python
+
+#!/usr/bin/env python3
+import os
+import sys
+from glob import glob
+from snakemake.utils import read_job_properties
+import pdb
+
+configfile: "config.json"
+
+def get_inputs(wildcards):
+    inputs = []    
+    pattern = "/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{species}/{smp}/mitogenome/{smp}.result/summary.txt"
+    for s in config["SAMPLES"]:
+        species, sample = s.split("/")
+        inputs.append(pattern.format(species=species,
+                                     smp=sample))
+    return inputs
+
+rule all: 
+    input: 
+          get_inputs
+
+
+rule MITOZ:
+    input:
+        fwd=lambda wildcards: glob("/global/scratch2/Rockfish/Genomes/sequencing/illumina/fastq/{species}/{smp}/*_R1_*.fastq.gz"\
+            .format(species=wildcards.species,smp=wildcards.smp)),
+        rev=lambda wildcards: glob("/global/scratch2/Rockfish/Genomes/sequencing/illumina/fastq/{species}/{smp}/*_R2_*.fastq.gz"\
+            .format(species=wildcards.species,smp=wildcards.smp)),
+    output:
+        asmb="/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{species}/{smp}/mitogenome/{smp}.result/{smp}.fasta",
+        log="/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{species}/{smp}/mitogenome/{smp}.result/summary.txt",
+    params:
+        slurm_opts=lambda wildcards: "-N1 " \
+                                     "--time 0-24:00:00 " \
+                                     "-A fc_genomicdata " \
+                                     "-o /global/scratch2/Rockfish/Genomes/sequencing/illumina/logs/mitoz_{smp} " \
+                                     "-p savio2_bigmem " \
+                                     "-J MZ_{smp} " \
+                                     .format(smp=wildcards.smp)
+    run: 
+        assemble="""
+            python3 /global/scratch2/Software/mitoz/MitoZ.py all2 \
+                --outprefix {smp} \
+                --create_config \
+                --fastq1 {inputfwd} --fastq2 {inputrev} \
+                --fastq_read_length 150 --insert_size 450 \
+                --requiring_taxa 'Chordata' \
+                --thread_number 32 \
+                --run_mode 2;
+            mv {smp}.tmp/ {smp}.result/ \
+                    /global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{species}/{smp}/mitogenome/;    
+        """.format(smp=wildcards.smp, species=wildcards.species,
+                inputfwd=input.fwd, inputrev=input.rev)
+        shell(assemble)    
+

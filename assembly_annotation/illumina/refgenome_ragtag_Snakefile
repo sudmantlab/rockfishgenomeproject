@@ -1,0 +1,63 @@
+#!python
+
+#!/usr/bin/env python3
+import os
+import sys
+from glob import glob
+from snakemake.utils import read_job_properties
+import pdb
+
+configfile:"/global/scratch2/Rockfish/Genomes/FREEZE/config.itemized.withillumina.json"#.aleutonly"
+work_dirref = "/global/scratch2/Rockfish/Genomes/FREEZE"
+work_dirqry = "/global/scratch2/Rockfish/Genomes/sequencing/illumina/output"
+
+def get_inputs(wildcards):
+    inputs = []
+    #pattern = "{work_dirref}/{asm1}/{sp1}/RagTag/{sp2}/{asm2}/ragtag.Done"
+    pattern = "{work_dirref}/{asm1}/{sp1}/RagTag/{sp2}/{asm2}/ragtag_output/ragtag.scaffolds.fasta.fai"
+    for sp1, asm1 in config["genomes_by_species"].items():
+        for query in config["illumina_genomes"]:
+            sp2, asm2 = query.split("/")
+            if sp1==sp2:
+                continue
+            inputs.append(pattern.format(sp1=sp1, sp2=sp2, 
+                asm1=asm1, asm2=asm2, work_dirref=work_dirref))
+    return inputs
+
+rule all:
+    input:
+        get_inputs
+
+rule scaff_RagTag:
+    input:
+        reference="{work_dirref}/{asm1}/{sp1}/referencegenome.FASTA",
+        query="/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{sp2}/{asm2}/assembly/masurca/REPEAT/final.genome.scf.softmask.FASTA",
+    output:
+        #paf="{work_dirref}/{asm1}/{sp1}/Pairwise/Illumina/align.{sp1}.{sp2}.{asm2}.paf",
+        #maf="{work_dirref}/{asm1}/{sp1}/Pairwise/Illumina/align.{sp1}.{sp2}.{asm2}.maf",
+        scaff="{work_dirref}/{asm1}/{sp1}/RagTag/{sp2}/{asm2}/ragtag_output/ragtag.scaffolds.fasta",
+        scaff_fai="{work_dirref}/{asm1}/{sp1}/RagTag/{sp2}/{asm2}/ragtag_output/ragtag.scaffolds.fasta.fai",
+        logger="{work_dirref}/{asm1}/{sp1}/RagTag/{sp2}/{asm2}/ragtag.Done",
+    params:
+        slurm_opts=lambda wildcards: "-N1 " \
+                                     "--time 0-8:00:00 " \
+									 "-A co_genomicdata " \
+									 "--qos=savio_lowprio " \
+									 "-p savio,savio3_bigmem,savio_bigmem,savio2_bigmem " \
+									 "-o {work_dirref}/logs/ragtag_{sp1}-{sp2}.log " \
+									 "-J {sp1}-{sp2} " \
+									 .format(sp1=wildcards.sp1, sp2=wildcards.sp2,work_dirref=work_dirref)
+    run:
+        shell("""
+            module load minimap2; 
+            cd {work_dirref}/{asm1}/{sp1}/RagTag/{sp2}/{asm2}/ ;
+            /global/home/users/.local/bin/ragtag.py scaffold \
+                    {reference} {query} -d 5000 -r -u \
+                    -t $(eval nproc) --aligner minimap2 --mm2-params '-x asm10' -w -o ragtag_output ;
+            samtools faidx ragtag_output/ragtag.scaffolds.fasta ;        
+            echo "" >{logger};        
+		    """.format(logger=output.logger, 
+                       work_dirref=work_dirref, #work_dirqry=work_dirqry,
+                       reference=input.reference, query=input.query,
+                       sp1=wildcards.sp1, sp2=wildcards.sp2, asm1=wildcards.asm1, asm2=wildcards.asm2))
+

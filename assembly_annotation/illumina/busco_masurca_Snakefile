@@ -1,0 +1,69 @@
+#!python
+
+#!/usr/bin/env python3
+import os
+import sys
+from glob import glob
+from snakemake.utils import read_job_properties
+import pdb
+
+configfile: "/global/scratch2/Rockfish/Genomes/sequencing/illumina/config.json"
+
+def get_inputs(wildcards):
+   inputs = []   
+   pattern = "/global/scratch2/Rockfish/Genomes/sequencing/illumina/output/{species}/{smp}/assembly/masurca/BUSCO/run_busco_{lineage}/short_summary_busco_{lineage}.txt"
+   for lineage, path in config["busco_libs"].items():
+      for s in config["SAMPLES"]:
+         species, smp = s.split("/")
+         inputs.append(pattern.format(species=species, smp=smp, lineage=lineage))
+   return inputs
+
+rule all: 
+   input: 
+        get_inputs
+
+rule busco_4_masurca:
+   input:
+      asmb="/global/scratch2/Rockfish/Genomes/sequencing/illumina/"
+            "output/{species}/{smp}/assembly/masurca/final.genome.scf.FAS",
+      direc="/global/scratch2/Rockfish/Genomes/sequencing/illumina/"
+            "output/{species}/{smp}/assembly/masurca",
+   output:
+      fn_out="/global/scratch2/Rockfish/Genomes/sequencing/illumina/"
+            "output/{species}/{smp}/assembly/masurca/"
+            "BUSCO/run_busco_{lineage}/short_summary_busco_{lineage}.txt",
+   params:
+      slurm_opts=lambda wildcards: "-N 1 " \
+                           "--time 0-24:00:00 " \
+                           "-A co_genomicdata " \
+                           "-p savio2,savio " \
+                           "-o logs/busco_{smp}_{lineage}.log " \
+                           "-J {smp}_{lineage}_busco " \
+                           .format(smp=wildcards.smp, 
+                                 lineage=wildcards.lineage)
+   threads:
+      32
+   run:
+      busco_path=config["busco_libs"][wildcards.lineage]   
+      shell("""
+         module load busco/3.1 \
+               augustus/2.5.5 \
+               hmmer \
+               blast/2.2.26 gcc;
+         AUGUSTUS_CONFIG_PATH="/global/home/users/local_modules_sw/augustus/2.5.5/config/";
+         cd {input_dir}/BUSCO/;
+         python3 ~/local_modules_sw/busco/3.1/scripts/run_BUSCO.py \
+            -i {asmb} \
+            -o busco_{lineage} \
+            -t {input_dir}/BUSCO/tmp_{lineage} \
+            -c 30 \
+            -m geno -sp zebrafish -f \
+            -l {busco_path};
+         """.format(asmb = input.asmb,
+                  smp=wildcards.smp,
+                  threads=threads,
+                  input_dir = input.direc,
+                  species=wildcards.species,
+                  lineage=wildcards.lineage,
+                  busco_path=busco_path))
+         

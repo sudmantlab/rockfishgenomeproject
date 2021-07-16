@@ -1,0 +1,99 @@
+#!python
+
+#!/usr/bin/env python3
+import os
+import sys
+from glob import glob
+from snakemake.utils import read_job_properties
+import pdb
+
+configfile:"config.itemized.withillumina.noschlegelii"
+work_dir = "/global/scratch2/Rockfish/Genomes/FREEZE"
+
+def get_inputs(wildcards):
+    inputs = []
+    pattern = "{work_dir}/{asm1}/{sp1}/RagTag_large/{sp2}/{asm2}/liftext.{sp1}.{sp2}.Done"
+    for sp1, asm1 in config["genomes_by_species"].items():
+        for query in config["illumina_genomes"]:
+            sp2, asm2 = query.split("/")
+            if sp1==sp2:
+                continue
+            inputs.append(pattern.format(sp1=sp1, sp2=sp2,
+                asm1=asm1, asm2=asm2, work_dir=work_dir))
+    return inputs
+
+rule all:
+    input:
+        get_inputs
+
+rule lift_ilmgen:
+    input:
+        reference="{work_dir}/{asm1}/{sp1}/referencegenome.FASTA",
+        query="{work_dir}/{asm1}/{sp1}/RagTag/{sp2}/{asm2}/ragtag_output/ragtag.scaffolds.fasta",
+        chrnames="{work_dir}/{asm1}/{sp1}/referencegenome.FASTA.names",
+        ref_gff="{work_dir}/{asm1}/{sp1}/Funannotate/predict_results/Final_filt_BRK_{sp1}.gff3",
+        ref_gff_edit="{work_dir}/{asm1}/{sp1}/Funannotate/predict_results/Final_filt_BRK_{sp1}.nameedit.gff3",
+    output:
+        out_gff="{work_dir}/{asm1}/{sp1}/RagTag_large/{sp2}/{asm2}/Lifted_{sp2}.gff3",
+        unmapped="{work_dir}/{asm1}/{sp1}/RagTag_large/{sp2}/{asm2}/unmapped_features.txt",
+        log_lifted="{work_dir}/{asm1}/{sp1}/RagTag_large/{sp2}/{asm2}/lifted.{sp1}.{sp2}.Done",
+    params:
+        slurm_opts=lambda wildcards: "-N1 " \
+                                     "--time 1-00:00:00 " \
+                                    "-A co_genomicdata " \
+                                     "--qos=savio_lowprio " \
+                                     "-p savio,savio2,savio2_bigmem,savio3_bigmem,savio3 " \
+                                     "-o {work_dir}/logs/liftoffilmL_{sp1}-{sp2}.log " \
+                                     "-J lf2_{sp1}-{sp2} " \
+                                     .format(sp1=wildcards.sp1, sp2=wildcards.sp2,work_dir=work_dir)
+    run:
+        shell("""
+            cd {work_dir}/{asm1}/{sp1}/RagTag_large/{sp2}/{asm2}/ ;
+            module load samtools bedtools ; 
+            python3 /global/scratch2/Software/old_liftoff/liftoff.py \
+                -r {reference} -t {query} \
+                -g {ref_gff_edit} -p $(eval nproc) \
+                -o {out_gff} -u {unmapped} \
+                -a 0.8 -s 0.7 \
+                -dir {work_dir}/{asm1}/{sp1}/RagTag_large/{sp2}/{asm2}/ ;
+            printf "\tLifted\t{sp2} - Based on {sp1}\n" > {log_lifted};
+            """.format(work_dir=work_dir, log_lifted=output.log_lifted,
+                       reference=input.reference, query=input.query, chrnames=input.chrnames,
+                       ref_gff=input.ref_gff, ref_gff_edit=input.ref_gff_edit, out_gff=output.out_gff, unmapped=output.unmapped, 
+                      sp1=wildcards.sp1, sp2=wildcards.sp2, asm1=wildcards.asm1, asm2=wildcards.asm2))
+
+
+rule lift_extract:
+    input:
+        query="{work_dir}/{asm1}/{sp1}/RagTag/{sp2}/{asm2}/ragtag_output/ragtag.scaffolds.fasta",
+        in_gff="{work_dir}/{asm1}/{sp1}/RagTag_large/{sp2}/{asm2}/Lifted_{sp2}.gff3",
+    output:
+        out_gtf="{work_dir}/{asm1}/{sp1}/RagTag_large/{sp2}/{asm2}/Lifted_{sp2}.gtf",
+        out_exons="{work_dir}/{asm1}/{sp1}/RagTag_large/{sp2}/{asm2}/Lifted_{sp2}.exons.fa",
+        out_cds="{work_dir}/{asm1}/{sp1}/RagTag_large/{sp2}/{asm2}/Lifted_{sp2}.cds-transcripts.fa",
+        out_pep="{work_dir}/{asm1}/{sp1}/RagTag_large/{sp2}/{asm2}/Lifted_{sp2}.proteins.faa",
+        log_lifted="{work_dir}/{asm1}/{sp1}/RagTag_large/{sp2}/{asm2}/liftext.{sp1}.{sp2}.Done",
+    params:
+        slurm_opts=lambda wildcards: "-N1 " \
+                                     "--time 1-00:00:00 " \
+                                    "-A co_genomicdata " \
+                                     "--qos=savio_lowprio " \
+                                     "-p savio2,savio2_bigmem,savio3_bigmem,savio3,savio " \
+                                     "-o {work_dir}/logs/liftoffilmL_{sp1}-{sp2}.log " \
+                                     "-J lf2_{sp1}-{sp2} " \
+                                     .format(sp1=wildcards.sp1, sp2=wildcards.sp2,work_dir=work_dir)
+    run:
+        shell("""
+            cd {work_dir}/{asm1}/{sp1}/RagTag_large/{sp2}/{asm2}/ ;
+            module load samtools bedtools ; 
+            samtools faidx {query} ;
+            /global/scratch2/Software/gffread/gffread \
+                    {in_gff} -g {query} \
+                    -C -M -K -Z -S -T -v \
+                    -o {out_gtf} -w {out_exons} -x {out_cds} -y {out_pep} ;
+            printf "\tExtracted\t{sp2}\n" > {log_lifted};
+            """.format(work_dir=work_dir, log_lifted=output.log_lifted,
+                       query=input.query, in_gff=input.in_gff,
+                       out_gtf=output.out_gtf, out_exons=output.out_exons, out_cds=output.out_cds, out_pep=output.out_pep,
+                       sp1=wildcards.sp1, sp2=wildcards.sp2, asm1=wildcards.asm1, asm2=wildcards.asm2))
+        
