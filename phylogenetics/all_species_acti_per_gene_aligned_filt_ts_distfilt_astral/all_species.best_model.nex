@@ -1,0 +1,1256 @@
+#nexus
+begin sets;
+  charset EOG090C001K_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C001K_NT.fasta: ;
+  charset EOG090C003B_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C003B_NT.fasta: ;
+  charset EOG090C003K_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C003K_NT.fasta: ;
+  charset EOG090C003L_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C003L_NT.fasta: ;
+  charset EOG090C003V_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C003V_NT.fasta: ;
+  charset EOG090C005H_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C005H_NT.fasta: ;
+  charset EOG090C006S_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C006S_NT.fasta: ;
+  charset EOG090C007Z_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C007Z_NT.fasta: ;
+  charset EOG090C008I_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C008I_NT.fasta: ;
+  charset EOG090C008M_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C008M_NT.fasta: ;
+  charset EOG090C00AN_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00AN_NT.fasta: ;
+  charset EOG090C00AV_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00AV_NT.fasta: ;
+  charset EOG090C00B1_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00B1_NT.fasta: ;
+  charset EOG090C00B3_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00B3_NT.fasta: ;
+  charset EOG090C00BE_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00BE_NT.fasta: ;
+  charset EOG090C00BT_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00BT_NT.fasta: ;
+  charset EOG090C00DS_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00DS_NT.fasta: ;
+  charset EOG090C00E5_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00E5_NT.fasta: ;
+  charset EOG090C00E9_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00E9_NT.fasta: ;
+  charset EOG090C00HT_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00HT_NT.fasta: ;
+  charset EOG090C00J0_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00J0_NT.fasta: ;
+  charset EOG090C00J3_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00J3_NT.fasta: ;
+  charset EOG090C00JA_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00JA_NT.fasta: ;
+  charset EOG090C00P3_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00P3_NT.fasta: ;
+  charset EOG090C00PH_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00PH_NT.fasta: ;
+  charset EOG090C00PQ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00PQ_NT.fasta: ;
+  charset EOG090C00S8_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00S8_NT.fasta: ;
+  charset EOG090C00SD_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00SD_NT.fasta: ;
+  charset EOG090C00UV_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00UV_NT.fasta: ;
+  charset EOG090C00VF_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00VF_NT.fasta: ;
+  charset EOG090C00X6_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00X6_NT.fasta: ;
+  charset EOG090C00XD_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00XD_NT.fasta: ;
+  charset EOG090C00YB_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00YB_NT.fasta: ;
+  charset EOG090C00ZG_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C00ZG_NT.fasta: ;
+  charset EOG090C010H_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C010H_NT.fasta: ;
+  charset EOG090C0114_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0114_NT.fasta: ;
+  charset EOG090C0128_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0128_NT.fasta: ;
+  charset EOG090C012B_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C012B_NT.fasta: ;
+  charset EOG090C012C_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C012C_NT.fasta: ;
+  charset EOG090C014X_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C014X_NT.fasta: ;
+  charset EOG090C015S_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C015S_NT.fasta: ;
+  charset EOG090C0160_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0160_NT.fasta: ;
+  charset EOG090C016A_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C016A_NT.fasta: ;
+  charset EOG090C016M_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C016M_NT.fasta: ;
+  charset EOG090C016V_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C016V_NT.fasta: ;
+  charset EOG090C017B_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C017B_NT.fasta: ;
+  charset EOG090C017P_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C017P_NT.fasta: ;
+  charset EOG090C01BG_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01BG_NT.fasta: ;
+  charset EOG090C01CH_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01CH_NT.fasta: ;
+  charset EOG090C01CI_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01CI_NT.fasta: ;
+  charset EOG090C01CW_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01CW_NT.fasta: ;
+  charset EOG090C01DA_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01DA_NT.fasta: ;
+  charset EOG090C01F6_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01F6_NT.fasta: ;
+  charset EOG090C01H6_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01H6_NT.fasta: ;
+  charset EOG090C01I3_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01I3_NT.fasta: ;
+  charset EOG090C01I8_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01I8_NT.fasta: ;
+  charset EOG090C01IQ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01IQ_NT.fasta: ;
+  charset EOG090C01JR_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01JR_NT.fasta: ;
+  charset EOG090C01KZ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01KZ_NT.fasta: ;
+  charset EOG090C01LR_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01LR_NT.fasta: ;
+  charset EOG090C01M7_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01M7_NT.fasta: ;
+  charset EOG090C01NW_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01NW_NT.fasta: ;
+  charset EOG090C01O3_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01O3_NT.fasta: ;
+  charset EOG090C01OB_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01OB_NT.fasta: ;
+  charset EOG090C01OT_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01OT_NT.fasta: ;
+  charset EOG090C01PW_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01PW_NT.fasta: ;
+  charset EOG090C01SC_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01SC_NT.fasta: ;
+  charset EOG090C01SN_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01SN_NT.fasta: ;
+  charset EOG090C01SV_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01SV_NT.fasta: ;
+  charset EOG090C01T7_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01T7_NT.fasta: ;
+  charset EOG090C01US_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01US_NT.fasta: ;
+  charset EOG090C01V0_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01V0_NT.fasta: ;
+  charset EOG090C01VW_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01VW_NT.fasta: ;
+  charset EOG090C01W9_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01W9_NT.fasta: ;
+  charset EOG090C01WG_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01WG_NT.fasta: ;
+  charset EOG090C01Y6_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01Y6_NT.fasta: ;
+  charset EOG090C01YE_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01YE_NT.fasta: ;
+  charset EOG090C01Z2_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01Z2_NT.fasta: ;
+  charset EOG090C01ZW_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01ZW_NT.fasta: ;
+  charset EOG090C01ZY_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C01ZY_NT.fasta: ;
+  charset EOG090C0224_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0224_NT.fasta: ;
+  charset EOG090C023E_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C023E_NT.fasta: ;
+  charset EOG090C0240_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0240_NT.fasta: ;
+  charset EOG090C024L_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C024L_NT.fasta: ;
+  charset EOG090C024Z_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C024Z_NT.fasta: ;
+  charset EOG090C0255_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0255_NT.fasta: ;
+  charset EOG090C025K_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C025K_NT.fasta: ;
+  charset EOG090C0275_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0275_NT.fasta: ;
+  charset EOG090C027I_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C027I_NT.fasta: ;
+  charset EOG090C028E_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C028E_NT.fasta: ;
+  charset EOG090C029M_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C029M_NT.fasta: ;
+  charset EOG090C02AS_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02AS_NT.fasta: ;
+  charset EOG090C02BD_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02BD_NT.fasta: ;
+  charset EOG090C02D4_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02D4_NT.fasta: ;
+  charset EOG090C02D7_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02D7_NT.fasta: ;
+  charset EOG090C02E2_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02E2_NT.fasta: ;
+  charset EOG090C02EA_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02EA_NT.fasta: ;
+  charset EOG090C02F4_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02F4_NT.fasta: ;
+  charset EOG090C02F5_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02F5_NT.fasta: ;
+  charset EOG090C02FW_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02FW_NT.fasta: ;
+  charset EOG090C02FX_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02FX_NT.fasta: ;
+  charset EOG090C02GF_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02GF_NT.fasta: ;
+  charset EOG090C02GG_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02GG_NT.fasta: ;
+  charset EOG090C02GR_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02GR_NT.fasta: ;
+  charset EOG090C02JG_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02JG_NT.fasta: ;
+  charset EOG090C02JL_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02JL_NT.fasta: ;
+  charset EOG090C02JV_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02JV_NT.fasta: ;
+  charset EOG090C02JX_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02JX_NT.fasta: ;
+  charset EOG090C02KP_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02KP_NT.fasta: ;
+  charset EOG090C02LO_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02LO_NT.fasta: ;
+  charset EOG090C02M2_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02M2_NT.fasta: ;
+  charset EOG090C02M3_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02M3_NT.fasta: ;
+  charset EOG090C02MC_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02MC_NT.fasta: ;
+  charset EOG090C02MG_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02MG_NT.fasta: ;
+  charset EOG090C02NP_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02NP_NT.fasta: ;
+  charset EOG090C02O9_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02O9_NT.fasta: ;
+  charset EOG090C02OD_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02OD_NT.fasta: ;
+  charset EOG090C02P2_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02P2_NT.fasta: ;
+  charset EOG090C02PE_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02PE_NT.fasta: ;
+  charset EOG090C02RN_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02RN_NT.fasta: ;
+  charset EOG090C02S7_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02S7_NT.fasta: ;
+  charset EOG090C02ST_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02ST_NT.fasta: ;
+  charset EOG090C02TB_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02TB_NT.fasta: ;
+  charset EOG090C02TD_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02TD_NT.fasta: ;
+  charset EOG090C02UZ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02UZ_NT.fasta: ;
+  charset EOG090C02W1_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02W1_NT.fasta: ;
+  charset EOG090C02XM_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02XM_NT.fasta: ;
+  charset EOG090C02YD_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02YD_NT.fasta: ;
+  charset EOG090C02YV_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C02YV_NT.fasta: ;
+  charset EOG090C0302_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0302_NT.fasta: ;
+  charset EOG090C0304_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0304_NT.fasta: ;
+  charset EOG090C030H_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C030H_NT.fasta: ;
+  charset EOG090C030R_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C030R_NT.fasta: ;
+  charset EOG090C0316_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0316_NT.fasta: ;
+  charset EOG090C031E_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C031E_NT.fasta: ;
+  charset EOG090C032T_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C032T_NT.fasta: ;
+  charset EOG090C0337_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0337_NT.fasta: ;
+  charset EOG090C033Q_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C033Q_NT.fasta: ;
+  charset EOG090C0343_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0343_NT.fasta: ;
+  charset EOG090C0349_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0349_NT.fasta: ;
+  charset EOG090C034S_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C034S_NT.fasta: ;
+  charset EOG090C0351_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0351_NT.fasta: ;
+  charset EOG090C035G_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C035G_NT.fasta: ;
+  charset EOG090C035N_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C035N_NT.fasta: ;
+  charset EOG090C036L_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C036L_NT.fasta: ;
+  charset EOG090C036M_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C036M_NT.fasta: ;
+  charset EOG090C037U_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C037U_NT.fasta: ;
+  charset EOG090C037V_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C037V_NT.fasta: ;
+  charset EOG090C037Z_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C037Z_NT.fasta: ;
+  charset EOG090C038M_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C038M_NT.fasta: ;
+  charset EOG090C038W_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C038W_NT.fasta: ;
+  charset EOG090C039P_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C039P_NT.fasta: ;
+  charset EOG090C039X_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C039X_NT.fasta: ;
+  charset EOG090C03A3_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03A3_NT.fasta: ;
+  charset EOG090C03A8_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03A8_NT.fasta: ;
+  charset EOG090C03AS_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03AS_NT.fasta: ;
+  charset EOG090C03B7_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03B7_NT.fasta: ;
+  charset EOG090C03BX_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03BX_NT.fasta: ;
+  charset EOG090C03CU_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03CU_NT.fasta: ;
+  charset EOG090C03DJ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03DJ_NT.fasta: ;
+  charset EOG090C03FA_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03FA_NT.fasta: ;
+  charset EOG090C03FD_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03FD_NT.fasta: ;
+  charset EOG090C03FE_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03FE_NT.fasta: ;
+  charset EOG090C03FG_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03FG_NT.fasta: ;
+  charset EOG090C03FH_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03FH_NT.fasta: ;
+  charset EOG090C03FJ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03FJ_NT.fasta: ;
+  charset EOG090C03H4_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03H4_NT.fasta: ;
+  charset EOG090C03HC_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03HC_NT.fasta: ;
+  charset EOG090C03HK_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03HK_NT.fasta: ;
+  charset EOG090C03IP_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03IP_NT.fasta: ;
+  charset EOG090C03IV_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03IV_NT.fasta: ;
+  charset EOG090C03JN_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03JN_NT.fasta: ;
+  charset EOG090C03L5_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03L5_NT.fasta: ;
+  charset EOG090C03LR_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03LR_NT.fasta: ;
+  charset EOG090C03LW_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03LW_NT.fasta: ;
+  charset EOG090C03M2_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03M2_NT.fasta: ;
+  charset EOG090C03MH_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03MH_NT.fasta: ;
+  charset EOG090C03N0_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03N0_NT.fasta: ;
+  charset EOG090C03NV_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03NV_NT.fasta: ;
+  charset EOG090C03O0_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03O0_NT.fasta: ;
+  charset EOG090C03P0_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03P0_NT.fasta: ;
+  charset EOG090C03Q4_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03Q4_NT.fasta: ;
+  charset EOG090C03QE_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03QE_NT.fasta: ;
+  charset EOG090C03QN_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03QN_NT.fasta: ;
+  charset EOG090C03R4_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03R4_NT.fasta: ;
+  charset EOG090C03S5_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03S5_NT.fasta: ;
+  charset EOG090C03TA_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03TA_NT.fasta: ;
+  charset EOG090C03TZ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03TZ_NT.fasta: ;
+  charset EOG090C03U5_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03U5_NT.fasta: ;
+  charset EOG090C03UH_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03UH_NT.fasta: ;
+  charset EOG090C03V7_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03V7_NT.fasta: ;
+  charset EOG090C03VT_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03VT_NT.fasta: ;
+  charset EOG090C03VZ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03VZ_NT.fasta: ;
+  charset EOG090C03W4_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03W4_NT.fasta: ;
+  charset EOG090C03WC_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03WC_NT.fasta: ;
+  charset EOG090C03WJ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03WJ_NT.fasta: ;
+  charset EOG090C03WP_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03WP_NT.fasta: ;
+  charset EOG090C03WQ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03WQ_NT.fasta: ;
+  charset EOG090C03YN_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03YN_NT.fasta: ;
+  charset EOG090C03YX_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03YX_NT.fasta: ;
+  charset EOG090C03Z6_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03Z6_NT.fasta: ;
+  charset EOG090C03ZU_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C03ZU_NT.fasta: ;
+  charset EOG090C041F_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C041F_NT.fasta: ;
+  charset EOG090C041Y_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C041Y_NT.fasta: ;
+  charset EOG090C042P_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C042P_NT.fasta: ;
+  charset EOG090C042U_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C042U_NT.fasta: ;
+  charset EOG090C0432_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0432_NT.fasta: ;
+  charset EOG090C043C_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C043C_NT.fasta: ;
+  charset EOG090C043F_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C043F_NT.fasta: ;
+  charset EOG090C044B_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C044B_NT.fasta: ;
+  charset EOG090C044D_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C044D_NT.fasta: ;
+  charset EOG090C044Q_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C044Q_NT.fasta: ;
+  charset EOG090C044T_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C044T_NT.fasta: ;
+  charset EOG090C044Z_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C044Z_NT.fasta: ;
+  charset EOG090C047G_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C047G_NT.fasta: ;
+  charset EOG090C047M_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C047M_NT.fasta: ;
+  charset EOG090C048B_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C048B_NT.fasta: ;
+  charset EOG090C049C_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C049C_NT.fasta: ;
+  charset EOG090C04AZ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04AZ_NT.fasta: ;
+  charset EOG090C04B3_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04B3_NT.fasta: ;
+  charset EOG090C04BM_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04BM_NT.fasta: ;
+  charset EOG090C04BP_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04BP_NT.fasta: ;
+  charset EOG090C04BT_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04BT_NT.fasta: ;
+  charset EOG090C04BU_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04BU_NT.fasta: ;
+  charset EOG090C04CB_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04CB_NT.fasta: ;
+  charset EOG090C04CM_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04CM_NT.fasta: ;
+  charset EOG090C04CX_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04CX_NT.fasta: ;
+  charset EOG090C04D6_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04D6_NT.fasta: ;
+  charset EOG090C04DD_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04DD_NT.fasta: ;
+  charset EOG090C04DJ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04DJ_NT.fasta: ;
+  charset EOG090C04F5_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04F5_NT.fasta: ;
+  charset EOG090C04FD_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04FD_NT.fasta: ;
+  charset EOG090C04FT_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04FT_NT.fasta: ;
+  charset EOG090C04FX_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04FX_NT.fasta: ;
+  charset EOG090C04H0_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04H0_NT.fasta: ;
+  charset EOG090C04HL_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04HL_NT.fasta: ;
+  charset EOG090C04IP_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04IP_NT.fasta: ;
+  charset EOG090C04J6_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04J6_NT.fasta: ;
+  charset EOG090C04J8_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04J8_NT.fasta: ;
+  charset EOG090C04JE_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04JE_NT.fasta: ;
+  charset EOG090C04JV_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04JV_NT.fasta: ;
+  charset EOG090C04K4_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04K4_NT.fasta: ;
+  charset EOG090C04KT_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04KT_NT.fasta: ;
+  charset EOG090C04L4_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04L4_NT.fasta: ;
+  charset EOG090C04LG_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04LG_NT.fasta: ;
+  charset EOG090C04LN_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04LN_NT.fasta: ;
+  charset EOG090C04MI_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04MI_NT.fasta: ;
+  charset EOG090C04MJ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04MJ_NT.fasta: ;
+  charset EOG090C04MN_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04MN_NT.fasta: ;
+  charset EOG090C04NO_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04NO_NT.fasta: ;
+  charset EOG090C04OC_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04OC_NT.fasta: ;
+  charset EOG090C04PT_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04PT_NT.fasta: ;
+  charset EOG090C04QB_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04QB_NT.fasta: ;
+  charset EOG090C04QC_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04QC_NT.fasta: ;
+  charset EOG090C04QF_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04QF_NT.fasta: ;
+  charset EOG090C04QT_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04QT_NT.fasta: ;
+  charset EOG090C04R6_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04R6_NT.fasta: ;
+  charset EOG090C04RC_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04RC_NT.fasta: ;
+  charset EOG090C04RD_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04RD_NT.fasta: ;
+  charset EOG090C04SV_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04SV_NT.fasta: ;
+  charset EOG090C04TO_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04TO_NT.fasta: ;
+  charset EOG090C04TR_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04TR_NT.fasta: ;
+  charset EOG090C04U4_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04U4_NT.fasta: ;
+  charset EOG090C04U7_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04U7_NT.fasta: ;
+  charset EOG090C04UV_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04UV_NT.fasta: ;
+  charset EOG090C04VE_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04VE_NT.fasta: ;
+  charset EOG090C04WO_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04WO_NT.fasta: ;
+  charset EOG090C04WZ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04WZ_NT.fasta: ;
+  charset EOG090C04X7_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04X7_NT.fasta: ;
+  charset EOG090C04Y2_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04Y2_NT.fasta: ;
+  charset EOG090C04Y6_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04Y6_NT.fasta: ;
+  charset EOG090C04YP_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04YP_NT.fasta: ;
+  charset EOG090C04YR_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C04YR_NT.fasta: ;
+  charset EOG090C050Q_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C050Q_NT.fasta: ;
+  charset EOG090C050T_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C050T_NT.fasta: ;
+  charset EOG090C051A_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C051A_NT.fasta: ;
+  charset EOG090C053D_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C053D_NT.fasta: ;
+  charset EOG090C053Z_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C053Z_NT.fasta: ;
+  charset EOG090C054C_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C054C_NT.fasta: ;
+  charset EOG090C055A_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C055A_NT.fasta: ;
+  charset EOG090C055V_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C055V_NT.fasta: ;
+  charset EOG090C057Q_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C057Q_NT.fasta: ;
+  charset EOG090C058Y_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C058Y_NT.fasta: ;
+  charset EOG090C058Z_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C058Z_NT.fasta: ;
+  charset EOG090C059M_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C059M_NT.fasta: ;
+  charset EOG090C05AP_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05AP_NT.fasta: ;
+  charset EOG090C05B2_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05B2_NT.fasta: ;
+  charset EOG090C05BP_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05BP_NT.fasta: ;
+  charset EOG090C05C1_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05C1_NT.fasta: ;
+  charset EOG090C05DF_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05DF_NT.fasta: ;
+  charset EOG090C05E0_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05E0_NT.fasta: ;
+  charset EOG090C05E1_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05E1_NT.fasta: ;
+  charset EOG090C05FV_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05FV_NT.fasta: ;
+  charset EOG090C05G3_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05G3_NT.fasta: ;
+  charset EOG090C05GQ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05GQ_NT.fasta: ;
+  charset EOG090C05GZ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05GZ_NT.fasta: ;
+  charset EOG090C05HY_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05HY_NT.fasta: ;
+  charset EOG090C05KU_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05KU_NT.fasta: ;
+  charset EOG090C05L0_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05L0_NT.fasta: ;
+  charset EOG090C05MB_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05MB_NT.fasta: ;
+  charset EOG090C05N1_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05N1_NT.fasta: ;
+  charset EOG090C05N2_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05N2_NT.fasta: ;
+  charset EOG090C05NC_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05NC_NT.fasta: ;
+  charset EOG090C05NL_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05NL_NT.fasta: ;
+  charset EOG090C05OL_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05OL_NT.fasta: ;
+  charset EOG090C05OM_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05OM_NT.fasta: ;
+  charset EOG090C05PO_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05PO_NT.fasta: ;
+  charset EOG090C05QZ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05QZ_NT.fasta: ;
+  charset EOG090C05RM_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05RM_NT.fasta: ;
+  charset EOG090C05RQ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05RQ_NT.fasta: ;
+  charset EOG090C05UN_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05UN_NT.fasta: ;
+  charset EOG090C05VA_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05VA_NT.fasta: ;
+  charset EOG090C05VD_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05VD_NT.fasta: ;
+  charset EOG090C05X3_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05X3_NT.fasta: ;
+  charset EOG090C05X7_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05X7_NT.fasta: ;
+  charset EOG090C05XW_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05XW_NT.fasta: ;
+  charset EOG090C05Y0_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05Y0_NT.fasta: ;
+  charset EOG090C05Y6_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05Y6_NT.fasta: ;
+  charset EOG090C05YQ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05YQ_NT.fasta: ;
+  charset EOG090C05Z8_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05Z8_NT.fasta: ;
+  charset EOG090C05ZG_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C05ZG_NT.fasta: ;
+  charset EOG090C0601_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0601_NT.fasta: ;
+  charset EOG090C061K_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C061K_NT.fasta: ;
+  charset EOG090C061N_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C061N_NT.fasta: ;
+  charset EOG090C0620_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0620_NT.fasta: ;
+  charset EOG090C0621_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0621_NT.fasta: ;
+  charset EOG090C062I_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C062I_NT.fasta: ;
+  charset EOG090C062M_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C062M_NT.fasta: ;
+  charset EOG090C063D_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C063D_NT.fasta: ;
+  charset EOG090C0651_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0651_NT.fasta: ;
+  charset EOG090C065J_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C065J_NT.fasta: ;
+  charset EOG090C066J_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C066J_NT.fasta: ;
+  charset EOG090C067F_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C067F_NT.fasta: ;
+  charset EOG090C067N_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C067N_NT.fasta: ;
+  charset EOG090C0695_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0695_NT.fasta: ;
+  charset EOG090C069K_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C069K_NT.fasta: ;
+  charset EOG090C06AW_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06AW_NT.fasta: ;
+  charset EOG090C06BB_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06BB_NT.fasta: ;
+  charset EOG090C06CQ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06CQ_NT.fasta: ;
+  charset EOG090C06CR_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06CR_NT.fasta: ;
+  charset EOG090C06CX_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06CX_NT.fasta: ;
+  charset EOG090C06D0_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06D0_NT.fasta: ;
+  charset EOG090C06DR_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06DR_NT.fasta: ;
+  charset EOG090C06E3_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06E3_NT.fasta: ;
+  charset EOG090C06E8_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06E8_NT.fasta: ;
+  charset EOG090C06ED_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06ED_NT.fasta: ;
+  charset EOG090C06EI_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06EI_NT.fasta: ;
+  charset EOG090C06FO_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06FO_NT.fasta: ;
+  charset EOG090C06FP_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06FP_NT.fasta: ;
+  charset EOG090C06FQ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06FQ_NT.fasta: ;
+  charset EOG090C06GH_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06GH_NT.fasta: ;
+  charset EOG090C06GP_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06GP_NT.fasta: ;
+  charset EOG090C06HE_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06HE_NT.fasta: ;
+  charset EOG090C06I2_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06I2_NT.fasta: ;
+  charset EOG090C06IB_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06IB_NT.fasta: ;
+  charset EOG090C06IP_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06IP_NT.fasta: ;
+  charset EOG090C06IV_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06IV_NT.fasta: ;
+  charset EOG090C06J4_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06J4_NT.fasta: ;
+  charset EOG090C06JO_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06JO_NT.fasta: ;
+  charset EOG090C06JS_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06JS_NT.fasta: ;
+  charset EOG090C06K8_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06K8_NT.fasta: ;
+  charset EOG090C06LC_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06LC_NT.fasta: ;
+  charset EOG090C06M4_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06M4_NT.fasta: ;
+  charset EOG090C06MB_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06MB_NT.fasta: ;
+  charset EOG090C06ME_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06ME_NT.fasta: ;
+  charset EOG090C06OU_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06OU_NT.fasta: ;
+  charset EOG090C06PD_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06PD_NT.fasta: ;
+  charset EOG090C06PQ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06PQ_NT.fasta: ;
+  charset EOG090C06Q1_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06Q1_NT.fasta: ;
+  charset EOG090C06Q7_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06Q7_NT.fasta: ;
+  charset EOG090C06Q8_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06Q8_NT.fasta: ;
+  charset EOG090C06QV_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06QV_NT.fasta: ;
+  charset EOG090C06RL_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06RL_NT.fasta: ;
+  charset EOG090C06S5_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06S5_NT.fasta: ;
+  charset EOG090C06SJ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06SJ_NT.fasta: ;
+  charset EOG090C06T5_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06T5_NT.fasta: ;
+  charset EOG090C06TR_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06TR_NT.fasta: ;
+  charset EOG090C06UH_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06UH_NT.fasta: ;
+  charset EOG090C06UQ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06UQ_NT.fasta: ;
+  charset EOG090C06UT_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06UT_NT.fasta: ;
+  charset EOG090C06W8_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06W8_NT.fasta: ;
+  charset EOG090C06XD_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06XD_NT.fasta: ;
+  charset EOG090C06XU_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06XU_NT.fasta: ;
+  charset EOG090C06XX_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06XX_NT.fasta: ;
+  charset EOG090C06ZM_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06ZM_NT.fasta: ;
+  charset EOG090C06ZU_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C06ZU_NT.fasta: ;
+  charset EOG090C0706_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0706_NT.fasta: ;
+  charset EOG090C071F_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C071F_NT.fasta: ;
+  charset EOG090C071P_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C071P_NT.fasta: ;
+  charset EOG090C071U_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C071U_NT.fasta: ;
+  charset EOG090C0724_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0724_NT.fasta: ;
+  charset EOG090C0729_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0729_NT.fasta: ;
+  charset EOG090C072G_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C072G_NT.fasta: ;
+  charset EOG090C072N_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C072N_NT.fasta: ;
+  charset EOG090C0737_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0737_NT.fasta: ;
+  charset EOG090C074A_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C074A_NT.fasta: ;
+  charset EOG090C0750_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0750_NT.fasta: ;
+  charset EOG090C0755_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0755_NT.fasta: ;
+  charset EOG090C0764_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0764_NT.fasta: ;
+  charset EOG090C076H_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C076H_NT.fasta: ;
+  charset EOG090C076X_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C076X_NT.fasta: ;
+  charset EOG090C077E_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C077E_NT.fasta: ;
+  charset EOG090C077H_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C077H_NT.fasta: ;
+  charset EOG090C077V_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C077V_NT.fasta: ;
+  charset EOG090C078H_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C078H_NT.fasta: ;
+  charset EOG090C078M_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C078M_NT.fasta: ;
+  charset EOG090C078U_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C078U_NT.fasta: ;
+  charset EOG090C079E_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C079E_NT.fasta: ;
+  charset EOG090C079V_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C079V_NT.fasta: ;
+  charset EOG090C079Z_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C079Z_NT.fasta: ;
+  charset EOG090C07AC_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07AC_NT.fasta: ;
+  charset EOG090C07AG_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07AG_NT.fasta: ;
+  charset EOG090C07AW_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07AW_NT.fasta: ;
+  charset EOG090C07AZ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07AZ_NT.fasta: ;
+  charset EOG090C07EH_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07EH_NT.fasta: ;
+  charset EOG090C07EI_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07EI_NT.fasta: ;
+  charset EOG090C07FG_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07FG_NT.fasta: ;
+  charset EOG090C07FM_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07FM_NT.fasta: ;
+  charset EOG090C07FU_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07FU_NT.fasta: ;
+  charset EOG090C07FV_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07FV_NT.fasta: ;
+  charset EOG090C07FY_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07FY_NT.fasta: ;
+  charset EOG090C07GV_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07GV_NT.fasta: ;
+  charset EOG090C07HG_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07HG_NT.fasta: ;
+  charset EOG090C07IL_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07IL_NT.fasta: ;
+  charset EOG090C07J7_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07J7_NT.fasta: ;
+  charset EOG090C07JM_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07JM_NT.fasta: ;
+  charset EOG090C07KY_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07KY_NT.fasta: ;
+  charset EOG090C07N2_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07N2_NT.fasta: ;
+  charset EOG090C07OT_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07OT_NT.fasta: ;
+  charset EOG090C07OV_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07OV_NT.fasta: ;
+  charset EOG090C07OX_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07OX_NT.fasta: ;
+  charset EOG090C07PU_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07PU_NT.fasta: ;
+  charset EOG090C07QB_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07QB_NT.fasta: ;
+  charset EOG090C07QS_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07QS_NT.fasta: ;
+  charset EOG090C07R2_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07R2_NT.fasta: ;
+  charset EOG090C07R9_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07R9_NT.fasta: ;
+  charset EOG090C07RZ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07RZ_NT.fasta: ;
+  charset EOG090C07SG_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07SG_NT.fasta: ;
+  charset EOG090C07SU_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07SU_NT.fasta: ;
+  charset EOG090C07T9_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07T9_NT.fasta: ;
+  charset EOG090C07U0_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07U0_NT.fasta: ;
+  charset EOG090C07UF_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07UF_NT.fasta: ;
+  charset EOG090C07UM_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07UM_NT.fasta: ;
+  charset EOG090C07VC_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07VC_NT.fasta: ;
+  charset EOG090C07WX_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07WX_NT.fasta: ;
+  charset EOG090C07XT_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07XT_NT.fasta: ;
+  charset EOG090C07YR_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07YR_NT.fasta: ;
+  charset EOG090C07Z5_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C07Z5_NT.fasta: ;
+  charset EOG090C0814_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0814_NT.fasta: ;
+  charset EOG090C081U_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C081U_NT.fasta: ;
+  charset EOG090C082D_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C082D_NT.fasta: ;
+  charset EOG090C082R_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C082R_NT.fasta: ;
+  charset EOG090C084B_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C084B_NT.fasta: ;
+  charset EOG090C085C_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C085C_NT.fasta: ;
+  charset EOG090C085V_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C085V_NT.fasta: ;
+  charset EOG090C0865_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0865_NT.fasta: ;
+  charset EOG090C0877_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0877_NT.fasta: ;
+  charset EOG090C087L_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C087L_NT.fasta: ;
+  charset EOG090C088U_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C088U_NT.fasta: ;
+  charset EOG090C0898_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0898_NT.fasta: ;
+  charset EOG090C089F_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C089F_NT.fasta: ;
+  charset EOG090C089X_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C089X_NT.fasta: ;
+  charset EOG090C08AJ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08AJ_NT.fasta: ;
+  charset EOG090C08AT_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08AT_NT.fasta: ;
+  charset EOG090C08B5_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08B5_NT.fasta: ;
+  charset EOG090C08BI_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08BI_NT.fasta: ;
+  charset EOG090C08BX_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08BX_NT.fasta: ;
+  charset EOG090C08CA_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08CA_NT.fasta: ;
+  charset EOG090C08D0_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08D0_NT.fasta: ;
+  charset EOG090C08E3_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08E3_NT.fasta: ;
+  charset EOG090C08EY_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08EY_NT.fasta: ;
+  charset EOG090C08FD_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08FD_NT.fasta: ;
+  charset EOG090C08GU_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08GU_NT.fasta: ;
+  charset EOG090C08GX_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08GX_NT.fasta: ;
+  charset EOG090C08GY_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08GY_NT.fasta: ;
+  charset EOG090C08HR_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08HR_NT.fasta: ;
+  charset EOG090C08IP_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08IP_NT.fasta: ;
+  charset EOG090C08IU_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08IU_NT.fasta: ;
+  charset EOG090C08KK_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08KK_NT.fasta: ;
+  charset EOG090C08L2_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08L2_NT.fasta: ;
+  charset EOG090C08L3_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08L3_NT.fasta: ;
+  charset EOG090C08LT_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08LT_NT.fasta: ;
+  charset EOG090C08M6_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08M6_NT.fasta: ;
+  charset EOG090C08MD_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08MD_NT.fasta: ;
+  charset EOG090C08N0_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08N0_NT.fasta: ;
+  charset EOG090C08OH_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08OH_NT.fasta: ;
+  charset EOG090C08OU_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08OU_NT.fasta: ;
+  charset EOG090C08PT_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08PT_NT.fasta: ;
+  charset EOG090C08QB_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08QB_NT.fasta: ;
+  charset EOG090C08QI_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08QI_NT.fasta: ;
+  charset EOG090C08QN_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08QN_NT.fasta: ;
+  charset EOG090C08QX_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08QX_NT.fasta: ;
+  charset EOG090C08RM_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08RM_NT.fasta: ;
+  charset EOG090C08RS_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08RS_NT.fasta: ;
+  charset EOG090C08S9_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08S9_NT.fasta: ;
+  charset EOG090C08U5_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08U5_NT.fasta: ;
+  charset EOG090C08U7_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08U7_NT.fasta: ;
+  charset EOG090C08V4_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08V4_NT.fasta: ;
+  charset EOG090C08VJ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08VJ_NT.fasta: ;
+  charset EOG090C08VL_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08VL_NT.fasta: ;
+  charset EOG090C08VR_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08VR_NT.fasta: ;
+  charset EOG090C08W9_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08W9_NT.fasta: ;
+  charset EOG090C08X2_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08X2_NT.fasta: ;
+  charset EOG090C08XW_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08XW_NT.fasta: ;
+  charset EOG090C08Y7_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08Y7_NT.fasta: ;
+  charset EOG090C08YU_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08YU_NT.fasta: ;
+  charset EOG090C08YW_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08YW_NT.fasta: ;
+  charset EOG090C08ZG_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C08ZG_NT.fasta: ;
+  charset EOG090C0910_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0910_NT.fasta: ;
+  charset EOG090C091M_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C091M_NT.fasta: ;
+  charset EOG090C091S_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C091S_NT.fasta: ;
+  charset EOG090C0942_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0942_NT.fasta: ;
+  charset EOG090C094B_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C094B_NT.fasta: ;
+  charset EOG090C094O_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C094O_NT.fasta: ;
+  charset EOG090C095P_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C095P_NT.fasta: ;
+  charset EOG090C0968_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0968_NT.fasta: ;
+  charset EOG090C0969_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0969_NT.fasta: ;
+  charset EOG090C0979_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0979_NT.fasta: ;
+  charset EOG090C097N_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C097N_NT.fasta: ;
+  charset EOG090C098S_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C098S_NT.fasta: ;
+  charset EOG090C09AF_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09AF_NT.fasta: ;
+  charset EOG090C09AT_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09AT_NT.fasta: ;
+  charset EOG090C09CL_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09CL_NT.fasta: ;
+  charset EOG090C09DA_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09DA_NT.fasta: ;
+  charset EOG090C09DM_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09DM_NT.fasta: ;
+  charset EOG090C09E0_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09E0_NT.fasta: ;
+  charset EOG090C09EJ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09EJ_NT.fasta: ;
+  charset EOG090C09G1_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09G1_NT.fasta: ;
+  charset EOG090C09G2_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09G2_NT.fasta: ;
+  charset EOG090C09HS_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09HS_NT.fasta: ;
+  charset EOG090C09II_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09II_NT.fasta: ;
+  charset EOG090C09IS_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09IS_NT.fasta: ;
+  charset EOG090C09JP_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09JP_NT.fasta: ;
+  charset EOG090C09K5_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09K5_NT.fasta: ;
+  charset EOG090C09L0_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09L0_NT.fasta: ;
+  charset EOG090C09LP_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09LP_NT.fasta: ;
+  charset EOG090C09O8_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09O8_NT.fasta: ;
+  charset EOG090C09O9_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09O9_NT.fasta: ;
+  charset EOG090C09PS_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09PS_NT.fasta: ;
+  charset EOG090C09QS_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09QS_NT.fasta: ;
+  charset EOG090C09QZ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09QZ_NT.fasta: ;
+  charset EOG090C09RL_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09RL_NT.fasta: ;
+  charset EOG090C09S9_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09S9_NT.fasta: ;
+  charset EOG090C09TH_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09TH_NT.fasta: ;
+  charset EOG090C09UD_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09UD_NT.fasta: ;
+  charset EOG090C09VT_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09VT_NT.fasta: ;
+  charset EOG090C09VW_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09VW_NT.fasta: ;
+  charset EOG090C09WD_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09WD_NT.fasta: ;
+  charset EOG090C09XK_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09XK_NT.fasta: ;
+  charset EOG090C09XN_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09XN_NT.fasta: ;
+  charset EOG090C09Y7_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09Y7_NT.fasta: ;
+  charset EOG090C09YB_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09YB_NT.fasta: ;
+  charset EOG090C09YT_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09YT_NT.fasta: ;
+  charset EOG090C09YU_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C09YU_NT.fasta: ;
+  charset EOG090C0A1N_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A1N_NT.fasta: ;
+  charset EOG090C0A1O_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A1O_NT.fasta: ;
+  charset EOG090C0A2Z_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A2Z_NT.fasta: ;
+  charset EOG090C0A32_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A32_NT.fasta: ;
+  charset EOG090C0A3E_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A3E_NT.fasta: ;
+  charset EOG090C0A4J_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A4J_NT.fasta: ;
+  charset EOG090C0A4K_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A4K_NT.fasta: ;
+  charset EOG090C0A4P_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A4P_NT.fasta: ;
+  charset EOG090C0A4Y_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A4Y_NT.fasta: ;
+  charset EOG090C0A5A_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A5A_NT.fasta: ;
+  charset EOG090C0A5O_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A5O_NT.fasta: ;
+  charset EOG090C0A5R_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A5R_NT.fasta: ;
+  charset EOG090C0A60_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A60_NT.fasta: ;
+  charset EOG090C0A64_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A64_NT.fasta: ;
+  charset EOG090C0A9U_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0A9U_NT.fasta: ;
+  charset EOG090C0AAQ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0AAQ_NT.fasta: ;
+  charset EOG090C0AFJ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0AFJ_NT.fasta: ;
+  charset EOG090C0AHG_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0AHG_NT.fasta: ;
+  charset EOG090C0AJF_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0AJF_NT.fasta: ;
+  charset EOG090C0AL1_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0AL1_NT.fasta: ;
+  charset EOG090C0ALG_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0ALG_NT.fasta: ;
+  charset EOG090C0ALS_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0ALS_NT.fasta: ;
+  charset EOG090C0ANE_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0ANE_NT.fasta: ;
+  charset EOG090C0ANT_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0ANT_NT.fasta: ;
+  charset EOG090C0AO4_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0AO4_NT.fasta: ;
+  charset EOG090C0AQ9_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0AQ9_NT.fasta: ;
+  charset EOG090C0AQX_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0AQX_NT.fasta: ;
+  charset EOG090C0ASA_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0ASA_NT.fasta: ;
+  charset EOG090C0ATT_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0ATT_NT.fasta: ;
+  charset EOG090C0ATW_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0ATW_NT.fasta: ;
+  charset EOG090C0AU9_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0AU9_NT.fasta: ;
+  charset EOG090C0AWD_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0AWD_NT.fasta: ;
+  charset EOG090C0AXB_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0AXB_NT.fasta: ;
+  charset EOG090C0B1U_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0B1U_NT.fasta: ;
+  charset EOG090C0B20_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0B20_NT.fasta: ;
+  charset EOG090C0B4A_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0B4A_NT.fasta: ;
+  charset EOG090C0B8Z_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0B8Z_NT.fasta: ;
+  charset EOG090C0B9J_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0B9J_NT.fasta: ;
+  charset EOG090C0BBZ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BBZ_NT.fasta: ;
+  charset EOG090C0BC8_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BC8_NT.fasta: ;
+  charset EOG090C0BC9_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BC9_NT.fasta: ;
+  charset EOG090C0BCB_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BCB_NT.fasta: ;
+  charset EOG090C0BDA_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BDA_NT.fasta: ;
+  charset EOG090C0BEF_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BEF_NT.fasta: ;
+  charset EOG090C0BIV_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BIV_NT.fasta: ;
+  charset EOG090C0BJ8_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BJ8_NT.fasta: ;
+  charset EOG090C0BJH_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BJH_NT.fasta: ;
+  charset EOG090C0BMD_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BMD_NT.fasta: ;
+  charset EOG090C0BO8_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BO8_NT.fasta: ;
+  charset EOG090C0BPO_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0BPO_NT.fasta: ;
+  charset EOG090C0CB3_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0CB3_NT.fasta: ;
+  charset EOG090C0CD3_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0CD3_NT.fasta: ;
+  charset EOG090C0CEI_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0CEI_NT.fasta: ;
+  charset EOG090C0CFR_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0CFR_NT.fasta: ;
+  charset EOG090C0CI9_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0CI9_NT.fasta: ;
+  charset EOG090C0CJ9_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0CJ9_NT.fasta: ;
+  charset EOG090C0CL1_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0CL1_NT.fasta: ;
+  charset EOG090C0COA_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0COA_NT.fasta: ;
+  charset EOG090C0CVZ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0CVZ_NT.fasta: ;
+  charset EOG090C0D0D_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0D0D_NT.fasta: ;
+  charset EOG090C0D8Y_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0D8Y_NT.fasta: ;
+  charset EOG090C0DAJ_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0DAJ_NT.fasta: ;
+  charset EOG090C0DBC_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0DBC_NT.fasta: ;
+  charset EOG090C0DCG_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0DCG_NT.fasta: ;
+  charset EOG090C0DH1_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0DH1_NT.fasta: ;
+  charset EOG090C0DKM_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0DKM_NT.fasta: ;
+  charset EOG090C0DO4_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0DO4_NT.fasta: ;
+  charset EOG090C0E36_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0E36_NT.fasta: ;
+  charset EOG090C0ERB_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0ERB_NT.fasta: ;
+  charset EOG090C0F46_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0F46_NT.fasta: ;
+  charset EOG090C0FRI_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0FRI_NT.fasta: ;
+  charset EOG090C0G9X_NT.fasta = ../all_species_acti_per_gene_aligned_filt_ts_distfilt_fasta/EOG090C0G9X_NT.fasta: ;
+  charpartition mymodels =
+    TIM2{1.29044,4.24398,5.76135}+F{0.300526,0.228241,0.224175,0.247058}+R3{0.946765,0.312774,0.0448158,7.29607,0.00841931,44.7658}: EOG090C001K_NT.fasta{0.189462},
+    GTR{1.05904,2.93217,1.16174,0.667875,4.05665}+F{0.295489,0.262978,0.249924,0.191609}+R3{0.929601,0.270873,0.054017,5.18666,0.0163824,28.569}: EOG090C003B_NT.fasta{0.434535},
+    TIM3{0.707452,1.98364,3.14102}+F{0.305359,0.245472,0.272409,0.176761}+R5{0.762118,0.110387,0.198418,1.34039,0.0267467,8.48481,0.0107565,25.7358,0.00196106,74.5238}: EOG090C003K_NT.fasta{0.678438},
+    TN{2.00631,2.84089}+F{0.289345,0.286938,0.222191,0.201527}+R3{0.967151,0.165308,0.0234238,6.36193,0.00942546,73.3228}: EOG090C003L_NT.fasta{0.336911},
+    TVMe{1.32738,3.64255,1.0423,0.715216}+FQ+R4{0.604169,0.050032,0.344102,1.01413,0.0413569,8.97886,0.0103729,24.0502}: EOG090C003V_NT.fasta{0.540993},
+    TIM2{0.714969,1.80141,2.32167}+F{0.306086,0.242061,0.220493,0.231361}+R3{0.93863,0.29365,0.0492885,6.26844,0.0120813,34.3844}: EOG090C005H_NT.fasta{0.331146},
+    TPM2{1.33487,2.04296}+F{0.225368,0.266153,0.27549,0.23299}+R3{0.86696,0.101658,0.063039,1.62832,0.0700007,11.5602}: EOG090C006S_NT.fasta{1.33704},
+    TIM2e{1.28531,3.11966,4.45099}+FQ+R3{0.681048,0.0878838,0.293184,1.58168,0.0257683,18.4887}: EOG090C007Z_NT.fasta{0.333194},
+    GTR{0.938388,2.37148,1.39622,0.65451,3.61631}+F{0.298182,0.242456,0.270495,0.188867}+R3{0.918491,0.197794,0.0603203,4.2459,0.0211891,26.5331}: EOG090C008I_NT.fasta{0.496162},
+    TIM3{0.532078,2.68426,4.59887}+F{0.263015,0.293682,0.268055,0.175248}+R3{0.896391,0.307901,0.0982933,4.94563,0.00531561,44.7509}: EOG090C008M_NT.fasta{0.231643},
+    TIM3{0.680968,0.951781,1.24054}+F{0.289725,0.270882,0.237713,0.20168}+R4{0.705016,0.0226826,0.108498,0.71625,0.101739,2.89704,0.0847474,7.21623}: EOG090C00AN_NT.fasta{3.11517},
+    TIM3{0.829041,1.67814,2.82655}+F{0.307878,0.235586,0.286217,0.170318}+R4{0.456113,0.0344186,0.502705,0.927981,0.0275225,7.01522,0.0136591,23.7735}: EOG090C00AV_NT.fasta{0.664052},
+    HKY{4.06549}+F{0.25326,0.281653,0.253888,0.2112}+R3{0.825413,0.145978,0.162363,2.70902,0.0122244,35.966}: EOG090C00B1_NT.fasta{0.395157},
+    TIM2{1.35539,3.24602,4.84336}+F{0.307207,0.215409,0.291873,0.185512}+R4{0.59738,0.0494495,0.362086,1.15866,0.0301655,9.48916,0.0103678,25.529}: EOG090C00B3_NT.fasta{0.526483},
+    TIM{2.28171,0.776826,3.56198}+F{0.288237,0.250652,0.248083,0.213028}+R3{0.889111,0.246642,0.094739,3.33125,0.0161505,28.7985}: EOG090C00BE_NT.fasta{0.329407},
+    TIM2e{1.37554,3.9797,7.21905}+FQ+R3{0.917009,0.284653,0.0737362,6.1301,0.00925478,31.0068}: EOG090C00BT_NT.fasta{0.266263},
+    TVM{0.81328,2.73562,1.16787,0.506915}+F{0.234879,0.331737,0.232569,0.200814}+R3{0.908881,0.191137,0.0602866,4.24831,0.0308327,18.4922}: EOG090C00DS_NT.fasta{0.568091},
+    TIM2{1.46228,4.12675,5.58625}+F{0.288799,0.263596,0.239352,0.208253}+R4{0.718744,0.0980022,0.255491,1.50873,0.0209098,15.2534,0.00485486,46.3763}: EOG090C00E5_NT.fasta{0.409072},
+    K2P{1.92416}+FQ+R3{0.892704,0.101807,0.068479,3.91176,0.0388174,16.5195}: EOG090C00E9_NT.fasta{0.83351},
+    TPM2{2.02878,5.5707}+F{0.269791,0.270165,0.253577,0.206466}+R3{0.868349,0.23317,0.126258,3.87202,0.00539319,57.2305}: EOG090C00HT_NT.fasta{0.141466},
+    TPM3{0.655898,2.317}+F{0.231059,0.32976,0.2717,0.167481}+R5{0.523482,0.0734885,0.404769,0.671637,0.0462315,4.67395,0.0217084,14.9967,0.00380843,38.8698}: EOG090C00J0_NT.fasta{0.919988},
+    TN{1.64709,2.33288}+F{0.279013,0.251377,0.253632,0.215977}+R4{0.678147,0.082952,0.263238,0.759059,0.0413336,6.54554,0.0172824,27.391}: EOG090C00J3_NT.fasta{0.960595},
+    TIM{2.42516,0.60338,4.96595}+F{0.319751,0.23228,0.28026,0.16771}+R3{0.919295,0.287139,0.0721191,6.50169,0.00858577,31.114}: EOG090C00JA_NT.fasta{0.260253},
+    TIM2e{1.89825,4.85917,9.65874}+FQ+R2{0.957765,0.42359,0.0422348,14.0713}: EOG090C00P3_NT.fasta{0.167042},
+    TN{2.59956,4.80185}+F{0.252071,0.281416,0.272903,0.193611}+R2{0.986789,0.599909,0.0132115,30.8835}: EOG090C00PH_NT.fasta{0.142692},
+    GTR{0.751968,1.12851,1.28459,0.5405,2.16993}+F{0.290157,0.244638,0.303942,0.161263}+R4{0.730428,0.0586813,0.145881,1.08979,0.110141,4.90196,0.0135504,19.0587}: EOG090C00PQ_NT.fasta{1.13056},
+    GTR{0.860445,1.07567,1.09788,0.727566,1.32083}+F{0.272741,0.261328,0.261903,0.204028}+R5{0.681728,0.0144294,0.0789174,0.43284,0.0853928,1.56094,0.095846,3.82482,0.0581156,7.84846}: EOG090C00S8_NT.fasta{9.09956},
+    GTR{0.869718,1.69098,1.38791,0.517819,2.26527}+F{0.223375,0.337548,0.26218,0.176898}+R4{0.862691,0.123292,0.125932,2.84309,0.00623743,15.8654,0.00513968,84.9552}: EOG090C00SD_NT.fasta{0.72155},
+    TVMe{0.658055,1.67801,0.919681,1.06501}+FQ+R4{0.89601,0.0228764,0.0620635,0.825968,0.011945,8.07418,0.0299816,27.7435}: EOG090C00UV_NT.fasta{2.53948},
+    TIM3{0.551363,2.38656,5.3083}+F{0.316554,0.249714,0.272018,0.161714}+R3{0.890103,0.263165,0.104134,5.62753,0.00576335,31.1867}: EOG090C00VF_NT.fasta{0.245611},
+    TPM2{1.30551,2.83089}+F{0.240821,0.286607,0.277289,0.195283}+R4{0.854008,0.0648576,0.0994501,1.42223,0.022157,7.41001,0.0243849,26.2042}: EOG090C00X6_NT.fasta{1.23911},
+    GTR{0.988885,1.95512,1.4963,0.724777,4.03243}+F{0.282753,0.234148,0.299406,0.183692}+R4{0.682413,0.0996012,0.247777,0.927537,0.0416965,5.2933,0.0281134,17.1269}: EOG090C00XD_NT.fasta{0.955239},
+    TN{2.26683,3.71254}+F{0.229413,0.27712,0.289972,0.203494}+R3{0.966371,0.184626,0.0285629,14.213,0.00506559,82.0474}: EOG090C00YB_NT.fasta{0.488448},
+    TIM{1.38799,0.839617,2.64657}+F{0.269071,0.252189,0.273915,0.204825}+R3{0.780139,0.08509,0.145537,1.34521,0.0743234,9.92742}: EOG090C00ZG_NT.fasta{1.26889},
+    TIM2{1.42958,4.6067,6.51826}+F{0.256567,0.276073,0.268631,0.198729}+R3{0.90593,0.281077,0.085276,4.96138,0.00879394,36.6477}: EOG090C010H_NT.fasta{0.2007},
+    TN{3.54585,6.74776}+F{0.284774,0.241217,0.261565,0.212444}+R2{0.983061,0.511331,0.016939,29.3601}: EOG090C0114_NT.fasta{0.0933307},
+    TPM3{0.638562,2.50114}+F{0.237256,0.316192,0.259539,0.187013}+R4{0.806529,0.134215,0.172146,2.18442,0.0151229,12.6372,0.00620188,52.3394}: EOG090C0128_NT.fasta{0.752207},
+    TIM2e{1.83435,3.10075,4.5661}+FQ+R4{0.875109,0.0897846,0.0848496,1.48931,0.0186553,8.88993,0.0213859,29.4221}: EOG090C012B_NT.fasta{0.909653},
+    TIM3{0.664559,2.13866,3.16397}+F{0.261273,0.257473,0.271919,0.209335}+R3{0.751783,0.179511,0.229318,2.00312,0.0188985,21.4669}: EOG090C012C_NT.fasta{0.322857},
+    HKY{4.05697}+F{0.246031,0.29968,0.256168,0.198121}+I{0.772315}: EOG090C014X_NT.fasta{0.101182},
+    TN{3.66815,5.85514}+F{0.267235,0.289046,0.264314,0.179406}+R3{0.959195,0.383321,0.0352545,9.60453,0.00555031,52.9192}: EOG090C015S_NT.fasta{0.256196},
+    TPM3{0.791489,1.28184}+F{0.267497,0.281915,0.255786,0.194802}+R4{0.760174,0.0437109,0.105041,0.555885,0.0560486,4.61285,0.0787363,8.25334}: EOG090C0160_NT.fasta{3.16772},
+    K3Pu{3.73994,0.618933}+F{0.249779,0.281815,0.281862,0.186543}+R3{0.740283,0.0779375,0.236345,1.79253,0.0233727,22.1904}: EOG090C016A_NT.fasta{0.329702},
+    HKY{5.1155}+F{0.244992,0.314586,0.246526,0.193896}+G4{0.121081}: EOG090C016M_NT.fasta{0.12056},
+    HKY{5.30214}+F{0.23171,0.275538,0.281803,0.210949}+R2{0.983979,0.732558,0.0160205,17.4263}: EOG090C016V_NT.fasta{0.202693},
+    TN{3.0959,5.49028}+F{0.241617,0.278887,0.276262,0.203234}+R3{0.937262,0.204313,0.0586644,6.9767,0.00407399,97.9929}: EOG090C017B_NT.fasta{0.351995},
+    K3P{3.43709,0.458046}+FQ+R3{0.824477,0.0715908,0.161447,2.87301,0.014076,33.8971}: EOG090C017P_NT.fasta{0.281941},
+    TIM{2.48766,0.434989,4.09964}+F{0.231386,0.277255,0.2917,0.199659}+R3{0.933556,0.343436,0.0600687,7.19213,0.00637547,38.7989}: EOG090C01BG_NT.fasta{0.242353},
+    TVMe{1.05942,1.56159,0.817556,0.526383}+FQ+R5{0.838119,0.0688489,0.0861146,1.18319,0.0321498,4.79311,0.0270456,11.7405,0.0165713,22.2541}: EOG090C01CH_NT.fasta{1.75322},
+    K2P{5.23916}+FQ+R3{0.881543,0.143662,0.101654,3.53889,0.0168024,30.5678}: EOG090C01CI_NT.fasta{0.45957},
+    TPM2{1.21016,2.28973}+F{0.26532,0.2631,0.27739,0.194191}+R3{0.781015,0.306978,0.175642,1.61685,0.0433433,10.9881}: EOG090C01CW_NT.fasta{0.808877},
+    TVMe{1.14829,2.23972,1.58547,0.660114}+FQ+R3{0.904873,0.181476,0.0801152,6.18992,0.0150114,22.6414}: EOG090C01DA_NT.fasta{0.55857},
+    TPM2{1.50336,3.08776}+F{0.252283,0.257047,0.289405,0.201265}+R3{0.914915,0.218369,0.0629832,4.05097,0.0221014,24.6621}: EOG090C01F6_NT.fasta{0.613762},
+    TIM3{0.572175,0.85753,1.64597}+F{0.316595,0.245025,0.273513,0.164866}+R5{0.782684,0.0282157,0.0751917,0.429761,0.0376741,2.30972,0.0449005,5.21135,0.0595495,10.4886}: EOG090C01H6_NT.fasta{4.25633},
+    TIM3{0.429713,1.87279,3.1241}+F{0.237533,0.32144,0.276586,0.164441}+R4{0.862445,0.142439,0.121284,2.21985,0.0111476,17.0248,0.00512405,81.603}: EOG090C01I3_NT.fasta{0.488622},
+    K2P{2.21047}+FQ+R4{0.808255,0.0573369,0.161758,1.79869,0.0164376,11.523,0.0135493,34.9312}: EOG090C01I8_NT.fasta{0.905197},
+    TIM2e{1.4694,3.44294,3.41466}+FQ+R4{0.893836,0.139237,0.0782609,2.83058,0.0185471,12.4823,0.00935571,45.1606}: EOG090C01IQ_NT.fasta{0.683542},
+    TIM{2.43711,0.626674,3.74693}+F{0.26043,0.272561,0.259027,0.207981}+R3{0.90301,0.140749,0.0636103,3.47638,0.03338,19.5258}: EOG090C01JR_NT.fasta{0.859357},
+    TIM3{0.618508,3.68954,5.23364}+F{0.286302,0.277427,0.264128,0.172143}+R2{0.974348,0.504972,0.0256521,19.8027}: EOG090C01KZ_NT.fasta{0.201165},
+    TVM{0.837792,2.10686,1.43309,0.639917}+F{0.268253,0.302683,0.260557,0.168507}+R3{0.885907,0.51136,0.106793,3.81382,0.00730027,19.1353}: EOG090C01LR_NT.fasta{0.557584},
+    TPM2{2.07613,6.45051}+F{0.218146,0.291479,0.264898,0.225477}+R3{0.901953,0.308411,0.0872769,4.03633,0.0107698,34.3136}: EOG090C01M7_NT.fasta{0.324194},
+    K3P{3.75468,1.76497}+FQ+R4{0.685375,0.0176129,0.278899,0.958751,0.0201272,9.78188,0.0155992,33.5691}: EOG090C01NW_NT.fasta{0.861799},
+    HKY{5.06147}+F{0.282155,0.274298,0.241332,0.202215}+R2{0.983896,0.608592,0.0161036,24.9142}: EOG090C01O3_NT.fasta{0.127395},
+    TPM3{0.508297,1.18922}+F{0.237832,0.334106,0.240315,0.187747}+R4{0.930527,0.0810034,0.0438102,2.08876,0.0153676,18.963,0.0102953,52.6161}: EOG090C01OB_NT.fasta{0.95743},
+    K3P{2.79681,0.602662}+FQ+R3{0.800328,0.14579,0.184048,2.40615,0.0156244,28.1914}: EOG090C01OT_NT.fasta{0.361265},
+    TVM{0.659071,1.54542,0.57914,0.559516}+F{0.261719,0.255781,0.279428,0.203073}+R4{0.869642,0.115054,0.106091,2.34899,0.0171268,16.5602,0.00713977,51.4181}: EOG090C01PW_NT.fasta{0.868167},
+    TIM2{1.2859,1.74022,2.3232}+F{0.266942,0.260814,0.263743,0.208502}+R3{0.585465,0.0180286,0.389321,1.66613,0.0252141,13.5156}: EOG090C01SC_NT.fasta{0.775373},
+    GTR{1.35521,4.00306,2.39485,1.63863,6.92773}+F{0.245641,0.304803,0.271388,0.178168}+R4{0.900868,0.0844438,0.0634375,1.69846,0.0133266,9.97581,0.0223683,30.5449}: EOG090C01SN_NT.fasta{1.24725},
+    TN{3.05499,6.71613}+F{0.270213,0.271249,0.263502,0.195035}+R3{0.95549,0.26064,0.0384225,7.6996,0.00608777,74.7603}: EOG090C01SV_NT.fasta{0.329986},
+    TIM{4.7896,0.533609,6.78474}+F{0.275358,0.279138,0.249883,0.195621}+R3{0.617374,0.0683765,0.374117,1.92437,0.00850897,27.9524}: EOG090C01T7_NT.fasta{0.230335},
+    TIM3e{0.570265,1.78939,2.92709}+FQ+R3{0.92811,0.149379,0.0611638,5.45771,0.0107263,49.1824}: EOG090C01US_NT.fasta{0.417734},
+    TIM2e{1.36852,2.29624,2.78276}+FQ+R3{0.899572,0.0848624,0.081804,2.22156,0.0186243,39.8366}: EOG090C01V0_NT.fasta{1.11084},
+    TN{2.66798,3.86983}+F{0.297823,0.215395,0.297275,0.189508}+R5{0.528467,0.0864732,0.426227,0.681898,0.0323349,6.81879,0.0113394,24.8521,0.00163226,98.8611}: EOG090C01VW_NT.fasta{0.502394},
+    K3Pu{2.04461,0.762599}+F{0.269441,0.281684,0.250153,0.198722}+R4{0.846307,0.105988,0.101998,1.2887,0.041778,8.1755,0.00991709,44.0956}: EOG090C01W9_NT.fasta{1.15526},
+    K3Pu{1.98982,0.710925}+F{0.261592,0.264368,0.281431,0.192609}+R4{0.832292,0.116206,0.116934,1.17211,0.0298027,7.89419,0.0209717,25.3177}: EOG090C01WG_NT.fasta{1.51949},
+    GTR{0.953246,2.14209,1.28682,0.573766,3.50425}+F{0.267723,0.271291,0.297058,0.163928}+R4{0.823698,0.10205,0.142858,2.21415,0.0290238,14.1015,0.00441946,43.0714}: EOG090C01Y6_NT.fasta{1.13655},
+    TVM{0.857825,1.07711,1.38013,0.603684}+F{0.236635,0.327935,0.263245,0.172185}+R5{0.695968,0.00847773,0.232799,0.216469,0.00799972,2.40919,0.0259132,9.08993,0.0373193,18.4592}: EOG090C01YE_NT.fasta{3.48457},
+    TVMe{0.964118,1.809,1.12503,0.640025}+FQ+R4{0.888997,0.15405,0.073008,2.39018,0.0227406,11.3699,0.015254,28.1886}: EOG090C01Z2_NT.fasta{0.800897},
+    K3Pu{8.47838,0.569634}+F{0.23307,0.328938,0.263985,0.174007}+R3{0.937691,0.220464,0.0490434,4.64884,0.0132656,42.6122}: EOG090C01ZW_NT.fasta{0.325377},
+    TN{3.48938,5.54984}+F{0.229805,0.305646,0.251754,0.212795}+R3{0.939985,0.300334,0.0543199,7.57729,0.00569537,53.7443}: EOG090C01ZY_NT.fasta{0.264373},
+    GTR{0.635695,0.978169,1.49338,0.450498,2.06946}+F{0.257071,0.265816,0.31275,0.164363}+R4{0.799227,0.0503063,0.120103,0.990346,0.0404603,5.71037,0.0402101,15.1655}: EOG090C0224_NT.fasta{1.19271},
+    K2P{2.44746}+FQ+R3{0.831265,0.114625,0.148897,2.35911,0.019838,27.8986}: EOG090C023E_NT.fasta{0.457261},
+    K2P{3.0634}+FQ+R3{0.914107,0.294474,0.0753113,5.08642,0.0105819,32.8633}: EOG090C0240_NT.fasta{0.365381},
+    K2P{4.19807}+FQ+R3{0.932784,0.202073,0.0447482,3.41651,0.0224675,29.3146}: EOG090C024L_NT.fasta{0.53828},
+    TVM{0.815427,2.49282,1.11258,0.447988}+F{0.235802,0.31833,0.226137,0.219732}+R3{0.719645,0.16118,0.268716,2.21685,0.0116395,24.7696}: EOG090C024Z_NT.fasta{0.308911},
+    K3Pu{3.41811,0.611245}+F{0.301048,0.24973,0.225413,0.223809}+R2{0.969186,0.598617,0.0308144,13.6244}: EOG090C0255_NT.fasta{0.175165},
+    K3Pu{2.71256,0.58654}+F{0.223021,0.289918,0.267164,0.219897}+R3{0.935439,0.202633,0.0523367,8.01045,0.0122246,32.0017}: EOG090C025K_NT.fasta{0.453682},
+    TPM2{2.00925,5.03875}+F{0.280998,0.279695,0.253083,0.186224}+R3{0.923312,0.263684,0.0633643,5.66216,0.0133234,29.8541}: EOG090C0275_NT.fasta{0.506031},
+    TVM{0.68881,1.65982,1.42738,0.419711}+F{0.281507,0.30318,0.261335,0.153979}+R3{0.939284,0.425707,0.0560338,6.93867,0.00468229,45.1361}: EOG090C027I_NT.fasta{0.446019},
+    TPM3{0.5013,1.78537}+F{0.25026,0.340572,0.245814,0.163354}+R3{0.908203,0.155601,0.0695486,3.0679,0.0222487,29.0046}: EOG090C028E_NT.fasta{0.555145},
+    TN{5.19972,10.8862}+F{0.243486,0.290507,0.280289,0.185718}+R2{0.952808,0.490631,0.0471923,11.2841}: EOG090C029M_NT.fasta{0.15703},
+    GTR{1.26841,2.01173,1.09012,0.490467,3.50973}+F{0.316449,0.210854,0.286524,0.186174}+R4{0.747382,0.0491155,0.210166,1.19591,0.0265372,8.22903,0.0159143,31.0145}: EOG090C02AS_NT.fasta{0.866795},
+    TPM2{3.03646,16.6034}+F{0.266137,0.296892,0.262448,0.174523}+R2{0.990323,0.485061,0.00967655,53.7002}: EOG090C02BD_NT.fasta{0.102209},
+    K2P{8.63575}+FQ+R2{0.980615,0.49647,0.0193852,26.4715}: EOG090C02D4_NT.fasta{0.109207},
+    K3P{2.53509,0.522412}+FQ+R4{0.928459,0.194805,0.0554745,4.47114,0.011843,20.8633,0.00422387,76.71}: EOG090C02D7_NT.fasta{0.548377},
+    HKY{2.59593}+F{0.278241,0.245956,0.262237,0.213567}+R3{0.936123,0.0966689,0.0436335,3.61586,0.0202431,37.1353}: EOG090C02E2_NT.fasta{0.834124},
+    GTR{0.789784,1.2488,1.45284,0.370186,1.49078}+F{0.228954,0.329057,0.288046,0.153944}+R4{0.711941,0.0249116,0.0787982,0.925161,0.121818,3.15145,0.0874426,6.00918}: EOG090C02EA_NT.fasta{3.22617},
+    TPM3{0.471139,3.03842}+F{0.215862,0.334511,0.283978,0.165649}+R3{0.898091,0.237814,0.0904262,5.16208,0.011483,27.8353}: EOG090C02F4_NT.fasta{0.398571},
+    TPM2{1.1935,1.83801}+F{0.263129,0.254444,0.24918,0.233246}+R4{0.766759,0.109978,0.124364,0.767934,0.0675988,4.24639,0.0412779,12.9154}: EOG090C02F5_NT.fasta{1.84721},
+    TVMe{1.37653,1.69125,1.01031,0.658229}+FQ+R4{0.843949,0.0603886,0.0652725,0.912947,0.0462175,5.15356,0.0445605,14.6152}: EOG090C02FW_NT.fasta{2.80441},
+    TIM{2.73588,0.643401,5.02815}+F{0.267198,0.250021,0.302578,0.180203}+R3{0.963306,0.30518,0.0253777,7.32596,0.0113166,45.9593}: EOG090C02FX_NT.fasta{0.358167},
+    TPM2{1.42849,2.78177}+F{0.24247,0.313602,0.261723,0.182205}+R3{0.769568,0.0372228,0.198499,2.24612,0.0319327,16.4566}: EOG090C02GF_NT.fasta{0.354942},
+    TVM{0.999051,2.15471,1.32996,0.679297}+F{0.237711,0.288366,0.282002,0.191922}+R3{0.587844,0.0199533,0.384913,1.43437,0.027243,16.0101}: EOG090C02GG_NT.fasta{0.614766},
+    GTR{0.779768,1.2213,1.25421,0.664945,1.66499}+F{0.255965,0.280093,0.278443,0.185498}+R4{0.854487,0.0349794,0.0521971,0.492386,0.0304444,4.67781,0.0628718,12.7561}: EOG090C02GR_NT.fasta{3.2332},
+    TIM3e{0.517092,2.4372,3.79775}+FQ+R3{0.897441,0.211113,0.091437,4.07253,0.0111224,39.3944}: EOG090C02JG_NT.fasta{0.319287},
+    HKY{3.83184}+F{0.191477,0.290125,0.274985,0.243412}+R3{0.940128,0.311493,0.0520695,7.19724,0.00780285,42.5998}: EOG090C02JL_NT.fasta{0.352407},
+    K2P{4.20913}+FQ+R3{0.790303,0.127418,0.193321,2.30064,0.0163758,27.7568}: EOG090C02JV_NT.fasta{0.317783},
+    TVM{1.22908,2.59776,2.25459,0.650316}+F{0.261181,0.264613,0.283023,0.191183}+R4{0.862812,0.11708,0.0916562,1.58412,0.0274216,10.0807,0.0181102,26.3586}: EOG090C02JX_NT.fasta{1.01707},
+    TVMe{1.39963,4.38172,4.86586,0.346613}+FQ+R3{0.969323,0.239509,0.0268323,11.7809,0.00384464,117.496}: EOG090C02KP_NT.fasta{0.381845},
+    K3P{3.84057,0.353845}+FQ+R3{0.944387,0.301668,0.0479994,7.33959,0.00761338,47.6546}: EOG090C02LO_NT.fasta{0.260383},
+    TNe{4.02607,6.00209}+FQ+R3{0.873755,0.24402,0.118004,3.80731,0.00824159,40.9519}: EOG090C02M2_NT.fasta{0.273087},
+    K2P{4.02257}+FQ+R3{0.721348,0.180511,0.265078,2.2578,0.0135741,19.9863}: EOG090C02M3_NT.fasta{0.288514},
+    HKY{3.8734}+F{0.283135,0.238845,0.272598,0.205423}+R3{0.657232,0.0352261,0.329536,2.11657,0.0132314,21.1134}: EOG090C02MC_NT.fasta{0.208855},
+    TN{1.88443,4.10451}+F{0.336165,0.219654,0.288225,0.155956}+R3{0.904127,0.373992,0.0842883,3.96186,0.0115842,28.3079}: EOG090C02MG_NT.fasta{0.502164},
+    GTR{1.04759,1.40427,1.28286,0.592943,2.2157}+F{0.29691,0.235326,0.302806,0.164958}+R4{0.916641,0.121549,0.0519739,2.69077,0.022869,15.8198,0.00851659,45.4347}: EOG090C02NP_NT.fasta{0.770064},
+    TVMe{1.53201,1.48998,1.04258,0.9597}+FQ+R4{0.690098,0.0135669,0.269462,0.643086,0.0157219,5.47619,0.0247181,29.5837}: EOG090C02O9_NT.fasta{1.33094},
+    K2P{4.36436}+FQ+R3{0.901516,0.270093,0.0783249,3.88943,0.0201589,22.4153}: EOG090C02OD_NT.fasta{0.598788},
+    TIM{3.40191,0.49598,6.61941}+F{0.250421,0.29948,0.279497,0.170603}+R2{0.977604,0.473344,0.0223959,23.9891}: EOG090C02P2_NT.fasta{0.150893},
+    TPM3{0.740456,2.46188}+F{0.291125,0.253651,0.291567,0.163656}+R4{0.82057,0.121263,0.153883,2.19337,0.0217589,15.4236,0.00378785,60.0267}: EOG090C02PE_NT.fasta{0.528825},
+    TIM3{0.563552,3.31167,6.62043}+F{0.269161,0.261416,0.278162,0.191262}+R3{0.856907,0.135636,0.124074,2.57331,0.0190193,29.68}: EOG090C02RN_NT.fasta{0.278817},
+    K2P{9.20422}+FQ+R2{0.961214,0.427074,0.0387864,15.1984}: EOG090C02S7_NT.fasta{0.11894},
+    GTR{0.968439,1.26458,1.39437,0.769075,2.99771}+F{0.265008,0.245641,0.324063,0.165288}+R4{0.63791,0.0733342,0.295494,1.04506,0.0396007,6.34264,0.0269959,14.5666}: EOG090C02ST_NT.fasta{1.62595},
+    K2P{5.85569}+FQ+R3{0.950737,0.381383,0.0452892,9.66159,0.0039743,50.2831}: EOG090C02TB_NT.fasta{0.22495},
+    GTR{0.779093,1.38951,1.49613,0.377896,1.79914}+F{0.269452,0.287065,0.276619,0.166864}+R4{0.740576,0.0287638,0.154193,1.0913,0.0737659,5.4744,0.0314659,12.922}: EOG090C02TD_NT.fasta{1.72241},
+    TN{7.13828,14.2749}+F{0.275466,0.273696,0.260907,0.189931}+R3{0.900955,0.197912,0.0898779,4.56168,0.0091672,44.9097}: EOG090C02UZ_NT.fasta{0.229065},
+    TIM{4.75785,0.507239,6.56428}+F{0.234869,0.295806,0.272044,0.19728}+R3{0.893628,0.13875,0.0873705,3.62674,0.0190012,29.4265}: EOG090C02W1_NT.fasta{0.426957},
+    K2P{2.59602}+FQ+R3{0.907984,0.158288,0.0695335,3.35758,0.0224829,27.7016}: EOG090C02XM_NT.fasta{0.673446},
+    K3P{2.23863,0.668333}+FQ+R3{0.926623,0.174188,0.0619533,5.78725,0.0114235,42.0234}: EOG090C02YD_NT.fasta{0.406268},
+    TIM{2.76023,0.645444,4.0243}+F{0.274531,0.296882,0.27141,0.157176}+R3{0.93259,0.455678,0.0652354,7.19933,0.00217436,48.4683}: EOG090C02YV_NT.fasta{0.417423},
+    TPM2{2.05558,6.09915}+F{0.219442,0.292432,0.275811,0.212315}+R2{0.956623,0.340224,0.043377,15.5505}: EOG090C0302_NT.fasta{0.183679},
+    TPM2{1.87823,11.6779}+F{0.258966,0.265577,0.284917,0.190541}+R3{0.941714,0.301314,0.0462623,7.15471,0.0120237,32.0412}: EOG090C0304_NT.fasta{0.435164},
+    TIM{2.24699,0.620744,4.14124}+F{0.29304,0.21396,0.33275,0.16025}+R4{0.712327,0.0442652,0.256638,1.30262,0.0234579,11.1078,0.00757693,49.3074}: EOG090C030H_NT.fasta{0.47824},
+    K2P{4.7114}+FQ+R3{0.911094,0.2811,0.0748886,4.76081,0.0140178,27.6334}: EOG090C030R_NT.fasta{0.324012},
+    TVM{1.11902,2.12815,1.85906,0.622178}+F{0.219969,0.318174,0.250182,0.211674}+R4{0.823496,0.131709,0.138078,2.09199,0.0343256,12.0537,0.00409972,46.0835}: EOG090C0316_NT.fasta{0.989133},
+    TIM2{1.62047,2.99892,4.66022}+F{0.22496,0.376341,0.247603,0.151097}+R2{0.961463,0.427892,0.0385374,15.2734}: EOG090C031E_NT.fasta{0.225509},
+    TIM{1.33609,0.621041,2.81382}+F{0.298036,0.279495,0.275334,0.147135}+R4{0.811298,0.0734802,0.172411,1.20839,0.00851275,16.3788,0.00777836,76.1879}: EOG090C032T_NT.fasta{0.436286},
+    K2P{4.22899}+FQ+R3{0.92798,0.291909,0.0575124,5.49969,0.0145078,28.4547}: EOG090C0337_NT.fasta{0.400803},
+    TN{2.73805,3.80049}+F{0.32366,0.224733,0.25477,0.196837}+R3{0.583446,0.0616961,0.331561,0.856583,0.084993,8.00059}: EOG090C033Q_NT.fasta{1.05753},
+    K3P{5.12762,1.4861}+FQ+R4{0.52759,0.0567243,0.440319,0.804169,0.0208805,9.21789,0.0112106,37.7773}: EOG090C0343_NT.fasta{0.351795},
+    TIMe{3.93534,0.520305,6.56831}+FQ+R3{0.811637,0.0539095,0.168195,2.68683,0.0201682,25.0065}: EOG090C0349_NT.fasta{0.325884},
+    K2P{6.0966}+FQ+R3{0.922091,0.243632,0.0549248,3.94985,0.0229845,24.2949}: EOG090C034S_NT.fasta{0.533262},
+    GTR{1.27152,1.53295,1.42025,0.639192,1.89727}+F{0.2587,0.249825,0.295434,0.196041}+R4{0.838139,0.0773551,0.0676121,0.920511,0.0380658,4.5507,0.0561827,12.454}: EOG090C0351_NT.fasta{2.34583},
+    HKY{6.12609}+F{0.221592,0.289236,0.308153,0.181019}+R2{0.9316,0.45056,0.0683998,8.48332}: EOG090C035G_NT.fasta{0.210086},
+    TPM3{1.94808,2.19189}+F{0.251566,0.25149,0.287969,0.208975}+R3{0.946716,0.0819851,0.0264836,2.98458,0.0268003,31.4675}: EOG090C035N_NT.fasta{1.29778},
+    TN{1.68507,4.31893}+F{0.306066,0.219091,0.305085,0.169758}+R2{0.965266,0.595579,0.0347342,12.2389}: EOG090C036L_NT.fasta{0.275494},
+    GTR{0.957689,1.64472,1.72726,1.26439,2.55811}+F{0.311446,0.227606,0.278276,0.182671}+R4{0.795639,0.106119,0.136481,0.905075,0.0425697,7.62622,0.0253095,18.4672}: EOG090C036M_NT.fasta{1.94143},
+    GTR{1.11461,2.96632,0.828491,0.168327,4.8303}+F{0.26891,0.263989,0.275801,0.1913}+R3{0.93176,0.222594,0.0584934,6.72654,0.00974633,40.9526}: EOG090C037U_NT.fasta{0.265362},
+    K3Pu{5.73891,0.572419}+F{0.23399,0.325402,0.263305,0.177303}+R3{0.712175,0.0765448,0.26514,1.77784,0.0226851,20.8997}: EOG090C037V_NT.fasta{0.356532},
+    TPM3{0.632271,2.64085}+F{0.235447,0.317977,0.262635,0.183941}+R2{0.956004,0.428281,0.0439955,13.4232}: EOG090C037Z_NT.fasta{0.209772},
+    TIM2e{1.85324,6.13294,9.73318}+FQ+R3{0.94946,0.349716,0.0427792,8.04649,0.00776125,41.7118}: EOG090C038M_NT.fasta{0.320314},
+    K2P{3.3207}+FQ+R3{0.873503,0.160549,0.110786,4.83387,0.0157112,20.6372}: EOG090C038W_NT.fasta{0.459952},
+    TIM2{1.85683,6.91598,10.4676}+F{0.190254,0.321829,0.285396,0.202521}+R3{0.913645,0.299022,0.0787818,5.65651,0.00757338,37.1261}: EOG090C039P_NT.fasta{0.25679},
+    HKY{3.01581}+F{0.221202,0.290128,0.276966,0.211704}+R3{0.914104,0.194369,0.0816213,7.09016,0.00427482,56.9893}: EOG090C039X_NT.fasta{0.529512},
+    TIM2e{1.46209,3.22489,4.24971}+FQ+R3{0.874059,0.218531,0.114102,4.38718,0.0118398,26.0483}: EOG090C03A3_NT.fasta{0.403264},
+    K2P{4.03258}+FQ+R3{0.588879,0.0300432,0.39763,1.54946,0.0134909,27.144}: EOG090C03A8_NT.fasta{0.262473},
+    HKY{1.9827}+F{0.217786,0.322588,0.267891,0.191735}+R3{0.847626,0.202855,0.130854,3.51869,0.0215199,17.0827}: EOG090C03AS_NT.fasta{0.456052},
+    TPM2{1.63135,6.36986}+F{0.233367,0.297562,0.300231,0.16884}+R3{0.666048,0.0800016,0.322493,1.75837,0.0114594,33.1304}: EOG090C03B7_NT.fasta{0.263953},
+    GTR{0.782116,1.44492,1.67726,0.654068,2.64173}+F{0.259569,0.254643,0.324517,0.161271}+R3{0.811836,0.143225,0.16521,2.17148,0.0229547,22.8701}: EOG090C03BX_NT.fasta{0.557211},
+    TIM2e{1.47244,3.66499,2.59689}+FQ+R4{0.899317,0.12827,0.0693189,3.26933,0.0276521,14.8712,0.00371205,66.4859}: EOG090C03CU_NT.fasta{0.660129},
+    TNe{3.66466,5.27412}+FQ+R3{0.956348,0.305593,0.0276414,5.78492,0.0160103,34.2181}: EOG090C03DJ_NT.fasta{0.399058},
+    TIM3{0.700299,0.950257,1.2287}+F{0.262625,0.268252,0.286971,0.182152}+R5{0.750613,0.0107075,0.0306061,0.308993,0.0549504,1.55255,0.0874295,3.51349,0.0764005,7.7226}: EOG090C03FA_NT.fasta{6.93798},
+    K2P{3.40455}+FQ+R4{0.908268,0.114337,0.0696112,2.53208,0.0148208,12.9373,0.0072999,72.3501}: EOG090C03FD_NT.fasta{0.709882},
+    TIM3{0.786432,1.68159,1.15643}+F{0.230087,0.34555,0.225737,0.198627}+R3{0.901035,0.325701,0.0805014,3.07106,0.0184632,24.877}: EOG090C03FE_NT.fasta{1.18345},
+    K2P{5.09336}+FQ+R3{0.937513,0.464507,0.0544026,5.21679,0.00808438,34.7228}: EOG090C03FG_NT.fasta{0.315116},
+    TIM3{0.55043,1.18402,2.90342}+F{0.280813,0.244895,0.29059,0.183703}+R3{0.852029,0.153129,0.102614,3.0299,0.0453568,12.3161}: EOG090C03FH_NT.fasta{0.777464},
+    TIM2e{1.30839,2.02107,1.71656}+FQ+R4{0.611677,0.0479146,0.29937,0.754593,0.0623168,5.06447,0.0266366,16.1127}: EOG090C03FJ_NT.fasta{1.34316},
+    TVMe{1.27335,1.58912,1.35943,0.56867}+FQ+R4{0.854639,0.0314142,0.0663064,0.845569,0.024316,5.61434,0.0547389,14.2598}: EOG090C03H4_NT.fasta{3.51625},
+    K3Pu{1.78819,0.694616}+F{0.253646,0.291525,0.254739,0.20009}+R2{0.943919,0.367449,0.0560812,11.6466}: EOG090C03HC_NT.fasta{0.278548},
+    TNe{5.39705,9.61812}+FQ+R2{0.971098,0.396694,0.0289021,21.2708}: EOG090C03HK_NT.fasta{0.116965},
+    K3P{3.35625,0.410445}+FQ+R3{0.951543,0.29135,0.0414059,8.5261,0.00705065,52.4401}: EOG090C03IP_NT.fasta{0.273683},
+    TN{3.93113,7.0141}+F{0.303832,0.226487,0.294956,0.174725}+R3{0.917223,0.215782,0.0642387,4.65913,0.0185387,27.1208}: EOG090C03IV_NT.fasta{0.408632},
+    TN{2.6473,4.0913}+F{0.229235,0.292492,0.314749,0.163524}+R3{0.643036,0.201353,0.338357,1.50064,0.0186078,19.4957}: EOG090C03JN_NT.fasta{0.385978},
+    TIM{1.53292,0.723043,2.83037}+F{0.242272,0.280012,0.275156,0.202561}+R3{0.898415,0.216427,0.0813099,4.24598,0.0202755,22.7032}: EOG090C03L5_NT.fasta{0.584573},
+    TIM3{0.40832,0.698451,1.01856}+F{0.240645,0.308404,0.269268,0.181683}+R4{0.825588,0.0324978,0.0936061,1.03829,0.0596784,5.98349,0.021127,24.5607}: EOG090C03LR_NT.fasta{1.9485},
+    TPM2{1.33778,2.82752}+F{0.233499,0.292275,0.29711,0.177116}+R3{0.804327,0.143956,0.142209,1.46857,0.0534641,12.6322}: EOG090C03LW_NT.fasta{1.06816},
+    K3Pu{4.89724,0.661938}+F{0.302379,0.225478,0.242043,0.2301}+R3{0.883082,0.307772,0.105163,3.44012,0.0117552,31.1725}: EOG090C03M2_NT.fasta{0.351566},
+    K3Pu{3.17383,0.630414}+F{0.290794,0.234988,0.286245,0.187973}+R3{0.786597,0.284678,0.197707,2.37667,0.0156955,19.508}: EOG090C03MH_NT.fasta{0.41387},
+    TPM3{0.659765,1.23188}+F{0.229877,0.326639,0.278138,0.165346}+R4{0.771062,0.096344,0.142507,1.43884,0.079792,6.39721,0.0066382,31.6685}: EOG090C03N0_NT.fasta{1.61341},
+    TIM3{0.620343,1.50552,3.4379}+F{0.310651,0.231221,0.267246,0.190882}+R3{0.834476,0.125006,0.141979,2.15153,0.0235454,25.0671}: EOG090C03NV_NT.fasta{0.419664},
+    TIM2e{1.40427,1.31946,1.64589}+FQ+R4{0.671383,0.0159307,0.109901,0.493593,0.0786851,2.35945,0.140031,5.35172}: EOG090C03O0_NT.fasta{8.21555},
+    TIM2e{1.55531,1.97106,1.74095}+FQ+R4{0.74749,0.0511896,0.143149,0.746084,0.0707149,4.98696,0.038647,12.9967}: EOG090C03P0_NT.fasta{1.79989},
+    TPM3{0.533953,1.80053}+F{0.278027,0.313522,0.223955,0.184496}+R3{0.928514,0.195013,0.0530648,4.33842,0.0184214,31.958}: EOG090C03Q4_NT.fasta{0.583162},
+    TIM2e{1.7706,4.24421,5.58037}+FQ+R3{0.915467,0.358409,0.0769624,5.8618,0.0075709,29.1578}: EOG090C03QE_NT.fasta{0.305697},
+    TIM3{0.646459,2.01378,2.68213}+F{0.305895,0.236571,0.278056,0.179479}+R3{0.861666,0.248424,0.124439,3.70036,0.013895,23.4237}: EOG090C03QN_NT.fasta{0.609723},
+    TIM3e{0.708566,1.66893,1.96951}+FQ+R3{0.914192,0.262134,0.0703146,5.20515,0.015493,25.4541}: EOG090C03R4_NT.fasta{0.904113},
+    TPM2{1.50315,5.35329}+F{0.198072,0.292839,0.296461,0.212628}+R4{0.844661,0.1202,0.133932,1.74979,0.0125947,16.3585,0.00881153,51.9873}: EOG090C03S5_NT.fasta{0.508702},
+    TPM3{0.316582,4.26476}+F{0.232138,0.30007,0.308965,0.158827}+R3{0.885125,0.20623,0.108704,5.22784,0.00617126,40.3764}: EOG090C03TA_NT.fasta{0.212525},
+    K3Pu{3.90205,0.575571}+F{0.231569,0.31513,0.27341,0.179891}+R3{0.827969,0.194249,0.158329,2.79582,0.0137017,28.9385}: EOG090C03TZ_NT.fasta{0.299176},
+    K2P{1.78512}+FQ+R3{0.823419,0.0711715,0.143821,1.64964,0.0327609,21.4934}: EOG090C03U5_NT.fasta{1.16904},
+    TIM3{0.539972,2.45084,4.65222}+F{0.219696,0.287148,0.320764,0.172392}+R3{0.912381,0.344639,0.0843867,6.32045,0.00323183,47.0927}: EOG090C03UH_NT.fasta{0.228914},
+    TIMe{5.91213,1.60047,8.50756}+FQ+R3{0.756041,0.169693,0.219618,1.31732,0.024341,23.9267}: EOG090C03V7_NT.fasta{0.443229},
+    TIM3{0.660483,1.18347,2.72806}+F{0.325396,0.198778,0.314159,0.161667}+R3{0.911909,0.102178,0.0466357,2.97093,0.0414557,18.5324}: EOG090C03VT_NT.fasta{1.5585},
+    K2P{6.57641}+FQ+R3{0.802661,0.0686344,0.184093,2.33658,0.0132458,38.8623}: EOG090C03VZ_NT.fasta{0.242017},
+    K3P{1.87865,0.758112}+FQ+R3{0.864796,0.530605,0.12769,3.27497,0.00751425,16.3627}: EOG090C03W4_NT.fasta{0.625011},
+    TNe{3.10299,2.13135}+FQ+R3{0.940611,0.164111,0.0427711,3.8972,0.0166174,40.8578}: EOG090C03WC_NT.fasta{0.383923},
+    K3P{1.90963,0.735744}+FQ+R4{0.675339,0.0580994,0.271377,1.18356,0.0427249,7.12984,0.0105593,31.721}: EOG090C03WJ_NT.fasta{0.75964},
+    TPM2{1.8463,6.81138}+F{0.289484,0.253789,0.26566,0.191068}+R3{0.74178,0.0289729,0.243258,2.32559,0.0149616,27.5899}: EOG090C03WP_NT.fasta{0.249269},
+    TIM2e{2.1942,3.75596,5.72335}+FQ+R3{0.965088,0.324304,0.0322198,9.44979,0.00269253,142.077}: EOG090C03WQ_NT.fasta{0.313112},
+    TVM{1.07954,1.3672,1.36647,0.782013}+F{0.291977,0.269818,0.260733,0.177472}+R5{0.668543,0.0248497,0.103462,0.315491,0.052651,1.62808,0.106566,3.61063,0.0687775,6.98273}: EOG090C03YN_NT.fasta{6.50252},
+    K2P{5.55473}+FQ+R3{0.922521,0.243097,0.0661165,4.84185,0.0113626,40.0973}: EOG090C03YX_NT.fasta{0.284013},
+    HKY{2.28615}+F{0.26881,0.285207,0.205272,0.240712}+R4{0.738025,0.0857967,0.183239,0.957196,0.0685528,6.63774,0.0101835,30.0729}: EOG090C03Z6_NT.fasta{1.12562},
+    TIM2{3.31357,6.98783,15.8473}+F{0.225539,0.278088,0.306905,0.189467}+R3{0.927791,0.155972,0.0598142,5.18166,0.0123951,43.9975}: EOG090C03ZU_NT.fasta{0.358038},
+    K3P{2.21573,0.735754}+FQ+R3{0.881442,0.280266,0.0941177,3.65122,0.0244402,16.7477}: EOG090C041F_NT.fasta{0.593038},
+    SYM{0.837951,3.61613,3.08146,0.779487,5.78426}+FQ+R3{0.908505,0.198513,0.0832355,3.98515,0.0082597,59.0752}: EOG090C041Y_NT.fasta{0.184016},
+    TIM3{0.600424,1.14145,1.71567}+F{0.280504,0.260388,0.272527,0.186581}+R3{0.880895,0.189479,0.0730262,3.02,0.0460793,13.2934}: EOG090C042P_NT.fasta{1.01424},
+    K3P{2.50505,1.23478}+FQ+R4{0.779384,0.101149,0.167696,1.23459,0.0339775,6.91241,0.0189419,25.3018}: EOG090C042U_NT.fasta{1.06318},
+    GTR{1.01095,2.61367,2.13211,0.73439,3.97563}+F{0.211662,0.32733,0.264037,0.196971}+R2{0.961124,0.408062,0.0388756,15.6345}: EOG090C0432_NT.fasta{0.288189},
+    TIM2{2.51258,5.75626,13.9382}+F{0.271294,0.233494,0.285891,0.209321}+R2{0.977159,0.459957,0.0228413,24.1033}: EOG090C043C_NT.fasta{0.168122},
+    HKY{9.30756}+F{0.242787,0.333457,0.241186,0.182571}+R3{0.917424,0.166381,0.064255,4.69654,0.0183211,29.7789}: EOG090C043F_NT.fasta{0.488911},
+    K2P{2.09629}+FQ+R3{0.933679,0.191427,0.0466377,5.25442,0.0196835,29.274}: EOG090C044B_NT.fasta{0.685629},
+    HKY{8.3217}+F{0.235487,0.295841,0.268413,0.20026}+R2{0.968329,0.461438,0.0316709,17.4664}: EOG090C044D_NT.fasta{0.151063},
+    K2P{3.08908}+FQ+R3{0.898002,0.123274,0.0633694,3.07629,0.0386285,17.9753}: EOG090C044Q_NT.fasta{0.95481},
+    K2P{3.20305}+FQ+R3{0.8202,0.018984,0.158001,2.38394,0.0217988,27.8805}: EOG090C044T_NT.fasta{0.559589},
+    TIM3e{0.312042,2.8645,4.09442}+FQ+R3{0.936302,0.148698,0.0475986,5.40138,0.0160989,37.4979}: EOG090C044Z_NT.fasta{0.344877},
+    TVM{1.6459,2.05285,3.13349,1.44417}+F{0.290856,0.23015,0.288557,0.190438}+R3{0.962637,0.0974169,0.0207795,2.86261,0.0165831,51.0603}: EOG090C047G_NT.fasta{0.683138},
+    TIM3e{0.67753,1.12528,1.14864}+FQ+R4{0.864354,0.0634933,0.0939122,1.10369,0.0241957,8.19178,0.0175378,36.6787}: EOG090C047M_NT.fasta{1.40037},
+    TIMe{4.14674,0.548346,5.80168}+FQ+R3{0.793558,0.11457,0.18646,2.28097,0.0199819,24.2105}: EOG090C048B_NT.fasta{0.492336},
+    TIM3{0.66286,3.13254,5.25092}+F{0.267152,0.276792,0.276958,0.179097}+R3{0.8924,0.251124,0.0904301,3.43919,0.0171697,27.0762}: EOG090C049C_NT.fasta{0.502767},
+    TIM2{2.01041,5.76557,9.6457}+F{0.308002,0.239581,0.302904,0.149514}+R3{0.774152,0.160569,0.213084,2.6312,0.0127644,24.6803}: EOG090C04AZ_NT.fasta{0.313084},
+    TNe{2.94423,5.01433}+FQ+R2{0.961792,0.519687,0.038208,13.0907}: EOG090C04B3_NT.fasta{0.236375},
+    TIM2e{1.72858,3.67746,2.95}+FQ+R4{0.857763,0.097986,0.0957481,1.70336,0.0237889,9.47249,0.0226998,23.2389}: EOG090C04BM_NT.fasta{0.900757},
+    K3Pu{3.56682,0.501672}+F{0.218962,0.307127,0.275429,0.198483}+R3{0.851295,0.138155,0.127222,3.42395,0.0214833,20.797}: EOG090C04BP_NT.fasta{0.435407},
+    TN{1.48054,3.30959}+F{0.235825,0.265285,0.321756,0.177134}+R4{0.847223,0.0854241,0.107977,1.46197,0.0308511,10.2873,0.013949,32.4319}: EOG090C04BT_NT.fasta{1.07353},
+    TIM3{0.646162,2.39179,3.39664}+F{0.294209,0.243811,0.284373,0.177607}+R3{0.813697,0.126233,0.160404,2.27288,0.0258992,20.5684}: EOG090C04BU_NT.fasta{0.444985},
+    K2P{3.10306}+FQ+R3{0.897751,0.19677,0.0780906,5.16588,0.0241582,17.383}: EOG090C04CB_NT.fasta{0.779787},
+    K3P{3.34244,0.557691}+FQ+R3{0.803446,0.203011,0.165814,2.1653,0.0307397,15.5452}: EOG090C04CM_NT.fasta{0.445857},
+    HKY{5.8926}+F{0.252103,0.279879,0.268663,0.199355}+R3{0.6798,0.0902829,0.3037,1.79084,0.0165004,23.9235}: EOG090C04CX_NT.fasta{0.260067},
+    TVM{0.989578,3.40805,1.2993,0.367869}+F{0.221162,0.285991,0.292873,0.199973}+R3{0.929904,0.248454,0.053911,6.05268,0.0161849,27.3499}: EOG090C04D6_NT.fasta{0.420128},
+    HKY{6.51286}+F{0.233025,0.279171,0.305353,0.182451}+R3{0.815293,0.204428,0.172001,3.11036,0.0127064,23.4801}: EOG090C04DD_NT.fasta{0.315652},
+    K3P{4.05679,1.43292}+FQ+R3{0.862717,0.117713,0.102516,1.75306,0.0347665,20.673}: EOG090C04DJ_NT.fasta{0.657935},
+    K3P{6.2028,2.28738}+FQ+R2{0.943297,0.367464,0.0567033,11.5226}: EOG090C04F5_NT.fasta{0.295319},
+    TPM2{1.37016,2.54259}+F{0.27627,0.271164,0.196653,0.255912}+R4{0.86426,0.120969,0.108824,2.06982,0.0114167,10.3992,0.0154995,35.5805}: EOG090C04FD_NT.fasta{0.840817},
+    TIM{2.01891,0.735923,2.79272}+F{0.288927,0.258344,0.28526,0.167469}+R4{0.907903,0.141926,0.062173,1.97997,0.0196607,14.5821,0.0102636,44.9501}: EOG090C04FT_NT.fasta{1.07756},
+    K3Pu{1.42766,0.203464}+F{0.195681,0.321543,0.271184,0.211592}+R3{0.965718,0.240676,0.0288032,10.5874,0.00547908,84.4349}: EOG090C04FX_NT.fasta{0.489779},
+    TPM2{2.04094,10.5776}+F{0.224651,0.313336,0.260343,0.20167}+R3{0.821222,0.126578,0.163972,2.5062,0.0148056,32.7648}: EOG090C04H0_NT.fasta{0.262184},
+    K3P{5.75396,0.519166}+FQ+R3{0.778505,0.0734988,0.209747,2.66168,0.0117486,32.7275}: EOG090C04HL_NT.fasta{0.226331},
+    K2P{8.78819}+FQ+R2{0.980561,0.506875,0.0194389,25.8748}: EOG090C04IP_NT.fasta{0.0792606},
+    TNe{4.02195,5.76912}+FQ+R3{0.933049,0.174289,0.0448048,4.62758,0.022146,28.4494}: EOG090C04J6_NT.fasta{0.445139},
+    K2P{4.84395}+FQ+R3{0.727734,0.107741,0.25539,2.00579,0.0168758,24.2557}: EOG090C04J8_NT.fasta{0.309447},
+    TVMe{1.84418,5.97012,0.955682,0.923252}+FQ+R3{0.903036,0.148097,0.0657541,3.72812,0.0312097,19.9016}: EOG090C04JE_NT.fasta{0.760871},
+    TIM2e{2.30198,3.86008,3.95746}+FQ+R4{0.863656,0.0845212,0.109035,1.44503,0.0145873,8.82596,0.0127214,50.3637}: EOG090C04JV_NT.fasta{0.932871},
+    TIM3e{0.624175,1.87074,2.21655}+FQ+R3{0.93844,0.23277,0.045186,4.80993,0.0163738,34.4586}: EOG090C04K4_NT.fasta{0.405969},
+    TVMe{1.22058,1.71231,1.01226,0.62073}+FQ+R4{0.621453,0.0772567,0.279661,0.489986,0.0624177,4.48759,0.0364676,14.6665}: EOG090C04KT_NT.fasta{1.61542},
+    K2P{3.10181}+FQ+R2{0.952969,0.333533,0.0470305,14.5045}: EOG090C04L4_NT.fasta{0.172789},
+    HKY{2.69187}+F{0.328764,0.237234,0.248128,0.185874}+R3{0.932316,0.324517,0.0417206,4.14581,0.0259633,20.2009}: EOG090C04LG_NT.fasta{0.81479},
+    TN{3.38311,4.9143}+F{0.24676,0.276858,0.280055,0.196328}+R3{0.683548,0.0918048,0.293758,1.56578,0.0226946,21.0309}: EOG090C04LN_NT.fasta{0.31677},
+    TVMe{2.09605,2.27058,2.23364,0.757207}+FQ+R4{0.649743,0.00879414,0.19616,0.314206,0.013064,1.968,0.141033,6.43069}: EOG090C04MI_NT.fasta{3.07091},
+    K2P{1.45775}+FQ+R3{0.937942,0.0822004,0.0290784,4.19404,0.0329797,24.286}: EOG090C04MJ_NT.fasta{0.647767},
+    TIM2{1.33471,1.42692,2.74767}+F{0.339042,0.222968,0.264573,0.173417}+R4{0.782719,0.157736,0.175735,1.82249,0.0218291,7.78282,0.0197177,19.5951}: EOG090C04MN_NT.fasta{1.26339},
+    TN{4.01934,6.48841}+F{0.2533,0.311282,0.256996,0.178421}+R3{0.626608,0.0390944,0.358571,1.74861,0.0148212,23.5137}: EOG090C04NO_NT.fasta{0.26322},
+    GTR{0.979015,1.36054,1.44207,0.649767,2.44377}+F{0.287026,0.241628,0.284271,0.187076}+R5{0.729107,0.104122,0.175202,0.980747,0.0622633,3.18405,0.0167938,8.29325,0.0166343,24.9322}: EOG090C04OC_NT.fasta{2.2485},
+    K2P{4.76303}+FQ+R3{0.788666,0.138102,0.191228,2.25377,0.0201061,22.8836}: EOG090C04PT_NT.fasta{0.348528},
+    TIMe{1.62562,1.2913,2.54168}+FQ+R4{0.614613,0.016118,0.286526,0.444451,0.073877,4.36211,0.0249844,21.633}: EOG090C04QB_NT.fasta{1.58727},
+    TIM{2.40776,1.43486,4.54868}+F{0.256015,0.262981,0.2739,0.207104}+R4{0.908462,0.112712,0.0672657,2.07384,0.0141486,11.8378,0.0101239,58.339}: EOG090C04QC_NT.fasta{0.904468},
+    K2P{2.49477}+FQ+R3{0.924885,0.099692,0.041905,1.79624,0.0332103,25.0683}: EOG090C04QF_NT.fasta{0.866583},
+    HKY{5.14714}+F{0.240994,0.274346,0.295237,0.189423}+R3{0.888313,0.204122,0.0992871,3.8238,0.0123995,35.4064}: EOG090C04QT_NT.fasta{0.284936},
+    TVMe{4.19882,9.39234,2.29812,1.61202}+FQ+R3{0.906721,0.241379,0.0740233,4.6812,0.0192561,22.5704}: EOG090C04R6_NT.fasta{0.403494},
+    TIM3{0.747283,1.40145,2.11725}+F{0.228623,0.324948,0.28223,0.164199}+R3{0.80644,0.133903,0.180953,3.99332,0.0126069,13.4381}: EOG090C04RC_NT.fasta{1.1358},
+    K2P{1.27324}+FQ+R3{0.786205,0.0608343,0.0771552,1.18121,0.136639,6.30151}: EOG090C04RD_NT.fasta{3.3453},
+    HKY{5.54441}+F{0.243912,0.298497,0.259576,0.198015}+R3{0.936436,0.322632,0.0531875,6.5243,0.0103765,33.8133}: EOG090C04SV_NT.fasta{0.400328},
+    TIM2e{1.79981,3.59156,2.23754}+FQ+R3{0.795581,0.174393,0.161118,1.83447,0.0433013,13.064}: EOG090C04TO_NT.fasta{0.758146},
+    TPM2{1.76938,4.19231}+F{0.231766,0.312284,0.273429,0.182521}+R3{0.610456,0.0271543,0.379594,2.09486,0.00995015,18.9172}: EOG090C04TR_NT.fasta{0.346411},
+    TIM{1.62431,0.468985,3.4179}+F{0.245248,0.28188,0.296425,0.176446}+R3{0.931811,0.317496,0.0637365,6.29282,0.00445242,68.0688}: EOG090C04U4_NT.fasta{0.224481},
+    TVMe{0.941483,2.13696,1.83057,0.53934}+FQ+R3{0.973462,0.364227,0.0217791,10.638,0.00475941,86.9334}: EOG090C04U7_NT.fasta{0.415885},
+    TPM3{0.478293,1.80128}+F{0.264047,0.296708,0.251514,0.18773}+R3{0.778233,0.113691,0.195453,2.15986,0.0263145,18.597}: EOG090C04UV_NT.fasta{0.48676},
+    K2P{2.89067}+FQ+R3{0.705427,0.028209,0.288962,2.81919,0.00561151,29.4862}: EOG090C04VE_NT.fasta{0.310775},
+    TIM{4.18806,0.549534,6.20072}+F{0.260785,0.261593,0.287361,0.190261}+R3{0.81961,0.147715,0.16375,2.78016,0.0166395,25.4623}: EOG090C04WO_NT.fasta{0.348738},
+    HKY{6.27836}+F{0.188029,0.28208,0.281102,0.248789}+R3{0.820646,0.202288,0.175028,3.43265,0.00432603,53.9027}: EOG090C04WZ_NT.fasta{0.205286},
+    TIM3{0.580591,1.41742,2.10848}+F{0.319252,0.230445,0.257174,0.19313}+R4{0.876064,0.120316,0.0847326,1.09556,0.0235283,8.97882,0.0156752,37.6715}: EOG090C04X7_NT.fasta{1.05203},
+    HKY{4.33607}+F{0.293989,0.23927,0.27734,0.189401}+R2{0.94443,0.443115,0.0555705,10.4643}: EOG090C04Y2_NT.fasta{0.268969},
+    K2P{4.96378}+FQ+R3{0.888164,0.271153,0.0938889,3.07183,0.0179475,26.2299}: EOG090C04Y6_NT.fasta{0.503785},
+    K3Pu{3.45281,0.569767}+F{0.281941,0.247574,0.286189,0.184295}+R4{0.810291,0.139302,0.178047,2.41034,0.0105676,23.1425,0.00109469,194.951}: EOG090C04YP_NT.fasta{0.285172},
+    TN{2.31455,4.44357}+F{0.338834,0.202657,0.302429,0.15608}+R3{0.693098,0.174648,0.286281,1.82122,0.0206216,17.3396}: EOG090C04YR_NT.fasta{0.813141},
+    K3Pu{4.5176,1.65599}+F{0.267484,0.233322,0.287617,0.211578}+R3{0.931847,0.143579,0.0433147,3.76993,0.024838,28.2999}: EOG090C050Q_NT.fasta{0.731087},
+    TIM2e{2.0347,6.14691,13.2135}+FQ+R3{0.920778,0.237559,0.0737566,6.72227,0.00546505,52.2319}: EOG090C050T_NT.fasta{0.261712},
+    TVM{2.26292,2.21511,1.03045,1.30089}+F{0.263065,0.263058,0.249243,0.224634}+I{0.796239}+G4{0.51251}: EOG090C051A_NT.fasta{2.35906},
+    TN{6.52894,13.041}+F{0.260197,0.276345,0.304457,0.159001}+R3{0.870279,0.142746,0.115397,3.63797,0.014324,31.8319}: EOG090C053D_NT.fasta{0.336359},
+    TIM3{0.597684,0.923471,1.25252}+F{0.308684,0.248593,0.258159,0.184563}+R3{0.542775,0.0181892,0.343373,0.541232,0.113852,7.0643}: EOG090C053Z_NT.fasta{0.898586},
+    HKY{1.74593}+F{0.259986,0.276725,0.263627,0.199662}+R4{0.801969,0.0566911,0.118423,0.711171,0.0282276,4.70793,0.0513799,14.3524}: EOG090C054C_NT.fasta{1.70622},
+    TVM{1.02437,5.93599,6.95451,1.13013}+F{0.214136,0.315904,0.304811,0.165149}+R3{0.875306,0.20916,0.121554,4.99953,0.00313996,66.6284}: EOG090C055A_NT.fasta{0.17643},
+    TPM2{1.71609,7.10412}+F{0.27852,0.269118,0.27352,0.178842}+R3{0.906026,0.245967,0.0826865,4.30356,0.0112872,37.3255}: EOG090C055V_NT.fasta{0.316954},
+    TPM3{0.532625,2.63431}+F{0.268457,0.247203,0.286069,0.198271}+R3{0.918021,0.30244,0.0736635,6.33806,0.00831572,30.7213}: EOG090C057Q_NT.fasta{0.269964},
+    K2P{7.72091}+FQ+R3{0.902131,0.230458,0.0864497,4.41517,0.0114197,35.9385}: EOG090C058Y_NT.fasta{0.298664},
+    HKY{3.72126}+F{0.221371,0.29429,0.294995,0.189344}+R3{0.638794,0.0348734,0.350555,2.1194,0.0106511,22.0408}: EOG090C058Z_NT.fasta{0.25923},
+    K2P{2.34826}+FQ+R4{0.50043,0.0739553,0.458178,0.966874,0.0274536,7.4255,0.0139387,22.6803}: EOG090C059M_NT.fasta{0.922365},
+    TN{3.32177,4.99724}+F{0.24145,0.301188,0.254009,0.203354}+R3{0.921519,0.168344,0.0627436,4.10908,0.0157377,37.3022}: EOG090C05AP_NT.fasta{0.354605},
+    K2P{5.8202}+FQ+I{0.836755}: EOG090C05B2_NT.fasta{0.102828},
+    TN{3.13695,5.0103}+F{0.240922,0.266993,0.292047,0.200038}+R3{0.910946,0.178639,0.0662857,3.16282,0.0227685,27.5653}: EOG090C05BP_NT.fasta{0.55377},
+    HKY{3.36094}+F{0.261309,0.27939,0.26773,0.19157}+R3{0.640308,0.0699419,0.318588,1.22797,0.0411047,13.7211}: EOG090C05C1_NT.fasta{0.463954},
+    TNe{1.81968,3.20176}+FQ+R3{0.902134,0.334097,0.0863801,5.12937,0.0114862,22.2462}: EOG090C05DF_NT.fasta{0.660979},
+    K2P{2.76329}+FQ+R3{0.929946,0.104055,0.0390907,4.19022,0.0309638,23.8807}: EOG090C05E0_NT.fasta{0.935619},
+    TNe{3.18252,5.43411}+FQ+G4{0.172222}: EOG090C05E1_NT.fasta{0.181049},
+    K3Pu{2.58108,0.531739}+F{0.213587,0.293719,0.304122,0.188571}+R3{0.964637,0.130135,0.030022,10.7236,0.00534145,103.44}: EOG090C05FV_NT.fasta{0.241739},
+    TN{4.11646,8.11525}+F{0.252702,0.29579,0.271712,0.179797}+R3{0.962273,0.278164,0.0324863,11.74,0.00524071,66.9645}: EOG090C05G3_NT.fasta{0.327609},
+    K2P{9.14647}+FQ+R2{0.978643,0.345908,0.0213566,30.9731}: EOG090C05GQ_NT.fasta{0.162312},
+    TN{2.10313,3.104}+F{0.260599,0.263154,0.293792,0.182454}+R3{0.621522,0.177752,0.364337,1.883,0.0141409,14.3892}: EOG090C05GZ_NT.fasta{0.635821},
+    TIM2{1.77827,5.2492,7.74863}+F{0.217645,0.304065,0.299257,0.179033}+R3{0.700558,0.0989325,0.285903,1.89027,0.0135391,28.8245}: EOG090C05HY_NT.fasta{0.237047},
+    K2P{6.62497}+FQ+R2{0.991838,0.517889,0.00816219,59.5843}: EOG090C05KU_NT.fasta{0.123129},
+    TN{2.37091,5.03419}+F{0.237713,0.285109,0.293158,0.184021}+R3{0.97188,0.429867,0.0271957,8.69109,0.000924642,374.048}: EOG090C05L0_NT.fasta{0.149357},
+    HKY{8.71006}+F{0.189706,0.329823,0.253923,0.226549}+R3{0.842455,0.0274281,0.138989,2.94335,0.0185562,30.599}: EOG090C05MB_NT.fasta{0.358134},
+    HKY{2.5935}+F{0.18415,0.352521,0.290694,0.172635}+R3{0.873592,0.106692,0.0908425,2.02166,0.0355651,20.3329}: EOG090C05N1_NT.fasta{0.432434},
+    TVM{0.855677,1.58918,1.30356,0.500272}+F{0.206551,0.290107,0.307538,0.195804}+R4{0.831413,0.0597623,0.102006,1.16106,0.0298195,5.79144,0.0367616,17.9312}: EOG090C05N2_NT.fasta{1.49002},
+    TIM2e{2.18788,5.31285,10.5919}+FQ+R2{0.961327,0.430398,0.0386728,15.1592}: EOG090C05NC_NT.fasta{0.186694},
+    TIM3e{1.86955,4.71508,3.9447}+FQ+R3{0.844619,0.174772,0.14287,3.10362,0.0125103,32.6905}: EOG090C05NL_NT.fasta{0.366483},
+    K2P{3.29518}+FQ+R3{0.891479,0.162811,0.0862047,3.47857,0.0223166,24.8689}: EOG090C05OL_NT.fasta{0.447602},
+    TIM3{0.450836,2.38491,5.86887}+F{0.266319,0.247357,0.315782,0.170542}+R3{0.930496,0.232162,0.0578577,6.03918,0.0116464,37.3129}: EOG090C05OM_NT.fasta{0.247436},
+    HKY{2.97661}+F{0.256811,0.341762,0.236586,0.164841}+R3{0.903654,0.212398,0.0772309,3.81956,0.0191148,26.842}: EOG090C05PO_NT.fasta{0.617952},
+    HKY{5.40553}+F{0.215345,0.31251,0.282504,0.189641}+R2{0.979964,0.499339,0.0200362,25.4872}: EOG090C05QZ_NT.fasta{0.1282},
+    K3P{3.22952,0.399033}+FQ+R3{0.836229,0.196153,0.156516,3.13323,0.00725507,47.6315}: EOG090C05RM_NT.fasta{0.20405},
+    TIM2{1.89794,4.39311,13.3746}+F{0.274773,0.268753,0.316147,0.140327}+G4{0.100034}: EOG090C05RQ_NT.fasta{0.191875},
+    TIM{1.38755,0.553062,2.39914}+F{0.275583,0.269808,0.252986,0.201623}+R3{0.959451,0.144297,0.0295682,8.96788,0.0109811,54.3106}: EOG090C05UN_NT.fasta{0.476508},
+    K2P{3.93863}+FQ+R3{0.930662,0.267086,0.0568495,5.95305,0.0124881,33.0719}: EOG090C05VA_NT.fasta{0.440551},
+    TIMe{1.51484,0.409407,2.48311}+FQ+R3{0.89433,0.249335,0.0958881,3.72999,0.00978153,42.8717}: EOG090C05VD_NT.fasta{0.21799},
+    TVMe{1.99625,1.93208,1.45894,1.62877}+FQ+R4{0.67494,0.122954,0.260896,0.766641,0.0232949,5.20546,0.0408684,14.577}: EOG090C05X3_NT.fasta{1.59891},
+    TVMe{2.72452,3.96659,2.61661,1.94646}+FQ+R4{0.882778,0.0824351,0.0600448,1.29723,0.0277692,5.76244,0.0294078,23.44}: EOG090C05X7_NT.fasta{1.99893},
+    K2P{3.79657}+FQ+R3{0.729474,0.138967,0.255055,1.74849,0.0154712,29.2587}: EOG090C05XW_NT.fasta{0.263568},
+    K3Pu{1.55955,0.734535}+F{0.262855,0.302231,0.257635,0.177279}+R3{0.884995,0.129711,0.1029,5.36925,0.0121052,27.4851}: EOG090C05Y0_NT.fasta{1.10716},
+    K2P{5.86269}+FQ+R3{0.940299,0.256877,0.0503338,7.43527,0.00936753,41.0155}: EOG090C05Y6_NT.fasta{0.22967},
+    TPM2{1.94647,6.54092}+F{0.267462,0.267585,0.268633,0.19632}+R3{0.957987,0.240846,0.0297162,7.8125,0.0122971,43.6781}: EOG090C05YQ_NT.fasta{0.262997},
+    SYM{2.35806,2.8093,2.01093,1.73612,2.10495}+FQ+I{0.494264}+G4{0.283958}: EOG090C05Z8_NT.fasta{3.479},
+    K2P{4.18167}+FQ+R2{0.929782,0.512013,0.0702182,7.46159}: EOG090C05ZG_NT.fasta{0.273006},
+    TVM{1.17254,1.81957,0.969302,0.589146}+F{0.24304,0.302378,0.274215,0.180367}+R4{0.72426,0.0312843,0.177907,0.558151,0.0354209,3.43352,0.062412,12.1199}: EOG090C0601_NT.fasta{2.44752},
+    TN{2.84086,8.27845}+F{0.297124,0.225384,0.29265,0.184842}+R2{0.979235,0.631504,0.0207649,18.3776}: EOG090C061K_NT.fasta{0.188631},
+    K2P{2.95403}+FQ+R3{0.957257,0.20795,0.0308067,8.13661,0.0119366,46.0998}: EOG090C061N_NT.fasta{0.312398},
+    TPM3{0.462545,3.80093}+F{0.34958,0.202808,0.278808,0.168804}+R3{0.968245,0.305009,0.0288257,12.086,0.00292947,121.623}: EOG090C0620_NT.fasta{0.476508},
+    K2P{4.17177}+FQ+R3{0.934212,0.319985,0.0582589,6.39601,0.0075295,43.6206}: EOG090C0621_NT.fasta{0.212282},
+    TPM3{2.80125,6.24767}+F{0.273885,0.290578,0.270544,0.164993}+R4{0.906239,0.143472,0.0655501,3.11407,0.0200002,15.4183,0.00821029,43.5411}: EOG090C062I_NT.fasta{0.866489},
+    GTR{0.523888,2.17902,0.466791,0.526982,3.94552}+F{0.29998,0.244455,0.262935,0.19263}+R4{0.477137,0.26046,0.431185,0.367906,0.079333,4.77768,0.0123447,27.3851}: EOG090C062M_NT.fasta{0.334697},
+    K2P{3.64414}+FQ+R4{0.888458,0.188708,0.0994082,2.93081,0.00933731,25.6991,0.0027961,107.662}: EOG090C063D_NT.fasta{0.381434},
+    K2P{2.51201}+FQ+R3{0.659427,0.0328709,0.296302,1.19465,0.0442706,14.1029}: EOG090C0651_NT.fasta{0.560409},
+    TVM{1.04775,1.31934,1.34548,0.727802}+F{0.180105,0.321611,0.280144,0.218141}+R4{0.73164,0.0232399,0.0720581,0.647309,0.113649,2.66791,0.0826528,7.66032}: EOG090C065J_NT.fasta{5.69206},
+    GTR{1.01302,1.06565,1.39349,0.638647,2.15458}+F{0.30832,0.234105,0.292295,0.16528}+R5{0.806308,0.0906245,0.0835027,1.41743,0.0946696,5.50372,0.0126085,13.3604,0.0029107,40.9115}: EOG090C066J_NT.fasta{1.43166},
+    HKY{3.90785}+F{0.223022,0.299833,0.273532,0.203613}+R3{0.785351,0.213402,0.205615,2.90865,0.00903426,25.9396}: EOG090C067F_NT.fasta{0.437283},
+    TIM2{0.58971,1.97241,3.07076}+F{0.257284,0.267993,0.293397,0.181325}+R3{0.946138,0.260515,0.0406074,4.52038,0.0132549,42.9996}: EOG090C067N_NT.fasta{0.346455},
+    K3Pu{2.92079,0.456734}+F{0.238706,0.302071,0.289631,0.169592}+R3{0.936806,0.185993,0.0496055,6.54391,0.0135887,36.8797}: EOG090C0695_NT.fasta{0.286843},
+    TIM2e{1.5644,1.90218,2.10175}+FQ+R2{0.919513,0.211725,0.0804875,10.0055}: EOG090C069K_NT.fasta{0.724455},
+    GTR{0.784718,1.58874,0.867347,0.405804,0.949595}+F{0.266202,0.296072,0.231485,0.206241}+R3{0.926776,0.136867,0.0457752,3.1378,0.0274489,26.5774}: EOG090C06AW_NT.fasta{0.971112},
+    TVMe{1.50593,1.85256,1.64856,1.5518}+FQ+R3{0.887046,0.122664,0.067359,2.51866,0.0455955,15.8247}: EOG090C06BB_NT.fasta{1.20876},
+    GTR{1.08765,2.54387,1.31722,0.614595,1.88132}+F{0.230553,0.319712,0.257092,0.192643}+R4{0.736376,0.11618,0.19558,0.915001,0.0567483,6.51066,0.0112955,32.4042}: EOG090C06CQ_NT.fasta{1.10992},
+    K2P{3.38442}+FQ+R3{0.821177,0.167451,0.157613,2.7993,0.0212101,19.8627}: EOG090C06CR_NT.fasta{0.464789},
+    K2P{2.92619}+FQ+R3{0.93082,0.188301,0.0541117,5.55322,0.0150682,34.7905}: EOG090C06CX_NT.fasta{0.465293},
+    K2P{3.23363}+FQ+R3{0.825204,0.163623,0.145893,2.57957,0.0289027,16.9063}: EOG090C06D0_NT.fasta{0.623374},
+    TNe{5.48789,13.2867}+FQ+I{0.834693}: EOG090C06DR_NT.fasta{0.0816104},
+    TN{3.51405,10.6551}+F{0.27682,0.207844,0.299705,0.215631}+R2{0.966532,0.462902,0.0334681,16.511}: EOG090C06E3_NT.fasta{0.252902},
+    K2P{2.39102}+FQ+R3{0.617064,0.0211057,0.367512,1.87826,0.015424,19.2359}: EOG090C06E8_NT.fasta{0.552178},
+    GTR{2.16911,2.89616,3.46328,1.36535,5.5733}+F{0.262491,0.209093,0.330325,0.198091}+R3{0.932821,0.13364,0.0591073,6.61937,0.00807169,59.9732}: EOG090C06ED_NT.fasta{0.699029},
+    TPM3{0.405859,4.56148}+F{0.250498,0.302757,0.257901,0.188844}+R3{0.921223,0.329614,0.0761354,7.23502,0.00264176,55.0809}: EOG090C06EI_NT.fasta{0.180488},
+    HKY{4.92751}+F{0.202511,0.321664,0.282795,0.19303}+R2{0.956818,0.42953,0.0431823,13.6403}: EOG090C06FO_NT.fasta{0.206979},
+    TIM2e{2.12257,2.96801,1.94638}+FQ+R4{0.803061,0.0369907,0.103171,0.91309,0.0371245,3.21788,0.0566438,13.3577}: EOG090C06FP_NT.fasta{3.27173},
+    K2P{6.6232}+FQ+R3{0.953518,0.279222,0.0290056,6.77516,0.0174762,30.7412}: EOG090C06FQ_NT.fasta{0.370655},
+    SYM{0.478124,0.67387,0.584606,0.379131,1.27148}+FQ+R3{0.906044,0.134353,0.0668517,3.12387,0.0271043,24.6984}: EOG090C06GH_NT.fasta{0.733123},
+    SYM{2.63825,5.60857,3.08143,4.02236,3.57014}+FQ+R3{0.951955,0.233968,0.0345707,5.85364,0.0134741,42.6676}: EOG090C06GP_NT.fasta{0.690456},
+    TIM{2.44646,0.531712,4.51945}+F{0.255242,0.258221,0.30478,0.181758}+R3{0.853508,0.131442,0.125553,3.25366,0.0209388,22.8908}: EOG090C06HE_NT.fasta{0.482578},
+    TPM2{1.74192,5.48469}+F{0.211547,0.275727,0.323469,0.189256}+R2{0.954567,0.52091,0.0454335,11.0658}: EOG090C06I2_NT.fasta{0.294077},
+    TNe{3.69927,2.46766}+FQ+R3{0.910108,0.204,0.0697861,3.93119,0.0201055,26.8581}: EOG090C06IB_NT.fasta{0.522357},
+    TPM2{1.61206,3.26066}+F{0.246401,0.300134,0.293264,0.160202}+R3{0.907394,0.153757,0.0723842,2.02138,0.0202221,35.3161}: EOG090C06IP_NT.fasta{0.879143},
+    TN{5.28317,14.0394}+F{0.266173,0.264719,0.283508,0.185601}+R3{0.862437,0.205336,0.127204,4.09479,0.0103591,29.1566}: EOG090C06IV_NT.fasta{0.212059},
+    HKY{5.09307}+F{0.284919,0.286781,0.260017,0.168283}+R4{0.606104,0.0245172,0.372312,0.733657,0.0137354,10.5256,0.00784837,72.2975}: EOG090C06J4_NT.fasta{0.624768},
+    TN{2.20127,3.22851}+F{0.289165,0.242665,0.295791,0.172379}+R3{0.896295,0.287476,0.0783608,2.98882,0.0253443,20.0491}: EOG090C06JO_NT.fasta{0.545902},
+    TIMe{0.792409,0.462752,1.21686}+FQ+R3{0.951599,0.113255,0.0178254,2.75937,0.0305752,27.5727}: EOG090C06JS_NT.fasta{0.670492},
+    TVM{1.59383,3.00686,0.775748,0.557015}+F{0.201528,0.290403,0.246229,0.26184}+R3{0.87822,0.147571,0.078884,2.843,0.0428965,15.0626}: EOG090C06K8_NT.fasta{0.931667},
+    TN{4.68714,11.3431}+F{0.289175,0.271134,0.236409,0.203281}+R2{0.981091,0.361651,0.0189094,34.12}: EOG090C06LC_NT.fasta{0.0612133},
+    TNe{1.46439,1.02215}+FQ+R3{0.873807,0.0924275,0.100566,2.39854,0.0256269,26.4576}: EOG090C06M4_NT.fasta{1.11853},
+    TNe{1.63314,3.1538}+FQ+R3{0.874588,0.130695,0.0966004,2.07929,0.0288119,23.7692}: EOG090C06MB_NT.fasta{0.655469},
+    K2P{3.75452}+FQ+R3{0.945052,0.281785,0.0468004,8.90588,0.00814762,38.8948}: EOG090C06ME_NT.fasta{0.291076},
+    TIM{1.81843,0.651158,2.96958}+F{0.2452,0.278582,0.277347,0.19887}+R3{0.713205,0.0355675,0.2708,2.40055,0.0159943,20.2924}: EOG090C06OU_NT.fasta{0.405323},
+    K2P{6.31403}+FQ+R3{0.898288,0.297024,0.0908132,4.53491,0.0108985,29.4862}: EOG090C06PD_NT.fasta{0.250536},
+    TN{4.94833,8.01523}+F{0.301129,0.250338,0.259476,0.189057}+R3{0.861461,0.235249,0.128243,3.8655,0.0102966,29.2932}: EOG090C06PQ_NT.fasta{0.291756},
+    K2P{18.1312}+FQ+R2{0.995547,0.561204,0.00445339,99.0919}: EOG090C06Q1_NT.fasta{0.0426285},
+    TIM3e{0.781906,1.19474,1.4579}+FQ+R4{0.805361,0.0669593,0.0992013,0.819016,0.043812,3.8937,0.051626,13.4474}: EOG090C06Q7_NT.fasta{2.93077},
+    TPM2{2.20901,6.54957}+F{0.236801,0.285586,0.280454,0.197159}+R3{0.905826,0.414741,0.0830076,3.95071,0.0111666,26.5414}: EOG090C06Q8_NT.fasta{0.380311},
+    TIM2e{3.11657,9.29865,8.84106}+FQ+R3{0.877206,0.155463,0.105147,4.1058,0.0176464,24.476}: EOG090C06QV_NT.fasta{0.336429},
+    K2P{6.2561}+FQ+R3{0.920776,0.330972,0.0667374,4.88922,0.0124869,29.5474}: EOG090C06RL_NT.fasta{0.352882},
+    TPM3{0.435454,3.08136}+F{0.205543,0.332425,0.258019,0.204013}+R3{0.833244,0.254111,0.14992,2.95056,0.0168361,20.546}: EOG090C06S5_NT.fasta{0.43299},
+    K2P{2.42631}+FQ+R3{0.827381,0.132204,0.101992,2.76498,0.0706271,8.61725}: EOG090C06SJ_NT.fasta{1.27938},
+    TPM2{3.12658,9.14996}+F{0.225332,0.33372,0.259179,0.181768}+R2{0.973805,0.399543,0.026195,23.3222}: EOG090C06T5_NT.fasta{0.13809},
+    TNe{1.72836,1.30631}+FQ+R3{0.772065,0.0796653,0.166441,1.28754,0.061494,11.7767}: EOG090C06TR_NT.fasta{1.51469},
+    TIM3{0.442048,1.3307,3.55246}+F{0.333206,0.208145,0.284652,0.173998}+R3{0.765539,0.0245446,0.212491,2.04361,0.0219702,24.8957}: EOG090C06UH_NT.fasta{0.42255},
+    HKY{6.75322}+F{0.225058,0.338712,0.261484,0.174747}+R2{0.974094,0.478406,0.025906,20.6125}: EOG090C06UQ_NT.fasta{0.154018},
+    TPM3{0.681016,2.90938}+F{0.271376,0.231137,0.315682,0.181805}+R3{0.840794,0.256965,0.135994,2.86502,0.0232113,16.9882}: EOG090C06UT_NT.fasta{0.757555},
+    K2P{4.14212}+FQ+R3{0.894789,0.267595,0.0784557,3.57318,0.026755,17.9489}: EOG090C06W8_NT.fasta{0.499649},
+    TIM2e{2.31985,5.43892,7.32009}+FQ+R2{0.958445,0.32822,0.0415547,16.4944}: EOG090C06XD_NT.fasta{0.421623},
+    K2P{6.7049}+FQ+R3{0.800861,0.0400091,0.17956,2.1274,0.0195782,29.9293}: EOG090C06XU_NT.fasta{0.231724},
+    K2P{3.38755}+FQ+R4{0.801693,0.0809613,0.152658,1.1884,0.0180785,5.78059,0.0275702,23.5461}: EOG090C06XX_NT.fasta{1.64524},
+    TIMe{1.56831,0.488775,2.42529}+FQ+R4{0.791993,0.0292105,0.171196,0.396029,0.00654883,5.69837,0.0302625,28.8062}: EOG090C06ZM_NT.fasta{1.64231},
+    HKY{3.06627}+F{0.279287,0.228806,0.283756,0.208151}+R2{0.980806,0.640478,0.0191936,19.3718}: EOG090C06ZU_NT.fasta{0.277367},
+    HKY{11.0259}+F{0.220341,0.316245,0.285703,0.177711}+I{0.714145}+G4{0.96985}: EOG090C0706_NT.fasta{0.206691},
+    TIM2e{1.3962,1.3158,1.93023}+FQ+R3{0.658524,0.28626,0.257312,1.70877,0.0841648,4.41759}: EOG090C071F_NT.fasta{1.78444},
+    TVMe{1.06399,3.65481,2.28721,0.779689}+FQ+R3{0.741227,0.0468053,0.236287,2.39102,0.0224853,17.8045}: EOG090C071P_NT.fasta{0.447979},
+    K2P{5.08154}+FQ+R2{0.939154,0.412749,0.0608459,10.0642}: EOG090C071U_NT.fasta{0.264575},
+    K2P{4.02176}+FQ+R3{0.864621,0.218369,0.110079,2.55724,0.0253001,20.9365}: EOG090C0724_NT.fasta{0.737018},
+    K2P{4.02338}+FQ+R3{0.863813,0.250874,0.128502,3.91488,0.00768451,36.4656}: EOG090C0729_NT.fasta{0.216451},
+    TN{2.3984,5.18699}+F{0.298885,0.250423,0.262817,0.187875}+R3{0.70333,0.0257175,0.274599,2.24566,0.0220708,16.5492}: EOG090C072G_NT.fasta{0.332759},
+    TIM{3.49735,0.543056,6.54884}+F{0.250084,0.24104,0.303902,0.204973}+R3{0.827252,0.142142,0.160175,2.93343,0.0125726,32.8135}: EOG090C072N_NT.fasta{0.287022},
+    K2P{6.02702}+FQ+R3{0.933998,0.402247,0.0562302,4.93854,0.00977161,35.4709}: EOG090C0737_NT.fasta{0.281022},
+    K2P{1.65641}+FQ+R3{0.926724,0.0482533,0.0287952,1.98304,0.0444813,20.1923}: EOG090C074A_NT.fasta{1.48967},
+    K2P{1.28084}+FQ+R5{0.712806,0.014219,0.127109,0.258106,0.0306344,1.78678,0.066596,4.89676,0.0628546,9.16743}: EOG090C0750_NT.fasta{5.50027},
+    TPM2{1.40471,1.78193}+F{0.253165,0.271124,0.26335,0.21236}+R3{0.791354,0.126598,0.105119,1.23572,0.103527,7.43691}: EOG090C0755_NT.fasta{2.10038},
+    HKY{5.46123}+F{0.288681,0.277108,0.272385,0.161826}+R3{0.948269,0.215041,0.0427943,9.40118,0.00893619,44.0642}: EOG090C0764_NT.fasta{0.292227},
+    K3P{1.78228,0.422145}+FQ+R4{0.830548,0.0712615,0.118733,1.02567,0.0114353,5.55896,0.0392835,19.2311}: EOG090C076H_NT.fasta{1.58205},
+    K2P{2.77387}+FQ+R3{0.941161,0.203492,0.0380409,4.7148,0.0207985,30.2486}: EOG090C076X_NT.fasta{0.807869},
+    K2P{2.02463}+FQ+R3{0.865041,0.28523,0.105134,3.81041,0.0298251,11.8243}: EOG090C077E_NT.fasta{1.11845},
+    K3P{1.23637,0.785259}+FQ+R4{0.836539,0.0429636,0.0722784,1.2589,0.0769045,6.89281,0.0142778,24.022}: EOG090C077H_NT.fasta{2.8414},
+    TIMe{1.28114,0.804808,1.72787}+FQ+R4{0.634675,0.0234707,0.243923,0.268143,0.0587326,2.83129,0.0626698,12.0219}: EOG090C077V_NT.fasta{3.257},
+    K2P{3.9027}+FQ+R2{0.986003,0.54698,0.0139973,32.9118}: EOG090C078H_NT.fasta{0.209067},
+    TN{3.18938,5.66652}+F{0.299894,0.226057,0.269159,0.20489}+R3{0.92137,0.259599,0.0678852,5.89827,0.0107446,33.5432}: EOG090C078M_NT.fasta{0.275348},
+    K2P{4.80067}+FQ+R3{0.811896,0.1648,0.178516,2.65535,0.00958747,40.9051}: EOG090C078U_NT.fasta{0.2505},
+    TIM2e{1.62803,2.40817,2.15288}+FQ+R4{0.572078,0.122757,0.292348,0.88523,0.0941006,3.48074,0.0414738,8.28087}: EOG090C079E_NT.fasta{1.8554},
+    TN{2.41033,5.54477}+F{0.32809,0.229191,0.267334,0.175385}+R3{0.920496,0.292208,0.0664928,5.94091,0.0130115,25.8231}: EOG090C079V_NT.fasta{0.416384},
+    TVM{0.739306,1.44845,0.990472,0.442192}+F{0.231881,0.296508,0.243008,0.228603}+R4{0.675247,0.0252806,0.267089,0.74013,0.0413798,8.51303,0.0162845,26.5885}: EOG090C079Z_NT.fasta{1.03979},
+    K3Pu{2.10068,0.536569}+F{0.298172,0.249707,0.273021,0.1791}+R3{0.951847,0.154961,0.0314405,5.07892,0.0167121,41.456}: EOG090C07AC_NT.fasta{0.923544},
+    TIM{3.42087,0.610987,6.11455}+F{0.282467,0.23768,0.295807,0.184046}+R3{0.91417,0.242253,0.0681903,4.49666,0.01764,26.7523}: EOG090C07AG_NT.fasta{0.391071},
+    K2P{2.44536}+FQ+R3{0.678263,0.019687,0.286087,1.60909,0.0356494,14.7634}: EOG090C07AW_NT.fasta{0.706172},
+    TIM2{2.7614,9.37555,28.3346}+F{0.31289,0.254081,0.286529,0.1465}+R3{0.859522,0.194918,0.13514,4.28477,0.00533812,47.4736}: EOG090C07AZ_NT.fasta{0.224885},
+    TN{1.9786,2.56313}+F{0.295705,0.261584,0.251903,0.190807}+R3{0.749723,0.299591,0.226765,1.91401,0.0235118,14.5186}: EOG090C07EH_NT.fasta{0.714403},
+    TN{2.92249,5.73995}+F{0.222276,0.290694,0.283992,0.203038}+R2{0.964579,0.306354,0.0354211,19.8892}: EOG090C07EI_NT.fasta{0.327345},
+    TN{3.13561,7.98493}+F{0.233372,0.308931,0.269724,0.187973}+R2{0.960403,0.494069,0.0395966,13.2712}: EOG090C07FG_NT.fasta{0.203201},
+    K3Pu{4.33327,0.519286}+F{0.247244,0.282033,0.287038,0.183684}+R3{0.896656,0.184342,0.0802636,3.87282,0.02308,22.6976}: EOG090C07FM_NT.fasta{0.421813},
+    GTR{0.361797,0.860859,0.888483,0.131605,1.44335}+F{0.293453,0.252298,0.223912,0.230337}+R4{0.814144,0.0126981,0.124393,0.994698,0.0375545,7.73367,0.0239087,24.0705}: EOG090C07FU_NT.fasta{1.64477},
+    TIM2e{2.11755,6.04916,7.40033}+FQ+R3{0.766048,0.111771,0.216872,2.31823,0.0170808,24.0984}: EOG090C07FV_NT.fasta{0.379859},
+    TPM3{0.324361,1.08709}+F{0.282997,0.315454,0.229122,0.172427}+R3{0.939173,0.170086,0.0420933,2.85911,0.0187342,38.4277}: EOG090C07FY_NT.fasta{0.536347},
+    TIM2e{1.68675,2.94974,3.83213}+FQ+R2{0.977246,0.524812,0.0227539,21.4086}: EOG090C07GV_NT.fasta{0.60289},
+    TIMe{1.5068,1.39945,2.09219}+FQ+R3{0.859263,0.0374975,0.0519568,1.89277,0.0887801,9.79315}: EOG090C07HG_NT.fasta{3.4598},
+    TIM{2.36614,0.224749,4.03328}+F{0.21719,0.289308,0.303865,0.189637}+R3{0.928881,0.247044,0.0572356,5.80442,0.013883,31.5715}: EOG090C07IL_NT.fasta{0.303833},
+    HKY{5.48509}+F{0.256926,0.266429,0.278851,0.197794}+R3{0.893942,0.156511,0.086175,4.46116,0.019883,23.9223}: EOG090C07J7_NT.fasta{0.469292},
+    TPM3{0.628315,1.57332}+F{0.253097,0.283604,0.269567,0.193732}+G4{0.136174}: EOG090C07JM_NT.fasta{0.359045},
+    K2P{5.74551}+FQ+R3{0.834391,0.137676,0.13058,2.72177,0.0350294,15.1221}: EOG090C07KY_NT.fasta{0.628708},
+    TPM3{2.96285,8.74384}+F{0.23929,0.314144,0.242297,0.204269}+R3{0.905143,0.195005,0.0868659,4.97571,0.00799067,48.9663}: EOG090C07N2_NT.fasta{0.299294},
+    TVM{1.16939,4.38645,1.52988,0.168592}+F{0.237941,0.233288,0.320294,0.208477}+R3{0.918297,0.132068,0.0504121,4.02672,0.0312912,21.5948}: EOG090C07OT_NT.fasta{0.474392},
+    K2P{8.0702}+FQ+R2{0.961623,0.488759,0.0383771,13.8102}: EOG090C07OV_NT.fasta{0.149778},
+    TN{2.43266,6.79221}+F{0.302468,0.243436,0.269959,0.184137}+R2{0.981549,0.534633,0.0184508,25.7567}: EOG090C07OX_NT.fasta{0.228291},
+    GTR{0.915083,1.29927,1.10828,0.559541,1.02197}+F{0.204985,0.331709,0.278501,0.184805}+R5{0.671049,0.0145382,0.105526,0.428891,0.0551133,1.57277,0.0926105,3.73451,0.0757018,6.76933}: EOG090C07PU_NT.fasta{9.49671},
+    GTR{1.17998,2.45816,1.47014,0.615901,3.8472}+F{0.276975,0.26692,0.275693,0.180413}+R3{0.895131,0.294961,0.0922328,4.5374,0.0126363,25.1241}: EOG090C07QB_NT.fasta{0.396915},
+    TIM2{2.3445,3.22114,6.82946}+F{0.241602,0.344694,0.244983,0.168721}+R3{0.943826,0.268797,0.0498206,7.55671,0.0063536,58.2068}: EOG090C07QS_NT.fasta{0.222507},
+    K3Pu{4.92315,0.316829}+F{0.217782,0.302947,0.291586,0.187685}+R3{0.931769,0.264744,0.0587892,6.95602,0.00944178,36.4741}: EOG090C07R2_NT.fasta{0.294707},
+    TPM3{0.546778,2.51055}+F{0.224201,0.332816,0.254595,0.188388}+R3{0.901202,0.19759,0.0837223,4.61263,0.015076,28.9038}: EOG090C07R9_NT.fasta{0.427381},
+    TPM2{0.688573,1.62851}+F{0.265822,0.250201,0.287637,0.19634}+R3{0.8446,0.108937,0.0938285,1.7248,0.0615718,12.1185}: EOG090C07RZ_NT.fasta{1.42195},
+    K2P{5.29827}+FQ+R3{0.890866,0.184009,0.0910533,3.91815,0.018081,26.5092}: EOG090C07SG_NT.fasta{0.44664},
+    TIM2e{4.21995,13.6153,13.2362}+FQ+R2{0.975198,0.294718,0.0248016,28.7317}: EOG090C07SU_NT.fasta{0.195729},
+    HKY{4.45901}+F{0.205273,0.295728,0.302945,0.196054}+R3{0.89344,0.0665676,0.09445,2.95697,0.0121102,54.6018}: EOG090C07T9_NT.fasta{1.01372},
+    K2P{4.01353}+FQ+R2{0.981728,0.490788,0.0182718,28.3595}: EOG090C07U0_NT.fasta{0.11482},
+    K2P{5.04592}+FQ+R2{0.923132,0.408665,0.0768677,8.10156}: EOG090C07UF_NT.fasta{0.203799},
+    K3P{3.36233,0.603988}+FQ+R3{0.842597,0.132872,0.140786,2.73944,0.016617,30.2322}: EOG090C07UM_NT.fasta{0.412096},
+    TVM{4.56099,8.57829,2.18622,2.54019}+F{0.181362,0.322279,0.253821,0.242538}+R3{0.924907,0.195978,0.0600234,6.22159,0.0150693,29.55}: EOG090C07VC_NT.fasta{0.436158},
+    HKY{7.2132}+F{0.247225,0.301142,0.258313,0.19332}+R3{0.94332,0.411519,0.0539513,6.7047,0.00272922,91.6305}: EOG090C07WX_NT.fasta{0.160886},
+    K3P{3.29156,0.707359}+FQ+R4{0.852546,0.102471,0.0973676,1.48517,0.037611,8.65144,0.0124754,35.4811}: EOG090C07XT_NT.fasta{1.28867},
+    K2P{3.43821}+FQ+R3{0.917321,0.29067,0.0747883,5.50122,0.00789097,40.798}: EOG090C07YR_NT.fasta{0.357397},
+    TPM3{0.464528,2.86577}+F{0.311187,0.210644,0.271204,0.206965}+R2{0.963784,0.220209,0.0362163,21.7517}: EOG090C07Z5_NT.fasta{0.265358},
+    TIM3{0.557241,3.3879,5.36342}+F{0.256261,0.30446,0.266648,0.17263}+R3{0.900104,0.230122,0.0892079,4.42813,0.0106878,37.2238}: EOG090C0814_NT.fasta{0.293353},
+    TIM3e{0.525337,2.22264,1.73712}+FQ+R3{0.961142,0.233592,0.034396,10.9739,0.00446211,89.2016}: EOG090C081U_NT.fasta{0.596314},
+    K2P{5.67205}+FQ+R2{0.985539,0.495639,0.0144607,35.3736}: EOG090C082D_NT.fasta{0.171227},
+    TVM{1.27542,2.40883,1.19145,0.35158}+F{0.226526,0.289704,0.275904,0.207866}+R4{0.82784,0.0294351,0.133185,0.666303,0.0108226,6.62345,0.028153,28.9563}: EOG090C082R_NT.fasta{1.53386},
+    K3P{5.14611,0.345104}+FQ+R3{0.929324,0.254768,0.0598698,6.07864,0.0108058,36.9535}: EOG090C084B_NT.fasta{0.2609},
+    K2P{2.2748}+FQ+R3{0.828076,0.0944382,0.128663,2.84339,0.0432616,12.8511}: EOG090C085C_NT.fasta{1.02748},
+    TIM2{2.18495,5.07736,3.02808}+F{0.216645,0.307598,0.295324,0.180434}+R3{0.904814,0.0633767,0.070583,2.24652,0.0246027,31.87}: EOG090C085V_NT.fasta{0.891747},
+    K2P{1.73881}+FQ+R2{0.831052,0.0928595,0.168948,5.4622}: EOG090C0865_NT.fasta{0.513427},
+    HKY{6.21484}+F{0.300162,0.222176,0.247869,0.229793}+R3{0.712645,0.102525,0.276895,2.30355,0.0104602,27.6376}: EOG090C0877_NT.fasta{0.247527},
+    K2P{5.02149}+FQ+R2{0.97766,0.491542,0.0223401,23.2515}: EOG090C087L_NT.fasta{0.156399},
+    GTR{1.57206,1.48383,1.71666,0.540617,3.92633}+F{0.298988,0.234426,0.32341,0.143176}+R4{0.825757,0.122545,0.11904,1.60429,0.0290097,6.46746,0.0261932,19.8606}: EOG090C088U_NT.fasta{1.55237},
+    K2P{7.86228}+FQ+R3{0.734285,0.0335462,0.251735,2.16648,0.0139805,30.7565}: EOG090C0898_NT.fasta{0.217698},
+    TIM2{2.78813,3.96191,9.49017}+F{0.293536,0.240213,0.284546,0.181705}+R3{0.897086,0.278423,0.0954342,5.01969,0.00747956,36.2561}: EOG090C089F_NT.fasta{0.322026},
+    TIM{2.11638,0.559324,5.02498}+F{0.289262,0.250255,0.292123,0.16836}+R3{0.730697,0.0324788,0.253296,2.06664,0.0160069,28.2876}: EOG090C089X_NT.fasta{0.25551},
+    TIM3{0.247114,0.789519,2.47639}+F{0.253058,0.297095,0.285351,0.164496}+R3{0.908254,0.125231,0.0827233,4.17451,0.00902232,59.9546}: EOG090C08AJ_NT.fasta{0.332981},
+    GTR{1.16901,1.724,2.11421,0.985294,3.42066}+F{0.316271,0.222203,0.273076,0.18845}+R4{0.884267,0.124293,0.0684731,2.37015,0.0315308,9.21301,0.015729,27.8025}: EOG090C08AT_NT.fasta{1.17654},
+    TIM3{1.67363,2.44475,4.67411}+F{0.245724,0.258667,0.30066,0.19495}+R3{0.947855,0.184429,0.0373815,8.91012,0.0147634,33.3334}: EOG090C08B5_NT.fasta{0.414543},
+    K2P{4.30801}+FQ+R3{0.924471,0.336727,0.0675124,6.14857,0.00801678,34.1285}: EOG090C08BI_NT.fasta{0.333401},
+    K2P{1.53464}+FQ+R4{0.904419,0.0794944,0.0357067,1.96503,0.0328681,9.92886,0.0270065,19.684}: EOG090C08BX_NT.fasta{1.46112},
+    TPM2{1.96819,7.24227}+F{0.196586,0.306012,0.246011,0.251391}+R3{0.799171,0.125302,0.172991,1.84275,0.0278372,20.8743}: EOG090C08CA_NT.fasta{0.387853},
+    K2P{2.73864}+FQ+R3{0.8492,0.0886395,0.0784948,0.94546,0.0723056,11.7628}: EOG090C08D0_NT.fasta{1.08743},
+    GTR{0.890816,1.20854,1.34553,0.708966,1.7942}+F{0.243779,0.261945,0.32356,0.170715}+R4{0.621876,0.0108022,0.223066,0.421191,0.100492,2.22884,0.0545656,12.3768}: EOG090C08E3_NT.fasta{2.2255},
+    TIM2e{1.73838,3.46258,3.67806}+FQ+R3{0.919755,0.345969,0.0608903,4.30152,0.0193549,21.6934}: EOG090C08EY_NT.fasta{0.768754},
+    K2P{2.22452}+FQ+R3{0.898829,0.125093,0.0774745,4.53029,0.0236962,22.6442}: EOG090C08FD_NT.fasta{0.805471},
+    TIM3{0.669371,1.13938,1.7336}+F{0.27873,0.293817,0.256434,0.17102}+R3{0.842129,0.0615165,0.100659,3.40167,0.0572125,10.5884}: EOG090C08GU_NT.fasta{1.56014},
+    TIM3{1.57597,1.75427,3.50338}+F{0.263278,0.223255,0.303673,0.209794}+R4{0.811804,0.0358128,0.0995768,0.855272,0.0771172,6.53664,0.0115017,33.1842}: EOG090C08GX_NT.fasta{1.23296},
+    K2P{2.90656}+FQ+R3{0.930225,0.104718,0.0486915,3.81148,0.021084,34.007}: EOG090C08GY_NT.fasta{0.642199},
+    TIM3e{2.66315,5.94713,7.33045}+FQ+R3{0.961486,0.362284,0.0259738,6.47912,0.0125401,38.5469}: EOG090C08HR_NT.fasta{0.311565},
+    K2P{6.21354}+FQ+R3{0.913215,0.32868,0.0800178,5.23559,0.00676739,41.5085}: EOG090C08IP_NT.fasta{0.265378},
+    TNe{1.54577,2.57644}+FQ+R3{0.90277,0.187689,0.0789914,4.47053,0.0182384,26.177}: EOG090C08IU_NT.fasta{0.783493},
+    TIM3e{0.437648,0.761229,1.71206}+FQ+R3{0.873408,0.212878,0.106825,4.019,0.0197668,19.464}: EOG090C08KK_NT.fasta{0.654414},
+    K3P{2.11926,0.33733}+FQ+R3{0.947028,0.268994,0.0425154,7.77819,0.010457,39.6443}: EOG090C08L2_NT.fasta{0.347355},
+    HKY{1.70288}+F{0.257462,0.237831,0.299761,0.204946}+R3{0.902453,0.197807,0.0806683,2.16497,0.0168782,38.3242}: EOG090C08L3_NT.fasta{0.607693},
+    TN{1.91344,4.32578}+F{0.354949,0.200491,0.256824,0.187736}+R3{0.611619,0.0250379,0.371502,1.58313,0.0168795,23.4931}: EOG090C08LT_NT.fasta{0.382998},
+    HKY{2.76806}+F{0.279958,0.281466,0.280204,0.158373}+R3{0.951961,0.299289,0.0376488,6.23641,0.01039,46.2267}: EOG090C08M6_NT.fasta{0.238113},
+    TVM{1.29868,1.67129,1.89034,1.14891}+F{0.29579,0.241822,0.229141,0.233247}+R5{0.764434,0.0108544,0.0861871,0.267685,0.0491322,1.95086,0.0308696,5.88705,0.0693772,9.96077}: EOG090C08MD_NT.fasta{5.77582},
+    K2P{1.6526}+FQ+R4{0.75586,0.0224241,0.154922,0.455445,0.0361166,4.36144,0.0531021,14.2174}: EOG090C08N0_NT.fasta{2.25523},
+    TIM2e{1.28573,1.75285,1.93155}+FQ+R4{0.700547,0.0670699,0.167247,0.705701,0.067215,3.96858,0.0649908,8.74339}: EOG090C08OH_NT.fasta{1.93211},
+    TIM2{1.4376,1.47204,2.05547}+F{0.221004,0.265407,0.313904,0.199685}+R4{0.72591,0.0299259,0.0646625,0.474949,0.0961576,2.61477,0.11327,6.14581}: EOG090C08OU_NT.fasta{5.60494},
+    GTR{1.11874,1.68745,1.82651,0.621145,1.32579}+F{0.169178,0.335373,0.263574,0.231875}+R4{0.700478,0.037082,0.172649,0.845421,0.0576144,3.87471,0.0692591,8.73279}: EOG090C08PT_NT.fasta{3.52302},
+    K2P{8.21112}+FQ+R3{0.950955,0.476516,0.0465629,8.48971,0.00248198,61.06}: EOG090C08QB_NT.fasta{0.220452},
+    TIM{0.10973,0.128718,3.9702}+F{0.264408,0.309275,0.24668,0.179637}+I{0.964392}+G4{0.413677}: EOG090C08QI_NT.fasta{1.27188},
+    TVMe{1.32433,4.7158,0.335807,1.01067}+FQ+R3{0.743473,0.0809192,0.206547,1.13627,0.0499796,14.1087}: EOG090C08QN_NT.fasta{0.707317},
+    TVMe{0.671656,3.85638,2.00902,0.626333}+FQ+R2{0.971297,0.500362,0.0287027,17.9077}: EOG090C08QX_NT.fasta{0.262017},
+    K2P{10.5788}+FQ+R3{0.740381,0.0348408,0.241886,1.89427,0.0177335,29.0979}: EOG090C08RM_NT.fasta{0.321085},
+    JC+R4{0.87342,0.0260148,0.0409264,0.578089,0.0203652,5.20301,0.0652887,12.9832}: EOG090C08RS_NT.fasta{2.81014},
+    HKY{6.99706}+F{0.198727,0.30829,0.249212,0.243771}+R2{0.97864,0.343879,0.0213597,31.0615}: EOG090C08S9_NT.fasta{0.167048},
+    HKY{4.55941}+F{0.206282,0.349019,0.230283,0.214416}+I{0.805684}: EOG090C08U5_NT.fasta{0.124324},
+    K3Pu{3.32873,1.73035}+F{0.301372,0.225191,0.25349,0.219947}+R3{0.915552,0.104778,0.0640203,4.97324,0.0204278,28.6708}: EOG090C08U7_NT.fasta{0.3582},
+    K2P{2.82426}+FQ+R2{0.979282,0.637865,0.0207184,18.1167}: EOG090C08V4_NT.fasta{0.287079},
+    K2P{8.97564}+FQ+G4{0.139899}: EOG090C08VJ_NT.fasta{0.121031},
+    TN{4.20796,9.75636}+F{0.232511,0.287726,0.307601,0.172162}+I{0.819407}: EOG090C08VL_NT.fasta{0.101829},
+    K2P{3.98373}+FQ+R3{0.613084,0.0542822,0.362216,1.43927,0.0246997,18.0324}: EOG090C08VR_NT.fasta{0.37099},
+    TN{1.9363,5.63544}+F{0.279331,0.273162,0.276891,0.170616}+R2{0.96435,0.316032,0.03565,19.5017}: EOG090C08W9_NT.fasta{0.112332},
+    K2P{4.45886}+FQ+R3{0.863435,0.242631,0.125646,4.2575,0.0109191,23.4055}: EOG090C08X2_NT.fasta{0.344825},
+    K2P{4.17337}+FQ+R3{0.871513,0.114378,0.115381,4.52973,0.0131065,28.8158}: EOG090C08XW_NT.fasta{0.508221},
+    TPM2{0.589764,1.1898}+F{0.320701,0.242271,0.254535,0.182494}+R3{0.854135,0.0775328,0.103211,1.22063,0.0426542,18.9382}: EOG090C08Y7_NT.fasta{0.996609},
+    K3P{3.6704,0.35911}+FQ+R3{0.909635,0.257448,0.075769,5.25281,0.0145956,25.2006}: EOG090C08YU_NT.fasta{0.406913},
+    TVMe{2.54118,3.14651,2.80234,2.20359}+FQ+R3{0.894532,0.110605,0.0686141,2.67973,0.0368538,19.4605}: EOG090C08YW_NT.fasta{1.07037},
+    K3P{2.76826,0.540616}+FQ+R3{0.939602,0.185325,0.0473674,5.95986,0.0130304,41.7153}: EOG090C08ZG_NT.fasta{0.400867},
+    HKY{5.9132}+F{0.173985,0.335528,0.252752,0.237734}+R2{0.9885,0.550292,0.0115001,39.6549}: EOG090C0910_NT.fasta{0.178375},
+    K2P{2.78436}+FQ+R4{0.632112,0.0279218,0.331309,0.601045,0.0183828,6.52151,0.0181963,36.4544}: EOG090C091M_NT.fasta{1.10096},
+    TIM3e{0.669529,0.98106,1.50544}+FQ+R4{0.688194,0.00846266,0.236778,0.387065,0.00905183,3.31033,0.0659759,13.2255}: EOG090C091S_NT.fasta{2.87172},
+    HKY{2.79913}+F{0.269535,0.258197,0.284463,0.187805}+R4{0.630733,0.0318862,0.330986,1.09909,0.028888,7.86337,0.00939247,41.4104}: EOG090C0942_NT.fasta{1.01026},
+    TIM2e{1.90655,3.18309,3.62087}+FQ+R3{0.882022,0.121947,0.0845956,2.79093,0.0333824,19.6613}: EOG090C094B_NT.fasta{0.786966},
+    TNe{2.64418,4.58534}+FQ+R3{0.789343,0.097024,0.188756,2.64608,0.0219017,19.3571}: EOG090C094O_NT.fasta{0.313997},
+    TPM2{2.40072,9.82586}+F{0.236017,0.275176,0.313334,0.175473}+R3{0.911354,0.232818,0.0794814,4.6138,0.0091643,45.9511}: EOG090C095P_NT.fasta{0.216756},
+    K2P{4.96191}+FQ+R2{0.985743,0.46409,0.0142568,38.054}: EOG090C0968_NT.fasta{0.121767},
+    TIM2e{1.77315,3.1553,2.87576}+FQ+R4{0.87887,0.0437956,0.0783711,0.874251,0.0191117,8.4064,0.0236474,30.9688}: EOG090C0969_NT.fasta{1.39136},
+    K2P{3.48661}+FQ+R3{0.820821,0.157612,0.170277,3.25111,0.00890228,35.6134}: EOG090C0979_NT.fasta{0.243537},
+    K2P{7.09088}+FQ+R2{0.9816,0.557498,0.0184,24.6065}: EOG090C097N_NT.fasta{0.167797},
+    K2P{7.56387}+FQ+R3{0.874833,0.236861,0.118844,4.42856,0.00632285,42.1454}: EOG090C098S_NT.fasta{0.274103},
+    TN{2.33697,4.73281}+F{0.326601,0.210812,0.248471,0.214115}+R3{0.913037,0.181491,0.0760751,4.56187,0.0108876,44.7525}: EOG090C09AF_NT.fasta{0.267063},
+    TPM3{0.36028,3.31093}+F{0.265082,0.292348,0.272552,0.170018}+R3{0.839414,0.124184,0.146291,3.21294,0.0142954,29.7814}: EOG090C09AT_NT.fasta{0.246593},
+    TN{2.04318,5.04772}+F{0.336621,0.191528,0.339543,0.132309}+R2{0.986615,0.650862,0.0133851,26.7349}: EOG090C09CL_NT.fasta{0.297132},
+    HKY{1.50737}+F{0.296358,0.231302,0.308672,0.163668}+R3{0.930638,0.383335,0.0401131,3.26027,0.0292492,17.521}: EOG090C09DA_NT.fasta{1.23609},
+    K2P{2.1566}+FQ+R4{0.929202,0.0553808,0.0399026,2.03252,0.016492,13.9496,0.0144034,44.2521}: EOG090C09DM_NT.fasta{2.32235},
+    TN{1.69814,3.23162}+F{0.258688,0.266818,0.310231,0.164263}+R3{0.93475,0.268503,0.0523478,5.73479,0.0129019,34.7865}: EOG090C09E0_NT.fasta{1.00618},
+    TNe{4.21529,2.54384}+FQ+R3{0.832616,0.195282,0.157744,3.55467,0.00963914,28.7033}: EOG090C09EJ_NT.fasta{0.339972},
+    TIM2e{1.95693,5.31701,8.61108}+FQ+R4{0.540975,0.0262001,0.416501,0.830326,0.0341887,9.94422,0.00833528,35.9933}: EOG090C09G1_NT.fasta{0.394396},
+    TNe{1.56801,1.23954}+FQ+R4{0.752923,0.0350336,0.0894451,1.2709,0.116967,3.39042,0.0406645,11.3951}: EOG090C09G2_NT.fasta{3.03677},
+    K3P{1.07461,0.693768}+FQ+R4{0.816114,0.0884465,0.147135,1.56851,0.0163512,8.26187,0.0204006,27.5455}: EOG090C09HS_NT.fasta{2.10747},
+    TIM3e{0.604872,1.98503,3.03452}+FQ+R3{0.901484,0.240095,0.0760229,3.54919,0.0224935,22.8395}: EOG090C09II_NT.fasta{0.58916},
+    TIM2e{3.32461,7.24268,6.3848}+FQ+R2{0.917941,0.283042,0.0820587,9.02017}: EOG090C09IS_NT.fasta{0.479915},
+    K2P{3.75864}+FQ+R3{0.932101,0.347089,0.0436259,4.53981,0.0242727,19.7104}: EOG090C09JP_NT.fasta{0.69268},
+    TPM2{2.22113,6.66118}+F{0.235132,0.298678,0.284915,0.181275}+R3{0.707399,0.0282521,0.283867,2.46899,0.00873423,31.9602}: EOG090C09K5_NT.fasta{0.318118},
+    TIMe{1.84741,0.798313,1.24038}+FQ+R4{0.596646,0.0183554,0.34083,0.582992,0.0407956,6.56747,0.0217287,24.043}: EOG090C09L0_NT.fasta{1.2205},
+    TIM3e{0.335318,1.93679,3.8027}+FQ+R3{0.910466,0.108397,0.067966,4.24975,0.0215684,28.3966}: EOG090C09LP_NT.fasta{0.51823},
+    HKY{5.24344}+F{0.295085,0.220824,0.284705,0.199387}+R2{0.97769,0.444213,0.0223097,25.3566}: EOG090C09O8_NT.fasta{0.271732},
+    TNe{2.64323,6.71215}+FQ+G4{0.329145}: EOG090C09O9_NT.fasta{0.116758},
+    TVM{1.14184,1.70333,1.86037,0.769003}+F{0.233552,0.320495,0.238546,0.207408}+R4{0.82164,0.0372281,0.0978428,1.60788,0.0633522,7.59621,0.0171654,19.2745}: EOG090C09PS_NT.fasta{2.59339},
+    HKY{1.92168}+F{0.23762,0.295065,0.252355,0.21496}+I{0.551988}+G4{0.37479}: EOG090C09QS_NT.fasta{1.13964},
+    HKY{3.42672}+F{0.236447,0.300474,0.297847,0.165233}+R3{0.73052,0.0256073,0.255273,1.98342,0.0142074,33.432}: EOG090C09QZ_NT.fasta{0.345876},
+    TIM{1.69609,0.195932,2.65454}+F{0.237903,0.306988,0.27688,0.178229}+R4{0.886904,0.0415859,0.0843159,1.32154,0.0231689,15.7316,0.00561107,86.8297}: EOG090C09RL_NT.fasta{0.724088},
+    TN{3.40321,11.5483}+F{0.252079,0.20461,0.322307,0.221004}+R2{0.972477,0.342476,0.0275226,24.2328}: EOG090C09S9_NT.fasta{0.203222},
+    TNe{4.08737,8.24359}+FQ+R3{0.784638,0.0624008,0.204768,2.74153,0.0105937,36.7825}: EOG090C09TH_NT.fasta{0.225596},
+    TIM{1.29127,0.430885,2.41206}+F{0.320748,0.216945,0.297715,0.164592}+R3{0.927316,0.156255,0.0573985,4.42299,0.0152854,39.3336}: EOG090C09UD_NT.fasta{0.611416},
+    TVM{0.858051,1.62192,0.400108,0.113104}+F{0.260187,0.272806,0.269087,0.19792}+R3{0.862635,0.140197,0.115942,2.96912,0.0214222,24.9654}: EOG090C09VT_NT.fasta{0.347755},
+    K2P{2.54327}+FQ+R3{0.937798,0.283873,0.05628,3.61773,0.00592217,89.5244}: EOG090C09VW_NT.fasta{0.478094},
+    TVMe{2.10831,3.72483,1.15995,0.467141}+FQ+R3{0.935761,0.270077,0.045506,5.11282,0.0187334,27.4701}: EOG090C09WD_NT.fasta{0.46382},
+    K2P{4.25825}+FQ+R2{0.931768,0.432431,0.0682316,8.7507}: EOG090C09XK_NT.fasta{0.332723},
+    TPM3{0.24545,1.25957}+F{0.310559,0.247957,0.262685,0.178799}+R2{0.99357,0.56791,0.00643011,67.7659}: EOG090C09XN_NT.fasta{0.102162},
+    TIM3e{0.361136,1.3482,1.30513}+FQ+R3{0.861292,0.0598127,0.120928,3.21992,0.0177803,31.4453}: EOG090C09Y7_NT.fasta{0.292676},
+    TVMe{0.964623,1.30273,1.02689,0.519346}+FQ+R5{0.756913,0.0167875,0.102475,0.284676,0.0282455,2.30453,0.0567753,5.35954,0.0555908,10.5906}: EOG090C09YB_NT.fasta{3.71708},
+    TIM2{2.21631,3.14152,6.40347}+F{0.22526,0.262099,0.325211,0.18743}+R3{0.943981,0.226882,0.0439963,6.59239,0.0120223,41.2391}: EOG090C09YT_NT.fasta{0.739342},
+    TN{1.22644,2.27269}+F{0.306258,0.226762,0.275145,0.191835}+R3{0.88399,0.421971,0.107882,4.33263,0.00812873,19.6306}: EOG090C09YU_NT.fasta{0.745546},
+    K2P{2.15201}+FQ+I{0.524451}+G4{0.402682}: EOG090C0A1N_NT.fasta{1.11228},
+    TIM2e{1.4341,2.31772,2.52521}+FQ+R3{0.838744,0.058269,0.104894,1.87196,0.0563625,13.3913}: EOG090C0A1O_NT.fasta{1.47901},
+    HKY{9.73664}+F{0.275021,0.228399,0.296821,0.199759}+I{0.895978}: EOG090C0A2Z_NT.fasta{0.0785834},
+    TIMe{2.08994,1.70914,2.88647}+FQ+R3{0.89329,0.0900445,0.0747364,3.1136,0.0319735,21.4823}: EOG090C0A32_NT.fasta{1.23467},
+    K3Pu{3.1211,0.601071}+F{0.263898,0.269049,0.276417,0.190635}+R3{0.914234,0.345189,0.0697389,3.54153,0.0160271,27.2934}: EOG090C0A3E_NT.fasta{0.404613},
+    HKY{3.05217}+F{0.26171,0.286463,0.276006,0.175821}+R3{0.889253,0.152464,0.0844472,3.33241,0.0262996,22.168}: EOG090C0A4J_NT.fasta{0.851033},
+    TIM3{0.664792,0.638144,1.36896}+F{0.344769,0.211896,0.290693,0.152643}+R3{0.7678,0.0427741,0.174602,1.78957,0.057598,11.3666}: EOG090C0A4K_NT.fasta{1.91727},
+    TIM{1.69761,0.628816,3.50106}+F{0.31299,0.242766,0.288727,0.155518}+R3{0.928606,0.32513,0.0606293,5.32259,0.0107647,34.8713}: EOG090C0A4P_NT.fasta{0.442255},
+    TIM3{0.543081,1.22728,2.75899}+F{0.327857,0.236751,0.30386,0.131532}+R4{0.888724,0.24337,0.0906996,2.19621,0.0135068,14.7086,0.00706991,54.5764}: EOG090C0A4Y_NT.fasta{0.78431},
+    TIM3{0.573295,1.85175,2.63361}+F{0.30458,0.232915,0.344734,0.117771}+R3{0.820577,0.298728,0.17066,2.76205,0.00876317,32.3511}: EOG090C0A5A_NT.fasta{0.525641},
+    TNe{8.53549,5.70868}+FQ+R3{0.934333,0.255826,0.052333,5.21303,0.0133344,36.609}: EOG090C0A5O_NT.fasta{0.441847},
+    K2P{5.38069}+FQ+R3{0.785767,0.0859788,0.191833,2.31466,0.0224007,21.8035}: EOG090C0A5R_NT.fasta{0.430387},
+    K2P{2.69296}+FQ+R3{0.664987,0.0699845,0.317866,2.0952,0.0171469,16.7651}: EOG090C0A60_NT.fasta{0.571508},
+    K3Pu{1.83151,0.577447}+F{0.277965,0.285272,0.246116,0.190647}+R3{0.900094,0.179769,0.0769096,3.20006,0.0229966,25.7463}: EOG090C0A64_NT.fasta{0.839372},
+    TPM3{0.577405,1.26344}+F{0.244419,0.301647,0.269145,0.184789}+R2{0.96473,0.391896,0.0352699,17.6333}: EOG090C0A9U_NT.fasta{0.239226},
+    TIM3{0.765299,1.56635,2.30527}+F{0.288876,0.260605,0.245229,0.205291}+R3{0.899546,0.334906,0.070642,3.6889,0.0298124,14.6967}: EOG090C0AAQ_NT.fasta{1.22637},
+    K2P{4.50597}+FQ+R3{0.933258,0.303549,0.060179,6.93181,0.00656293,45.6445}: EOG090C0AFJ_NT.fasta{0.291827},
+    K2P{3.80208}+FQ+R2{0.978773,0.717195,0.0212272,14.04}: EOG090C0AHG_NT.fasta{0.322973},
+    TPM2{1.85189,4.1298}+F{0.216211,0.29447,0.259555,0.229765}+R4{0.861258,0.114886,0.120045,2.56615,0.0139946,14.8073,0.00470235,82.0394}: EOG090C0AJF_NT.fasta{0.547155},
+    TPM2{1.59286,3.76325}+F{0.23057,0.251379,0.338377,0.179674}+R3{0.948628,0.0929853,0.0285996,2.68729,0.0227723,36.6646}: EOG090C0AL1_NT.fasta{1.1167},
+    TN{2.03998,4.07331}+F{0.198199,0.317656,0.301865,0.18228}+R3{0.691345,0.0288987,0.297577,2.26008,0.0110771,27.7573}: EOG090C0ALG_NT.fasta{0.252183},
+    K3P{1.62743,0.635059}+FQ+R4{0.872182,0.142124,0.0838256,2.24959,0.0379639,12.095,0.00602845,37.8695}: EOG090C0ALS_NT.fasta{1.20053},
+    TIM3e{0.563319,2.19092,3.47757}+FQ+R2{0.944602,0.288024,0.055398,13.14}: EOG090C0ANE_NT.fasta{0.472833},
+    TVM{1.91597,3.16692,1.01121,0.764004}+F{0.197402,0.313758,0.305162,0.183678}+R5{0.590158,0.0668182,0.321738,0.391719,0.0356551,3.73393,0.0411534,9.60383,0.0112959,27.1046}: EOG090C0ANT_NT.fasta{1.52039},
+    TNe{1.88962,3.93439}+FQ+R3{0.796289,0.0244298,0.167061,1.54722,0.0366501,19.7016}: EOG090C0AO4_NT.fasta{0.354629},
+    K3P{1.38054,0.595964}+FQ+R5{0.856178,0.0385209,0.0768063,0.538042,0.0154852,2.94827,0.0261167,10.3564,0.0254136,23.9857}: EOG090C0AQ9_NT.fasta{2.47467},
+    TVM{1.08966,3.34135,2.51731,1.11871}+F{0.242786,0.289731,0.298864,0.168619}+R3{0.871709,0.348809,0.113968,3.72328,0.0143232,18.9627}: EOG090C0AQX_NT.fasta{0.756677},
+    K3P{3.53824,0.55694}+FQ+R3{0.752702,0.111266,0.223503,2.41209,0.0237952,15.8494}: EOG090C0ASA_NT.fasta{0.339358},
+    K3Pu{1.12544,0.647411}+F{0.241427,0.318553,0.261736,0.178284}+R3{0.715859,0.122278,0.264067,1.36135,0.0200735,27.5476}: EOG090C0ATT_NT.fasta{0.707439},
+    TVM{1.51636,3.69005,1.20376,2.35127}+F{0.257289,0.239538,0.301173,0.202}+R3{0.945307,0.17706,0.0193775,4.15082,0.0353151,21.2994}: EOG090C0ATW_NT.fasta{1.4862},
+    TVM{0.527318,1.75058,1.82969,0.508511}+F{0.223336,0.323102,0.259541,0.194022}+R4{0.797695,0.168755,0.177374,2.46326,0.021577,11.9559,0.00335395,50.8346}: EOG090C0AU9_NT.fasta{0.621673},
+    K3Pu{3.11335,0.433828}+F{0.312461,0.237811,0.249338,0.200389}+R3{0.854568,0.0630992,0.11926,2.17325,0.026172,26.2454}: EOG090C0AWD_NT.fasta{0.387644},
+    K2P{2.31957}+FQ+R4{0.841127,0.185132,0.136965,2.45509,0.0123939,14.0286,0.00951362,35.1233}: EOG090C0AXB_NT.fasta{0.723451},
+    TVM{0.9432,1.16437,1.21073,0.538911}+F{0.274911,0.260377,0.285779,0.178933}+I{0.442536}+G4{0.653355}: EOG090C0B1U_NT.fasta{3.54339},
+    TIM{1.27131,0.559588,3.15516}+F{0.351589,0.228719,0.280566,0.139126}+R2{0.931658,0.302666,0.0683416,10.5063}: EOG090C0B20_NT.fasta{0.308652},
+    TNe{2.32187,4.60779}+FQ+I{0.69057}+G4{1.12407}: EOG090C0B4A_NT.fasta{0.306864},
+    K2P{4.0313}+FQ+R3{0.741008,0.109265,0.244135,2.60558,0.0148572,19.0427}: EOG090C0B8Z_NT.fasta{0.397498},
+    HKY{3.17039}+F{0.27163,0.210989,0.313163,0.204218}+R3{0.796667,0.206161,0.183969,2.84805,0.0193644,16.102}: EOG090C0B9J_NT.fasta{0.456753},
+    TVMe{1.36955,1.78155,1.80597,0.449023}+FQ+R4{0.887333,0.0252537,0.055225,0.692731,0.0286685,8.70919,0.0287733,23.9686}: EOG090C0BBZ_NT.fasta{1.97404},
+    TN{2.90853,5.41279}+F{0.308466,0.220568,0.30399,0.166976}+R3{0.900226,0.182675,0.0737207,4.34214,0.0260535,19.7841}: EOG090C0BC8_NT.fasta{0.470322},
+    TIM3{0.524819,0.777472,2.26664}+F{0.34516,0.222725,0.255307,0.176808}+R3{0.900112,0.201442,0.0688513,3.70718,0.031037,18.1537}: EOG090C0BC9_NT.fasta{1.24239},
+    TPM2{1.76442,2.63814}+F{0.198702,0.307863,0.302247,0.191188}+R4{0.72062,0.0536493,0.144781,0.713176,0.10732,4.60301,0.0272791,13.3468}: EOG090C0BCB_NT.fasta{2.50695},
+    TVMe{0.732183,0.930149,1.16791,0.565323}+FQ+R4{0.748379,0.0049879,0.170476,0.591403,0.0176685,4.91673,0.0634768,12.7381}: EOG090C0BDA_NT.fasta{3.07059},
+    GTR{0.864428,0.786507,1.62333,0.530247,1.87591}+F{0.263073,0.247584,0.344754,0.144588}+R5{0.679831,0.0133621,0.117636,0.330038,0.0459075,1.54554,0.10121,4.18675,0.0554164,8.25388}: EOG090C0BEF_NT.fasta{3.75518},
+    K2P{2.77765}+FQ+R2{0.98625,0.693925,0.0137496,22.9546}: EOG090C0BIV_NT.fasta{0.241208},
+    GTR{3.61622,2.05469,1.23832,0.968942,4.10419}+F{0.245879,0.248965,0.307801,0.197355}+R3{0.853584,0.147991,0.111351,2.69917,0.0350642,16.3449}: EOG090C0BJ8_NT.fasta{1.33136},
+    TN{3.62618,8.62691}+F{0.215716,0.260018,0.314588,0.209678}+R3{0.946299,0.374295,0.0498759,8.31319,0.00382508,60.4372}: EOG090C0BJH_NT.fasta{0.212653},
+    K3P{5.11608,1.68449}+FQ+R3{0.915129,0.157152,0.0727056,4.76601,0.012165,41.8965}: EOG090C0BMD_NT.fasta{0.630479},
+    TN{3.62986,7.31258}+F{0.243956,0.290101,0.301036,0.164907}+R3{0.693137,0.0519022,0.286087,1.83679,0.0207762,21.1079}: EOG090C0BO8_NT.fasta{0.363935},
+    K2P{4.44953}+FQ+R3{0.908649,0.281638,0.0775376,5.11971,0.0138136,25.1289}: EOG090C0BPO_NT.fasta{0.414332},
+    TN{3.02658,7.74444}+F{0.289931,0.240969,0.28979,0.17931}+R3{0.766441,0.0772499,0.211858,2.28254,0.0217014,21.0685}: EOG090C0CB3_NT.fasta{0.320792},
+    K2P{2.08191}+FQ+R3{0.692062,0.0798292,0.292253,1.7439,0.0156849,27.7397}: EOG090C0CD3_NT.fasta{0.342753},
+    SYM{0.686586,0.738598,0.757851,0.319605,1.22737}+FQ+R3{0.878821,0.114139,0.0811112,2.04261,0.0400674,18.3195}: EOG090C0CEI_NT.fasta{1.61669},
+    GTR{0.891699,0.911543,1.45027,0.928511,2.51715}+F{0.341976,0.197056,0.316115,0.144852}+R5{0.754417,0.0458915,0.0916443,0.580711,0.0604346,2.33696,0.0542355,6.32527,0.0392688,10.896}: EOG090C0CFR_NT.fasta{5.25651},
+    TVM{1.2715,2.36917,2.40447,0.867408}+F{0.274043,0.211055,0.309122,0.205781}+R3{0.880821,0.105308,0.0883338,1.83958,0.0308451,24.1447}: EOG090C0CI9_NT.fasta{1.18686},
+    TN{2.26574,5.3786}+F{0.359471,0.198728,0.269729,0.172072}+R2{0.976168,0.537212,0.0238317,19.9562}: EOG090C0CJ9_NT.fasta{0.304265},
+    TPM2{3.84132,4.51555}+F{0.298709,0.209217,0.280351,0.211723}+R3{0.916818,0.129672,0.0677999,5.20495,0.0153825,34.3389}: EOG090C0CL1_NT.fasta{0.44375},
+    GTR{3.21834,1.55161,0.195933,0.928873,3.44108}+F{0.32016,0.2196,0.297105,0.163136}+R3{0.878916,0.172263,0.11112,4.44962,0.00996332,35.5456}: EOG090C0COA_NT.fasta{0.467437},
+    TPM3{0.399666,6.65367}+F{0.286616,0.265312,0.273432,0.174641}+R3{0.816044,0.0849338,0.171583,3.04012,0.0123723,33.0623}: EOG090C0CVZ_NT.fasta{0.23087},
+    K3P{1.10346,0.707644}+FQ+R4{0.723864,0.0225089,0.129893,0.374966,0.065883,3.39313,0.0803605,8.85324}: EOG090C0D0D_NT.fasta{4.15691},
+    K2P{9.54228}+FQ+R2{0.991111,0.641443,0.00888897,40.9787}: EOG090C0D8Y_NT.fasta{0.141044},
+    TIM3{0.532551,1.621,2.7942}+F{0.342262,0.252368,0.264009,0.141361}+R3{0.810315,0.198855,0.174316,2.68325,0.0153687,24.1485}: EOG090C0DAJ_NT.fasta{0.461131},
+    HKY{6.25075}+F{0.270721,0.270014,0.27581,0.183456}+R3{0.928375,0.128252,0.0570372,6.97181,0.0145876,33.1296}: EOG090C0DBC_NT.fasta{0.642958},
+    HKY{4.08335}+F{0.188935,0.379419,0.235008,0.196638}+R3{0.93115,0.411431,0.0621898,5.76479,0.00666017,38.7955}: EOG090C0DCG_NT.fasta{0.282726},
+    TVMe{2.03079,3.2915,1.31692,1.42749}+FQ+R4{0.899082,0.071637,0.0578587,1.19049,0.00533704,6.10889,0.037722,22.112}: EOG090C0DH1_NT.fasta{1.98022},
+    TPM2{1.51838,5.60709}+F{0.246932,0.317326,0.239921,0.19582}+R3{0.946581,0.373238,0.0399443,6.54553,0.0134747,28.5901}: EOG090C0DKM_NT.fasta{0.470675},
+    TPM2{0.459874,2.37566}+F{0.237544,0.286786,0.310513,0.165157}+R3{0.812424,0.0587702,0.17095,2.18718,0.0166259,34.7862}: EOG090C0DO4_NT.fasta{0.234061},
+    HKY{1.70623}+F{0.295747,0.256763,0.332094,0.115397}+R4{0.682678,0.0119059,0.237888,0.427844,0.0405013,5.70777,0.0389327,16.9246}: EOG090C0E36_NT.fasta{1.87404},
+    TPM3{0.420989,1.89965}+F{0.19496,0.318297,0.277468,0.209276}+R3{0.845112,0.111086,0.144602,4.2394,0.0102862,28.4939}: EOG090C0ERB_NT.fasta{0.269908},
+    TN{2.54774,5.05431}+F{0.355851,0.169547,0.306768,0.167834}+R3{0.8957,0.310046,0.0807223,3.61924,0.0235779,18.2434}: EOG090C0F46_NT.fasta{0.518566},
+    TPM3{0.549046,1.82119}+F{0.211325,0.299255,0.317552,0.171867}+R3{0.704883,0.121719,0.182702,1.13702,0.112414,6.28447}: EOG090C0FRI_NT.fasta{1.27417},
+    TIM3{0.449486,1.4669,5.82172}+F{0.276209,0.306974,0.287249,0.129568}+R4{0.623624,0.0911718,0.318334,0.978342,0.0417505,6.8967,0.0162908,21.1016}: EOG090C0G9X_NT.fasta{0.624426};
+end;

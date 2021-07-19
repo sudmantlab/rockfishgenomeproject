@@ -1,0 +1,1 @@
+nw_reroot sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_bs10.astral.renamed.tr Sebastolobus_alascanus | nw_topology - > sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_bs10.astral.renamed.rooted.topo.tr

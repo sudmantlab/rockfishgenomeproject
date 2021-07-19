@@ -62,7 +62,7 @@ mutation_spectra$dataset <- "scaf"
 
 mutation_spectra <- read_tsv("../../data/hetsites/scaf_genomes/All_filtered.hetmutations.txt")
 scaf_mutation_spectra <- mutation_spectra
-pdf("plots/prelim_mutation_spectra.pdf",height=10,width=10)
+#pdf("plots/prelim_mutation_spectra.pdf",height=10,width=10)
 mutation_spectra %>%
   group_by(sample,species) %>%
   mutate(total_count = sum(collapsed_n),
@@ -442,7 +442,9 @@ mutation_spectra_pca_loadings %>%
 all_mutations <- unique(mutation_spectra$mutation)
 
 
-tree <- read.tree("../../data/trees/sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_genetrees/concat.treefile")
+#tree <- read.tree("../../data/trees/sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_genetrees/concat.treefile")
+tree <- read.tree("../../data/trees/sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_astral/sebasto_sebaste.astral.iqdist.rooted.treefile")
+
 mutation_spectra %>%
   group_by(sample, species, mutation) %>%
   summarize(collapsed_n = sum(collapsed_n)) %>%
@@ -568,7 +570,8 @@ dev.off()
 
 ####PGLS
 
-tree <- read.tree("../../data/trees/sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_genetrees/concat.treefile")
+#tree <- read.tree("../../data/trees/sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_genetrees/concat.treefile")
+tree <- read.tree("../../data/trees/sebasto_sebaste_acti_per_gene_aligned_filt_ts_distfilt_astral/sebasto_sebaste.astral.iqdist.rooted.treefile")
 mutation_spectra %>%
   group_by(sample, species, mutation) %>%
   summarize(collapsed_n = sum(collapsed_n)) %>%
@@ -619,7 +622,7 @@ pgls_results %>%
          SNP_end = str_sub(mutation,6,6),
          mut = paste0(SNP_start,"->",SNP_end)) -> tmp_plot_data
   
-pdf("plots/mutation_spectra_lifemax_pgls_v2.pdf",height=5,width=3,useDingbats=FALSE)
+pdf("plots/mutation_spectra_lifemax_pgls_v4.pdf",height=5,width=3,useDingbats=FALSE)
 tmp_plot_data %>%
   ggplot(.,aes(y=paste0(mut,", ",prime5),x=prime3)) + geom_tile(aes(fill=value)) +
   scale_fill_distiller(palette = "Spectral") +
@@ -630,7 +633,7 @@ tmp_plot_data %>%
   theme_cowplot()
 dev.off()
 
-pdf("plots/mutation_spectra_lifemax_pgls_v3L.pdf",height=1.6,width=7,useDingbats=FALSE)
+pdf("plots/mutation_spectra_lifemax_pgls_v4L.pdf",height=1.6,width=7,useDingbats=FALSE)
 tmp_plot_data %>%
   ggplot(.,aes(x=paste0(mut,", ",prime5),y=prime3)) + geom_tile(aes(fill=value)) +
   scale_fill_distiller(palette = "Spectral") +
@@ -669,7 +672,8 @@ mutation_spectra %>%
   as.data.frame -> test
 
 row.names(test) <- test$species
-pglsModel <- gls(mean_prop ~ Max_life, correlation = corBrownian(phy = keep.tip(tree, test$species)),
+pglsModel <- gls(mean_prop ~ Max_life, correlation = corBrownian(phy = keep.tip(tree, test$species),
+                                                                 form = ~species),
                  data = test, method = "ML")
 
 summary(pglsModel)$tTable[2,4]
@@ -733,7 +737,7 @@ mutation_spectra %>%
   filter(!grepl("Sebastolobus",species)) %>%
   filter(last_two == "C->T.G") -> plotting_data
 
-pdf("plots/mutation_spectra_lifemax_pgls_cpg_v1.pdf",height=3,width=5)
+pdf("plots/mutation_spectra_lifemax_pgls_cpg_v2.pdf",height=3,width=5)
 plotting_data %>%
   ggplot(.,aes(x=Max_life, y=mean_prop)) +
   geom_point() + 

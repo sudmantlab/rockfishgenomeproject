@@ -1,0 +1,41 @@
+
+LEAST-SQUARE METHODS TO ESTIMATE RATES AND DATES - v.1.8.1 
+
+
+Input files:
+  i                                               Input tree file : sebasto_sebaste.timetree.subst
+  z                                                     Tips date : 0
+  d                                               Input date file : sebasto_sebaste.timetree.date
+  p                                                Partition file : No
+Output file:
+  o                                                  Output file  : sebasto_sebaste.timetree
+Parameters:
+  c                                              With constraints : Yes
+  t                                      Lower bound for the rate : 1e-10
+  v                                                With variances : Yes, use variances based on input branch lengths
+  b                              Adjusted parameter for variances : To estimate
+  r                                             Estimate the root : Use fast method to search on all branches
+  w                                       Given substitution rate : No
+  g                                               Given outgroups : No
+  n                                             Multiple data set : No
+  f                                  Compute confidence intervals : No
+  e                                          Exclude outlier tips : No
+  u                Min internal branch length of time scaled tree : To estimate
+  R     Rounding number for min branch length of time scaled tree : To guess
+  U                Min external branch length of time scaled tree : To estimate
+  l                        Collapsed internal branch length limit : 3.42328e-07
+  D                                            Output date format : Based on input date format
+
+  h to print Help 
+  y to accept or type a letter to change an option (x = Exit) 
+Tree 1 
+Parameter to adjust variances was set to 0.00373392 (settable via option -b)
+Minimum branch length of time scaled tree (settable via option -u and -U): 0.000446498,
+ rounded to 0.00045 (45/100000) using factor 100000 (settable via option -R)
+*RESULTS:
+- Dating results:
+ rate 0.0102419, tMRCA -8.5
+
+*********************************************************
+
+TOTAL ELAPSED TIME: 0.566167 seconds
