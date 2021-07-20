@@ -6,5 +6,5 @@ Independent runs, order matters from time to time
 3) refgenome_funannotate_Snakefile_rnaseq - Protein coding genes annotation using Funannotate (no RNAseq for aleutianus) ### Funannotate is an incredible pipeline, kudos Jon!!!
 4) refgenome_interproscan_Snakefile - Gene family and functional assignments using coding protein sequences
 5) refgenome_noncoding_Snakefile - Noncoding tRNA, mRNA, rRNA, snoRNA annotation using Infernal and tRNAscan-SE
-6) refgenome_liftoff_Snakefile_illumina_large -  Lifting annotations from reference genomes to reference based scaffolded illumina-only assemblies ### was very much needed, came in handy at the right time, cheers Alaina!!!
+6) refgenome_liftoff_Snakefile_illumina_large -  Lifting annotations from reference genomes to reference based scaffolded illumina-only assemblies 
 
