@@ -29,9 +29,6 @@ rule rename_set:
         cat {input} | grep ">" | sed 's/>//g' | bash ../../bin/add_names.sh > {output}
         """
 
-rule 
-
-
 rule fix_fasta:
     input: 
         "sebasto_sebaste_acti_per_gene_aligned/{sample}_NT.FNA"
