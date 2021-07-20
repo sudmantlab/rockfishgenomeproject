@@ -1,0 +1,1302 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r warning=FALSE}
+
+library(data.table)
+library(ggplot2)
+library(viridis)
+library(ggbeeswarm)
+library(patchwork)
+library(ggpubr)
+library(ape)
+library(treeman)
+library(magrittr)
+library(tidyr)
+library(dplyr, warn.conflicts = FALSE)
+
+```
+
+# Poisson model - refer to Hual et al 2015
+```{r}
+sissim <- function (pars,n) { 
+  r<-pars[1]
+  y0<-pars[2]
+  sigx<-pars[3]
+  sigy<-pars[4]
+  dt<-0.1
+  x0<-0
+  out <- matrix(NA,n,5) 
+  for (i in 1:n) {
+    Tt<-0
+    while(Tt==0) {
+      Tt<-round(runif(1,0,1000))
+    }
+    wtx1 <- rnorm (Tt,mean=0,sd=dt)
+    wtx2 <- rnorm (Tt,mean=0,sd=dt)
+    wty1 <- rnorm (Tt,mean=0,sd=dt)
+    wty2 <- rnorm (Tt,mean=0,sd=dt)
+    y1<-numeric(Tt+1)
+    y1[1] <- y0
+    y2<-y1
+    for (t in 2:(Tt+1)) {
+      y1[t] <- y1[t-1] + sqrt (1-r^2) *sigy * wty1[t-1] + r *sigx * wtx1[t-1]
+      y2[t] <- y2[t-1] + sqrt (1-r^2) *sigy * wty2[t-1] + r *sigx * wtx2[t-1] 
+      }
+    x1 <- x0 + sigx * sum(wtx1)
+    x2 <- x0 + sigx * sum(wtx2)
+    s1 <- rpois (1,sum(exp(y1)))
+    s2 <- rpois (1,sum(exp(y2)))
+    Tt <- Tt * dt^2
+    out[i,]<-c(s1,s2,x1,x2,Tt)
+  }
+out
+}
+
+Poireg <- function (data) { 
+  S1 <- data[,1]
+  S2 <- data[,2]
+  X1 <- data[,3]
+  X2 <- data[,4]
+  n <- which(S1*S2!=0)
+  S1 <- S1[n]
+  S2 <- S2[n]
+  X1 <- X1[n]
+  X2 <- X2[n]
+  n <- length(S1)
+  X <- X2-X1
+  nll <- function (p) {
+    n <- length(S1)
+    r <- exp(p[2:(n+1)])
+    r1 <- r
+    r2 <- r
+    if (p[1]!=0) {
+      r1 <- r*(1-exp(-p[1]*X/2))/p[1]/X
+      r2 <- -r*(1-exp(p[1]*X/2))/p[1]/X 
+    }
+    out <- numeric(n)
+    for (i in which(r1!=0)) {
+      out[i] <- S1[i]*log(r1[i])-lfactorial(S1[i]) 
+    }
+    for (i in which(r2!=0)) {
+      out[i] <- out[i]+S2[i]*log(r2[i])-lfactorial(S2[i])
+    }
+    sum(r1+r2)-sum(out)
+  }
+  out <- nlm(nll,p=c(-1,numeric(n)),hessian=T)
+  nll <- function (p) {
+    n <- length(S1)
+    r <- exp(p)
+    r1 <- r
+    r2 <- r
+    out <- numeric(n)
+    for (i in 1:n) {
+      out[i] <- S1[i]*log(r1[i])+S2[i]*log(r2[i])-lfactorial(S1[i])-lfactorial(S2[i]) 
+    }
+  sum(r1+r2)-sum(out) 
+  }
+  null <- nlm(nll,p=numeric(n),hessian=T)
+  mean<-out$estimate[1]
+  se<-sqrt(diag(solve(out$hessian)))[1]
+  t.se<-se*qt(0.025,2*length(S1)-length(out$estimate))
+  CI<-c(mean-t.se,mean+t.se)
+  likratio <- 2*(null$minimum-out$minimum)
+  logLik=-out$minimum
+  k <- 2
+  aic <- (2*out$minimum) + (2*k)
+  pval <- 1-pchisq(likratio,df=1)
+  Rs.full<--sum(S1[S1!=0])-
+  sum(S2[S2!=0])+sum(S1[S1!=0]*log(S1[S1!=0]))+sum(S2[S2!=0]*log(S2[S2!=0]))- 
+  sum(lfactorial(S1[S1!=0]))-sum(lfactorial(S2[S2!=0]))
+  Rs.hat<--out$minimum
+  sbar<-exp(null$estimate)
+  Rs.bar<--sum(sbar[sbar!=0])-
+  sum(sbar[sbar!=0])+sum(S1[sbar!=0]*log(sbar[sbar!=0]))+sum(S2[sbar!=0]*log(sbar[sbar!=0 ]))-sum(lfactorial(S1[sbar!=0]))-sum(lfactorial(S2[sbar!=0]))
+  Rsquare<-1-(Rs.full-Rs.hat)/(Rs.full-Rs.bar)
+  list(mean=mean,se=se,CI=CI,logLik=logLik,likratio=likratio,aic=aic,pval=pval,Rsquare=Rsquare)
+}
+
+
+Poiregmod <- function (data) { 
+  S1 <- data[,1]
+  S2 <- data[,2]
+  X1 <- data[,3]
+  X2 <- data[,4]
+  n <- which(S1*S2!=0)
+  S1 <- S1[n]
+  S2 <- S2[n]
+  X1 <- X1[n]
+  X2 <- X2[n]
+  n <- length(S1)
+  X <- X2-X1
+  nll <- function (p) {
+    n <- length(S1)
+    r <- exp(p[2:(n+1)])
+    r1 <- r
+    r2 <- r
+    if (p[1]!=0) {
+      r1 <- r*(1-exp(-p[1]*X/2))/p[1]/X
+      r2 <- -r*(1-exp(p[1]*X/2))/p[1]/X 
+    }
+    out <- numeric(n)
+    for (i in which(r1!=0)) {
+      out[i] <- S1[i]*log(r1[i])-lfactorial(S1[i]) 
+    }
+    for (i in which(r2!=0)) {
+      out[i] <- out[i]+S2[i]*log(r2[i])-lfactorial(S2[i])
+    }
+    sum(r1+r2)-sum(out)
+  }
+  out <- nlm(nll,p=c(-1,numeric(n)),hessian=T)
+  nll <- function (p) {
+    n <- length(S1)
+    r <- exp(p)
+    r1 <- r
+    r2 <- r
+    out <- numeric(n)
+    for (i in 1:n) {
+      out[i] <- S1[i]*log(r1[i])+S2[i]*log(r2[i])-lfactorial(S1[i])-lfactorial(S2[i]) 
+    }
+  sum(r1+r2)-sum(out) 
+  }
+  null <- try(nlm(nll,p=numeric(n),hessian=T), silent = T)
+  mean <- out$estimate[1]
+  se <- sqrt(diag(solve(out$hessian)))[1]
+  t.se <- se*qt(0.025,2*length(S1)-length(out$estimate))
+  CI <- c(mean-t.se,mean+t.se)
+  logLik <- -out$minimum
+  CIlow <- as.numeric(mean-t.se)
+  CIhigh <- as.numeric(mean+t.se)
+  likratio <- 2*(null$minimum-out$minimum)
+  pval <- 1-pchisq(likratio, df=1)
+  k <- 2
+  aic <- (2*out$minimum) + (2*k)
+  Rs.full <- -sum(S1[S1!=0])-
+    sum(S2[S2!=0])+sum(S1[S1!=0]*log(S1[S1!=0]))+sum(S2[S2!=0]*log(S2[S2!=0]))- 
+    sum(lfactorial(S1[S1!=0]))-sum(lfactorial(S2[S2!=0]))
+  Rs.hat <- -out$minimum
+  sbar <- exp(null$estimate)
+  Rs.bar <- -sum(sbar[sbar!=0])-sum(sbar[sbar!=0])+sum(S1[sbar!=0]*log(sbar[sbar!=0]))+sum(S2[sbar!=0]*log(sbar[sbar!=0]))-sum(lfactorial(S1[sbar!=0]))-sum(lfactorial(S2[sbar!=0]))
+  Rsquare <- 1 - ((Rs.full-Rs.hat)/(Rs.full-Rs.bar))
+  list_model <- list(estimate=mean, stderr=se, CIlow=CIlow, CIhigh=CIhigh, 
+                     logLik=logLik, likratio=likratio, aic=aic, pvalue=pval, Rsquare=Rsquare)
+  as.data.frame(list_model)
+}
+
+
+```
+
+
+```{r}
+# Creating distances between species tips
+dist_tips_allpairs <- function(input_tree, numsites, quoted_mut_type, quoted_name) {
+  group_name <- as.character(quoted_name)
+  mut_type <- as.character(quoted_mut_type)
+  num_total_sites <- as.numeric(numsites)
+  input_tree_mrca <- setNames(melt(mrca(input_tree)), c('species1', 'species2', 'node'))  #mrca node finder pairs
+  input_tree_tips <- as.data.frame(input_tree$tip.label)         #species tip labels
+  colnames(input_tree_tips) <- c("species")
+  input_tree_tips$tipnum <- rownames(input_tree_tips)
+  input_tree_expand <- input_tree_mrca %>%
+    left_join(input_tree_tips, by = c("species1" = "species")) %>%
+    left_join(input_tree_tips, by = c("species2" = "species"))         #merging the tips with mrca nodes
+  input <- as.data.frame(input_tree_expand)
+  output_df_pair_anc <- data.frame(species1=character(), species2=character(),
+                              tipnum.sp1=character(), tipnum.sp2=character(),
+                              mut_type=character(), totsites=double(),
+                              node=character(), name=character(),
+                              subrate.sp1=double(), subrate.sp2=double(),
+                              numsubs.sp1=double(), numsubs.sp2=double(),
+                              stringsAsFactors=FALSE)       #dataframe for species pairs, tipnums, nodenums, subrates
+  for (row_num in 1:nrow(input)) {
+    species1_name <- input[row_num, "species1"]         #species names
+    species2_name  <- input[row_num, "species2"]
+    species1_tip <- input[row_num, "tipnum.x"]         #species tip numbers
+    species2_tip <- input[row_num, "tipnum.y"]
+    mrca_node <- input[row_num, "node"]
+    if ((species1_name != species2_name)) {        # removing same species
+      dist_species1 <- as.numeric( dist.nodes(input_tree)[species1_tip, mrca_node] )  #sub.rates for species to node
+      dist_species2 <- as.numeric( dist.nodes(input_tree)[species2_tip, mrca_node] )
+      sites_species1 <- dist_species1 * num_total_sites
+      sites_species1 <- round(sites_species1, 0)
+      sites_species2 <-  dist_species2 * num_total_sites
+      sites_species2 <- round(sites_species2, 0)
+      row = data.frame(name = group_name, mut_type = mut_type,
+                       totsites = num_total_sites,
+                       node = mrca_node,
+                       species1 = species1_name, species2 = species2_name,
+                       tipnum.sp1 = species1_tip, tipnum.sp2 = species2_tip,
+                       subrate.sp1 = dist_species1, subrate.sp2 = dist_species2,
+                       numsubs.sp1 = sites_species1, numsubs.sp2 = sites_species2)
+      output_df_pair_anc <- rbind(output_df_pair_anc, row)
+    }
+  }
+  #output_df_pair_anc
+  output_df_pairs <- output_df_pair_anc %>% dplyr::select(-c(node, tipnum.sp1, tipnum.sp2))      
+  colnames(output_df_pairs) <- c("name", "mut_type",
+                                paste0(mut_type,".sites",sep=""),
+                                "sp1", "sp2",
+                                paste0(mut_type,".subrate.sp1",sep=""),
+                                paste0(mut_type,".subrate.sp2",sep=""),
+                                paste0(mut_type,".numsubs.sp1",sep=""),
+                                paste0(mut_type,".numsubs.sp2",sep=""))
+  output_df_pairs %>% dplyr::select(-c(mut_type))
+}
+
+# tree list to num_subsites for species pair
+get_numsubs_treelist <- function(input_tree) {
+  input_tree_1 <- input_tree[[1]] %>%
+  dplyr::select(species1, species2, node)
+  input_tree_2m <- lapply(input_tree, function(x) { x %>% select(numsubs.sp1, numsubs.sp2) })
+  input_tree_2 <- Reduce('+', input_tree_2m, accumulate = FALSE)
+  input_tree_out <- cbind(input_tree_1, input_tree_2)
+  input_tree_out
+}
+
+
+# create matrix based on numeric and size
+matrix_creator <- function(givennumber, totsize) {
+  matrix(as.numeric(givennumber), nrow=totsize, ncol=totsize)
+}
+
+# multiplier for distance-matrix list based on list of number-of-sites
+distance_matrix_multiplier <- function(count,matrix,bases) { 
+         num_row=nrow(matrix[[count]])
+         create_multiplier=matrix_creator(bases[[count]], num_row)
+         matrix[[count]]*create_multiplier 
+}
+
+distance_matrix_multiplier_transpose <- function(count,matrix,bases) { # Using transpose to multiply instead of using another matrix
+  t(t(matrix[[count]]) * bases[[count]])  
+}
+
+# Random sisters picker
+replicate_species_pairs <- function(path_tree, replicates) {
+ tree <- treeman::readTree(path_tree)
+ n_replicates <- replicates
+
+ samples <- head(tree['tips'],-1) #Removed sebastiscus from the end of the list
+ pairs <- tibble(sample1=character(),sample2=character(),replicate=numeric())
+ for (n in 1:n_replicates){
+  nodes_used <- c()
+  #print(n)
+  for (species1 in sample(samples)){
+    for (species2 in sample(samples)){
+      if (species1 == species2){next}
+      nodes_1 <- getNdPrids(tree, species1)
+      nodes_2 <- getNdPrids(tree, species2)
+      #Find common ancestor node because nothing works like it should
+      for (i in 1:length(nodes_1)){
+        if (sum(nodes_1[i] %in% nodes_2) > 0){
+          nodes_1 <- nodes_1[1:i]
+        }
+      }
+      for (i in 1:length(nodes_2)){
+        if (sum(nodes_2[i] %in% nodes_1) > 0){
+          nodes_2 <- nodes_2[1:i]
+        }
+      }
+      nodes <- c(nodes_1, nodes_2)
+      if (sum(nodes %in% nodes_used) > 0){
+        next
+      }
+      nodes_used <- c(nodes_used, nodes)
+      if (species1 > species2){
+        species1_store <- species1
+        species2_store <- species2
+        species1 <- species2_store
+        species2 <- species1_store
+      }
+      found_pair <- tibble(species1=species1,species2=species2,replicate=n)
+      pairs <- rbind(pairs, found_pair)
+      break
+    }
+  }
+ }
+
+#check to make sure no permutation is identical
+ unique_replicates <- pairs %>%
+  mutate(pair = paste0(species1, "-",species2)) %>%
+  group_by(replicate) %>%
+  arrange(replicate, pair) %>%
+  summarise(names = paste(pair, collapse = "-")) %>%
+  unique() %>%
+  pull(replicate)
+ 
+ pairs <- pairs %>%filter(replicate %in% unique_replicates) 
+ as.data.frame(pairs)
+}
+
+```
+
+Our linear regression
+```{r}
+lm_iterate_overpairs <- function(dist_table, speciespairs_list) {
+type_iter <- c("intercept", "slope")
+colnames_iter <- c("estimate","stderr","tval","pvalue")
+size_speciesparis <- length(speciespairs_list)
+fit_iter <- NULL
+tree_table_all <- NULL
+for (iteration in 1:size_speciesparis) {
+  iter <- iteration
+  sister_species_iter <- speciespairs_list[[iteration]]
+  num_sister_species_iter <- length(sister_species_iter)
+  rand_sample_data <- dist_table %>% 
+    semi_join(sister_species_iter, by=c("species1"="species1","species2"="species2")) %>%
+    filter(ratio_subs12!="NA", ratio_subs12!="Inf")
+  fit_iter <- try(summary(lm(rand_sample_data$ratio_subs12 ~ rand_sample_data$ratio_lifespan12)))
+  if(inherits(fit_iter, "try-error")) { next }
+  coef_fit_iter <- as.data.frame(coef(fit_iter))
+  if(coef_fit_iter %>% nrow() != 2) { next }
+  colnames(coef_fit_iter) <- colnames_iter
+  coef_fit_iter$iteration <- iter
+  coef_fit_iter$type <- type_iter
+  rownames(coef_fit_iter) <- NULL
+  rand_sample_data$iter <- iter
+  rand_sample_data$sisters <- num_sister_species_iter
+  rand_sample_data$stderr <- as.numeric( coef_fit_iter %>% filter(type=="slope") %>% dplyr::select(stderr) )
+  rand_sample_data$slope <- as.numeric( coef_fit_iter %>% filter(type=="slope") %>% dplyr::select(estimate) )
+  rand_sample_data$tval <- as.numeric( coef_fit_iter %>% filter(type=="slope") %>% dplyr::select(tval) )
+  rand_sample_data$pvalue <- as.numeric( coef_fit_iter %>% filter(type=="slope") %>% dplyr::select(pvalue) )
+  tree_table_all <- rbind(tree_table_all, rand_sample_data)
+}
+tree_table_all
+}
+
+lm_iterate_overpairs_diff <- function(dist_table, speciespairs_list) {
+type_iter <- c("intercept", "slope")
+colnames_iter <- c("estimate","stderr","tval","pvalue")
+size_speciesparis <- length(speciespairs_list)
+fit_iter <- NULL
+tree_table_all <- NULL
+for (iteration in 1:size_speciesparis) {
+  iter <- iteration
+  sister_species_iter <- speciespairs_list[[iteration]]
+  num_sister_species_iter <- length(sister_species_iter)
+  rand_sample_data <- dist_table %>% 
+    semi_join(sister_species_iter, by=c("species1"="species1","species2"="species2")) %>%
+    filter(diff_subs12!="NA", diff_subs12!="Inf")
+  fit_iter <- try(summary(lm(rand_sample_data$diff_subs12 ~ rand_sample_data$diff_lifespan12)))
+  if(inherits(fit_iter, "try-error")) { next }
+  coef_fit_iter <- as.data.frame(coef(fit_iter))
+  if(coef_fit_iter %>% nrow() != 2) { next }
+  colnames(coef_fit_iter) <- colnames_iter
+  coef_fit_iter$iteration <- iter
+  coef_fit_iter$type <- type_iter
+  rownames(coef_fit_iter) <- NULL
+  rand_sample_data$iter <- iter
+  rand_sample_data$sisters <- num_sister_species_iter
+  rand_sample_data$stderr <- as.numeric( coef_fit_iter %>% filter(type=="slope") %>% dplyr::select(stderr) )
+  rand_sample_data$slope <- as.numeric( coef_fit_iter %>% filter(type=="slope") %>% dplyr::select(estimate) )
+  rand_sample_data$tval <- as.numeric( coef_fit_iter %>% filter(type=="slope") %>% dplyr::select(tval) )
+  rand_sample_data$pvalue <- as.numeric( coef_fit_iter %>% filter(type=="slope") %>% dplyr::select(pvalue) )
+  tree_table_all <- rbind(tree_table_all, rand_sample_data)
+}
+tree_table_all
+}
+
+lm_iterate_overpairs_log <- function(dist_table, speciespairs_list) {
+type_iter <- c("intercept", "slope")
+colnames_iter <- c("estimate","stderr","tval","pvalue")
+size_speciesparis <- length(speciespairs_list)
+fit_iter <- NULL
+tree_table_all <- NULL
+for (iteration in 1:size_speciesparis) {
+  iter <- iteration
+  sister_species_iter <- speciespairs_list[[iteration]]
+  num_sister_species_iter <- length(sister_species_iter)
+  rand_sample_data <- dist_table %>% 
+    dplyr::semi_join(sister_species_iter, by=c("species1"="species1","species2"="species2")) %>%
+    dplyr::filter(ratio_subs12!="NA", ratio_subs12!="Inf") %>%
+    dplyr::mutate(ratio_loglifespan12=log(lifespan.x)/log(lifespan.y))
+  fit_iter <- try(summary(lm(rand_sample_data$ratio_subs12 ~ rand_sample_data$ratio_loglifespan12)))
+  if(inherits(fit_iter, "try-error")) { next }
+  coef_fit_iter <- as.data.frame(coef(fit_iter))
+  if(coef_fit_iter %>% nrow() != 2) { next }
+  colnames(coef_fit_iter) <- colnames_iter
+  coef_fit_iter$iteration <- iter
+  coef_fit_iter$type <- type_iter
+  rownames(coef_fit_iter) <- NULL
+  rand_sample_data$iter <- iter
+  rand_sample_data$sisters <- num_sister_species_iter
+  rand_sample_data$stderr <- as.numeric( coef_fit_iter %>% filter(type=="slope") %>% dplyr::select(stderr) )
+  rand_sample_data$slope <- as.numeric( coef_fit_iter %>% filter(type=="slope") %>% dplyr::select(estimate) )
+  rand_sample_data$tval <- as.numeric( coef_fit_iter %>% filter(type=="slope") %>% dplyr::select(tval) )
+  rand_sample_data$pvalue <- as.numeric( coef_fit_iter %>% filter(type=="slope") %>% dplyr::select(pvalue) )
+  tree_table_all <- rbind(tree_table_all, rand_sample_data)
+}
+tree_table_all
+}
+
+lm_iterate_overpairs_ranked <- function(dist_table, speciespairs_list) {
+type_iter <- c("intercept", "slope")
+colnames_iter <- c("estimate","stderr","tval","pvalue")
+# rm(size_speciesparis, names_speciesparis, dist_table_ages)
+size_speciesparis <- length(speciespairs_list)
+names_speciesparis <- do.call(rbind, speciespairs_list) %>% 
+  dplyr::select(species1,species2) %>% unlist() %>% unname() %>% as.vector() %>% unique()
+dist_table_ages <- rbind(dist_table %>%
+                           dplyr::select(species1, lifespan.x) %>%
+                           setNames(c("species","age")), 
+                         dist_table %>% 
+                           dplyr::select(species2, lifespan.y) %>%
+                           setNames(c("species","age"))) %>% 
+  filter(species %in% names_speciesparis) %>%
+  unique() %>% arrange(age) %>% dplyr::mutate(rank=row_number())
+dist_table <- dist_table %>%
+  dplyr::inner_join(dist_table_ages, by=c("species1"="species")) %>%
+  dplyr::inner_join(dist_table_ages, by=c("species2"="species")) %>%
+  dplyr::mutate(ratio_rank12 = rank.x/rank.y) %>%
+  dplyr::select(species1, species2, lifespan.x, lifespan.y, divg, 
+                ratio_subs12, ratio_rank12, ratio_lifespan12)
+# rm(tree_table_all, rand_sample_data, fit_iter, coef_fit_iter)
+fit_iter <- NULL
+tree_table_all <- NULL
+for (iteration in 1:size_speciesparis) {
+  iter <- iteration
+  sister_species_iter <- speciespairs_list[[iteration]]
+  num_sister_species_iter <- length(sister_species_iter)
+  rand_sample_data <- dist_table %>% 
+    dplyr::semi_join(sister_species_iter, by=c("species1"="species1","species2"="species2")) %>%
+    dplyr::filter(ratio_subs12!="NA", ratio_subs12!="Inf")
+  fit_iter <- try(summary(lm(rand_sample_data$ratio_subs12 ~ rand_sample_data$ratio_rank12)))
+  if(inherits(fit_iter, "try-error")) { next }
+  coef_fit_iter <- as.data.frame(coef(fit_iter))
+  if(coef_fit_iter %>% nrow() != 2) { next }
+  colnames(coef_fit_iter) <- colnames_iter
+  coef_fit_iter$iteration <- iter
+  coef_fit_iter$type <- type_iter
+  rownames(coef_fit_iter) <- NULL
+  rand_sample_data$iter <- iter
+  rand_sample_data$sisters <- num_sister_species_iter
+  rand_sample_data$stderr <- as.numeric( coef_fit_iter %>% filter(type=="slope") %>% dplyr::select(stderr) )
+  rand_sample_data$slope <- as.numeric( coef_fit_iter %>% filter(type=="slope") %>% dplyr::select(estimate) )
+  rand_sample_data$tval <- as.numeric( coef_fit_iter %>% filter(type=="slope") %>% dplyr::select(tval) )
+  rand_sample_data$pvalue <- as.numeric( coef_fit_iter %>% filter(type=="slope") %>% dplyr::select(pvalue) )
+  tree_table_all <- rbind(tree_table_all, rand_sample_data)
+  gc()
+}
+tree_table_all
+}
+
+#
+lm_iterate_overpairs_twovector <- function(dist_table, speciespairs_list, element_xy) {
+type_iter <- c("intercept", "slope")
+colnames_iter <- c("estimate","stderr","tval","pvalue")
+size_speciesparis <- length(speciespairs_list)
+element_x <- as.character(element_xy[1])
+element_y <- as.character(element_xy[2])
+fit_iter <- NULL
+tree_table_all <- NULL
+rand_sample_data <- NULL
+for (iteration in 1:size_speciesparis) {
+  iter <- iteration
+  sister_species_iter <- speciespairs_list[[iteration]]
+  num_sister_species_iter <- length(sister_species_iter)
+  rand_sample_data <- dist_table %>% 
+    semi_join(sister_species_iter, by=c("species1"="species1","species2"="species2"))
+  list_element_xy <- rand_sample_data %>% 
+    dplyr::select(element_x, element_y) %>% as.data.frame()
+  colnames(list_element_xy) <- c("element_x","element_y")
+  list_element_xy <-  list_element_xy %>%
+    filter(element_y!="NA", element_y!="Inf", 
+           element_x!="NA", element_x!="Inf")
+  fit_iter <- try(summary(lm(list_element_xy$element_y ~ log2(list_element_xy$element_x))))
+  if(inherits(fit_iter, "try-error")) { next }
+  coef_fit_iter <- as.data.frame(coef(fit_iter))
+  if(coef_fit_iter %>% nrow() != 2) { next }
+  colnames(coef_fit_iter) <- colnames_iter
+  coef_fit_iter$iteration <- iter
+  coef_fit_iter$type <- type_iter
+  rownames(coef_fit_iter) <- NULL
+  rand_sample_data$iter <- iter
+  rand_sample_data$sisters <- num_sister_species_iter
+  rand_sample_data$stderr <- as.numeric( coef_fit_iter %>% filter(type=="slope") %>% dplyr::select(stderr) )
+  rand_sample_data$slope <- as.numeric( coef_fit_iter %>% filter(type=="slope") %>% dplyr::select(estimate) )
+  rand_sample_data$tval <- as.numeric( coef_fit_iter %>% filter(type=="slope") %>% dplyr::select(tval) )
+  rand_sample_data$pvalue <- as.numeric( coef_fit_iter %>% filter(type=="slope") %>% dplyr::select(pvalue) )
+  tree_table_all <- rbind(tree_table_all, rand_sample_data)
+}
+tree_table_all
+}
+
+
+glmpois_iterate_overpairs_twovector <- function(dist_table, speciespairs_list, diffelement_xy) {
+type_iter <- c("intercept", "slope")
+colnames_iter <- c("estimate","stderr","tval","pvalue")
+size_speciesparis <- length(speciespairs_list)
+element_x <- as.character(diffelement_xy[1])
+element_y <- as.character(diffelement_xy[2])
+fit_iter <- NULL
+tree_table_all <- NULL
+rand_sample_data <- NULL
+for (iteration in 1:size_speciesparis) {
+  iter <- iteration
+  sister_species_iter <- speciespairs_list[[iteration]]
+  num_sister_species_iter <- length(sister_species_iter)
+  rand_sample_data <- dist_table %>% 
+    semi_join(sister_species_iter, by=c("species1"="species1","species2"="species2"))
+  list_element_xy <- rand_sample_data %>% 
+    dplyr::select(element_x, element_y) %>% as.data.frame()
+  colnames(list_element_xy) <- c("element_x","element_y")
+  list_element_xy <-  list_element_xy %>%
+    filter(element_y!="NA", element_y!="Inf") %>% 
+    mutate(element_y=abs(element_y))#, element_x=abs(element_x))
+  fit_iter <- try(summary(glm(element_y ~ element_x, data=list_element_xy, family=quasipoisson())))
+  if(inherits(fit_iter, "try-error")) { next }
+  coef_fit_iter <- as.data.frame(coef(fit_iter))
+  if(coef_fit_iter %>% nrow() != 2) { next }
+  colnames(coef_fit_iter) <- colnames_iter
+  coef_fit_iter$iteration <- iter
+  coef_fit_iter$type <- type_iter
+  rownames(coef_fit_iter) <- NULL
+  rand_sample_data$iter <- iter
+  rand_sample_data$sisters <- num_sister_species_iter
+  rand_sample_data$stderr <- as.numeric( coef_fit_iter %>% filter(type=="slope") %>% dplyr::select(stderr) )
+  rand_sample_data$slope <- as.numeric( coef_fit_iter %>% filter(type=="slope") %>% dplyr::select(estimate) )
+  rand_sample_data$tval <- as.numeric( coef_fit_iter %>% filter(type=="slope") %>% dplyr::select(tval) )
+  rand_sample_data$pvalue <- as.numeric( coef_fit_iter %>% filter(type=="slope") %>% dplyr::select(pvalue) )
+  tree_table_all <- rbind(tree_table_all, rand_sample_data)
+}
+tree_table_all
+}
+
+```
+
+```{r}
+
+poireg_iterate_overpairs <- function(dist_table, names_vector, numsites, speciespairs_list) {
+dist_table <- dist_table  
+names_vector <- names_vector
+numsites <- numsites
+type_iter <- c("slope")
+size_speciespairs <- length(speciespairs_list)
+fit_iter <- NULL
+tree_table_all <- NULL
+for (iteration in 1:size_speciespairs) {
+  rand_sample_data <- NULL
+  iter <- iteration
+  sister_species_iter <- speciespairs_list[[iter]]
+  num_sister_species_iter <- nrow(sister_species_iter)
+  rand_sample_data <- dist_table %>% 
+    semi_join(sister_species_iter, by=c("species1"="species1","species2"="species2")) %>%
+    filter(ratio_subs12!="NA", ratio_subs12!="Inf")
+  rand_sample_data <- convertfor_poisreg(rand_sample_data, names_vector, numsites) 
+  tree_table_all[[iter]] <- rand_sample_data
+}
+tree_table_all
+}
+
+convertfor_poisreg <- function(full_table, names_vector, length) {
+ table_input_final <- NULL  
+ table_select <- full_table %>%
+    dplyr::select(one_of(names_vector)) %>%
+    drop_na() 
+
+ table_input <- NULL
+ table_input <- table_select
+ colnames(table_input) <- c("[,1]", "[,2]", "[,3]", "[,4]", "[,5]")
+ table_input <- table_input[table_input$`[,1]` != 0 && table_input$`[,2]` != 0 && 
+                              table_input$`[,1]` != "Inf" && table_input$`[,2]` != "Inf" &&
+                              table_input$`[,1]` != "NA" && table_input$`[,2]` != "NA" && 
+                              table_input$`[,1]` != table_input$`[,2]` &&
+                              table_input$`[,3]` != 0 && table_input$`[,4]` != 0 && 
+                              table_input$`[,3]` != "Inf" && table_input$`[,4]` != "Inf" &&
+                              table_input$`[,3]` != "NA" && table_input$`[,4]` != "NA" && 
+                              table_input$`[,3]` != table_input$`[,4]`,]
+ table_input <- table_input[table_input$`[,2]` != 0 ,]
+ table_input <- table_input[table_input$`[,1]` != table_input$`[,2]`,]
+ table_input$`[,1]` <- table_input$`[,1]` * length
+ table_input$`[,2]` <- table_input$`[,2]` * length
+ table_input$`[,3]` <- log(table_input$`[,3]`)
+ table_input$`[,4]` <- log(table_input$`[,4]`)
+
+ table_input_final <- table_input %>% mutate_all(function(x) as.numeric(as.character(x)))
+ rownames(table_input_final) <- gsub('^', '[', rownames(table_input_final))
+ rownames(table_input_final) <- gsub('$', ',]', rownames(table_input_final))
+ table_input_final
+}
+
+#
+poireg_iterate_overpairs_nonum <- function(dist_table, names_vector, speciespairs_list) {
+  convertfor_poisreg_nonum <- function(full_table, names_vector) {
+  table_input_final <- NULL  
+  table_select <- full_table %>%
+    dplyr::select(one_of(names_vector)) %>%
+    drop_na() 
+
+  table_input <- NULL
+  table_input <- table_select
+  colnames(table_input) <- c("[,1]", "[,2]", "[,3]", "[,4]", "[,5]")
+  table_input <- table_input[table_input$`[,1]` != 0 && table_input$`[,2]` != 0 && 
+                               table_input$`[,1]` != "Inf" && table_input$`[,2]` != "Inf" &&
+                               table_input$`[,1]` != "NA" && table_input$`[,2]` != "NA" && 
+                               table_input$`[,1]` != table_input$`[,2]` &&
+                               table_input$`[,3]` != 0 && table_input$`[,4]` != 0 && 
+                               table_input$`[,3]` != "Inf" && table_input$`[,4]` != "Inf" &&
+                               table_input$`[,3]` != "NA" && table_input$`[,4]` != "NA" && 
+                               table_input$`[,3]` != table_input$`[,4]`,]
+  table_input <- table_input[table_input$`[,2]` != 0 ,]
+  table_input <- table_input[table_input$`[,1]` != table_input$`[,2]`,]
+  table_input$`[,1]` <- table_input$`[,1]`
+  table_input$`[,2]` <- table_input$`[,2]`
+  table_input$`[,3]` <- log(table_input$`[,3]`)
+  table_input$`[,4]` <- log(table_input$`[,4]`)
+
+  table_input_final <- table_input %>% mutate_all(function(x) as.numeric(as.character(x)))
+  rownames(table_input_final) <- gsub('^', '[', rownames(table_input_final))
+  rownames(table_input_final) <- gsub('$', ',]', rownames(table_input_final))
+  table_input_final
+  }
+  
+  dist_table <- dist_table  
+  names_vector <- names_vector
+  type_iter <- c("slope")
+  size_speciespairs <- length(speciespairs_list)
+  fit_iter <- NULL
+  tree_table_all <- NULL
+  for (iteration in 1:size_speciespairs) {
+    rand_sample_data <- NULL
+    iter <- iteration
+    sister_species_iter <- speciespairs_list[[iter]]
+    num_sister_species_iter <- nrow(sister_species_iter)
+    rand_sample_data <- dist_table %>% 
+      semi_join(sister_species_iter, by=c("species1"="species1","species2"="species2")) %>%
+      filter(ratio_subs12!="NA", ratio_subs12!="Inf")
+    rand_sample_data <- convertfor_poisreg_nonum(rand_sample_data, names_vector) 
+    tree_table_all[[iter]] <- rand_sample_data
+  }
+  tree_table_all
+}
+
+extract_poireg_result <- function(poireg_list, colnames_poireg_out) {
+  out <- NULL
+  for (iteration in 1:length(poireg_list)) {
+    current_list <- poireg_list[[iteration]] %>% as.data.frame()
+    #current <- try( Poiregmod(poireg_list[[iteration]] ) )
+    current <- try( Poiregmod(current_list) )
+    if (is.null(nrow(current))) {
+      out[[iteration]] <- rep(NA, 9)
+    }  
+    else {
+      out[[iteration]] <- current
+    }
+  }
+  result <- data.frame(matrix(unlist(out), nrow=length(out), byrow=T))
+  colnames(result) <- colnames_poireg_out
+  result
+}
+
+data_summary <- function(x) {
+   m <- mean(x)
+   ymin <- m-sd(x)
+   ymax <- m+sd(x)
+   return(c(y=m,ymin=ymin,ymax=ymax))
+}
+
+```
+
+
+# Reading trees and creating species pairs
+```{r}
+seb_tree_77 <- read.tree(file="dated.sebspecies.20210325.nwk")
+ages_77 <- fread(input = "rockfish_ages.txt.filt")
+ages <- ages_77[(ages_77$species %in% seb_tree_77$tip.label)]
+
+present_ages <- ages %>%
+  filter(stringr::str_detect(species, "^Sebastes_")) %>%
+  filter(!is.na(lifespan))
+present_ages <- present_ages$species
+
+pruned_tree <- keep.tip(seb_tree_77, present_ages)
+
+pruned_tree <- read.tree("55_sebastes_dated.sebspecies.20210325.tree")
+path_tree <- "55_sebastes_dated.sebspecies.20210325.tree"
+
+bl_tree_seb <- read.tree("55_sebastes_dated.sebspecies.20210325.tree")
+
+est_divg <- setNames(melt(cophenetic(bl_tree_seb)), c('species1', 'species2', 'divg'))
+est_divg$divg <- est_divg$divg/2 
+est_divg <- est_divg %>%
+  filter(species1 != species2)
+pruned_est_divg <- setDT(est_divg, key = 'species1')[pruned_tree$tip.label, nomatch = 0] 
+pruned_est_divg <- setDT(pruned_est_divg, key = 'species2')[pruned_tree$tip.label, nomatch = 0] 
+pruned_est_divg <- pruned_est_divg[pruned_est_divg$divg != 0]
+
+species_pairs_combinations <- replicate_species_pairs(path_tree, 10000)
+
+```
+
+# Quartiles of ages
+```{r}
+
+pruned_ages <- ages[(ages$species %in% pruned_tree$tip.label) & !is.na(ages$lifespan)]
+pruned_seb_tree <- keep.tip(pruned_tree, pruned_ages$species)
+pruned_bl_tree_seb <- keep.tip(bl_tree_seb, pruned_ages$species)
+
+pruned_ages %>% 
+  summarise(mean = mean(lifespan), sd = sd(lifespan), variance = var(lifespan),
+            quantile = list(quantile(lifespan))) %>% 
+  tidyr::unnest_wider(quantile, 
+               names_repair = ~paste0('L_', sub('%', '', .))) %>%
+  as.data.frame()
+#  L_mean     L_sd L_variance L_0 L_25 L_50 L_75 L_100
+# 1 59.69091 38.01407   1445.069  11 30.5   56 81.5   205
+
+pruned_ages %>% dplyr::select(lifespan) %>% summarise_at(vars(lifespan), ~quantile(., probs = seq(0.1,1,0.1), na.rm=T)) %>% dplyr::select(c(1)) %>% unlist() %>% unname()
+
+# L_10 L_20 L_30 L_40 L_50 L_60 L_70 L_80 L_90 L_100
+# 19.4  25.8  32.4  42.0  56.0  60.0  75.0  88.4 105.0 205.0
+
+age_vector <- pruned_ages %>% 
+  dplyr::select(lifespan) %>%
+  as.vector() 
+quantile(pruned_ages$lifespan)
+ #  0%   25%   50%   75%  100% 
+ # 11.0  30.5  56.0  81.5 205.0 
+
+```
+
+# Creating species pairs # This piece of code outputs text files of species pairs within age ranges
+```{r}
+###
+pairs <- NULL
+for (age_Q in c(30.5,56,81.5)) {
+  if (age_Q=="30.5") { age_max=56 ; age_min=11 }
+  if (age_Q=="56") { age_max=81.5 ; age_min=30.5 }
+  if (age_Q=="81.5") { age_max=205 ; age_min=56 }
+  age_list <- pruned_ages %>%
+    filter(lifespan>=age_min & lifespan<=age_max)
+  ape_tree <- keep.tip(pruned_seb_tree, age_list$species)
+  tree <- as(ape_tree, 'TreeMan')
+  n_replicates <- 1000
+  samples <- tree['tips'] #Removed sebastiscus from the end of the list
+  pairs <- tibble(sample1=character(),sample2=character(),replicate=numeric())
+  for (n in 1:n_replicates){
+   nodes_used <- c()
+    for (species1 in sample(samples)){
+      for (species2 in sample(samples)){
+        if (species1 == species2) { next }
+        nodes_1 <- treeman::getNdPrids(tree, species1)
+        nodes_2 <- treeman::getNdPrids(tree, species2)
+        for (i in 1:length(nodes_1)) {
+          if (sum(nodes_1[i] %in% nodes_2) > 0) { nodes_1 <- nodes_1[1:i] }
+        }
+        for (i in 1:length(nodes_2)){
+          if (sum(nodes_2[i] %in% nodes_1) > 0) { nodes_2 <- nodes_2[1:i] }
+      }
+      nodes <- c(nodes_1, nodes_2)
+      if (sum(nodes %in% nodes_used) > 0) { next }
+      nodes_used <- c(nodes_used, nodes)
+      if (species1 > species2) {
+        species1_store <- species1
+        species2_store <- species2
+        species1 <- species2_store
+        species2 <- species1_store
+      }
+      found_pair <- tibble(species1=species1,species2=species2,replicate=n)
+      pairs <- rbind(pairs, found_pair)
+      break
+        }
+      }
+  }
+  unique_replicates <- pairs %>%
+    mutate(pair = paste0(species1, "-",species2)) %>%
+    group_by(replicate) %>%
+    arrange(replicate, pair) %>%
+    summarise(names = paste(pair, collapse = "-")) %>%
+    unique() %>%
+    pull(replicate)
+  pairs <- pairs %>%
+    filter(replicate %in% unique_replicates)
+  species_combination <- as.data.frame(pairs)
+  name_combination <- paste("species_pairs_Q-",age_Q,".txt",
+                            sep="",collapse=NULL)
+  write.table(species_combination,
+              file = name_combination, sep="\t", col.names = TRUE, quote = FALSE)
+}
+
+###   c(25,42,60,88.4,105,205)   ###
+### 11.0  30.5  56.0  81.5 205.0 ###
+
+###
+pairs <- NULL
+q_iter <- 0
+for (age_Q in c(30.5, 56, 81.5, 205)) {
+  q_iter <- q_iter + 1
+  if (age_Q=="30.5") { age_min=11 ; age_max=30.5 }
+  if (age_Q=="56") { age_min=30.5 ; age_max=56 }
+  if (age_Q=="81.5") { age_min=56.0 ; age_max=81.5 }
+  if (age_Q=="205") { age_min=81.5 ; age_max=205 }
+  age_list <- pruned_ages %>%
+    dplyr::filter(lifespan>=age_min & lifespan<=age_max)
+  ape_tree <- keep.tip(pruned_seb_tree, age_list$species)
+  tree <- as(ape_tree, 'TreeMan')
+  n_replicates <- 1000
+  samples <- tree['tips'] #Removed sebastiscus from the end of the list
+  pairs <- tibble(sample1=character(),sample2=character(),replicate=numeric())
+  for (n in 1:n_replicates){
+   nodes_used <- c()
+    for (species1 in sample(samples)){
+      for (species2 in sample(samples)){
+        if (species1 == species2) { next }
+        nodes_1 <- treeman::getNdPrids(tree, species1)
+        nodes_2 <- treeman::getNdPrids(tree, species2)
+        for (i in 1:length(nodes_1)) {
+          if (sum(nodes_1[i] %in% nodes_2) > 0) { nodes_1 <- nodes_1[1:i] }
+        }
+        for (i in 1:length(nodes_2)){
+          if (sum(nodes_2[i] %in% nodes_1) > 0) { nodes_2 <- nodes_2[1:i] }
+      }
+      nodes <- c(nodes_1, nodes_2)
+      if (sum(nodes %in% nodes_used) > 0) { next }
+      nodes_used <- c(nodes_used, nodes)
+      if (species1 > species2) {
+        species1_store <- species1
+        species2_store <- species2
+        species1 <- species2_store
+        species2 <- species1_store
+      }
+      found_pair <- tibble(species1=species1,species2=species2,replicate=n)
+      pairs <- rbind(pairs, found_pair)
+      break
+        }
+      }
+  }
+  unique_replicates <- pairs %>%
+    mutate(pair = paste0(species1, "-",species2)) %>%
+    group_by(replicate) %>%
+    arrange(replicate, pair) %>%
+    summarise(names = paste(pair, collapse = "-")) %>%
+    unique() %>%
+    pull(replicate)
+  pairs <- pairs %>%
+    filter(replicate %in% unique_replicates)
+  species_combination <- as.data.frame(pairs)
+  name_combination <- paste("species_pairs_q4-",q_iter,".txt",
+                            sep="",collapse=NULL)
+  write.table(species_combination,
+              file = name_combination, sep="\t", col.names = TRUE, quote = FALSE)
+}
+
+###
+pairs <- NULL
+q_iter <- 0
+for (age_Q in c(36, 70, 205)) {
+  q_iter <- q_iter + 1
+  if (age_Q=="36") { age_min=11 ; age_max=36 }
+  if (age_Q=="70") { age_min=38 ; age_max=70 }
+  if (age_Q=="205") { age_min=75 ; age_max=205 }
+  age_list <- pruned_ages %>%
+    dplyr::filter(lifespan>=age_min & lifespan<=age_max)
+  ape_tree <- keep.tip(pruned_seb_tree, age_list$species)
+  tree <- as(ape_tree, 'TreeMan')
+  n_replicates <- 1000
+  samples <- tree['tips'] #Removed sebastiscus from the end of the list
+  pairs <- tibble(sample1=character(),sample2=character(),replicate=numeric())
+  for (n in 1:n_replicates){
+   nodes_used <- c()
+    for (species1 in sample(samples)){
+      for (species2 in sample(samples)){
+        if (species1 == species2) { next }
+        nodes_1 <- treeman::getNdPrids(tree, species1)
+        nodes_2 <- treeman::getNdPrids(tree, species2)
+        for (i in 1:length(nodes_1)) {
+          if (sum(nodes_1[i] %in% nodes_2) > 0) { nodes_1 <- nodes_1[1:i] }
+        }
+        for (i in 1:length(nodes_2)){
+          if (sum(nodes_2[i] %in% nodes_1) > 0) { nodes_2 <- nodes_2[1:i] }
+      }
+      nodes <- c(nodes_1, nodes_2)
+      if (sum(nodes %in% nodes_used) > 0) { next }
+      nodes_used <- c(nodes_used, nodes)
+      if (species1 > species2) {
+        species1_store <- species1
+        species2_store <- species2
+        species1 <- species2_store
+        species2 <- species1_store
+      }
+      found_pair <- tibble(species1=species1,species2=species2,replicate=n)
+      pairs <- rbind(pairs, found_pair)
+      break
+        }
+      }
+  }
+  unique_replicates <- pairs %>%
+    mutate(pair = paste0(species1, "-",species2)) %>%
+    group_by(replicate) %>%
+    arrange(replicate, pair) %>%
+    summarise(names = paste(pair, collapse = "-")) %>%
+    unique() %>%
+    pull(replicate)
+  pairs <- pairs %>%
+    filter(replicate %in% unique_replicates)
+  species_combination <- as.data.frame(pairs)
+  name_combination <- paste("species_pairs_q3-",q_iter,".txt",
+                            sep="",collapse=NULL)
+  write.table(species_combination,
+              file = name_combination, sep="\t", col.names = TRUE, quote = FALSE)
+}
+
+```
+
+```{r}
+
+species_pairs_combinations_Q1 <- read.table(file = "species_pairs_Q-30.5.txt", sep="\t", header=TRUE, quote="")
+species_pairs_combinations_Q2 <- read.table(file = "species_pairs_Q-56.txt", sep="\t", header=TRUE, quote="")
+species_pairs_combinations_Q3 <- read.table(file = "species_pairs_Q-81.5.txt", sep="\t", header=TRUE, quote="")
+
+species_pairs_combinations_list_Q1 <- species_pairs_combinations_Q1 %>% 
+  group_by(replicate) %>% group_split()
+species_pairs_combinations_list_Q2 <- species_pairs_combinations_Q2 %>% 
+  group_by(replicate) %>% group_split()
+species_pairs_combinations_list_Q3 <- species_pairs_combinations_Q3 %>% 
+  group_by(replicate) %>% group_split()
+
+# Same can be done for quantiles (q4-[1-4]) as below
+species_pairs_combinations_q1 <- read.table(file = "species_pairs_q4-1.txt", sep="\t", header=TRUE, quote="")
+species_pairs_combinations_q1 <- species_pairs_combinations_q1 %>% 
+  group_by(replicate) %>% group_split()
+
+# We are just showing the piece of code for the Q1,Q2,Q3 to reduce redundancy
+
+```
+
+
+Nuclear genes
+```{r}
+
+nuclear_pruned_pair_dnds_calc <-
+  data.table::fread("nuclear_speciespairs_dnds_calculated.txt",
+                    header = T, quote = "", sep = "\t")
+
+nuclear_pruned_pair_dnds <- nuclear_pruned_pair_dnds_calc %>%
+  dplyr::select(sp1, sp2, 
+                SYN.numsubs.sp1_sum, SYN.numsubs.sp2_sum, 
+                NONSYN.numsubs.sp1_sum, NONSYN.numsubs.sp2_sum,
+                dS.sp1, dS.sp2,
+                dN.sp1, dN.sp2,
+                dnds.sp1, dnds.sp2)
+
+nuclear_pruned_pair_dnds <- setnames(nuclear_pruned_pair_dnds, 
+                             c("species1","species2",
+                               "num_synsubs.sp1","num_synsubs.sp2",
+                               "num_nonsynsubs.sp1","num_nonsynsubs.sp2",
+                               "synsubs.sp1", "synsubs.sp2",
+                               "nonsynsubs.sp1", "nonsynsubs.sp2",
+                               "ratiosubs.sp1", "ratiosubs.sp2"))
+
+nuclear_pruned_pair_dnds <- nuclear_pruned_pair_dnds %>%
+  mutate(num_allsubs.sp1 = num_synsubs.sp1 + num_nonsynsubs.sp1,
+         num_allsubs.sp2 = num_synsubs.sp2 + num_nonsynsubs.sp2)
+
+nuclear_table_seb_all <- 
+  nuclear_pruned_pair_dnds %>%
+  left_join(pruned_est_divg, by = c("species1" = "species1", "species2" = "species2")) %>%
+  left_join(pruned_ages, by = c("species1" = "species")) %>%
+  left_join(pruned_ages, by = c("species2" = "species"))
+
+nuclear_table_seb_aged <- nuclear_table_seb_all %>%
+  mutate(ratio_lifespan12=lifespan.x/lifespan.y,
+         ratio_lifespan21=lifespan.y/lifespan.x,
+         diff_lifespan12=lifespan.x-lifespan.y,
+         ratio_synsubs12=num_synsubs.sp1/num_synsubs.sp2,
+         ratio_synsubs21=num_synsubs.sp2/num_synsubs.sp1,
+         ratio_nonsynsubs12=num_nonsynsubs.sp1/num_nonsynsubs.sp2,
+         ratio_nonsynsubs21=num_nonsynsubs.sp2/num_nonsynsubs.sp1,
+         ratio_allsubs12=num_allsubs.sp1/num_allsubs.sp2,
+         ratio_allsubs21=num_allsubs.sp2/num_allsubs.sp1,
+         diff_synsubs12=num_synsubs.sp1-num_synsubs.sp2,
+         diff_nonsynsubs12=num_nonsynsubs.sp1-num_nonsynsubs.sp2,
+         diff_allsubs12=num_allsubs.sp1-num_allsubs.sp2)
+
+nuclear_table_seb_aged <- nuclear_table_seb_aged[!is.na(nuclear_table_seb_aged$lifespan.x) & !is.na(nuclear_table_seb_aged$lifespan.y),] %>%
+  filter(species1 != species2)
+
+```
+
+# Combined quartiles (Q1+Q2,Q2+Q3,Q3+Q4) : Linear regression tests
+```{r} 
+### 
+for(curr_quantile_speciescomb in c("species_pairs_combinations_list_Q1",
+                       "species_pairs_combinations_list_Q2",
+                       "species_pairs_combinations_list_Q3")) {
+curr_qtile <- sub("species_pairs_combinations_", "", curr_quantile_speciescomb)
+
+Q_ds_table <- nuclear_table_seb_aged %>%
+  dplyr::mutate(ratio_subs12 = ratio_synsubs12)
+
+Q_ds_table_lm <- 
+  lm_iterate_overpairs(Q_ds_table, eval(as.name(curr_quantile_speciescomb)))
+
+Q_slope_ds_table_lm <- 
+  Q_ds_table_lm %>%
+  distinct(iter, .keep_all=TRUE) %>%
+  dplyr::select(iter, slope, stderr, pvalue)
+Q_ttest_ds_table_lm <-
+  t.test(Q_slope_ds_table_lm$slope)
+
+assign(paste0("Q_table_lm_ratio_dS_", curr_qtile, sep=""),
+       Q_slope_ds_table_lm %>% 
+         dplyr::mutate(type = "Syn", quartile = curr_qtile))
+
+max_y_range <- max(Q_slope_ds_table_lm$slope) - min(Q_slope_ds_table_lm$slope)
+dotsize1 = (max(Q_slope_ds_table_lm$slope) - min(Q_slope_ds_table_lm$slope))/max_y_range
+
+#
+Q_dn_table <- nuclear_table_seb_aged %>%
+  dplyr::mutate(ratio_subs12 = ratio_nonsynsubs12)
+
+Q_dn_table_lm <- 
+  lm_iterate_overpairs(Q_dn_table, eval(as.name(curr_quantile_speciescomb)))
+
+Q_slope_dn_table_lm <- 
+  Q_dn_table_lm %>%
+  distinct(iter, .keep_all=TRUE) %>%
+  dplyr::select(iter, slope, stderr, pvalue)
+Q_ttest_dn_table_lm <-
+  t.test(Q_slope_dn_table_lm$slope)
+
+assign(paste0("Q_table_lm_ratio_dN_", curr_qtile, sep=""),
+       Q_slope_dn_table_lm %>% 
+         dplyr::mutate(type = "NSyn", quartile = curr_qtile))
+
+#
+Q_all_table <- nuclear_table_seb_aged %>%
+  dplyr::mutate(ratio_subs12 = ratio_allsubs12)
+
+Q_all_table_lm <- 
+  lm_iterate_overpairs(Q_all_table, eval(as.name(curr_quantile_speciescomb)))
+
+Q_slope_all_table_lm <- 
+  Q_all_table_lm %>%
+  distinct(iter, .keep_all=TRUE) %>%
+  dplyr::select(iter, slope, stderr, pvalue)
+Q_ttest_all_table_lm <-
+  t.test(Q_slope_all_table_lm$slope)
+
+assign(paste0("Q_table_lm_ratio_all_", curr_qtile, sep=""),
+       Q_slope_all_table_lm %>% 
+         dplyr::mutate(type = "All", quartile = curr_qtile))
+
+}
+
+meta_Qr_table_lm_ratio <- 
+  rbind(Q_table_lm_ratio_dN_list_Q1, Q_table_lm_ratio_dN_list_Q2, Q_table_lm_ratio_dN_list_Q3,
+        Q_table_lm_ratio_dS_list_Q1, Q_table_lm_ratio_dS_list_Q2, Q_table_lm_ratio_dS_list_Q3,
+        Q_table_lm_ratio_all_list_Q1, Q_table_lm_ratio_all_list_Q2, Q_table_lm_ratio_all_list_Q3) %>%
+  dplyr::mutate(quartile = sub("^q", "Q", quartile))
+
+
+
+##
+for(curr_quantile_speciescomb in c("species_pairs_combinations_list_Q1",
+                       "species_pairs_combinations_list_Q2",
+                       "species_pairs_combinations_list_Q3")) {
+curr_qtile <- sub("species_pairs_combinations_", "", curr_quantile_speciescomb)
+
+Q_ds_table <- nuclear_table_seb_aged %>%
+  dplyr::mutate(ratio_subs12 = ratio_synsubs12)
+
+Q_ds_table_lmlog <- 
+  lm_iterate_overpairs_log(Q_ds_table, eval(as.name(curr_quantile_speciescomb)))
+
+Q_slope_ds_table_lmlog <- 
+  Q_ds_table_lmlog %>%
+  distinct(iter, .keep_all=TRUE) %>%
+  dplyr::select(iter, slope, stderr, pvalue)
+Q_ttest_ds_table_lmlog <-
+  t.test(Q_slope_ds_table_lmlog$slope)
+
+assign(paste0("Q_table_lm_logratio_dS_", curr_qtile, sep=""),
+       Q_slope_ds_table_lmlog %>% 
+         dplyr::mutate(type = "Syn", quartile = curr_qtile))
+
+
+#
+Q_dn_table <- nuclear_table_seb_aged %>%
+  dplyr::mutate(ratio_subs12 = ratio_nonsynsubs12)
+
+Q_dn_table_lmlog <- 
+  lm_iterate_overpairs_log(Q_dn_table, eval(as.name(curr_quantile_speciescomb)))
+
+Q_slope_dn_table_lmlog <- 
+  Q_dn_table_lmlog %>%
+  distinct(iter, .keep_all=TRUE) %>%
+  dplyr::select(iter, slope, stderr, pvalue)
+Q_ttest_dn_table_lmlog <-
+  t.test(Q_slope_dn_table_lmlog$slope)
+
+assign(paste0("Q_table_lm_logratio_dN_", curr_qtile, sep=""),
+       Q_slope_dn_table_lmlog %>% 
+         dplyr::mutate(type = "NSyn", quartile = curr_qtile))
+
+#
+Q_all_table <- nuclear_table_seb_aged %>%
+  dplyr::mutate(ratio_subs12 = ratio_allsubs12)
+
+Q_all_table_lmlog <- 
+  lm_iterate_overpairs_log(Q_all_table, eval(as.name(curr_quantile_speciescomb)))
+
+Q_slope_all_table_lmlog <- 
+  Q_all_table_lmlog %>%
+  distinct(iter, .keep_all=TRUE) %>%
+  dplyr::select(iter, slope, stderr, pvalue)
+Q_ttest_all_table_lmlog <-
+  t.test(Q_slope_all_table_lmlog$slope)
+
+assign(paste0("Q_table_lm_logratio_all_", curr_qtile, sep=""),
+       Q_slope_all_table_lmlog %>% 
+         dplyr::mutate(type = "All", quartile = curr_qtile))
+
+}
+
+meta_Qr_table_lm_logratio <- 
+  rbind(Q_table_lm_logratio_dN_list_Q1, Q_table_lm_logratio_dN_list_Q2, Q_table_lm_logratio_dN_list_Q3,
+        Q_table_lm_logratio_dS_list_Q1, Q_table_lm_logratio_dS_list_Q2, Q_table_lm_logratio_dS_list_Q3,
+        Q_table_lm_logratio_all_list_Q1, Q_table_lm_logratio_all_list_Q2, Q_table_lm_logratio_all_list_Q3) %>%
+  dplyr::mutate(quartile = sub("^q", "Q", quartile))
+```
+
+# Combined quartiles (Q1+Q2,Q2+Q3,Q3+Q4) : Poisson regression tests
+```{r}
+##
+for(curr_quantile_speciescomb in c("species_pairs_combinations_list_Q1",
+                       "species_pairs_combinations_list_Q2",
+                       "species_pairs_combinations_list_Q3")) {
+
+vector_take <- c("subs.sp1","subs.sp2","lifespan.x","lifespan.y","divg")
+colnames_poireg_out <- c("slope", "stderr", "CIlow", "CIhigh", "logLik", "likratio", "aic", "pvalue", "Rsquare")
+
+curr_qtile <- sub("species_pairs_combinations_", "", curr_quantile_speciescomb)
+
+Q_ds_table <- nuclear_table_seb_aged %>%
+  dplyr::select("species1", "species2", "num_synsubs.sp1", "num_synsubs.sp2",
+                "lifespan.x", "lifespan.y", "divg") %>%
+  dplyr::filter(num_synsubs.sp1 != num_synsubs.sp2 & lifespan.x != lifespan.y) %>%
+  drop_na() %>%
+  magrittr::set_colnames(c("species1","species2","subs.sp1","subs.sp2","lifespan.x","lifespan.y","divg")) %>%
+  dplyr::mutate(ratio_subs12 = subs.sp1/subs.sp2)
+
+Q_ds_table_poireg_list <- 
+  poireg_iterate_overpairs_nonum(Q_ds_table, vector_take, eval(as.name(curr_quantile_speciescomb)))
+
+Q_ds_table_poireg <- extract_poireg_result(Q_ds_table_poireg_list, colnames_poireg_out) %>%
+  tidyr::drop_na()
+
+Q_slope_ds_table_poireg <- 
+  Q_ds_table_poireg %>%
+  dplyr::select(slope, stderr, CIlow, CIhigh, pvalue, Rsquare) %>% drop_na()
+Q_ttest_ds_table_poireg <-
+  t.test(Q_slope_ds_table_poireg$slope)
+
+assign(paste0("Q_table_poireg_dS_", curr_qtile, sep=""),
+       Q_slope_ds_table_poireg %>% 
+         dplyr::mutate(type = "Syn", quartile = curr_qtile))
+
+#
+Q_dn_table <- nuclear_table_seb_aged %>%
+  dplyr::select("species1", "species2", "num_nonsynsubs.sp1", "num_nonsynsubs.sp2",
+                "lifespan.x", "lifespan.y", "divg") %>%
+  dplyr::filter(num_nonsynsubs.sp1 != num_nonsynsubs.sp2 & lifespan.x != lifespan.y) %>%
+  drop_na() %>%
+  magrittr::set_colnames(c("species1","species2","subs.sp1","subs.sp2","lifespan.x","lifespan.y","divg")) %>%
+  dplyr::mutate(ratio_subs12 = subs.sp1/subs.sp2)
+
+Q_dn_table_poireg_list <- 
+  poireg_iterate_overpairs_nonum(Q_dn_table, vector_take, eval(as.name(curr_quantile_speciescomb)))
+
+Q_dn_table_poireg <- extract_poireg_result(Q_dn_table_poireg_list, colnames_poireg_out) %>%
+  tidyr::drop_na()
+
+Q_slope_dn_table_poireg <- 
+  Q_dn_table_poireg %>%
+  dplyr::select(slope, stderr, CIlow, CIhigh, pvalue, Rsquare) %>% drop_na()
+Q_ttest_dn_table_poireg <-
+  t.test(Q_slope_dn_table_poireg$slope)
+
+assign(paste0("Q_table_poireg_dN_", curr_qtile, sep=""),
+       Q_slope_dn_table_poireg %>% 
+         dplyr::mutate(type = "NSyn", quartile = curr_qtile))
+
+#
+Q_all_table <- nuclear_table_seb_aged %>%
+  dplyr::select("species1", "species2", "num_allsubs.sp1", "num_allsubs.sp2",
+                "lifespan.x", "lifespan.y", "divg") %>%
+  dplyr::filter(num_allsubs.sp1 != num_allsubs.sp2 & lifespan.x != lifespan.y) %>%
+  drop_na() %>%
+  magrittr::set_colnames(c("species1","species2","subs.sp1","subs.sp2","lifespan.x","lifespan.y","divg")) %>%
+  dplyr::mutate(ratio_subs12 = subs.sp1/subs.sp2)
+
+Q_all_table_poireg_list <- 
+  poireg_iterate_overpairs_nonum(Q_all_table, vector_take, eval(as.name(curr_quantile_speciescomb)))
+
+Q_all_table_poireg <- extract_poireg_result(Q_all_table_poireg_list, colnames_poireg_out) %>%
+  tidyr::drop_na()
+
+Q_slope_all_table_poireg <- 
+  Q_all_table_poireg %>%
+  dplyr::select(slope, stderr, CIlow, CIhigh, pvalue, Rsquare) %>% drop_na()
+Q_ttest_all_table_poireg <-
+  t.test(Q_slope_all_table_poireg$slope)
+
+assign(paste0("Q_table_poireg_all_", curr_qtile, sep=""),
+       Q_slope_all_table_poireg %>% 
+         dplyr::mutate(type = "All", quartile = curr_qtile))
+
+}
+
+meta_Qr_table_poireg <- 
+  rbind(Q_table_poireg_dN_list_Q1, Q_table_poireg_dN_list_Q2, Q_table_poireg_dN_list_Q3,
+        Q_table_poireg_dS_list_Q1, Q_table_poireg_dS_list_Q2, Q_table_poireg_dS_list_Q3,
+        Q_table_poireg_all_list_Q1, Q_table_poireg_all_list_Q2, Q_table_poireg_all_list_Q3) %>%
+  dplyr::mutate(quartile = sub("^q", "Q", quartile))
+
+
+```
+
+```{r}
+quartcomb_combined_types <- rbind(meta_Qr_table_lm_logratio %>%
+                                    dplyr::mutate(category="lm-Rankratio") %>%
+                                    dplyr::select(slope, pvalue, type, category, quartile),
+                                  meta_Qr_table_poireg %>%
+                                    dplyr::mutate(category="Poisson") %>%
+                                    dplyr::select(slope, pvalue, type, category, quartile))
+
+
+comb_quart_names <- c("list_Q1"="Q1+Q2",
+                      "list_Q2"="Q2+Q3",
+                      "list_Q3"="Q3+Q4",
+                      "lm-Rankratio"="lm-Rankratio",
+                      "Poisson"="Poisson")
+
+#
+ggplot(quartcomb_combined_types)+
+  stat_summary(aes(y=slope, x=type,
+                   fill=type, group=category),
+               size=0.2, geom = "crossbar",
+               width=0.4, position=position_dodge(width = 0.6)) +
+  scale_fill_manual(values = PNWColors::pnw_palette(name="Sunset2", n=4)) +
+  theme_bw(base_size = 6) +
+  ylab("Slope") + xlab("") +
+  labs(fill = "") +
+  facet_grid(category ~ quartile, scales = "free_y",
+             labeller = as_labeller(comb_quart_names)) +
+  theme(strip.background =element_rect(fill="white"), strip.text = element_text(size=5, face="bold"),
+        legend.position="none", 
+        legend.title = element_blank(),
+        legend.spacing=unit(-0.6,"cm"),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        plot.caption = element_text(hjust = 0),
+        plot.margin = unit(c(0.1,0.1,0.1,0.05), "cm"),
+        legend.key.size = unit(0.3,"cm"),
+        legend.background = element_blank(),
+        legend.box.background = element_rect(colour = "NA"),
+        axis.text.x = element_text(size=5))
+
+```
+

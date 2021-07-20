@@ -1,0 +1,43 @@
+#!/usr/bin/env python3
+
+
+SAMPLES, SAMP2 = glob_wildcards("select_sequence_files/{sample}/dNdS_filt/{sample2}.dS.nwk")
+
+rule all:
+    input:
+        expand("select_sequence_files/{sample}/revise_dnds-pairdist.done", sample=SAMPLES)
+
+rule distance_speciespairs:
+    input:
+        plog = "select_sequence_files/{sample}/revise_dnds.done",
+        input_tree_dS = "select_sequence_files/{sample}/dNdS_filt/{sample}.dS.nwk",
+        input_tree_dN = "select_sequence_files/{sample}/dNdS_filt/{sample}.dN.nwk",
+        input_sites_dS = "select_sequence_files/{sample}/dNdS_filt/{sample}.synsites",
+        input_sites_dN = "select_sequence_files/{sample}/dNdS_filt/{sample}.nonsynsites",
+    output:
+        output_dS = "select_sequence_files/{sample}/dNdS_filt/{sample}.dS.subs",
+        output_dN = "select_sequence_files/{sample}/dNdS_filt/{sample}.dN.subs",
+        logger = "select_sequence_files/{sample}/revise_dnds-pairdist.done",
+    params:
+        slurm_opts=lambda wildcards: "-N1 " \
+                                     "--time 3-00:00:00 " \
+                                    "-A co_genomicdata " \
+                                     "--qos=savio_lowprio " \
+                                     "-p savio,savio2,savio3,savio2_htc,savio3_bigmem,savio2_bigmem,savio_bigmem " \
+                                     "-J rec_{sample} " \
+                                     .format(sample=wildcards.sample)
+    run:
+        shell("""
+            printf "  Distances for - {sample} \n";
+            cd select_sequence_files/{sample}/dNdS_filt/ ;
+            Rscript subs_calc_fromtree.R \
+                    {input_tree_dS} {input_sites_dS} SYN {sample} {output_dS} ;
+            Rscript subs_calc_fromtree.R \
+                    {input_tree_dN} {input_sites_dN} NONSYN {sample} {output_dN} ;
+            echo "" > {logger} ;
+            """.format(plog=input.plog, logger=output.logger, 
+                       sample=wildcards.sample, 
+                       input_tree_dS = input.input_tree_dS, input_tree_dN = input.input_tree_dN,
+                       input_sites_dS = input.input_sites_dS, input_sites_dN = input.input_sites_dN,
+                       output_dS = output.output_dS, output_dN = output.output_dN))
+
