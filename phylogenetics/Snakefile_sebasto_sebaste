@@ -54,24 +54,4 @@ rule rename_fasta:
         bash ../../bin/rename_forward.sh {input} meta/sample_renames.txt > {output}
         """
 
-rule concatenate_fastas:
-    input:
-        expand("sebasto_sebaste_acti_per_gene_aligned_reformat/{sample}_NT.fas", sample=SAMPLES)
-    output:
-        "sebasto_sebaste_acti_per_gene_aligned_concat/FcC_supermatrix.phy"
-    shell:
-        """
-        mkdir -p sebasto_sebaste_acti_per_gene_aligned_concat
-        cd sebasto_sebaste_acti_per_gene_aligned_reformat
-        perl ../../../bin/FASconCAT-G/FASconCAT-G_v1.04.pl -s -a -p -l
-        mv FcC* ../sebasto_sebaste_acti_per_gene_aligned_concat/
-        """
 
-
-rule determine_partitions:
-    output:
-        "sebasto_sebaste_acti_per_gene_aligned_concat/analysis/best_scheme.txt"
-    shell:
-        """
-        /home/owens/bin/miniconda2/bin/python2.7 ../../bin/partitionfinder-2.1.1/PartitionFinder.py sebasto_sebaste_acti_per_gene_aligned_concat --raxml
-        """
