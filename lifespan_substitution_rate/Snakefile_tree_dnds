@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+
+
+SAMPLES, = glob_wildcards("select_sequence_files/{sample}/REVISE/ALN.CDS.trimall.FAS")
+
+rule all:
+    input:
+        expand("select_sequence_files/{sample}/revise_dnds.done", sample=SAMPLES)
+
+rule absrel:
+    input:
+        plog = "select_sequence_files/{sample}/REVISE/ALN.CDS.trimall.FAS",
+        species_tree = "species_tree.nwk",
+    output:
+        logger = "select_sequence_files/{sample}/revise_dnds.done",
+    params:
+        slurm_opts=lambda wildcards: "-N1 " \
+                                     "--time 3-00:00:00 " \
+                                    "-A co_genomicdata " \
+                                     "--qos=savio_lowprio " \
+                                     "-p savio,savio2,savio3,savio2_htc,savio3_bigmem,savio2_bigmem,savio_bigmem " \
+                                     "-J rec_{sample} " \
+                                     .format(sample=wildcards.sample)
+    run:
+        shell("""
+            printf "  Starting dnds for - {sample} \n";
+            cd select_sequence_files/{sample}/ && mkdir -p dNdS_filt && cd dNdS_filt ;
+            bash hyphy_dnds.run.sh \
+                    Universal ../Filter/aln.cds.out.trimall.fasta ../ALN.cds.raw.tree {sample} ;
+            echo "" > {logger} ;
+            """.format(plog=input.plog, logger=output.logger, sample=wildcards.sample, species_tree = input.species_tree))
+
+
+
