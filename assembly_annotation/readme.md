@@ -30,4 +30,3 @@ E) Annotation
 5) Interproscan was used to search for functional domains and gene families in the reference genomes
 6) For Illumina only genomes, LiftOff was used for annotations based on the reference genomes
 
-I know, I know - my code is not commented properly, what can I say, I like living on the edge (or falling off of it to be short)
