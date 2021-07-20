@@ -1,0 +1,50 @@
+SAMPLES, = glob_wildcards("all_species_per_gene/{sample}.FNA")
+
+rule all:
+    input:
+        expand("all_species_per_gene_aligned/{sample}_NT.FNA", sample=SAMPLES),
+        "meta/sample_renames.txt",
+        expand("all_species_per_gene_aligned_reformat/{sample}_NT.fas", sample=SAMPLES)
+
+rule trimse:
+    input:
+        "all_species_per_gene/{sample}.FNA"
+    output:
+        NT_out="all_species_per_gene_aligned/{sample}_NT.FNA",
+        AA_out="all_species_per_gene_aligned/{sample}_AA.FNA"
+    log:
+        "logs/macse/{sample}.log"
+    benchmark:
+        "benchmarks/{sample}.benchmark.txt"
+    shell:
+        "java -jar ../../bin/macse_v2.03.jar -prog alignSequences -seq {input}  -max_refine_iter 3 -local_realign_init 0.3 -local_realign_dec 0.2 -out_NT {output.NT_out} -out_AA {output.AA_out}"
+
+rule rename_set:
+    input:
+        "all_species_per_gene_aligned/EOG090C024Z_NT.FNA"
+    output:
+        "meta/sample_renames.txt"
+    shell:
+        """
+        cat {input} | grep ">" | sed 's/>//g' | bash ../../bin/add_names.sh > {output}
+        """
+
+rule fix_fasta:
+    input: 
+        "all_species_per_gene_aligned/{sample}_NT.FNA"
+    output:
+        temp("all_species_per_gene_aligned_reformat/{sample}_tmp_NT.fas")
+    shell:
+        """
+        cat {input} | sed 's/!/-/g' > {output}
+        """
+
+rule rename_fasta:
+    input:
+        "all_species_per_gene_aligned_reformat/{sample}_tmp_NT.fas"
+    output:
+        "all_species_per_gene_aligned_reformat/{sample}_NT.fas"
+    shell:
+        """
+        bash ../../bin/rename_forward.sh {input} meta/sample_renames.txt > {output}
+        """
