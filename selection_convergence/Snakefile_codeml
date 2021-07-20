@@ -1,0 +1,84 @@
+#!/usr/bin/env python3
+
+
+configfile: "config.psgs.json"
+
+def get_inputs(wildcards):
+   inputs = []
+   pattern = "sequence_files/{sample}/long/codeml_alt.log"
+   for sample in config["samples"]:
+         inputs.append(pattern.format(sample=sample))
+   return inputs
+
+rule all:
+   input:
+        get_inputs
+
+rule folds_create:
+    input:
+        cds = "select_sequence_files/{sample}/Filter/aln.cds.out.trimall.fasta",
+        raw_tree = "select_sequence_files/{sample}/REVISE/ALN.cds.raw.tree",        
+        long_tree = "select_sequence_files/{sample}/REVISE/ALN.cds.raw.tree.long",
+    output:
+        logger = "sequence_files/{sample}/start.log",
+        logger_long = "sequence_files/{sample}/long/init.log",
+        cds_phy = "sequence_files/{sample}/aln.cds.out.trimall.phy",
+    params:
+        slurm_opts=lambda wildcards: "-c1 " \
+                                     "--time 3-00:00:00 " \
+                                    "-A co_genomicdata " \
+                                     "-p savio3_htc " \
+                                     "-J {sample} " \
+                                     .format(sample=wildcards.sample)
+    run:
+        shell("""
+            printf "  Starting process for - {sample} \n";
+            cd sequence_files/ ;
+            echo "" > {logger} ;
+            echo "" > {logger_long} ;
+
+            cd sequence_files/{sample}/ ;
+            module load trimal gcc ;
+            trimal -in {cds} -out {cds_phy} -phylip_paml ;
+
+            bash edit_tree_longliving.codeml.sh {raw_tree} | sed -e 's/:NaN//g' -e 's/:[0-9]\.[0-9]*//g' -e 's/:[0-9]//g' -e 's/OROOT//' >long.tree ;
+
+            sed -e 's/ = YEL063C.phy/ = ..\/aln.cds.out.trimall.phy/' -e 's/ = YEL063C.tree/ = ..\/long.tree/' -e 's/ = YEL063C_r01_null.txt/ = null.codeml.long.out/' YEL063C_null.ctl >./long/null.codeml.long.ctl ;
+            sed -e 's/ = YEL063C.phy/ = ..\/aln.cds.out.trimall.phy/' -e 's/ = YEL063C.tree/ = ..\/long.tree/' -e 's/ = YEL063C_r01_alt.txt/ = alt.codeml.long.out/' YEL063C_alt.ctl >./long/alt.codeml.long.ctl ;
+
+            echo "" > {logger} ;
+            """.format(cds=input.cds, cds_phy=output.cds_phy, logger=output.logger, logger_long=output.logger_long, 
+                       sample=wildcards.sample, raw_tree=input.raw_tree, 
+                       long_tree=input.long_tree))
+
+
+
+rule codeml:
+    input:
+        cds = "sequence_files/{sample}/aln.cds.out.trimall.phy",
+        logger = "sequence_files/{sample}/start.log",
+        logger_long = "sequence_files/{sample}/long/init.log",
+    output:
+        logger_long_null = "sequence_files/{sample}/long/codeml_null.log",
+        logger_long_alt = "sequence_files/{sample}/long/codeml_alt.log",
+    params:
+        slurm_opts=lambda wildcards: "-c4 " \
+                                     "--time 3-00:00:00 " \
+                                    "-A co_genomicdata " \
+                                     "-p savio3_htc " \
+                                     "-J {sample} " \
+                                     .format(sample=wildcards.sample)
+    run:
+        shell("""
+            printf "  Starting codeml for - {sample} \n";
+
+            cd sequence_files/{sample}/long ;
+
+            codeml ./null.codeml.long.ctl 1>./null.codeml.long.log ; echo "" > {logger_long_null} ;
+            codeml ./alt.codeml.long.ctl 1>./alt.codeml.long.log ; echo "" > {logger_long_alt} ;
+
+            """.format(cds=input.cds, logger_long_null=output.logger_long_null, logger_long_alt=output.logger_long_alt,
+                       sample=wildcards.sample))
+
+
+

@@ -1,0 +1,30 @@
+#!/usr/bin/env python3
+
+SAMPLES, = glob_wildcards("select_filter_trim80/{sample}.FAA")
+
+rule all:
+    input:
+        expand("logs/cons_{sample}.done", sample=SAMPLES)
+
+rule aa_converged:
+    input:
+        aln_aa = "select_filter_trim80/{sample}.FAA",
+    output:
+        cons_aa = "results/{sample}.cons.txt",
+        logger = "logs/cons_{sample}.done",
+    params:
+        slurm_opts=lambda wildcards: "-c 1 " \
+                                     "--time 3-00:00:00 " \
+                                    "-A co_genomicdata " \
+                                     "-p savio3_htc " \
+                                     "-J conv_{sample} " \
+                                     .format(sample=wildcards.sample)
+    run:
+        shell("""
+            printf "  Detection in {sample} \n";
+            python3 alignment_convervation_AA.py {aln_aa} > {cons_aa} ;
+            echo "" > {logger} ;
+            """.format(aln_aa=input.aln_aa, cons_aa=output.cons_aa, logger=output.logger, sample=wildcards.sample))
+
+
+

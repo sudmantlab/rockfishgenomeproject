@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+
+SAMPLES, = glob_wildcards("select_sequence_files/{sample}/start.done")
+
+rule all:
+    input:
+        expand("select_sequence_files/{sample}/Filter/filtpep.done", sample=SAMPLES)
+
+rule tree_create:
+    input:
+        plog = "select_sequence_files/{sample}/iqtreepep.done",
+    output:
+        logger = "select_sequence_files/{sample}/Filter/filtpep.done",
+    params:
+        slurm_opts=lambda wildcards: "-N1 " \
+                                     "--time 3-00:00:00 " \
+                                    "-A co_genomicdata " \
+                                     "--qos=savio_lowprio " \
+                                     "-p savio,savio2,savio3,savio2_htc,savio3_bigmem,savio2_bigmem,savio_bigmem " \
+                                     "-J rec_{sample} " \
+                                     .format(sample=wildcards.sample)
+    run:
+        shell("""
+            printf "  Starting filter for - {sample} \n";
+            module load trimal gcc samtools muscle ;
+            cd select_sequence_files/{sample}/Filter/ ;
+            fgrep '  passed  ' ../IQtree/{sample}.peptrimall.log | 
+                grep -o 'Sebast[a-z]*_[a-z]*' >names.list;
+            fgrep -f names.list select_sequence_files/{sample}/seq.fasta.orf |
+                sed -e 's/^>//' -e 's/ .*//' | 
+                xargs samtools faidx select_sequence_files/{sample}/seq.fasta.orf \
+                        >seq.fasta.orf.filt ; 
+            hyphy /global/scratch2/Software/hyphy-develop/hyphy-analyses-master/codon-msa/pre-msa.bf \
+                    --input seq.fasta.orf.filt --code Universal \
+                    --E 0.8 --N-fraction 0.01 --remove-stop-codons Yes ;
+            muscle -in seq.fasta.orf.filt_protein.fas -out aln.pep.out.fa ;        
+            hyphy /global/scratch2/Software/hyphy-develop/hyphy-analyses-master/codon-msa/post-msa.bf \
+                    --protein-msa aln.pep.out \
+                    --nucleotide-sequences seq.fasta.orf.filt_nuc.fas \
+                    --code Universal --output aln.cds.out.fa ;
+            trimal -nogaps -fasta -in aln.cds.out.fa -out aln.cds.out.trimall.fasta ;
+            trimal -nogaps -fasta -in aln.pep.out.fa -out aln.pep.out.trimall.fasta ;
+            echo "" > {logger} ;
+            """.format(plog=input.plog, logger=output.logger, sample=wildcards.sample))
+
+
+

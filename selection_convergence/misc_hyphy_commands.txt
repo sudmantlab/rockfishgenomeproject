@@ -1,0 +1,5 @@
+Example commands to run hyphy selection tests
+
+1) aBSREL (episodic branch-site model of selection) : hyphy aBSREL --code Universal --alignment aln.cds.out.trimall.fasta --tree cds.orf.tree.long --branches Foreground --pvalue 0.1 --output output.long.orf.json --save-fit output.long.orf.fit 1>absrel_long.orf.log 
+2) RELAX (strength of selection) : hyphy relax --code Universal --alignment aln.cds.out.trimall.fasta --tree cds.raw.tree.long --models All --test Foreground --output output.long.raw.json 1>relax_long.raw.log ;
+3) MEME (episodic diversifying selection) : hyphy busted --code Universal --alignment aln.cds.out.trimall.fasta --tree cds.orf.tree.long --branches Foreground --pvalue 0.1 --output output.long.orf.json --save-fit output.long.orf.fit 1>busted_long.orf.log ;
