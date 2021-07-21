@@ -11,3 +11,4 @@ Description:
 - sebasto_sebaste_acti_astral.sh: Running astral for Sebastes and Sebastolobus
 - all_species_acti_astral.sh: Running astral for all species
 - seqdist_parallel.sh: Calculating genetic distance between all samples per gene
+- tree_plotting.R: Making phylogenetic tree for Figure 1
