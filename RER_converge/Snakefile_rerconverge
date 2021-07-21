@@ -1,0 +1,64 @@
+#!/usr/bin/env python3
+
+def get_inputs(wildcards):
+   inputs = []
+   pattern = "RERconverge/tree_samples/{sample}/longevity.rerconverge.done"
+   for sample in config["samples"]:
+         inputs.append(pattern.format(sample=sample))
+   return inputs
+
+rule all:
+   input:
+        get_inputs
+
+rule tree_create:
+    input:
+        species_tree = "RERconverge/tree_samples/{sample}/tree.nwk",
+        tree_weight = "RERconverge/tree_samples/{sample}/weight.txt",
+    output:
+        gene_trees = "RERconverge/tree_samples/{sample}/gene_trees.tree",
+        logger = "RERconverge/tree_samples/{sample}/initial.rerconverge.done",
+    params:
+        slurm_opts=lambda wildcards: "-N1 " \
+                                     "--time 3-00:00:00 " \
+                                    "-A co_genomicdata " \
+                                     "--qos=savio_lowprio " \
+                                     "-p savio,savio2,savio3,savio2_htc,savio3_bigmem,savio2_bigmem,savio_bigmem " \
+                                     "-J rer1_{sample} " \
+                                     .format(sample=wildcards.sample)
+    run:
+        shell("""
+            cd $(dirname "{species_tree}" ) ;
+            printf "  Starting RERconverge for - {sample} \n";
+            sed -e 's/,/:1,/g' -e 's/)/:1)/g' {species_tree} >{species_tree}.2 ;
+            Rscript calculate_rate_bytree.part1.R \
+                {species_tree}.2 {tree_weight} $(dirname "{species_tree}" ) 1>longevity.create_tree.log 2>&1 ;       
+            printf "  Done with RERconverge correlating - {sample} \n";
+            echo "" > {logger} ;
+            """.format(species_tree=input.species_tree, logger=output.logger, sample=wildcards.sample, tree_weight=input.tree_weight,
+                       gene_trees=output.gene_trees))
+
+
+rule correlate_table:
+    input:
+        logger1= "RERconverge/tree_samples/{sample}/initial.rerconverge.done",
+    output:
+        logger = "RERconverge/tree_samples/{sample}/longevity.rerconverge.done",
+    params:
+        slurm_opts=lambda wildcards: "-N1 " \
+                                     "--time 3-00:00:00 " \
+                                    "-A co_genomicdata " \
+                                     "--qos=savio_lowprio " \
+                                     "-p savio,savio2,savio3,savio2_htc,savio3_bigmem,savio2_bigmem,savio_bigmem " \
+                                     "-J rer2_{sample} " \
+                                     .format(sample=wildcards.sample)
+    run:
+        shell("""
+            cd $(dirname "{logger1}" ) ;
+            printf "  Starting RERconverge for - {sample} \n";
+            Rscript calculate_rate_bytree.part2.R \
+                tree.nwk.2 weight.txt $PWD {sample} 1>longevity.create_corr.log 2>&1 ;
+            printf "  Done with RERconverge correlating - {sample} \n";
+            echo "" > {logger} ;
+            """.format(logger1=input.logger1, logger=output.logger, sample=wildcards.sample))
+
