@@ -13,3 +13,4 @@ Description:
 - seqdist_parallel.sh: Calculating genetic distance between all samples per gene
 - tree_plotting.R: Making phylogenetic tree for Figure 1
 - rockfish.A01.bpp.ctl: control file for BPP
+- allspecies_FigTree.20210311.tre: Final tree file from BPP with divergence estimates.
