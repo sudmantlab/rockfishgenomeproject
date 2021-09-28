@@ -11,5 +11,6 @@ Run in this order
 7) run_polish_freebayes.sh - for both primary and alternate
 8) run_bionano.sh - if present
 9) run_scaffolding_hic_salsa_dnase.sh || run_scaffolding_hic_juicer-3ddna.sh
-10) After manual review using juicebox for the scaffolds convert using this command : py2.7 juicer/1.6.2/misc/juicebox_assembly_converter.py -a ./EDIT_GENOME/scaffolds_FINAL.0.review.assembly -f salsa/scaffolds/scaffolds_FINAL.fasta -v -p -c ./EDIT_GENOME/genome_falcon_convert # Thanks for introducing Juicebox to me Chatla, the data is yummier!!!!
+10) After manual review using juicebox for the scaffolds convert using this command : py2.7 juicer/1.6.2/misc/juicebox_assembly_converter.py -a ./EDIT_GENOME/scaffolds_FINAL.0.review.assembly -f salsa/scaffolds/scaffolds_FINAL.fasta -v -p -c ./EDIT_GENOME/genome_falcon_convert 
+11) rockfish_named_chromosomes.stranded.txt - The chromosome numbering and the strand direction wrt S. aleutianus used for detecting structural variations across rockfish
 
