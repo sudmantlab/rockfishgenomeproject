@@ -5,4 +5,4 @@ All sequencing data for this study have been depositing in the European Nucleoti
 
 Annotation files and scaffolds for all genomes can found here: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5534983.svg)](https://doi.org/10.5281/zenodo.5534983)
 
-Note : Voucher and tissue numbers for samples from KU were renamed and uploaded as an additional file - samples/TableS10_corrected_KU_voucherIDs.xlsx
+Note : Voucher and tissue numbers for samples from KU were renamed and uploaded as an additional file in the 'samples' directory
