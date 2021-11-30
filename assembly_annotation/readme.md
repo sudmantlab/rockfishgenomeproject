@@ -11,7 +11,7 @@ A) High quality whole genomes (we refer to them as PacBio based genomes or refer
 B) Illumina only whole genomes
 1) De novo assembly was performed by masurca
 2) All 102 samples were de novo assembled
-3) Scaffolding was performed using reference using RagTag
+3) Scaffolding was performed using reference using RagTag - uploaded on Zenodo at https://zenodo.org/record/5534983
 
 C) Mitogenome assembly and annotation
 1) Illumina PE data was error corrected using musket
