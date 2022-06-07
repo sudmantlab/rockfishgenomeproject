@@ -29,4 +29,4 @@ E) Annotation
 4) Noncoding annotations using tRNAscan-SE and infernal
 5) Interproscan was used to search for functional domains and gene families in the reference genomes
 6) For Illumina only genomes, LiftOff was used for annotations based on the reference genomes
-
+7) The genome annotation GFF files are on Zenodo - https://zenodo.org/record/5534983
