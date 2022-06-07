@@ -8,3 +8,4 @@ Independent runs, order matters from time to time
 5) refgenome_noncoding_Snakefile - Noncoding tRNA, mRNA, rRNA, snoRNA annotation using Infernal and tRNAscan-SE
 6) refgenome_liftoff_Snakefile_illumina_large -  Lifting annotations from reference genomes to reference based scaffolded illumina-only assemblies 
 7) probable.orthologs.tsv.zip - Orthologs between the 88 species. The reference genomes were used to identify orthologs using Protheinortho6 tool (refer to Ortholog section in the manuscript supplement), and the liftoff annotations were used for the Illumina-only genomes. Post-processing was performed based on alignment quality and divergence (refer to selection_convergence directory)
+8) The annotation files can be found on Zenodo - https://zenodo.org/record/5534983
