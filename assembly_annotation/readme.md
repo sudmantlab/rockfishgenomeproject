@@ -30,3 +30,4 @@ E) Annotation
 5) Interproscan was used to search for functional domains and gene families in the reference genomes
 6) For Illumina only genomes, LiftOff was used for annotations based on the reference genomes
 7) The genome annotation GFF files are on Zenodo - https://zenodo.org/record/5534983
+8) Annotation files for aleutianus and Sebastolobus are missing on zenodo, hence uploaded here - aleutianus_alascanus.gff3.zip
