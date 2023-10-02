@@ -5,4 +5,10 @@ All sequencing data for this study have been depositing in the European Nucleoti
 
 Annotation files and scaffolds for all genomes can found here: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5534983.svg)](https://doi.org/10.5281/zenodo.5534983)
 
+*UPDATE 2023/10/02* - The chromosome-scale reference assemblies from Kolora et al 2021 are uploaded on NCBI however NCBI renamed the contigs making them incompatible with the annotation GFFs at the above zenodo. References with the original contig names (ie compatible with the annotation GFFs) can be found here [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8393732.svg)](https://doi.org/10.5281/zenodo.8393732)
+
+
+
+
+
 Note : Voucher and tissue numbers for samples from KU were renamed and uploaded as an additional file in the 'samples' directory
